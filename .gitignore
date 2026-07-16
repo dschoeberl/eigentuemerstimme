@@ -1,0 +1,15 @@
+# Dieses Repo ist oeffentlich und enthaelt ausschliesslich die Website.
+#
+# Interne Unterlagen gehoeren strukturell NICHT hierher, nicht einmal
+# ignoriert: Konzepte, Satzungsentwuerfe, Rollenkonzepte, Mitglieder- und
+# Klarnamen-Dateien liegen ausschliesslich in OneDrive (01_Konzepte).
+# Die folgenden Muster sind nur eine zweite Sicherung, keine Erlaubnis,
+# solche Dateien hier abzulegen.
+*.docx
+*.xlsx
+*.msg
+
+# Werkzeuge / Betriebssystem
+.claude/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- VORSCHAU-STATUS: noindex bleibt, solange die Seite nur als unverlinkte
+     netlify.app-Vorschau laeuft. Vor dem Domain-Launch (zusammen mit
+     Impressum + Datenschutz) muss die naechste Zeile entfernt werden. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Eigentümerstimme — Initiative in Gründung</title>
+<meta name="description" content="Eigentümerstimme ist die unabhängige, gemeinnützige Initiative, die Eigentümerinnen und Eigentümer in Gebäude- und Wärmeentscheidungen orientiert — neutral, faktenbasiert, auf Augenhöhe. In Gründung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/hero-eigentuemerstimme.jpg" as="image">
+<style>
+  /* Schriften selbst gehostet — kein Dritt-CDN, kein Verbindungsaufbau zu Google.
+     Beide Familien stehen unter der SIL Open Font License 1.1; die Lizenztexte
+     liegen in fonts/OFL-Inter.txt und fonts/OFL-PlayfairDisplay.txt. */
+  @font-face{
+    font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('fonts/inter-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('fonts/inter-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url('fonts/playfair-display-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url('fonts/playfair-display-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+  }
+
+  :root{
+    --petrol:#1a5c5a; --petrol-dark:#1a3535; --petrol-light:#7ab8b5;
+    --stimme:#c08a2c; --stimme-soft:#e9d3a6;
+    --bg-light:#f5f4f2; --border:#e0dedd;
+    --text:#1a1a1a; --text-soft:#5a5956; --text-mute:#8a8680;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+
+  /* Header / wordmark */
+  header{padding:26px 0;border-bottom:1px solid var(--border);background:var(--bg-light)}
+  .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--petrol-dark);text-decoration:none}
+  .brand .stimme{border-bottom:3px solid var(--stimme);padding-bottom:1px}
+  .headrow{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stimme);border:1px solid var(--stimme-soft);background:#fff;padding:6px 12px;border-radius:999px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block}
+
+  /* Hero — dokumentarisches Motiv, Text im ruhigen dunklen Raum links */
+  .hero{
+    background-color:var(--petrol-dark);
+    background-image:
+      linear-gradient(90deg, rgba(26,53,53,.95) 0%, rgba(26,53,53,.88) 34%, rgba(26,53,53,.62) 62%, rgba(26,53,53,.38) 100%),
+      url('images/hero-eigentuemerstimme.jpg');
+    background-size:cover;
+    background-position:center right;
+    background-repeat:no-repeat;
+    color:#fff;padding:88px 0 96px;position:relative;overflow:hidden
+  }
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 60%,var(--petrol) 60%,var(--petrol) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:22px}
+  .hero h1{font-size:clamp(30px,5vw,52px);font-weight:600;color:#fff;max-width:16ch}
+  .hero .sub{margin-top:26px;max-width:60ch;font-size:clamp(16px,2vw,19px);color:#d7e2e1}
+  .hero .sub b{color:#fff;font-weight:600}
+  .accentline{width:56px;height:3px;background:var(--stimme);margin:0 0 30px}
+
+  /* Sections */
+  section{padding:72px 0}
+  .lead-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stimme);margin-bottom:14px}
+  .gap h2{font-size:clamp(24px,3.4vw,34px);max-width:20ch;color:var(--petrol-dark)}
+  .gap p{margin-top:20px;max-width:64ch;color:var(--text-soft);font-size:17px}
+  .gap p b{color:var(--text);font-weight:600}
+
+  .stance{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:8px}
+  .card .tick{width:40px;height:3px;background:var(--stimme);margin-bottom:20px}
+  .card h3{font-size:21px;color:var(--petrol-dark);margin-bottom:10px}
+  .card p{color:var(--text-soft);font-size:15.5px}
+
+  /* Werkzeug-Hinweis — bewusst ohne Button und ohne Handlungsaufforderung */
+  .tools{background:var(--bg-light)}
+  .toolbox{background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:10px;padding:30px 32px}
+  .toolbox h3{font-size:20px;color:var(--petrol-dark);margin-bottom:8px}
+  .toolbox p{color:var(--text-soft);font-size:15.5px;max-width:64ch}
+
+  /* Dialog CTA */
+  .dialog{background:var(--petrol);color:#fff;text-align:center}
+  .dialog h2{color:#fff;font-size:clamp(24px,3.4vw,34px)}
+  .dialog p{max-width:56ch;margin:18px auto 0;color:#d7e2e1;font-size:17px}
+  .mail{display:inline-block;margin-top:26px;font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);color:#fff;text-decoration:none;border-bottom:3px solid var(--stimme);padding-bottom:3px}
+
+  /* Footer */
+  footer{background:var(--petrol-dark);color:#aebfbe;padding:44px 0 52px;font-size:14px}
+  footer .frow{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer b{color:#fff;font-weight:600}
+  footer a{color:var(--stimme-soft);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .note{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);color:#8fa3a2;max-width:70ch}
+
+  @media(max-width:760px){
+    .cards{grid-template-columns:1fr;gap:26px}
+    /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
+    .hero{
+      background-position:center center;
+      background-image:
+        linear-gradient(180deg, rgba(26,53,53,.92) 0%, rgba(26,53,53,.86) 60%, rgba(26,53,53,.80) 100%),
+        url('images/hero-eigentuemerstimme.jpg');
+      padding:64px 0 72px
+    }
+    section{padding:54px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Eigentümerstimme · Erfurt</div>
+    <div class="accentline"></div>
+    <h1>Die Wärmewende wird geplant. Umgesetzt wird sie von Eigentümern.</h1>
+    <p class="sub">Eigentümerstimme ist die unabhängige, gemeinnützige Initiative, die
+      Eigentümerinnen und Eigentümer in Gebäude- und Wärmeentscheidungen orientiert —
+      <b>neutral, faktenbasiert, auf Augenhöhe.</b> Getrennt von Anbieterinteressen,
+      getragen von denen, die die Folgen tragen.</p>
+  </div>
+</div>
+
+<section class="gap">
+  <div class="wrap">
+    <div class="lead-label">Die Lücke</div>
+    <h2>Verantwortung liegt beim Eigentümer. Orientierung fehlt.</h2>
+    <p>Kommunen, Stadtwerke, Energieberater, Hausverwaltungen — jeder bringt seinen
+      Teil ein, aus seiner Rolle und mit seinem Blickwinkel. Doch die Entscheidung über
+      20 bis 30 Jahre trägt der Eigentümer, oft ohne unabhängige Begleitung.
+      <b>Diese Lücke schließen wir gemeinsam</b> — als kollektive Stimme dort, wo der
+      Einzelne bisher allein stand.</p>
+  </div>
+</section>
+
+<section class="stance">
+  <div class="wrap">
+    <div class="lead-label">Wofür wir stehen</div>
+    <div class="cards">
+      <div class="card">
+        <div class="tick"></div>
+        <h3>Neutralität</h3>
+        <p>Anbieterunabhängig und ohne Eigeninteresse am Ergebnis. Wir vertreten die
+          Eigentümer — nicht Hersteller, Versorger oder Dienstleister.</p>
+      </div>
+      <div class="card">
+        <div class="tick"></div>
+        <h3>Aufklärung statt Beratung</h3>
+        <p>Verständlich machen, was Eigentümergemeinschaft, Beirat und Wärmeentscheidung
+          verlangen — damit man auf Augenhöhe mit den Fachleuten spricht.</p>
+      </div>
+      <div class="card">
+        <div class="tick"></div>
+        <h3>Wissenschaft &amp; Netzwerk</h3>
+        <p>Zusammenarbeit mit Hochschulen und Kommunen. Reale Entscheidungsfälle als
+          Reallabor — Grundlagenarbeit zur Entscheidungsfähigkeit in der Wärmewende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap">
+    <div class="lead-label">Werkzeuge</div>
+    <div class="toolbox">
+      <h3>Zahlen und Entscheidungshilfen</h3>
+      <p>Öffentlich verfügbare Entscheidungshilfen wie Rechner und Wegweiser auf
+        hausentscheider.de können Eigentümern helfen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dialog">
+  <div class="wrap">
+    <h2>Reden Sie mit.</h2>
+    <p>Sie sind Eigentümerin oder Eigentümer, Beiratsmitglied einer WEG, oder Sie
+      arbeiten in Wissenschaft, Kommune oder Fachöffentlichkeit an der Wärmewende?
+      Die Eigentümerstimme entsteht gerade — und sucht das Gespräch.</p>
+    <a class="mail" href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div>Kontakt: <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a></div>
+    </div>
+    <div class="note">
+      Diese Seite ist ein Vorabauftritt. Der gemeinnützige Verein „Eigentümerstimme"
+      befindet sich in Gründung; der Zusatz „e.&nbsp;V." wird nach Eintragung in das
+      Vereinsregister geführt. Verantwortlich i.&nbsp;S.&nbsp;d.&nbsp;P. bis zur
+      Rechtsfähigkeit: Daniel Schöberl, Erfurt. Verbunden mit hausentscheider.de.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
