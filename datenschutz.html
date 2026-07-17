@@ -44,6 +44,11 @@
 
   header{padding:26px 0;border-bottom:1px solid var(--border);background:var(--bg-light)}
   .headrow{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .headleft{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+  .mainnav{display:flex;gap:20px}
+  .mainnav a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding-bottom:2px;border-bottom:2px solid transparent}
+  .mainnav a:hover{color:var(--petrol-dark)}
+  .mainnav a[aria-current="page"]{color:var(--petrol-dark);border-bottom-color:var(--stimme)}
   .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--petrol-dark);text-decoration:none}
   .brand .stimme{border-bottom:3px solid var(--stimme);padding-bottom:1px}
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stimme);border:1px solid var(--stimme-soft);background:#fff;padding:6px 12px;border-radius:999px}
@@ -71,7 +76,10 @@
 
 <header>
   <div class="wrap headrow">
-    <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a></nav>
+    </div>
     <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
   </div>
 </header>

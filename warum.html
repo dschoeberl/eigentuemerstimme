@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- VORSCHAU-STATUS: siehe index.html. Vor dem Domain-Launch entfernen. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Warum es Eigentümerstimme gibt — Eigentümerstimme</title>
+<meta name="description" content="Warum es Eigentümerstimme gibt: die gemeinnützige Initiative für unabhängige, belegte Entscheidungen in der Wärmewende — hergeleitet aus dem Forschungsprojekt Future Readiness.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('fonts/inter-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('fonts/inter-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url('fonts/playfair-display-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face{
+    font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;
+    src:url('fonts/playfair-display-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+  }
+
+  :root{
+    --petrol:#1a5c5a; --petrol-dark:#1a3535; --petrol-light:#7ab8b5;
+    --stimme:#c08a2c; --stimme-soft:#e9d3a6;
+    --bg-light:#f5f4f2; --border:#e0dedd;
+    --text:#1a1a1a; --text-soft:#5a5956; --text-mute:#8a8680;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .prose{max-width:660px}
+
+  header{padding:26px 0;border-bottom:1px solid var(--border);background:var(--bg-light)}
+  .headrow{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .headleft{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+  .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--petrol-dark);text-decoration:none}
+  .brand .stimme{border-bottom:3px solid var(--stimme);padding-bottom:1px}
+  .mainnav{display:flex;gap:20px}
+  .mainnav a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding-bottom:2px;border-bottom:2px solid transparent}
+  .mainnav a:hover{color:var(--petrol-dark)}
+  .mainnav a[aria-current="page"]{color:var(--petrol-dark);border-bottom-color:var(--stimme)}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stimme);border:1px solid var(--stimme-soft);background:#fff;padding:6px 12px;border-radius:999px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block}
+
+  /* Einstieg — nuechtern, ohne Bildmotiv: die Vereinssicht spricht selbst. */
+  .intro{padding:56px 0 60px}
+  .lead-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stimme);margin-bottom:14px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.4vw,42px);line-height:1.15;letter-spacing:-.01em;color:var(--petrol-dark);max-width:18ch}
+  .accentline{width:56px;height:3px;background:var(--stimme);margin:26px 0 30px}
+  .lead{font-size:clamp(17px,2vw,19px);color:var(--text-soft)}
+
+  /* Abschnittsrhythmus — heller Grund und Weiss im Wechsel, wie auf der Startseite. */
+  section{padding:52px 0}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(22px,3vw,29px);line-height:1.2;letter-spacing:-.01em;color:var(--petrol-dark);margin-bottom:18px;max-width:24ch}
+  p{color:var(--text-soft);font-size:17px;margin-bottom:16px}
+  p:last-child{margin-bottom:0}
+  p b{color:var(--text);font-weight:600}
+
+  /* Schlusssatz des Abschnitts „Wofuer wir stehen" — traegt allein. */
+  .kicker{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.35;color:var(--petrol-dark);margin-top:28px;padding-left:18px;border-left:3px solid var(--stimme)}
+
+  .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
+
+  footer{background:var(--petrol-dark);color:#aebfbe;padding:44px 0 52px;font-size:14px}
+  footer .frow{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer b{color:#fff;font-weight:600}
+  footer a{color:var(--stimme-soft);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .fnav{display:flex;gap:14px;flex-wrap:wrap}
+
+  @media(max-width:760px){
+    .intro{padding:44px 0 48px}
+    section{padding:42px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav"><a href="warum.html" aria-current="page">Warum wir</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro">
+    <div class="wrap prose">
+      <div class="lead-label">Warum wir</div>
+      <h1>Gute Entscheidungen brauchen mehr als einen guten Plan.</h1>
+      <div class="accentline"></div>
+      <p class="lead">Über die Wärme im eigenen Gebäude wird einmal in einer Generation
+        entschieden — zwischen Optionen, deren Folgen Jahrzehnte tragen. Eigentümerstimme
+        ist die gemeinnützige Initiative, die solchen Entscheidungen eine unabhängige,
+        belegte Grundlage gibt und den Eigentümern eine gemeinsame Stimme.</p>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Der Ausgangspunkt</h2>
+      <p>Es ist eine der folgenreichsten Entscheidungen im Leben eines Gebäudes — und eine
+        der wenigen, die sich über zwanzig bis dreißig Jahre kaum korrigieren lässt. Die
+        Investition, die Betriebskosten, die Zukunftsfähigkeit: All das tragen am Ende die
+        Eigentümerinnen und Eigentümer.</p>
+      <p>Dort aber, wo die Weichen gestellt werden — in der kommunalen Wärmeplanung —, ist
+        diese Perspektive nicht organisiert vertreten. Kommunen, Versorger, Energieberater,
+        Hausverwaltungen und Ingenieurbüros handeln jeweils aus ihrer Rolle heraus. Das ist
+        legitim. Nur trägt keiner von ihnen die Verantwortung, die am Ende beim Eigentümer
+        liegt.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2>Woher die Initiative kommt</h2>
+      <p>Eigentümerstimme ist nicht aus einer Meinung entstanden, sondern aus einer
+        Untersuchung.</p>
+      <p>Grundlage ist ein Forschungsprojekt zu den gelingenden Faktoren der Wärmewende —
+        <em>Future Readiness. Vom Ziel zur Fähigkeit</em> —, entwickelt am eco2050 Institut
+        für Nachhaltigkeit. Die Frage dahinter ist nicht, <em>ob</em> eine Kommune plant,
+        sondern ob sie wirklich zukunftsfähig entscheidet. Der Rahmen stützt sich auf vier
+        leitfadengestützte Experteninterviews mit zentralen Akteuren der deutschen
+        Wärmewende — aus Energieversorgung, Zivilgesellschaft, Sanierungspraxis und
+        kommunaler Spitze — sowie auf eine umfassende Systemanalyse. Vier Perspektiven, die
+        selten an einem Tisch zusammenkommen. Daraus entstand ein Rahmen aus elf
+        Kompetenzfeldern, der Zukunftsfähigkeit nicht als Zustand versteht, sondern als
+        Muskel — etwas, das trainiert, erprobt und weiterentwickelt werden muss.</p>
+      <p>Angewandt wurde dieser Rahmen zuerst auf die <b>Stadt Erfurt</b> und ihre kommunale
+        Wärmeplanung. Danach — und das war der entscheidende Schritt — erstmals auf ein
+        <b>einzelnes Gebäude</b>: ein reales Mehrfamilienhaus in der Erfurter Altstadt,
+        dokumentiert über Jahre, mit allen Zahlen, Fristen und Zwängen, die eine solche
+        Entscheidung tatsächlich bestimmen.</p>
+      <p>In dieser Auseinandersetzung — von der Systemebene der Stadt hinunter auf die Ebene
+        eines Hauses — wurde eine Lücke sichtbar, die vorher niemand benannt hatte. Denn
+        Verantwortung für die Wärmewende verteilt sich über fünf Ebenen: Bund, Land, Kommune,
+        Quartier — und den Bürger. Am Ende dieser Kette steht der Eigentümer. Er zahlt, und
+        er entscheidet. Und ist zugleich der am wenigsten Gehörte.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Was fehlt</h2>
+      <p><b>Die Stimme der Eigentümer fehlt in der kommunalen Wärmeplanung.</b> Sie werden
+        geplant, aber sie planen nicht mit. Ihre Betroffenheit ist die größte — ihr Gewicht
+        im Verfahren das geringste.</p>
+      <p><b>Unabhängige Beratung ist nicht wirklich geklärt.</b> Wer sich als Eigentümer
+        orientieren will, findet vieles — nur ist am lautesten oft hörbar, wer zugleich ein
+        wirtschaftliches Interesse am Ergebnis hat. Es entsteht das Empfinden, dass die
+        Information, die am leichtesten zu bekommen ist, nicht die neutralste ist. Griffige,
+        anbieterunabhängige Grundlagen sind schwer zu finden.</p>
+      <p><b>Und wenn es schwierig wird, bleibt oft nur der Weg zum Anwalt</b> — teuer, und
+        meist zu spät, wenn die Entscheidung längst gefallen ist.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2>Warum es dafür eine Stimme braucht</h2>
+      <p>Zwischen dem ersten Zweifel und der teuren Eskalation liegt eine Lücke. Genau dort
+        setzt Eigentümerstimme an — <em>davor</em>.</p>
+      <p>Es braucht jemanden, der die Komplexität reduziert, ohne sie zu verkürzen. Der
+        übergreifend informiert, statt aus einer Rolle heraus zu argumentieren. Der auf
+        Augenhöhe mit Ingenieurbüros, Hausverwaltungen, Kommunen und Versorgern spricht — und
+        die Sprache beider Seiten übersetzt. Nicht, um zu entscheiden, sondern damit die
+        Menschen, die entscheiden und die Folgen tragen, es auf einer belastbaren Grundlage
+        tun können.</p>
+      <p>Dazu gehört, die Entwicklung im Blick zu behalten, die diese Entscheidungen prägt:
+        die Preisentwicklung der Energieträger und die kommunale Wärmeplanung — begleitet aus
+        wissenschaftlicher Sicht, nicht aus dem Bauch heraus.</p>
+      <p>Eigentümerstimme klärt auf und ordnet ein. Sie ersetzt keine Ingenieursplanung und
+        keine Rechtsberatung — sie schafft die Orientierung, die es braucht, bevor man beides
+        in Anspruch nimmt.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Verbunden mit der Wissenschaft</h2>
+      <p>Die Initiative sucht bewusst die Nähe zur Forschung — und zu einer Frage, die das
+        Forschungsprojekt Future Readiness aufwirft, aber nicht allein beantworten kann: Wie
+        werden Entscheidungen in der Wärmewende tatsächlich getroffen?</p>
+      <p>Der Future-Readiness-Ansatz betrachtet die <em>systemische</em> Seite — die Fähigkeit
+        von Kommunen, unter Unsicherheit und Komplexität zukunftsfähig zu handeln. Eine
+        gelingende Wärmewende entscheidet sich aber nicht nur in Plänen, sondern dort, wo
+        räumliche Planung auf die einzelne Entscheidung trifft: am Gebäude, in der
+        Eigentümergemeinschaft, im Abwägen zwischen Optionen, deren Folgen über Jahrzehnte
+        reichen. Genau diese <em>Entscheidungsprozesse</em> — wie Menschen zwischen
+        Alternativen wählen, welche Faktoren wirklich den Ausschlag geben, wie Beteiligung und
+        Information das Ergebnis prägen — sind das verbindende Thema zwischen der Perspektive
+        der Eigentümer und der Stadt- und Raumplanung.</p>
+      <p>Hier liegt eine Resonanzfläche, die die Initiative offen hält: der Austausch mit der
+        Wissenschaft über Entscheidungsverhalten, Präferenzen und Beteiligung in der
+        Transformation — evidenzbasiert, ergebnisoffen, an der Schnittstelle von System und
+        Mensch. Mit einer Erfurter Hochschule besteht dazu bereits ein erster Austausch; im
+        Rahmen einer Masterarbeit zu Entscheidungsprozessen in der Wärmewende wurde ein
+        Interview geführt.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2>Unabhängig — und verbunden</h2>
+      <p>Wer genauer hinsieht, erkennt einen Gegenpart. Dieselbe Ausgangslage — die fehlende
+        Stimme der Eigentümer — lässt sich auf zwei Ebenen beantworten, und beide werden
+        gebraucht.</p>
+      <p>Die eine Ebene ist die <b>individuelle Entscheidung</b>: Wer konkret vor der Wahl
+        steht, braucht konkrete Hilfe — belastbare Zahlen, Werkzeuge, persönliche Begleitung
+        für genau diesen Fall. Das ist eine Dienstleistung, und als solche ist sie gewerblich.
+        Sie wird vom Gründer der Initiative als eigenständiges, gewerbliches Angebot
+        bereitgestellt — außerhalb des Vereins.</p>
+      <p>Die andere Ebene ist die <b>gemeinsame Stimme</b>: Eigentümer als Gruppe brauchen
+        neutrale Aufklärung, ein Netzwerk und die Anbindung an die Wissenschaft — etwas, das
+        niemandem etwas verkauft und allen offensteht. Das ist Eigentümerstimme.</p>
+      <p>Beide bedingen einander — nicht wirtschaftlich, sondern in der Sache: Das eine hilft,
+        eine einzelne Entscheidung gut zu treffen; das andere verändert die Bedingungen, unter
+        denen alle entscheiden. Eine gelingende Wärmewende braucht beides.</p>
+      <p>Und beide sind klar getrennt. Eigentümerstimme ist unabhängig und neutral: Der Verein
+        verkauft nichts, empfiehlt keinen Anbieter und bewirbt keine kommerzielle Leistung —
+        auch nicht die des Gründers. Unterstützung fließt ausschließlich in die gemeinnützige
+        Arbeit, nie aus ihr in ein Gewerbe. Getrennt im Auftritt, verbunden in der Haltung.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Wofür wir stehen</h2>
+      <p>Eigentümerstimme ist parteipolitisch, konfessionell und wirtschaftlich neutral. Wir
+        vertreten keine Anbieter, Hersteller oder Dienstleister — sondern die, die am Ende
+        entscheiden und die Konsequenzen tragen.</p>
+      <p class="kicker">Was im Einzelfall unsichtbar bleibt, wird in der gemeinsamen Stimme
+        zum Muster.</p>
+    </div>
+  </section>
+
+  <div class="status">
+    <div class="wrap prose">
+      Initiative in Gründung — der Verein „Eigentümerstimme" befindet sich im
+      Gründungsprozess.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

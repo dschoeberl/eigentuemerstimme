@@ -6,11 +6,11 @@ Statisches HTML/CSS, kein Build, kein Framework. Deployment über Netlify.
 
 ## Stand
 
-Vorabauftritt mit der Startseite „in Gründung", Impressum und
-Datenschutzerklärung. Läuft als unverlinkte Netlify-Vorschau.
+Vorabauftritt mit der Startseite „in Gründung", der Seite „Warum wir",
+Impressum und Datenschutzerklärung. Läuft als unverlinkte Netlify-Vorschau.
 
 **Vor dem Domain-Launch:** Das `<meta name="robots" content="noindex, nofollow">`
-steht in **allen drei** HTML-Dateien und muss überall entfernt werden. Zu finden
+steht in **allen vier** HTML-Dateien und muss überall entfernt werden. Zu finden
 über den Marker im Kommentar darüber:
 
 ```
@@ -21,6 +21,8 @@ git grep -n VORSCHAU-STATUS
 
 ```
 index.html        Startseite (Styles inline, wie bei hausentscheider.de)
+warum.html        „Warum es Eigentümerstimme gibt" — Herleitung des Vereins;
+                  zugleich die Vorlage für weitere Unterseiten
 impressum.html    Angaben gemäß § 5 DDG
 datenschutz.html  Datenschutzerklärung, Stand Juli 2026
 images/           hero-eigentuemerstimme.jpg — Hero-Motiv, 1672x941, JPEG q82
