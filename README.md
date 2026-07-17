@@ -93,8 +93,8 @@ Seite, nicht umgekehrt.
 ## Domain (geplant)
 
 `eigentuemerstimme.de` als Primary Domain. `eigentümerstimme.de`
-(Punycode `xn--eigentmerstimme-4vb.de`) und `eigentumerstimme.de` werden als
-Netlify-Aliase geführt und per 301 auf die Hauptdomain geleitet.
+(Punycode `xn--eigentmerstimme-4vb.de`) wird als Netlify-Alias geführt und per
+301 auf die Hauptdomain geleitet.
 
 Die DNS-Zone bleibt bei IONOS, damit die MX-Records für
 `dialog@eigentuemerstimme.de` unangetastet bleiben: A-Record auf die
