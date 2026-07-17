@@ -53,6 +53,43 @@ Beide Familien stehen unter der SIL Open Font License 1.1. Die Lizenztexte
 liegen bei (`fonts/OFL-Inter.txt`, `fonts/OFL-PlayfairDisplay.txt`) und müssen
 bei Weitergabe erhalten bleiben.
 
+## Offen: Eigentümer-Kompass (WhatsApp-Kanal)
+
+Der Kanal heißt **„Eigentümer-Kompass"** (Untertitel: Rechte · Entscheidungen ·
+Gemeinschaft). Die Website bleibt „Eigentümerstimme" — Kanal und Auftritt tragen
+verschiedene Namen. Der frühere Arbeitstitel „WEG-Radar" ist überholt.
+
+Auf der Startseite liegt eine fertige, **auskommentierte** Kanal-Sektion — Stile im
+`style`-Block, Markup zwischen Partner- und Dialog-Abschnitt:
+
+```
+git grep -n LAUNCH-EIGENTUEMER-KOMPASS
+```
+
+Vor dem Einkommentieren müssen **vier** Dinge vorliegen:
+
+1. die echte WhatsApp-Kanal-URL des Vereins (Platzhalter: `#kanal-link-folgt`),
+2. `images/eigentuemer-kompass-qr.png`, erzeugt aus genau dieser URL,
+3. `images/eigentuemer-kompass-signet.png` (Sprechblasen-Kreis),
+4. der Datenschutz-Passus zu Meta/USA in `datenschutz.html`.
+
+**Kein Radar-Look.** Der Technik-Radar auf hausentscheider.de ist
+`images/technik-radar-avatar.svg`: dunkler Petrol-Grund, konzentrische Ringe, roter
+Kern in der Mitte. Das Kompass-Signet muss diese Komposition brechen — ein
+unterbrochener Ring (Kompassrose statt Ortung), Sprechblasen statt Ziel, der
+Amber-Akzent **außerhalb** der Mitte. Ring plus farbiger Kern wäre derselbe Bau in
+anderer Farbe: Zwilling statt Schwester.
+
+**Bewusst ohne JavaScript.** Das Muster auf hausentscheider.de nutzt einen
+`window.KANAL_URL`-Hook, weil der Kanal dort von mehreren Seiten verlinkt wird. Hier
+gibt es genau **einen** Signposting-Pfad — eine Variable hielte nichts synchron und
+würde nur die Zusage „Es wird kein JavaScript ausgeführt" brechen. Kommt später ein
+zweiter Link (Seite „WEG & Beirat"), bleibt es bei **einem** Pfad, nicht zwei
+konkurrierenden.
+
+Der Signpost zeigt **ausschließlich** auf den Vereins-Kanal. Kein Link zum
+Technik-Radar oder zu hausentscheider.de — getrennte Kanäle, getrennte Körper.
+
 ## Partner-Bereich („Im Dialog mit")
 
 Auf der Startseite steht nur, wer **tatsächlich zugesagt hat**. Heute ist das

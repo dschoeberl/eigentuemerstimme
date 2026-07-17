@@ -107,6 +107,30 @@
      mit einer echten Marke. */
   .partner__offen{margin-top:30px;font-size:14px;color:var(--text-mute);font-style:italic}
 
+  /* LAUNCH-EIGENTUEMER-KOMPASS: Stile fuer die Kanal-Sektion. Zusammen mit dem
+     Markup im Body einkommentieren, sobald URL, QR und Signet vorliegen.
+     Bewusst ohne JavaScript — die Datenschutzerklaerung sagt zu, dass die Seite
+     keins ausfuehrt; bei genau einem Link braucht es keinen Hook.
+     Vor dem Scharfschalten: Datenschutz-Passus zu Meta/USA ergaenzen.
+  .kanal{background:var(--bg-light)}
+  .kanal-mast{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .kanal-signet{display:block;width:30px;height:30px;flex-shrink:0}
+  .kanal-mast .lead-label{margin-bottom:0}
+  .kanalbox{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:10px;padding:30px 32px;display:flex;gap:34px;align-items:flex-start}
+  .kanalbox__text{flex:1;min-width:0}
+  .kanalbox h3{font-size:20px;color:var(--petrol-dark);margin-bottom:12px;max-width:32ch}
+  .kanalbox p{color:var(--text-soft);font-size:15.5px}
+  .kanal-list{margin:16px 0 0;padding-left:1.3em;color:var(--text-soft);font-size:15px;line-height:1.75}
+  .kanal-list li::marker{color:var(--stimme)}
+  .kanal-cta{display:inline-block;margin-top:22px;background:var(--stimme);color:#fff;text-decoration:none;font-size:14.5px;font-weight:600;padding:11px 19px;border-radius:6px}
+  .kanal-cta:hover{filter:brightness(1.07)}
+  .kanal-fine{margin-top:18px;font-size:13px;color:var(--text-mute)}
+  .kanalbox__qr img{display:block;width:140px;height:140px;flex-shrink:0}
+  @media(max-width:760px){
+    .kanalbox{flex-direction:column-reverse;align-items:flex-start;gap:24px;padding:24px}
+  }
+  */
+
   /* Dialog CTA */
   .dialog{background:var(--petrol);color:#fff;text-align:center}
   .dialog h2{color:#fff;font-size:clamp(24px,3.4vw,34px)}
@@ -223,6 +247,45 @@
     <p class="partner__offen">Weitere Partner · in Gespräch</p>
   </div>
 </section>
+
+<!-- LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Sektion, noch inaktiv. Einkommentieren (samt
+     Stilen im style-Block), sobald drei Dinge vorliegen:
+       1. die echte WhatsApp-Kanal-URL des Vereins  ->  href unten ersetzen
+       2. images/eigentuemer-kompass-qr.png, erzeugt aus genau dieser URL
+       3. images/eigentuemer-kompass-signet.png (Sprechblasen-Kreis)
+     Vorher zwingend: Datenschutz-Passus zu Meta/USA in datenschutz.html.
+     Der Kanal heisst „Eigentuemer-Kompass" — die Website bleibt „Eigentuemerstimme".
+     Zeigt ausschliesslich auf den Vereins-Kanal. Kein Link zu hausentscheider.de
+     oder zum Technik-Radar (§ 55 AO, getrennte Kanaele).
+<section class="kanal">
+  <div class="wrap">
+    <div class="kanal-mast">
+      <img class="kanal-signet" src="images/eigentuemer-kompass-signet.png" alt="" width="30" height="30">
+      <div class="lead-label">Eigentümer-Kompass · WhatsApp-Kanal</div>
+    </div>
+    <div class="kanalbox">
+      <div class="kanalbox__text">
+        <h3>Ihr Recht in der Eigentümergemeinschaft — einmal pro Woche, auf den Punkt.</h3>
+        <p>Welche Regeln, Rechte und Urteile sich ändern und wie Sie sie nutzen — für
+          Beiräte, Eigentümer und Eigentümergemeinschaften. Damit Sie auf Augenhöhe mit
+          der Verwaltung entscheiden.</p>
+        <ul class="kanal-list">
+          <li>Ein kurzer Wochenüberblick statt Dauerrauschen — nur, was Ihre WEG wirklich betrifft.</li>
+          <li>Belegt und neutral: das Gesetz und die Rechtsprechung, nicht Meinung.</li>
+          <li>Und: wie gute Entscheidungen in der Gemeinschaft überhaupt zustande kommen.</li>
+        </ul>
+        <a class="kanal-cta" href="#kanal-link-folgt">Kanal in WhatsApp öffnen →</a>
+        <p class="kanal-fine">Einseitiger Kanal: Sie empfangen, ohne selbst zu senden. Ihre
+          Nummer bleibt unsichtbar, jederzeit kündbar. <em>Allgemeine Information, keine
+          Rechtsberatung.</em></p>
+      </div>
+      <div class="kanalbox__qr">
+        <img src="images/eigentuemer-kompass-qr.png" alt="QR-Code zum Eigentümer-Kompass auf WhatsApp" width="140" height="140">
+      </div>
+    </div>
+  </div>
+</section>
+-->
 
 <section class="dialog">
   <div class="wrap">
