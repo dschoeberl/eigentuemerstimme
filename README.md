@@ -53,25 +53,27 @@ Beide Familien stehen unter der SIL Open Font License 1.1. Die Lizenztexte
 liegen bei (`fonts/OFL-Inter.txt`, `fonts/OFL-PlayfairDisplay.txt`) und müssen
 bei Weitergabe erhalten bleiben.
 
-## Offen: Eigentümer-Kompass (WhatsApp-Kanal)
+## Eigentümer-Kompass (WhatsApp-Kanal)
 
-Der Kanal heißt **„Eigentümer-Kompass"** (Untertitel: Rechte · Entscheidungen ·
-Gemeinschaft). Die Website bleibt „Eigentümerstimme" — Kanal und Auftritt tragen
-verschiedene Namen. Der frühere Arbeitstitel „WEG-Radar" ist überholt.
+Der Kanal heißt **„Eigentümer-Kompass"**. Die Website bleibt „Eigentümerstimme" —
+Kanal und Auftritt tragen verschiedene Namen. Der frühere Arbeitstitel „WEG-Radar"
+ist überholt.
 
-Auf der Startseite liegt eine fertige, **auskommentierte** Kanal-Sektion — Stile im
-`style`-Block, Markup zwischen Partner- und Dialog-Abschnitt:
+Die Kanal-Karte steht seit 17.07.2026 auf der Startseite, zwischen Partner- und
+Dialog-Abschnitt: Aufbau nach dem Muster des Technik-Radars auf hausentscheider.de
+(zweispaltig, dunkle Spalte links), Farben aber die des Vereins — Amber statt
+Signal-Lime und Tommy-Rot, Petrol-Verlauf statt Erfurt-Motiv.
 
-```
-git grep -n LAUNCH-EIGENTUEMER-KOMPASS
-```
+**Genau ein Signposting-Pfad.** Der Kanal wird nur hier verlinkt; die Website doppelt
+die Beiträge nicht. Kommt später die Seite „WEG & Beirat", bekommt sie denselben
+Anker — nicht einen zweiten, konkurrierenden.
 
-Vorhanden sind: die Kanal-URL (`https://whatsapp.com/channel/0029Vb8Qay0KAwEsus30113r`,
-im `href`), `images/eigentuemer-kompass-qr.png` und
-`images/eigentuemer-kompass-signet.png`.
-
-**Es fehlt noch der Datenschutz-Passus zu Meta/USA in `datenschutz.html`.** Der muss
-stehen, bevor der Link öffentlich wird — erst danach einkommentieren.
+**Ohne JavaScript.** Das Muster auf hausentscheider.de nutzt einen
+`window.KANAL_URL`-Hook, weil der Kanal dort von mehreren Seiten verlinkt wird. Hier
+gibt es genau einen Link — eine Variable hielte nichts synchron und würde nur die
+Zusage „Es wird kein JavaScript ausgeführt" brechen. Der QR ist eine lokale Datei,
+der Link wird erst beim Klick gefolgt: Es entsteht keine automatische Verbindung zu
+Meta. Der Passus dazu steht in `datenschutz.html`.
 
 **QR und `href` müssen dieselbe URL tragen.** Der QR ist aus genau dieser Adresse
 berechnet (Version 6, Fehlerkorrektur H, Ruhezone 4 Module, Logo 6,8 % der Fläche)

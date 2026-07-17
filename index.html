@@ -107,14 +107,12 @@
      mit einer echten Marke. */
   .partner__offen{margin-top:30px;font-size:14px;color:var(--text-mute);font-style:italic}
 
-  /* LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Karte, Aufbau nach dem Muster der
-     kommerziellen Seite (zweispaltig, dunkle Spalte links, heller Text rechts).
-     Farben sind die des Vereins: Amber statt Signal-Lime, Amber statt Tommy-Rot,
-     Petrol-Verlauf statt Erfurt-Motiv. Optik = Schwester, nicht Zwilling.
-     Ohne JavaScript — die Datenschutzerklaerung sagt zu, dass die Seite keins
-     ausfuehrt; bei genau einem Link braucht es keinen Hook.
-     Zusammen mit dem Markup im Body einkommentieren, sobald der
-     Datenschutz-Passus zu Meta/USA in datenschutz.html steht.
+  /* Kanal-Karte „Eigentuemer-Kompass" — Aufbau nach dem Muster der kommerziellen
+     Seite (zweispaltig, dunkle Spalte links, heller Text rechts). Farben sind die
+     des Vereins: Amber statt Signal-Lime, Amber statt Tommy-Rot, Petrol-Verlauf
+     statt Erfurt-Motiv. Optik = Schwester, nicht Zwilling.
+     Bewusst ohne JavaScript: Die Datenschutzerklaerung sagt zu, dass die Seite
+     keins ausfuehrt, und bei genau einem Link haelt eine Variable nichts synchron. */
   .kanal{background:#fff;border-top:1px solid var(--border)}
   .kanal__card{display:grid;grid-template-columns:288px 1fr;border-radius:18px;overflow:hidden;box-shadow:0 20px 55px rgba(26,53,53,.18);border:1px solid rgba(26,53,53,.08)}
   .kanal__aside{background:linear-gradient(180deg,var(--petrol) 0%,var(--petrol-dark) 100%);color:#eaf3f0;padding:2.25rem 1.75rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.85rem}
@@ -146,7 +144,6 @@
     .kanal__card{grid-template-columns:1fr}
     .kanal__body{padding:1.75rem 1.5rem}
   }
-  */
 
   /* Dialog CTA */
   .dialog{background:var(--petrol);color:#fff;text-align:center}
@@ -265,14 +262,10 @@
   </div>
 </section>
 
-<!-- LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Sektion, noch inaktiv.
-     URL, QR und Signet liegen vor. Es fehlt nur noch der Datenschutz-Passus zu
-     Meta/USA in datenschutz.html — der muss stehen, BEVOR der Link oeffentlich
-     wird. Danach einkommentieren, hier und im style-Block.
-     Der QR kodiert exakt die URL im href unten; beide muessen gleich bleiben.
-     Der Kanal heisst „Eigentuemer-Kompass" — die Website bleibt „Eigentuemerstimme".
+<!-- Kanal-Signpost. Der QR kodiert exakt die URL im href unten; aendert sich der
+     Kanal, muessen BEIDE neu — ein QR laesst sich nicht umhaengen.
      Zeigt ausschliesslich auf den Vereins-Kanal. Kein Link zu hausentscheider.de
-     oder zum Technik-Radar (§ 55 AO, getrennte Kanaele).
+     oder zum Technik-Radar (§ 55 AO, getrennte Kanaele). -->
 <section class="kanal" aria-label="Eigentümer-Kompass — WhatsApp-Kanal">
   <div class="wrap">
     <div class="kanal__card">
@@ -313,7 +306,6 @@
     </div>
   </div>
 </section>
--->
 
 <section class="dialog">
   <div class="wrap">
