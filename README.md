@@ -27,6 +27,7 @@ impressum.html    Angaben gemäß § 5 DDG
 datenschutz.html  Datenschutzerklärung, Stand Juli 2026
 images/           hero-eigentuemerstimme.jpg — Hero Startseite, 1672x941, JPEG q82
                   hero-warum.jpg             — Hero „Warum wir", 1672x941, JPEG q82
+                  eco2050-logo-horz-farbe.svg — Partner-Logo (auch auf hausentscheider.de)
 fonts/            Inter und Playfair Display, selbst gehostet (kein Dritt-CDN)
 ```
 
@@ -57,6 +58,17 @@ bei Bedarf.
 Beide Familien stehen unter der SIL Open Font License 1.1. Die Lizenztexte
 liegen bei (`fonts/OFL-Inter.txt`, `fonts/OFL-PlayfairDisplay.txt`) und müssen
 bei Weitergabe erhalten bleiben.
+
+## Partner-Bereich („Im Dialog mit")
+
+Auf der Startseite steht nur, wer **tatsächlich zugesagt hat**. Heute ist das
+allein eco2050. Alles andere läuft über den offenen Platz „Weitere Partner ·
+in Gespräch".
+
+Das gilt besonders für Hochschulen: Ein Logo liest sich als institutionelle
+Zustimmung. Ein Forschungskontakt oder ein Interview im Rahmen einer
+Masterarbeit ist keine. Eine Hochschule kommt erst in die Reihe, wenn eine
+Zusage vorliegt — bei einer fremden Marke sinnvollerweise schriftlich.
 
 ## Abgrenzung zu hausentscheider.de
 

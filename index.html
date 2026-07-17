@@ -100,6 +100,14 @@
   .toolbox h3{font-size:20px;color:var(--petrol-dark);margin-bottom:8px}
   .toolbox p{color:var(--text-soft);font-size:15.5px;max-width:64ch}
 
+  /* Partner — gleiches Muster wie auf der kommerziellen Seite: Logo und ein
+     offener Platz. Es wird nur gezeigt, wer tatsaechlich zugesagt hat; alles
+     Weitere bleibt „in Gespräch", bis es das nicht mehr ist. */
+  .partner{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .partner__liste{display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-top:10px}
+  .partner__item img{display:block;height:76px;width:auto}
+  .partner__item--offen{font-size:14.5px;color:var(--text-mute);font-style:italic}
+
   /* Dialog CTA */
   .dialog{background:var(--petrol);color:#fff;text-align:center}
   .dialog h2{color:#fff;font-size:clamp(24px,3.4vw,34px)}
@@ -198,6 +206,18 @@
       <h3>Zahlen und Entscheidungshilfen</h3>
       <p>Öffentlich verfügbare Entscheidungshilfen wie Rechner und Wegweiser auf
         hausentscheider.de können Eigentümern helfen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="partner">
+  <div class="wrap">
+    <div class="lead-label">Im Dialog mit</div>
+    <div class="partner__liste">
+      <div class="partner__item">
+        <img src="images/eco2050-logo-horz-farbe.svg" alt="eco2050 Institut für Nachhaltigkeit" width="155" height="76">
+      </div>
+      <div class="partner__item partner__item--offen">Weitere Partner · in Gespräch</div>
     </div>
   </div>
 </section>
