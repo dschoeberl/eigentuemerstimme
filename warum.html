@@ -82,6 +82,23 @@
   p:last-child{margin-bottom:0}
   p b{color:var(--text);font-weight:600}
 
+  /* Schematisches Future-Readiness-Netz — die elf Kompetenzfelder als Landkarte,
+     bewusst ohne Bewertung: der Rahmen ist hier der Punkt, nicht eine Note.
+     Statisches SVG von Hand, kein Script — die Datenschutzerklaerung sagt zu,
+     dass die Seite kein JavaScript ausfuehrt. Petrol/Amber statt der Farben
+     des kommerziellen Auftritts. */
+  .fr{margin:30px 0 0;background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px 28px}
+  .fr-body{display:flex;align-items:center;gap:28px}
+  .fr-chart{width:300px;height:auto;flex-shrink:0}
+  .fr-grid{fill:none;stroke:rgba(26,92,90,.16);stroke-width:1}
+  .fr-ziel{fill:none;stroke:var(--stimme);stroke-width:1.5;stroke-linejoin:round}
+  .fr-axis{stroke:rgba(26,92,90,.14);stroke-width:1}
+  .fr-num{fill:var(--petrol)}
+  .fr-nrt{fill:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;text-anchor:middle;dominant-baseline:central}
+  .fr-list{margin:0;padding-left:1.5em;color:var(--text-soft);font-size:15px;line-height:1.8}
+  .fr-list li::marker{color:var(--stimme);font-weight:600}
+  .fr-cap{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:13.5px;color:var(--text-mute)}
+
   /* Schlusssatz des Abschnitts „Wofuer wir stehen" — traegt allein. */
   .kicker{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.35;color:var(--petrol-dark);margin-top:28px;padding-left:18px;border-left:3px solid var(--stimme)}
 
@@ -104,6 +121,9 @@
       padding:64px 0 72px
     }
     section{padding:42px 0}
+    .fr{padding:22px}
+    .fr-body{flex-direction:column;align-items:stretch;gap:22px}
+    .fr-chart{width:100%;max-width:300px;align-self:center}
   }
 </style>
 </head>
@@ -163,6 +183,67 @@
         selten an einem Tisch zusammenkommen. Daraus entstand ein Rahmen aus elf
         Kompetenzfeldern, der Zukunftsfähigkeit nicht als Zustand versteht, sondern als
         Muskel — etwas, das trainiert, erprobt und weiterentwickelt werden muss.</p>
+
+      <figure class="fr">
+        <div class="fr-body">
+          <svg class="fr-chart" viewBox="0 0 320 320" role="img" aria-label="Schematisches Netzdiagramm: die elf Kompetenzfelder der Future Readiness, ohne Bewertung.">
+            <polygon class="fr-grid" points="160,136.8 172.5,140.5 181.1,150.4 183,163.3 177.5,175.2 166.5,182.3 153.5,182.3 142.5,175.2 137,163.3 138.9,150.4 147.5,140.5"/>
+            <polygon class="fr-grid" points="160,113.6 185.1,121 202.2,140.7 205.9,166.6 195.1,190.4 173.1,204.5 146.9,204.5 124.9,190.4 114.1,166.6 117.8,140.7 134.9,121"/>
+            <polygon class="fr-grid" points="160,90.4 197.6,101.4 223.3,131.1 228.9,169.9 212.6,205.6 179.6,226.8 140.4,226.8 107.4,205.6 91.1,169.9 96.7,131.1 122.4,101.4"/>
+            <polygon class="fr-grid" points="160,67.2 210.2,81.9 244.4,121.4 251.9,173.2 230.1,220.8 186.1,249 133.9,249 89.9,220.8 68.1,173.2 75.6,121.4 109.8,81.9"/>
+            <polygon class="fr-ziel" points="160,44 222.7,62.4 265.5,111.8 274.8,176.5 247.7,236 192.7,271.3 127.3,271.3 72.3,236 45.2,176.5 54.5,111.8 97.3,62.4"/>
+            <line class="fr-axis" x1="160" y1="160" x2="160" y2="44"/>
+            <line class="fr-axis" x1="160" y1="160" x2="222.7" y2="62.4"/>
+            <line class="fr-axis" x1="160" y1="160" x2="265.5" y2="111.8"/>
+            <line class="fr-axis" x1="160" y1="160" x2="274.8" y2="176.5"/>
+            <line class="fr-axis" x1="160" y1="160" x2="247.7" y2="236"/>
+            <line class="fr-axis" x1="160" y1="160" x2="192.7" y2="271.3"/>
+            <line class="fr-axis" x1="160" y1="160" x2="127.3" y2="271.3"/>
+            <line class="fr-axis" x1="160" y1="160" x2="72.3" y2="236"/>
+            <line class="fr-axis" x1="160" y1="160" x2="45.2" y2="176.5"/>
+            <line class="fr-axis" x1="160" y1="160" x2="54.5" y2="111.8"/>
+            <line class="fr-axis" x1="160" y1="160" x2="97.3" y2="62.4"/>
+            <circle class="fr-num" cx="160" cy="22" r="10"/>
+            <text class="fr-nrt" x="160" y="22">1</text>
+            <circle class="fr-num" cx="234.6" cy="43.9" r="10"/>
+            <text class="fr-nrt" x="234.6" y="43.9">2</text>
+            <circle class="fr-num" cx="285.5" cy="102.7" r="10"/>
+            <text class="fr-nrt" x="285.5" y="102.7">3</text>
+            <circle class="fr-num" cx="296.6" cy="179.6" r="10"/>
+            <text class="fr-nrt" x="296.6" y="179.6">4</text>
+            <circle class="fr-num" cx="264.3" cy="250.4" r="10"/>
+            <text class="fr-nrt" x="264.3" y="250.4">5</text>
+            <circle class="fr-num" cx="198.9" cy="292.4" r="10"/>
+            <text class="fr-nrt" x="198.9" y="292.4">6</text>
+            <circle class="fr-num" cx="121.1" cy="292.4" r="10"/>
+            <text class="fr-nrt" x="121.1" y="292.4">7</text>
+            <circle class="fr-num" cx="55.7" cy="250.4" r="10"/>
+            <text class="fr-nrt" x="55.7" y="250.4">8</text>
+            <circle class="fr-num" cx="23.4" cy="179.6" r="10"/>
+            <text class="fr-nrt" x="23.4" y="179.6">9</text>
+            <circle class="fr-num" cx="34.5" cy="102.7" r="10"/>
+            <text class="fr-nrt" x="34.5" y="102.7">10</text>
+            <circle class="fr-num" cx="85.4" cy="43.9" r="10"/>
+            <text class="fr-nrt" x="85.4" y="43.9">11</text>
+          </svg>
+          <ol class="fr-list">
+            <li>Nachhaltigkeitsintelligenz</li>
+            <li>Ressourcenbewusstsein</li>
+            <li>Anpassungsfähigkeit</li>
+            <li>Resilienz</li>
+            <li>Soziale Gestaltungskraft</li>
+            <li>Projekt-/Umsetzungskompetenz</li>
+            <li>Digital &amp; Daten</li>
+            <li>Innovationskraft</li>
+            <li>Wirtschaftliche Tragfähigkeit</li>
+            <li>Netzwerk/Unabhängigkeit</li>
+            <li>Integrität/Transparenz</li>
+          </ol>
+        </div>
+        <figcaption class="fr-cap">Die elf Kompetenzfelder der Future Readiness. Der Radar ist
+          kein Urteil, sondern eine Landkarte.</figcaption>
+      </figure>
+
       <p>Angewandt wurde dieser Rahmen zuerst auf die <b>Stadt Erfurt</b> und ihre kommunale
         Wärmeplanung. Danach — und das war der entscheidende Schritt — erstmals auf ein
         <b>einzelnes Gebäude</b>: ein reales Mehrfamilienhaus in der Erfurter Altstadt,
