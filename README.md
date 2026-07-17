@@ -6,29 +6,10 @@ Statisches HTML/CSS, kein Build, kein Framework. Deployment über Netlify.
 
 ## Stand
 
-Vorabauftritt mit der Startseite „in Gründung", der Seite „Warum wir",
-Impressum und Datenschutzerklärung. Läuft als unverlinkte Netlify-Vorschau.
-
-**Vor dem Domain-Launch:** Das `<meta name="robots" content="noindex, nofollow">`
-steht in **allen vier** HTML-Dateien und muss überall entfernt werden. Zu finden
-über den Marker im Kommentar darüber:
-
-```
-git grep -n VORSCHAU-STATUS
-```
-
-**Nach dem Domain-Launch:** Im Repo `hausentscheider` liegt der Verweis auf diese
-Seite fertig, aber auskommentiert im Netzwerk-Block der Startseite. Er darf erst
-scharf geschaltet werden, wenn die Domain steht **und** das `noindex` hier weg ist —
-sonst führt die Live-Seite auf eine Vorschau, die niemand sehen soll. Dort zu finden
-über:
-
-```
-git grep -n LAUNCH-EIGENTUEMERSTIMME
-```
-
-Die Richtung gilt nur so: hausentscheider.de darf auf den Verein zeigen, der Verein
-nie zurück.
+Seit 17.07.2026 live unter `eigentuemerstimme.de`: Startseite „in Gründung",
+„Warum wir", Impressum und Datenschutzerklärung. Alle vier Seiten sind
+indexierbar; das `noindex` der Vorschauphase ist entfernt. hausentscheider.de
+verweist im Netzwerk-Block auf diese Seite.
 
 ## Struktur
 
@@ -90,12 +71,24 @@ gemeinnützig. Die Trennung lebt auf Domain-Ebene — der Verein wird nie eine
 Unterseite. Verweise fließen nur von der kommerziellen zur gemeinnützigen
 Seite, nicht umgekehrt.
 
-## Domain (geplant)
+## Domain
 
-`eigentuemerstimme.de` als Primary Domain. `eigentümerstimme.de`
-(Punycode `xn--eigentmerstimme-4vb.de`) wird als Netlify-Alias geführt und per
-301 auf die Hauptdomain geleitet.
+`eigentuemerstimme.de` ist Primary Domain; `www.eigentuemerstimme.de` leitet per
+301 dorthin. `eigentümerstimme.de` (Punycode `xn--eigentmerstimme-4vb.de`) läuft
+als Netlify-Alias. Zertifikat von Let's Encrypt über Netlify.
 
 Die DNS-Zone bleibt bei IONOS, damit die MX-Records für
-`dialog@eigentuemerstimme.de` unangetastet bleiben: A-Record auf die
-Netlify-IP, `www` als CNAME auf die `*.netlify.app`-Adresse.
+`dialog@eigentuemerstimme.de` unangetastet bleiben:
+
+```
+@     A       75.2.60.5                     (Netlify)
+www   CNAME   eigentuemerstimme.netlify.app
+```
+
+**Auf dem Apex gehört ein A-Record, niemals ein CNAME.** Ein CNAME auf `@` würde
+die MX-Records aushebeln und die Vereins-E-Mail stilllegen. Das IONOS-Formular
+zeigt „www" nur als grauen Platzhalter an — die Vorschauzeile unter dem Formular
+ist die verlässliche Kontrolle.
+
+**Offen:** Die Umlaut-Domain liefert derzeit direkt aus (HTTP 200) statt per 301
+auf die Hauptdomain zu leiten — zwei indexierbare Adressen mit gleichem Inhalt.
