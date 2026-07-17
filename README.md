@@ -17,6 +17,19 @@ steht in **allen vier** HTML-Dateien und muss überall entfernt werden. Zu finde
 git grep -n VORSCHAU-STATUS
 ```
 
+**Nach dem Domain-Launch:** Im Repo `hausentscheider` liegt der Verweis auf diese
+Seite fertig, aber auskommentiert im Netzwerk-Block der Startseite. Er darf erst
+scharf geschaltet werden, wenn die Domain steht **und** das `noindex` hier weg ist —
+sonst führt die Live-Seite auf eine Vorschau, die niemand sehen soll. Dort zu finden
+über:
+
+```
+git grep -n LAUNCH-EIGENTUEMERSTIMME
+```
+
+Die Richtung gilt nur so: hausentscheider.de darf auf den Verein zeigen, der Verein
+nie zurück.
+
 ## Struktur
 
 ```
