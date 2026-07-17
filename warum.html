@@ -9,6 +9,7 @@
 <meta name="description" content="Warum es Eigentümerstimme gibt: die gemeinnützige Initiative für unabhängige, belegte Entscheidungen in der Wärmewende — hergeleitet aus dem Forschungsprojekt Future Readiness.">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/hero-warum.jpg" as="image">
 <style>
   @font-face{
     font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
@@ -54,12 +55,24 @@
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stimme);border:1px solid var(--stimme-soft);background:#fff;padding:6px 12px;border-radius:999px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block}
 
-  /* Einstieg — nuechtern, ohne Bildmotiv: die Vereinssicht spricht selbst. */
-  .intro{padding:56px 0 60px}
-  .lead-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stimme);margin-bottom:14px}
-  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.4vw,42px);line-height:1.15;letter-spacing:-.01em;color:var(--petrol-dark);max-width:18ch}
-  .accentline{width:56px;height:3px;background:var(--stimme);margin:26px 0 30px}
-  .lead{font-size:clamp(17px,2vw,19px);color:var(--text-soft)}
+  /* Hero — gleiche Behandlung wie auf der Startseite: Motiv rechts,
+     Text im ruhigen dunklen Raum links. Eigenes Motiv, gleiche Masse. */
+  .hero{
+    background-color:var(--petrol-dark);
+    background-image:
+      linear-gradient(90deg, rgba(26,53,53,.95) 0%, rgba(26,53,53,.88) 34%, rgba(26,53,53,.62) 62%, rgba(26,53,53,.38) 100%),
+      url('images/hero-warum.jpg');
+    background-size:cover;
+    background-position:center right;
+    background-repeat:no-repeat;
+    color:#fff;padding:88px 0 96px;position:relative;overflow:hidden
+  }
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 60%,var(--petrol) 60%,var(--petrol) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:22px}
+  .accentline{width:56px;height:3px;background:var(--stimme);margin:0 0 30px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,52px);line-height:1.15;letter-spacing:-.01em;color:#fff;max-width:18ch}
+  .hero .sub{margin-top:26px;max-width:60ch;font-size:clamp(16px,2vw,19px);color:#d7e2e1}
 
   /* Abschnittsrhythmus — heller Grund und Weiss im Wechsel, wie auf der Startseite. */
   section{padding:52px 0}
@@ -82,7 +95,14 @@
   .fnav{display:flex;gap:14px;flex-wrap:wrap}
 
   @media(max-width:760px){
-    .intro{padding:44px 0 48px}
+    /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
+    .hero{
+      background-position:center center;
+      background-image:
+        linear-gradient(180deg, rgba(26,53,53,.92) 0%, rgba(26,53,53,.86) 60%, rgba(26,53,53,.80) 100%),
+        url('images/hero-warum.jpg');
+      padding:64px 0 72px
+    }
     section{padding:42px 0}
   }
 </style>
@@ -101,12 +121,12 @@
 
 <main>
 
-  <div class="intro">
-    <div class="wrap prose">
-      <div class="lead-label">Warum wir</div>
-      <h1>Gute Entscheidungen brauchen mehr als einen guten Plan.</h1>
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Warum wir</div>
       <div class="accentline"></div>
-      <p class="lead">Über die Wärme im eigenen Gebäude wird einmal in einer Generation
+      <h1>Gute Entscheidungen brauchen mehr als einen guten Plan.</h1>
+      <p class="sub">Über die Wärme im eigenen Gebäude wird einmal in einer Generation
         entschieden — zwischen Optionen, deren Folgen Jahrzehnte tragen. Eigentümerstimme
         ist die gemeinnützige Initiative, die solchen Entscheidungen eine unabhängige,
         belegte Grundlage gibt und den Eigentümern eine gemeinsame Stimme.</p>

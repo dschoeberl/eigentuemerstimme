@@ -25,7 +25,8 @@ warum.html        „Warum es Eigentümerstimme gibt" — Herleitung des Vereins
                   zugleich die Vorlage für weitere Unterseiten
 impressum.html    Angaben gemäß § 5 DDG
 datenschutz.html  Datenschutzerklärung, Stand Juli 2026
-images/           hero-eigentuemerstimme.jpg — Hero-Motiv, 1672x941, JPEG q82
+images/           hero-eigentuemerstimme.jpg — Hero Startseite, 1672x941, JPEG q82
+                  hero-warum.jpg             — Hero „Warum wir", 1672x941, JPEG q82
 fonts/            Inter und Playfair Display, selbst gehostet (kein Dritt-CDN)
 ```
 
