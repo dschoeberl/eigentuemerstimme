@@ -66,12 +66,22 @@ Auf der Startseite liegt eine fertige, **auskommentierte** Kanal-Sektion — Sti
 git grep -n LAUNCH-EIGENTUEMER-KOMPASS
 ```
 
-Vor dem Einkommentieren müssen **vier** Dinge vorliegen:
+Vorhanden sind: die Kanal-URL (`https://whatsapp.com/channel/0029Vb8Qay0KAwEsus30113r`,
+im `href`), `images/eigentuemer-kompass-qr.png` und
+`images/eigentuemer-kompass-signet.png`.
 
-1. die echte WhatsApp-Kanal-URL des Vereins (Platzhalter: `#kanal-link-folgt`),
-2. `images/eigentuemer-kompass-qr.png`, erzeugt aus genau dieser URL,
-3. `images/eigentuemer-kompass-signet.png` (Sprechblasen-Kreis),
-4. der Datenschutz-Passus zu Meta/USA in `datenschutz.html`.
+**Es fehlt noch der Datenschutz-Passus zu Meta/USA in `datenschutz.html`.** Der muss
+stehen, bevor der Link öffentlich wird — erst danach einkommentieren.
+
+**QR und `href` müssen dieselbe URL tragen.** Der QR ist aus genau dieser Adresse
+berechnet (Version 6, Fehlerkorrektur H, Ruhezone 4 Module, Logo 6,8 % der Fläche)
+und gegengelesen. Ändert sich die Kanal-URL, muss **beides** neu — ein QR lässt sich
+nicht umhängen, die Adresse steckt im Muster.
+
+**QR-Codes nie von einem Bildgenerator erzeugen lassen.** Ein früherer Versuch sah aus
+wie ein QR, hatte korrekte Suchmuster — und enthielt keinerlei Daten; kein Reader
+konnte ihn lesen. Bildgeneratoren lernen, wie QR-Codes *aussehen*, nicht wie sie
+*funktionieren*. Nur berechnen, danach immer zurücklesen.
 
 **Kein Radar-Look.** Der Technik-Radar auf hausentscheider.de ist
 `images/technik-radar-avatar.svg`: dunkler Petrol-Grund, konzentrische Ringe, roter

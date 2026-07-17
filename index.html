@@ -107,27 +107,44 @@
      mit einer echten Marke. */
   .partner__offen{margin-top:30px;font-size:14px;color:var(--text-mute);font-style:italic}
 
-  /* LAUNCH-EIGENTUEMER-KOMPASS: Stile fuer die Kanal-Sektion. Zusammen mit dem
-     Markup im Body einkommentieren, sobald URL, QR und Signet vorliegen.
-     Bewusst ohne JavaScript — die Datenschutzerklaerung sagt zu, dass die Seite
-     keins ausfuehrt; bei genau einem Link braucht es keinen Hook.
-     Vor dem Scharfschalten: Datenschutz-Passus zu Meta/USA ergaenzen.
-  .kanal{background:var(--bg-light)}
-  .kanal-mast{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .kanal-signet{display:block;width:44px;height:44px;flex-shrink:0}
-  .kanal-mast .lead-label{margin-bottom:0}
-  .kanalbox{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:10px;padding:30px 32px;display:flex;gap:34px;align-items:flex-start}
-  .kanalbox__text{flex:1;min-width:0}
-  .kanalbox h3{font-size:20px;color:var(--petrol-dark);margin-bottom:12px;max-width:32ch}
-  .kanalbox p{color:var(--text-soft);font-size:15.5px}
-  .kanal-list{margin:16px 0 0;padding-left:1.3em;color:var(--text-soft);font-size:15px;line-height:1.75}
-  .kanal-list li::marker{color:var(--stimme)}
-  .kanal-cta{display:inline-block;margin-top:22px;background:var(--stimme);color:#fff;text-decoration:none;font-size:14.5px;font-weight:600;padding:11px 19px;border-radius:6px}
-  .kanal-cta:hover{filter:brightness(1.07)}
-  .kanal-fine{margin-top:18px;font-size:13px;color:var(--text-mute)}
-  .kanalbox__qr img{display:block;width:140px;height:140px;flex-shrink:0}
-  @media(max-width:760px){
-    .kanalbox{flex-direction:column-reverse;align-items:flex-start;gap:24px;padding:24px}
+  /* LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Karte, Aufbau nach dem Muster der
+     kommerziellen Seite (zweispaltig, dunkle Spalte links, heller Text rechts).
+     Farben sind die des Vereins: Amber statt Signal-Lime, Amber statt Tommy-Rot,
+     Petrol-Verlauf statt Erfurt-Motiv. Optik = Schwester, nicht Zwilling.
+     Ohne JavaScript — die Datenschutzerklaerung sagt zu, dass die Seite keins
+     ausfuehrt; bei genau einem Link braucht es keinen Hook.
+     Zusammen mit dem Markup im Body einkommentieren, sobald der
+     Datenschutz-Passus zu Meta/USA in datenschutz.html steht.
+  .kanal{background:#fff;border-top:1px solid var(--border)}
+  .kanal__card{display:grid;grid-template-columns:288px 1fr;border-radius:18px;overflow:hidden;box-shadow:0 20px 55px rgba(26,53,53,.18);border:1px solid rgba(26,53,53,.08)}
+  .kanal__aside{background:linear-gradient(180deg,var(--petrol) 0%,var(--petrol-dark) 100%);color:#eaf3f0;padding:2.25rem 1.75rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.85rem}
+  .kanal__avatar{position:relative;width:108px;height:108px;margin-top:.25rem}
+  .kanal__avatar img{width:108px;height:108px;border-radius:50%;display:block;background:var(--bg-light);padding:14px;box-sizing:border-box;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  .kanal__avatar::after{content:'';position:absolute;inset:-5px;border-radius:50%;pointer-events:none;box-shadow:0 0 0 0 rgba(192,138,44,.55);animation:kanalPuls 2.2s ease-out infinite}
+  @keyframes kanalPuls{0%{box-shadow:0 0 0 0 rgba(192,138,44,.55)}70%{box-shadow:0 0 0 14px rgba(192,138,44,0)}100%{box-shadow:0 0 0 0 rgba(192,138,44,0)}}
+  @media(prefers-reduced-motion:reduce){.kanal__avatar::after{animation:none;box-shadow:0 0 0 3px rgba(192,138,44,.4)}}
+  .kanal__wa{position:absolute;right:2px;bottom:2px;width:34px;height:34px;border-radius:50%;background:#25D366;display:grid;place-items:center;border:3px solid var(--petrol-dark)}
+  .kanal__wa svg{width:20px;height:20px;fill:#fff}
+  .kanal__name{font-family:'Playfair Display',Georgia,serif;font-size:21px;color:#fff;margin:.35rem 0 0}
+  .kanal__sub{font-size:12px;color:var(--petrol-light);margin:.15rem 0 0;letter-spacing:.3px}
+  .kanal__cta{display:inline-flex;align-items:center;gap:8px;background:var(--stimme);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:13.5px;padding:.72rem 1.35rem;border-radius:999px;text-decoration:none;margin-top:auto;transition:filter .2s}
+  .kanal__cta:hover{filter:brightness(1.07)}
+  .kanal__cta svg{width:18px;height:18px;fill:#fff}
+  .kanal__qr{display:flex;flex-direction:column;align-items:center;gap:.4rem;margin-top:.5rem}
+  .kanal__qr img{width:84px;height:84px;display:block;background:#fff;border-radius:12px;padding:6px;box-sizing:border-box;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .kanal__qrcap{font-size:11px;color:rgba(234,243,240,.7);letter-spacing:.2px}
+  .kanal__note{font-size:10.5px;color:rgba(234,243,240,.55);margin:.15rem 0 0}
+  .kanal__body{padding:2.1rem}
+  .kanal__eyebrow{display:inline-block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--stimme);font-weight:600;margin-bottom:.5rem}
+  .kanal__title{font-family:'Playfair Display',Georgia,serif;font-size:25px;font-weight:600;color:var(--petrol-dark);line-height:1.25;margin:0 0 .7rem}
+  .kanal__intro{font-size:14.5px;color:var(--text-soft);line-height:1.65;margin:0 0 .9rem}
+  .kanal__list{list-style:none;margin:0 0 1rem;padding:0;display:grid;gap:.45rem}
+  .kanal__list li{position:relative;padding-left:1.4rem;font-size:13.5px;color:var(--text-soft);line-height:1.5}
+  .kanal__list li::before{content:'';position:absolute;left:0;top:.5em;width:7px;height:7px;border-radius:50%;background:var(--stimme)}
+  .kanal__ds{font-size:11.5px;color:var(--text-mute);line-height:1.5;margin:0}
+  @media(max-width:720px){
+    .kanal__card{grid-template-columns:1fr}
+    .kanal__body{padding:1.75rem 1.5rem}
   }
   */
 
@@ -248,39 +265,50 @@
   </div>
 </section>
 
-<!-- LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Sektion, noch inaktiv. Einkommentieren (samt
-     Stilen im style-Block), sobald drei Dinge vorliegen:
-       1. die echte WhatsApp-Kanal-URL des Vereins  ->  href unten ersetzen
-       2. images/eigentuemer-kompass-qr.png, erzeugt aus genau dieser URL
-       3. images/eigentuemer-kompass-signet.png (Sprechblasen-Kreis)
-     Vorher zwingend: Datenschutz-Passus zu Meta/USA in datenschutz.html.
+<!-- LAUNCH-EIGENTUEMER-KOMPASS: Kanal-Sektion, noch inaktiv.
+     URL, QR und Signet liegen vor. Es fehlt nur noch der Datenschutz-Passus zu
+     Meta/USA in datenschutz.html — der muss stehen, BEVOR der Link oeffentlich
+     wird. Danach einkommentieren, hier und im style-Block.
+     Der QR kodiert exakt die URL im href unten; beide muessen gleich bleiben.
      Der Kanal heisst „Eigentuemer-Kompass" — die Website bleibt „Eigentuemerstimme".
      Zeigt ausschliesslich auf den Vereins-Kanal. Kein Link zu hausentscheider.de
      oder zum Technik-Radar (§ 55 AO, getrennte Kanaele).
-<section class="kanal">
+<section class="kanal" aria-label="Eigentümer-Kompass — WhatsApp-Kanal">
   <div class="wrap">
-    <div class="kanal-mast">
-      <img class="kanal-signet" src="images/eigentuemer-kompass-signet.png" alt="" width="44" height="44">
-      <div class="lead-label">Eigentümer-Kompass · WhatsApp-Kanal</div>
-    </div>
-    <div class="kanalbox">
-      <div class="kanalbox__text">
-        <h3>Ihr Recht in der Eigentümergemeinschaft — einmal pro Woche, auf den Punkt.</h3>
-        <p>Welche Regeln, Rechte und Urteile sich ändern und wie Sie sie nutzen — für
-          Beiräte, Eigentümer und Eigentümergemeinschaften. Damit Sie auf Augenhöhe mit
-          der Verwaltung entscheiden.</p>
-        <ul class="kanal-list">
+    <div class="kanal__card">
+      <aside class="kanal__aside">
+        <div class="kanal__avatar">
+          <img src="images/eigentuemer-kompass-signet.png" alt="Eigentümer-Kompass — Kanal-Logo" width="108" height="108">
+          <span class="kanal__wa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.6.2-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></span>
+        </div>
+        <div>
+          <p class="kanal__name">Eigentümer-Kompass</p>
+          <p class="kanal__sub">WhatsApp-Kanal · einmal pro Woche</p>
+        </div>
+        <a class="kanal__cta" href="https://whatsapp.com/channel/0029Vb8Qay0KAwEsus30113r" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.6.2-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.6-1.5-.9-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.2.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          Kanal in WhatsApp öffnen
+        </a>
+        <div class="kanal__qr">
+          <img src="images/eigentuemer-kompass-qr.png" alt="QR-Code zum Eigentümer-Kompass auf WhatsApp" width="84" height="84">
+          <span class="kanal__qrcap">Oder mit dem Handy scannen</span>
+        </div>
+        <p class="kanal__note">Einseitig · ohne Anmeldung · jederzeit kündbar</p>
+      </aside>
+      <div class="kanal__body">
+        <span class="kanal__eyebrow">Eigentümer-Kompass · WhatsApp-Kanal</span>
+        <h2 class="kanal__title">Ihr Recht in der Eigentümergemeinschaft — einmal pro Woche, auf den Punkt.</h2>
+        <p class="kanal__intro">Welche Regeln, Rechte und Urteile sich ändern und wie Sie sie
+          nutzen — für Beiräte, Eigentümer und Eigentümergemeinschaften. Damit Sie auf
+          Augenhöhe mit der Verwaltung entscheiden.</p>
+        <ul class="kanal__list">
           <li>Ein kurzer Wochenüberblick statt Dauerrauschen — nur, was Ihre WEG wirklich betrifft.</li>
           <li>Belegt und neutral: das Gesetz und die Rechtsprechung, nicht Meinung.</li>
           <li>Und: wie gute Entscheidungen in der Gemeinschaft überhaupt zustande kommen.</li>
         </ul>
-        <a class="kanal-cta" href="#kanal-link-folgt">Kanal in WhatsApp öffnen →</a>
-        <p class="kanal-fine">Einseitiger Kanal: Sie empfangen, ohne selbst zu senden. Ihre
+        <p class="kanal__ds">Einseitiger Kanal: Sie empfangen, ohne selbst zu senden. Ihre
           Nummer bleibt unsichtbar, jederzeit kündbar. <em>Allgemeine Information, keine
           Rechtsberatung.</em></p>
-      </div>
-      <div class="kanalbox__qr">
-        <img src="images/eigentuemer-kompass-qr.png" alt="QR-Code zum Eigentümer-Kompass auf WhatsApp" width="140" height="140">
       </div>
     </div>
   </div>
