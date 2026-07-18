@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeitstrahl — Eigentümerstimme</title>
+<meta name="description" content="Gesetzes-Zeitstrahl: welche Regelungen sich rund um WEG, Gebäude und Wärme wann geändert haben — und welche Perspektive dabei am meisten profitiert. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Kopf — Petrol-Band wie die anderen Seiten */
+  .ghead{background:var(--petrol-dark);color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  .ghead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+    background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 46%,var(--signal) 46%,var(--signal) 64%,var(--erkenntnis) 64%,var(--erkenntnis) 100%)}
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:62ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  /* Filter */
+  .filter{margin:34px 0 6px}
+  .filter__q{font-size:14px;color:var(--text-soft);margin-bottom:12px;font-weight:500}
+  .filter__btns{display:flex;flex-wrap:wrap;gap:9px}
+  .fbtn{border:1px solid var(--border);background:#fff;color:var(--text-soft);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .fbtn:hover{border-color:var(--text-mute)}
+  .fbtn[aria-pressed="true"]{color:#fff;border-color:transparent}
+  .fbtn[data-role="alle"][aria-pressed="true"]{background:var(--petrol-dark)}
+  .fbtn[data-role="eigentuemer"][aria-pressed="true"]{background:var(--stimme)}
+  .fbtn[data-role="mieter"][aria-pressed="true"]{background:var(--signal)}
+  .fbtn[data-role="verwalter"][aria-pressed="true"]{background:var(--petrol)}
+  .fbtn[data-role="versorger"][aria-pressed="true"]{background:#5c6b74}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px;font-size:12.5px;color:var(--text-mute)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .legend i{width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--petrol);box-sizing:border-box}
+  .legend .u{border-color:var(--signal)}
+  .legend .w{border-color:var(--erkenntnis)}
+
+  /* Zeitstrahl */
+  .tl{position:relative;margin-top:26px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--stimme),var(--petrol),var(--erkenntnis))}
+  .ev{position:relative;padding:0 0 20px}
+  .ev::before{content:"";position:absolute;left:-32px;top:8px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--petrol);box-shadow:0 0 0 4px var(--bg-light);transition:opacity .2s}
+  .ev[data-kat="Urteil"]::before{border-color:var(--signal)}
+  .ev[data-kat="Wärmeplanung"]::before{border-color:var(--erkenntnis)}
+  .ev[data-status="geplant"]::before{border-style:dashed;background:var(--bg-light)}
+  .ev--dim{opacity:.32}
+  .ev__card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:box-shadow .2s}
+  .ev__top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:7px}
+  .ev__date{font-family:'Playfair Display',serif;font-weight:600;color:var(--petrol-dark);font-size:14px}
+  .ev__kat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--bg-light);color:var(--text-soft)}
+  .ev__status{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px}
+  .ev__status--plan{background:var(--erkenntnis-tint);color:#245066}
+  .ev__status--aus{background:var(--signal-soft);color:#a6371a}
+  .ev__title{font-family:'Playfair Display',serif;font-size:17.5px;color:var(--petrol-dark);font-weight:600;line-height:1.3;margin:2px 0 7px}
+  .ev__text{font-size:14.5px;color:var(--text-soft);margin-bottom:12px;line-height:1.6}
+  .ev__impact{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--border);padding-top:13px}
+  .imp{display:flex;gap:11px;align-items:flex-start;font-size:13.5px}
+  .imp__badge{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;color:#fff;font-weight:600;font-size:12px;padding:5px 11px;border-radius:999px;line-height:1.2}
+  .imp__why{color:var(--text-soft);line-height:1.55}
+  .imp__why b{color:var(--text);font-weight:600}
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav">
+        <a href="warum.html">Warum wir</a>
+        <a href="guideline.html">Guideline</a>
+        <a href="wegweiser.html">Wegweiser</a>
+        <a href="zeitstrahl.html" aria-current="page">Zeitstrahl</a>
+      </nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Zeitstrahl</div>
+      <h1>Was sich wann geändert hat — und wer davon profitiert.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Eine nüchterne Chronik der Regelungen rund um WEG, Gebäude und Wärme.
+        <b>Jeder Eintrag zeigt, welche Perspektive am meisten profitiert</b> — und wer am
+        ehesten geschwächt wird. Faktisch, belegt, ohne Wertung.</p>
+      <p class="rdg"><b>Allgemeine Information, keine Rechtsberatung.</b> „Profitiert / wird
+        geschwächt" beschreibt neutral, wessen rechtlicher Handlungsspielraum sich erweitert
+        oder verengt — keine politische Wertung. Rechtsstand Juli 2026; das Gebäudeenergierecht
+        ist in Bewegung.</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="filter">
+        <div class="filter__q">Aus welcher Perspektive schauen Sie?</div>
+        <div class="filter__btns">
+          <button class="fbtn" data-role="alle" aria-pressed="true">Alle</button>
+          <button class="fbtn" data-role="eigentuemer" aria-pressed="false">Eigentümer:innen</button>
+          <button class="fbtn" data-role="mieter" aria-pressed="false">Mieter:innen</button>
+          <button class="fbtn" data-role="verwalter" aria-pressed="false">Verwalter</button>
+          <button class="fbtn" data-role="versorger" aria-pressed="false">Versorger</button>
+        </div>
+        <div class="legend">
+          <span><i></i>Gesetz</span>
+          <span><i class="u"></i>Urteil</span>
+          <span><i class="w"></i>Wärmeplanung</span>
+        </div>
+      </div>
+
+      <div class="tl" id="tl"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Erste-Party-JavaScript: rendert den Zeitstrahl aus zeitstrahl.js, laedt
+     nichts von Dritten nach (Datenschutz-Zusage bleibt gewahrt). -->
+<script src="zeitstrahl.js"></script>
+<script>
+(function(){
+  var tl = document.getElementById("tl");
+  if(!tl || typeof ZEITSTRAHL === "undefined") return;
+  var esc = function(s){ var d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; };
+  var data = ZEITSTRAHL.slice().sort(function(a,b){ return a.iso < b.iso ? -1 : (a.iso > b.iso ? 1 : 0); });
+
+  function impact(kind, imp){
+    if(!imp) return "";
+    var r = ROLLEN[imp.rolle];
+    if(!r) return "";
+    var arrow = kind === "pro" ? "↑" : "↓";
+    var pre = kind === "pro" ? "Profitiert am meisten" : "Am ehesten geschwächt";
+    return '<div class="imp"><span class="imp__badge" style="background:' + r.farbe + '">'
+      + arrow + ' ' + esc(r.label) + '</span>'
+      + '<span class="imp__why"><b>' + pre + ':</b> ' + esc(imp.why) + '</span></div>';
+  }
+
+  data.forEach(function(e){
+    var ev = document.createElement("div");
+    ev.className = "ev";
+    ev.setAttribute("data-kat", e.kategorie);
+    if(e.status && e.status !== "in-kraft") ev.setAttribute("data-status", e.status);
+    var roles = [];
+    if(e.profitiert) roles.push(e.profitiert.rolle);
+    if(e.geschwaecht) roles.push(e.geschwaecht.rolle);
+    ev.setAttribute("data-rollen", roles.join(" "));
+
+    var statusBadge = "";
+    if(e.status === "geplant") statusBadge = '<span class="ev__status ev__status--plan">geplant</span>';
+    else if(e.status === "ausgesetzt") statusBadge = '<span class="ev__status ev__status--aus">ausgesetzt</span>';
+
+    var imps = impact("pro", e.profitiert) + impact("con", e.geschwaecht);
+
+    ev.innerHTML =
+      '<div class="ev__card">'
+        + '<div class="ev__top"><span class="ev__date">' + esc(e.datum) + '</span>'
+        + '<span class="ev__kat">' + esc(e.kategorie) + '</span>' + statusBadge + '</div>'
+        + '<div class="ev__title">' + esc(e.titel) + '</div>'
+        + '<div class="ev__text">' + esc(e.text) + '</div>'
+        + (imps ? '<div class="ev__impact">' + imps + '</div>' : '')
+      + '</div>';
+    tl.appendChild(ev);
+  });
+
+  var btns = document.querySelectorAll(".fbtn");
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var role = b.getAttribute("data-role");
+      btns.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      document.querySelectorAll(".ev").forEach(function(ev){
+        if(role === "alle"){ ev.classList.remove("ev--dim"); return; }
+        var r = (ev.getAttribute("data-rollen") || "").split(" ");
+        ev.classList.toggle("ev--dim", r.indexOf(role) === -1);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
