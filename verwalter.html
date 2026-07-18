@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guter oder schlechter Verwalter? — Eigentümerstimme</title>
+<meta name="description" content="Woran Sie gute Verwaltung erkennen — und woran nicht. Eine neutrale, sachliche Gegenüberstellung entlang überprüfbarer Merkmale. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Kopf — Hero mit Motiv (images/hero-verwalter.jpg), Petrol-Fallback */
+  .ghead{background-color:var(--petrol-dark);
+    background-image:linear-gradient(90deg, rgba(26,53,53,.96) 0%, rgba(26,53,53,.90) 34%, rgba(26,53,53,.64) 64%, rgba(26,53,53,.40) 100%), url('images/hero-verwalter.jpg');
+    background-size:cover;background-position:center right;background-repeat:no-repeat;
+    color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  @media(max-width:760px){
+    .ghead{background-position:right center;
+      background-image:linear-gradient(180deg, rgba(26,53,53,.93) 0%, rgba(26,53,53,.86) 55%, rgba(26,53,53,.78) 100%), url('images/hero-verwalter.jpg')}
+  }
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:62ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  /* Gegenueberstellung */
+  .vhead-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .vcol-title{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#fff;padding:13px 18px;border-radius:12px}
+  .vcol-title--gut{background:var(--petrol)}
+  .vcol-title--warn{background:var(--signal)}
+  .vcol-title svg{width:22px;height:22px}
+  .vergleich{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:16px}
+  .vtopic{grid-column:1/-1;font-family:'Playfair Display',serif;font-size:15px;color:var(--petrol-dark);font-weight:600;margin-top:12px}
+  .vcell{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 12px 12px 0;padding:16px 18px;font-size:14.5px;color:var(--text-soft);line-height:1.6}
+  .vcell--warn{border-left-color:var(--signal)}
+  .vcell .ic{flex:0 0 auto;width:24px;height:24px;color:var(--petrol)}
+  .vcell--warn .ic{color:var(--signal)}
+  .vcell b{color:var(--text);font-weight:600}
+
+  .schluss{margin-top:34px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:22px 24px}
+  .schluss p{font-size:15px;color:var(--text-soft);margin:0}
+  .schluss b{color:var(--petrol-dark);font-weight:600}
+  .schluss a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .schluss a:hover{border-bottom-color:var(--petrol)}
+
+  @media(max-width:680px){
+    .vhead-row{display:none}
+    .vergleich{grid-template-columns:1fr;gap:10px}
+    .vtopic{margin-top:16px}
+  }
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav">
+        <a href="warum.html">Warum wir</a>
+        <a href="guideline.html">Guideline</a>
+        <a href="wegweiser.html">Wegweiser</a>
+        <a href="zeitstrahl.html">Zeitstrahl</a>
+        <a href="verwalter.html" aria-current="page">Verwalter</a>
+      </nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Guter oder schlechter Verwalter?</div>
+      <h1>Woran Sie gute Verwaltung erkennen — und woran nicht.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Die meisten Verwaltungen arbeiten sorgfältig. Wo es hakt, hilft ein
+        nüchterner Blick auf <b>überprüfbare Merkmale</b> — die guten wie die Warnsignale.
+        Beides gehört zusammen.</p>
+      <p class="rdg"><b>Neutral und ohne Namen.</b> Diese Gegenüberstellung nennt allgemeine,
+        überprüfbare Merkmale — keine konkreten Personen oder Firmen, kein Pranger. Allgemeine
+        Information, keine Rechtsberatung. Paragrafen beziehen sich auf das WEG, sofern nicht
+        anders angegeben.</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="vhead-row">
+        <div class="vcol-title vcol-title--gut">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Gute Verwaltung
+        </div>
+        <div class="vcol-title vcol-title--warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          Warnsignal
+        </div>
+      </div>
+
+      <div class="vergleich">
+
+        <div class="vtopic">Sachkunde</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Zertifiziert nach <b>§ 26a</b> und fachlich einschlägig — die Sachkunde ist nachgewiesen.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Keine Zertifizierung, keine nachgewiesene Sachkunde (ohne zulässige Ausnahme).</span></div>
+
+        <div class="vtopic">Neutralität &amp; Interessen</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Keine verdeckten Eigeninteressen; Interessenkonflikte werden <b>offengelegt</b>.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Verquickung mit Anbietern/Dienstleistern; <b>In-sich-Geschäfte</b> ohne Offenlegung (§ 181 BGB).</span></div>
+
+        <div class="vtopic">Einladung &amp; Fristen</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Fristgerechte Ladung — <b>drei Wochen, Textform, vollständige Tagesordnung</b>.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Kurzfristige oder unvollständige Ladung; Beschlüsse zu nicht angekündigten Punkten.</span></div>
+
+        <div class="vtopic">Abrechnung &amp; Transparenz</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Nachvollziehbare Jahresabrechnung, Wirtschaftsplan und <b>Vermögensbericht (§ 28 Abs. 4)</b>; gepflegte Beschluss-Sammlung.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Intransparente Abrechnung, fehlender Vermögensbericht, ungepflegte Beschluss-Sammlung.</span></div>
+
+        <div class="vtopic">Belegeinsicht</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Belegeinsicht wird <b>aktiv ermöglicht</b> (§ 18 Abs. 4).</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Einsicht wird verweigert oder erschwert; Unterlagen „nur zeitweise im Portal".</span></div>
+
+        <div class="vtopic">Beschlüsse umsetzen</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Beschlüsse werden umgesetzt, dokumentiert und der Gemeinschaft rückgemeldet.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Beschlüsse bleiben liegen; keine Rückmeldung an die Gemeinschaft.</span></div>
+
+        <div class="vtopic">Erhaltungsrücklage</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Rücklage <b>sicher, getrennt</b> vom sonstigen Vermögen und angemessen dotiert.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Rücklage chronisch unterfinanziert oder mit anderem Vermögen vermischt.</span></div>
+
+        <div class="vtopic">Proaktive Information</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Informiert <b>von sich aus</b> über Preisentwicklung und die kommunale Wärmeplanung.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Informiert nur reaktiv — oder nur das, was der Verwaltung selbst nützt.</span></div>
+
+        <div class="vtopic">Erreichbarkeit</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Erreichbarkeit und Reaktionszeit in einem für die Gemeinschaft zumutbaren Rahmen.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Schwer erreichbar, lange oder ausbleibende Reaktionen.</span></div>
+
+      </div>
+
+      <div class="schluss">
+        <p><b>Fehlen mehrere dieser Merkmale dauerhaft, ist das kein Komfortproblem, sondern ein
+          Governance-Problem</b> — und ein legitimer Anlass, über eine Abberufung nachzudenken
+          (jederzeit möglich, § 26 Abs. 3). Die rechtlichen Grundlagen stehen in der
+          <a href="guideline.html">Guideline</a>, konkrete Fragen dazu im
+          <a href="wegweiser.html">Wegweiser</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
