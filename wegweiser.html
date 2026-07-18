@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wegweiser — Eigentümerstimme</title>
+<meta name="description" content="Der Eigentümerstimme-Wegweiser: geprüfte Top-Fragen rund um Wohnungseigentum, Beirat und Wärme — mit Rechtsgrundlage und Quelle. Cases, wichtige Links und Q&A. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Kopf — Petrol-Band wie Guideline/Startseite */
+  .ghead{background:var(--petrol-dark);color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  .ghead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+    background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 46%,var(--signal) 46%,var(--signal) 64%,var(--erkenntnis) 64%,var(--erkenntnis) 100%)}
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:62ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  /* Top-Fragen: Fragennummer im Akzentfeld statt Icon */
+  .kap__ic{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;line-height:1}
+  .kap__meta{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--text-mute);line-height:1.7}
+  .kap__meta b{color:var(--text-soft);font-weight:600}
+  .kap__meta a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .kap__meta a:hover{border-bottom-color:var(--petrol)}
+
+  /* Case-Template, Links, Q&A */
+  .block{position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;padding:26px 28px}
+  .block::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--erkenntnis)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a6371a;background:var(--signal-soft);padding:5px 12px;border-radius:999px}
+  .block h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--petrol-dark);font-weight:600;margin:14px 0 6px}
+  .block .lead{color:var(--text-soft);font-size:15px;max-width:70ch}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+  @media(max-width:680px){.steps{grid-template-columns:1fr 1fr}}
+  .step{background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:16px 16px 18px;border-top:3px solid var(--erkenntnis)}
+  .step__n{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--erkenntnis)}
+  .step__t{font-weight:600;color:var(--petrol-dark);font-size:14.5px;margin:6px 0 6px}
+  .step__d{font-size:13px;color:var(--text-soft);line-height:1.55}
+
+  .links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media(max-width:680px){.links{grid-template-columns:1fr}}
+  .linkcard{display:block;background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 12px 12px 0;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s}
+  .linkcard:hover{box-shadow:0 8px 22px rgba(26,53,53,.10);transform:translateY(-2px)}
+  .linkcard .t{font-weight:600;color:var(--petrol-dark);font-size:15px}
+  .linkcard .d{font-size:13px;color:var(--text-soft);margin-top:3px;line-height:1.5}
+  .linkcard .u{font-size:12px;color:var(--stimme);margin-top:8px;word-break:break-word}
+  .linknote{margin-top:16px;font-size:12.5px;color:var(--text-mute);font-style:italic}
+
+  .qa{background:var(--bg-light);border:1px dashed var(--border);border-radius:14px;padding:22px 24px;color:var(--text-soft);font-size:14.5px;line-height:1.6}
+  .qa b{color:var(--petrol-dark);font-weight:600}
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav">
+        <a href="warum.html">Warum wir</a>
+        <a href="guideline.html">Guideline</a>
+        <a href="wegweiser.html" aria-current="page">Wegweiser</a>
+      </nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Wegweiser</div>
+      <h1>Die wichtigsten Fragen — geprüft, belegt, auf den Punkt.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Konkrete Fragen rund um Wohnungseigentum, Beirat und Wärme —
+        <b>mit Antwort, Rechtsgrundlage und Quelle</b>. Dazu neutrale Muster-Cases und die
+        wichtigsten weiterführenden Links.</p>
+      <p class="rdg"><b>Allgemeine Information, keine Rechtsberatung.</b> Diese Antworten
+        erklären, was Gesetz und Rechtsprechung allgemein vorsehen; sie ersetzen im Einzelfall
+        keinen Anwalt und kein Ingenieurbüro. Rechtsstand Juli 2026. Paragrafen ohne Zusatz
+        beziehen sich auf das Wohnungseigentumsgesetz (WEG).</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Unterlagen &amp; Einsicht</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">1</span>
+            <span class="kap__h"><span class="kap__t">Muss die Teilungserklärung aktuell sein — und was, wenn sie jahrelang nicht angepasst wurde?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Die Teilungserklärung mit der Gemeinschaftsordnung ist die vertragliche Grundlage
+              der Gemeinschaft — ihr „Grundgesetz". Eine gesetzliche Pflicht, sie regelmäßig zu
+              „aktualisieren", gibt es nicht; sie gilt, bis sie geändert wird. Änderungen des
+              sachenrechtlichen Inhalts brauchen in der Regel eine Vereinbarung aller Eigentümer
+              und die Eintragung im Grundbuch. Wichtig ist aber: Der Verwalter muss die
+              <b>geltende Fassung vorhalten</b> und jedem Eigentümer <b>Einsicht gewähren</b>.
+              Passt die Teilungserklärung nicht mehr zur Realität (etwa nach Umbauten), schafft
+              man Klarheit über Einsicht und, wo nötig, einen klarstellenden Beschluss oder eine
+              Anpassung.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> §§ 5, 10 WEG (Teilungserklärung/
+              Gemeinschaftsordnung); § 18 Abs. 4 WEG (Einsicht).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">2</span>
+            <span class="kap__h"><span class="kap__t">Welche Unterlagen darf ich als einzelner Eigentümer einsehen?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Jeder Eigentümer hat ein umfassendes Einsichtsrecht in die Verwaltungsunterlagen:
+              Verträge, Belege, Kontoauszüge, Wirtschaftspläne, Jahresabrechnungen und die
+              Beschluss-Sammlung. Die Einsicht erfolgt in der Regel am Ort der Verwaltung oder
+              nach Vereinbarung; Kopien können gegen Kostenerstattung verlangt werden. Unterlagen,
+              die nur zeitweise in einem Online-Portal sichtbar sind, ersetzen die Einsicht nicht.
+              <b>Verweigerte oder erschwerte Einsicht ist ein deutliches Warnsignal.</b></p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 18 Abs. 4 WEG (Einsicht); § 24 Abs. 7 WEG (Beschluss-Sammlung).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg/§ 18</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">3</span>
+            <span class="kap__h"><span class="kap__t">Welche Verbrauchsdaten (Heizung/Wasser) stehen mir direkt zu?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Eigentümer haben ein <b>Auskunftsrecht über die sie betreffenden personenbezogenen
+              Daten</b> direkt beim Messdienstleister (Art. 15 DSGVO) — unabhängig vom
+              Verwaltermandat. Ergänzend sieht die Heizkostenverordnung unterjährige
+              Verbrauchsinformationen vor. Das ist ein wirksamer Hebel, um an einheitsbezogene
+              Verbrauchsdaten zu kommen, wenn die Weitergabe über die Verwaltung stockt.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> Art. 15 DSGVO; Heizkostenverordnung (unterjährige Verbrauchsinfo).<br>
+              <b>Quelle:</b> <a href="https://dsgvo-gesetz.de/art-15-dsgvo/" target="_blank" rel="noopener">dsgvo-gesetz.de/art-15</a></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Versammlung &amp; Beschlüsse</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">4</span>
+            <span class="kap__h"><span class="kap__t">Muss aus der Niederschrift hervorgehen, wer wie abgestimmt hat — auch mit Vollmachten?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Über die Beschlüsse ist eine Niederschrift zu fertigen (§ 24 Abs. 6); sie hält
+              Ergebnis und wesentlichen Verlauf fest. Einen <b>automatischen Anspruch</b> darauf,
+              dass namentlich dokumentiert wird, wer wie abgestimmt hat, gibt es grundsätzlich
+              <b>nicht</b> — die Versammlung kann eine namentliche (oder geheime) Abstimmung aber
+              beschließen. Eine saubere Anwesenheits- und Vollmachtsdokumentation gehört zu einer
+              ordnungsgemäßen Versammlung und wird bei einer Anfechtung wichtig. Wer sie vermisst,
+              kann sie in der Versammlung beantragen und rügen.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 24 Abs. 6 WEG (Niederschrift); § 25 WEG (Stimmrecht).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg/§ 24</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">5</span>
+            <span class="kap__h"><span class="kap__t">Zwei Vollmachten für dieselbe Wohnung — welche zählt?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Wer nicht selbst teilnimmt, darf sich vertreten lassen (§ 25 WEG, §§ 164 ff. BGB);
+              die Gemeinschaftsordnung kann die Vollmacht auf bestimmte Personen beschränken.
+              Liegen für dieselbe Einheit zwei Vollmachten vor, gilt: Eine <b>speziellere, spätere
+              Einzelvollmacht</b> für eine konkrete Versammlung verdrängt in der Regel eine
+              allgemeinere frühere (auch „General-")Vollmacht. Für eine Einheit kann nicht
+              gleichzeitig widersprüchlich abgestimmt werden. Im Zweifel ist der Nachweis der
+              Vollmacht in Textform zu verlangen; strittige Fälle gehören zur anwaltlichen
+              Klärung.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 25 WEG; §§ 164 ff. BGB (Vertretung/Vollmacht).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/bgb/" target="_blank" rel="noopener">gesetze-im-internet.de/bgb (§§ 164 ff.)</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">6</span>
+            <span class="kap__h"><span class="kap__t">Bis wann kann ich einen Beschluss anfechten?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Die Anfechtungsklage muss innerhalb <b>eines Monats</b> ab der Beschlussfassung beim
+              Amtsgericht erhoben und innerhalb <b>zweier Monate</b> begründet werden. Die Frist
+              läuft ab dem Beschluss — <b>nicht</b> ab dem Erhalt der Niederschrift. Wer sie
+              versäumt, gegen den gilt der Beschluss, auch wenn er rechtswidrig war. Davon zu
+              unterscheiden ist die Nichtigkeit (z. B. bei fehlender Beschlusskompetenz), die
+              jederzeit geltend gemacht werden kann.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 45 WEG (Anfechtungs- und Begründungsfrist); § 44 WEG (Beschlussklagen).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg/§ 45</a></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Verwalter, Kontrolle &amp; Interessen</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">7</span>
+            <span class="kap__h"><span class="kap__t">Was gilt, wenn kein Verwaltungsbeirat vorhanden ist — wer kontrolliert die Verwaltung?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Ein Beirat ist nicht zwingend vorgeschrieben. Fehlt er, entfällt aber das
+              eigentliche Kontrollorgan — die Überwachung der Verwaltung liegt dann bei der
+              Eigentümerversammlung insgesamt und bei jedem einzelnen Eigentümer. Jeder kann
+              Einsicht in die Unterlagen nehmen (§ 18 Abs. 4) und die Jahresabrechnung prüfen. Der
+              Verwalter braucht auch ohne Beirat für alles Grundlegende einen Beschluss der
+              Gemeinschaft (§ 27). Weil ein Beirat die Kontrolle spürbar erleichtert, spricht
+              ordnungsmäßige Verwaltung in aller Regel für seine Bestellung.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 29 WEG (Beirat), § 27 WEG (Verwalter), § 18 Abs. 4 WEG (Einsicht).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg/§ 29</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">8</span>
+            <span class="kap__h"><span class="kap__t">Darf die Verwaltung Geschäfte mit sich selbst machen (z. B. als eigener Dienstleister)?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Grundsätzlich nicht ohne Weiteres. Steht der Verwalter zugleich auf der anderen
+              Seite eines Geschäfts — etwa als Hausmeister-/Reinigungsdienstleister der eigenen
+              Liegenschaft —, ist das ein <b>Insichgeschäft</b>, das § 181 BGB grundsätzlich
+              verbietet. Eine Befreiung von § 181 lässt sich zwar vereinbaren, wirkt aber nur
+              „soweit zulässig": Sie legitimiert kein Selbstkontrahieren dort, wo Neutralität und
+              Angemessenheit berührt sind. Vergütungsänderungen in einer solchen Doppelrolle
+              gehören vor die Gemeinschaft (Beschluss), nicht in die alleinige Hand des Verwalters;
+              Offenlegung des Interessenkonflikts ist Pflicht.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 181 BGB (Insichgeschäft); § 27 WEG (Befugnisse); § 19 WEG (ordnungsmäßige Verwaltung).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/bgb/__181.html" target="_blank" rel="noopener">gesetze-im-internet.de/bgb/§ 181</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">9</span>
+            <span class="kap__h"><span class="kap__t">Der Verwalter ist zugleich Sachverständiger — darf er beide Rollen mischen?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Ein öffentlich bestellter und vereidigter Sachverständiger (öbuv) ist zu
+              <b>Neutralität, Unabhängigkeit und Unparteilichkeit</b> verpflichtet (§ 36 GewO).
+              Genau das unterscheidet ihn von einem beauftragten Fachbüro, das ein bestelltes
+              Ergebnis liefert. Ist eine Person zugleich Verwalter (oder anderweitig Partei) und
+              Sachverständiger, lässt sich die Rolle nicht beliebig „umschalten": Wer in eigener
+              Sache mitwirkt, kann die Neutralitätspflicht des Sachverständigen nicht zugleich für
+              sich in Anspruch nehmen. Für die Gemeinschaft heißt das: klären, wer eine
+              Stellungnahme mit welcher Rolle und welchem Interesse erstellt hat.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 36 GewO (öbuv-Sachverständige); § 19 WEG (ordnungsmäßige Verwaltung).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/gewo/__36.html" target="_blank" rel="noopener">gesetze-im-internet.de/gewo/§ 36</a></p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">10</span>
+            <span class="kap__h"><span class="kap__t">Woran erkenne ich einen guten Verwalter?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>An nachprüfbaren Merkmalen: zertifiziert nach § 26a (oder zulässige Ausnahme);
+              neutral, ohne verdeckte Eigeninteressen; lädt fristgerecht (drei Wochen, Textform,
+              vollständige Tagesordnung); rechnet transparent ab und legt einen Vermögensbericht
+              vor (§ 28 Abs. 4); ermöglicht Belegeinsicht aktiv; setzt Beschlüsse um; führt die
+              Erhaltungsrücklage sicher und getrennt. Fehlen mehrere dieser Punkte dauerhaft, ist
+              das kein Komfortproblem, sondern ein Governance-Problem — und ein legitimer Anlass,
+              über eine Abberufung (jederzeit möglich, § 26 Abs. 3) nachzudenken.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> §§ 26, 26a, 27, 28 WEG; § 19 WEG (ordnungsmäßige Verwaltung).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg</a></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Kosten &amp; Aufträge</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">11</span>
+            <span class="kap__h"><span class="kap__t">Muss die Verwaltung für Reparaturen mehrere Vergleichsangebote einholen?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Eine <b>starre „Drei-Angebote-Regel"</b> besteht nach der aktuellen Rechtsprechung
+              <b>nicht mehr</b>: Der BGH hat entschieden, dass bei Erhaltungsmaßnahmen keine
+              generelle Pflicht zur Einholung mehrerer Vergleichsangebote gilt (Urteil vom
+              27.03.2026 – V ZR 7/25). Das heißt aber nicht „freie Hand": Das
+              <b>Wirtschaftlichkeitsgebot</b> bleibt, und vor allem — <b>ein von der Gemeinschaft
+              selbst gefasster Beschluss</b> (z. B. „ab 1.000 € zwei Vergleichsangebote") bleibt
+              gültig und bindet die Verwaltung weiter. Wo also ein solcher Beschluss existiert, ist
+              er einzuhalten.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> BGH V ZR 7/25 (27.03.2026); § 19 Abs. 2 WEG (ordnungsmäßige Verwaltung).<br>
+              <b>Quelle:</b> <a href="https://www.lto.de/recht/nachrichten" target="_blank" rel="noopener">lto.de</a> · beck-aktuell.de (BGH V ZR 7/25)</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">12</span>
+            <span class="kap__h"><span class="kap__t">Wie stark dürfen die Kosten für einen Dienstleister in einem Jahr steigen?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Einen festen zulässigen Prozentsatz gibt es nicht. Maßstab ist die
+              <b>Wirtschaftlichkeit</b> und die ordnungsmäßige Verwaltung: Kostensteigerungen
+              müssen sachlich begründet und belegt sein. Ein ungewöhnlicher Sprung (etwa deutlich
+              über den marktüblichen Tarifsteigerungen einer Branche) ist erklärungsbedürftig; das
+              Argument „jahrelang nicht erhöht" rechtfertigt einen Nachhol-Sprung nicht
+              automatisch — im Gegenteil kann es zugleich auf mangelnde Sorgfalt hindeuten. Ein
+              Beschluss, der eine unwirtschaftliche Ausgabe billigt, kann anfechtbar sein.</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 19 Abs. 2 WEG; § 27 WEG; § 45 WEG (Anfechtung).<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">gesetze-im-internet.de/woeigg/§ 19</a></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Für Mieterinnen und Mieter</h2></div>
+      <div class="wall">
+
+        <details class="kap kap--warm">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">13</span>
+            <span class="kap__h"><span class="kap__t">Was bedeutet die Wärmeentscheidung der Eigentümer für Mieterinnen und Mieter?</span></span>
+          </summary>
+          <div class="kap__body">
+            <p>Mietende sind nicht Teil der Eigentümergemeinschaft und haben kein Recht, an deren
+              Versammlung teilzunehmen oder die Beschlüsse einzusehen — eine allgemeine Pflicht,
+              sie über die Entscheidung zu informieren, gibt es nicht. Ihre Rechte ergeben sich
+              aus dem <b>Mietverhältnis</b>: Einsicht in die Betriebskostenabrechnung und die
+              Belege (§ 556 Abs. 3, § 259 BGB), unterjährige Verbrauchsinformation
+              (Heizkostenverordnung), Ankündigung einer Modernisierung (§ 555c BGB) und eine der
+              Höhe nach gedeckelte Modernisierungsmieterhöhung (§ 559 BGB). Bei den CO₂-Kosten
+              trägt der Vermieter je nach energetischem Zustand des Gebäudes einen wachsenden
+              Anteil (CO₂-Kostenaufteilungsgesetz).</p>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 556 Abs. 3, § 259, § 555c, § 559 BGB; Heizkostenverordnung; CO₂KostAufG.<br>
+              <b>Quelle:</b> <a href="https://www.gesetze-im-internet.de/bgb/" target="_blank" rel="noopener">gesetze-im-internet.de/bgb</a></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Cases aus der Praxis</h2></div>
+      <div class="block">
+        <span class="tag">Muster · folgt</span>
+        <h3>So ist ein Case aufgebaut</h3>
+        <p class="lead">Jeder Case ist ein neutraler, anonymisierter Muster-Fall — faktenbasiert,
+          mit Quellen, entlang eines festen Rasters. Reale Namen, Firmen oder Einzelfälle kommen
+          nicht vor. Die freigegebenen Cases folgen nach rechtlicher Prüfung.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step__n">Schritt 1</div>
+            <div class="step__t">Situation</div>
+            <div class="step__d">Der Sachverhalt neutral und generisch — ohne Namen, ohne Wertung.</div>
+          </div>
+          <div class="step">
+            <div class="step__n">Schritt 2</div>
+            <div class="step__t">Was sagt das geltende Recht</div>
+            <div class="step__d">Die einschlägigen §§ und die Rechtsprechung, mit Quelle.</div>
+          </div>
+          <div class="step">
+            <div class="step__n">Schritt 3</div>
+            <div class="step__t">Bewertung</div>
+            <div class="step__d">Wo entspricht das Vorgehen den Regeln — und wo nicht?</div>
+          </div>
+          <div class="step">
+            <div class="step__n">Schritt 4</div>
+            <div class="step__t">Was Eigentümer &amp; Beiräte mitnehmen</div>
+            <div class="step__d">Die verallgemeinerbare Lehre für die eigene Gemeinschaft.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Links</span><h2>Wichtige Quellen &amp; Anlaufstellen</h2></div>
+      <div class="links">
+        <a class="linkcard" href="https://www.gesetze-im-internet.de/woeigg/" target="_blank" rel="noopener">
+          <div class="t">Wohnungseigentumsgesetz (WEG)</div>
+          <div class="d">Der Gesetzestext — Rollen, Rechte, Beschlüsse, Verwaltung.</div>
+          <div class="u">gesetze-im-internet.de/woeigg</div>
+        </a>
+        <a class="linkcard" href="https://www.gesetze-im-internet.de/bgb/" target="_blank" rel="noopener">
+          <div class="t">Bürgerliches Gesetzbuch (BGB)</div>
+          <div class="d">U. a. Vertretung/Vollmacht (§§ 164 ff.) und Insichgeschäft (§ 181).</div>
+          <div class="u">gesetze-im-internet.de/bgb</div>
+        </a>
+        <a class="linkcard" href="https://www.gesetze-im-internet.de/betrkv/" target="_blank" rel="noopener">
+          <div class="t">BetrKV &amp; HeizkostenV</div>
+          <div class="d">Welche Betriebskosten umlagefähig sind — und was nicht.</div>
+          <div class="u">gesetze-im-internet.de/betrkv · /heizkostenv</div>
+        </a>
+        <a class="linkcard" href="https://www.bbsr-geg.bund.de/" target="_blank" rel="noopener">
+          <div class="t">GEG-Infoportal (BBSR)</div>
+          <div class="d">Gebäudeenergiegesetz, Wärmeplanungsgesetz, weiterführende Links.</div>
+          <div class="u">bbsr-geg.bund.de</div>
+        </a>
+        <a class="linkcard" href="https://www.bmwsb.bund.de/" target="_blank" rel="noopener">
+          <div class="t">BMWSB — Gebäudeenergiegesetz</div>
+          <div class="d">Das zuständige Bundesministerium zum aktuellen Stand.</div>
+          <div class="u">bmwsb.bund.de</div>
+        </a>
+        <a class="linkcard" href="https://www.erfurt.de/" target="_blank" rel="noopener">
+          <div class="t">Erfurt — kommunale Wärmeplanung</div>
+          <div class="d">Wärmeplan und Verfügbarkeitscheck (Stand 26.03.2026).</div>
+          <div class="u">erfurt.de</div>
+        </a>
+        <a class="linkcard" href="https://dejure.org/" target="_blank" rel="noopener">
+          <div class="t">Rechtsprechung: dejure · openjur · rewis</div>
+          <div class="d">Urteile im Volltext prüfen — z. B. BGH V ZR 7/25.</div>
+          <div class="u">dejure.org · openjur.de · rewis.io</div>
+        </a>
+        <a class="linkcard" href="https://www.vzth.de/" target="_blank" rel="noopener">
+          <div class="t">Verbraucherzentrale Thüringen</div>
+          <div class="d">Neutrale Verbraucherinfo zu WEG und Energie.</div>
+          <div class="u">vzth.de</div>
+        </a>
+      </div>
+      <p class="linknote">Externe Quellen, Stand Juli 2026 — Änderungen möglich. Öffnen in einem neuen Tab.</p>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Q&amp;A</span><h2>Die ganze Breite — zum Nachlesen</h2></div>
+      <div class="qa">
+        <b>Das vertiefte Q&amp;A-Dokument folgt.</b> Es entsteht, sobald die Top-Fragen final
+        stehen — fortlaufend nummeriert, mit derselben Sorgfalt: geprüft, belegt, neutral. Dann
+        steht es hier als Download.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
