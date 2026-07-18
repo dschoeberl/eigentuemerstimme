@@ -45,7 +45,7 @@ const ZEITSTRAHL = [
   },
   {
     iso: "2026-03-27", datum: "27.03.2026",
-    titel: "BGH V ZR 7/25 — „Drei-Angebote-Regel" gekippt", kategorie: "Urteil", status: "in-kraft",
+    titel: "BGH V ZR 7/25 — Drei-Angebote-Regel gekippt", kategorie: "Urteil", status: "in-kraft",
     text: "Der BGH entscheidet: Bei Erhaltungsmaßnahmen besteht keine generelle Pflicht, mehrere Vergleichsangebote einzuholen.",
     profitiert: { rolle: "verwalter", why: "Keine generelle Pflicht mehr, vor Reparaturen mehrere Angebote einzuholen." },
     geschwaecht: { rolle: "eigentuemer", why: "Die automatische Vergleichs-Absicherung entfällt — per eigenem Beschluss aber wiederherstellbar; das Wirtschaftlichkeitsgebot bleibt." }
