@@ -38,18 +38,18 @@
   .kap__meta a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
   .kap__meta a:hover{border-bottom-color:var(--petrol)}
 
-  /* Case-Template, Links, Q&A */
-  .block{position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;padding:26px 28px}
-  .block::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--erkenntnis)}
-  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a6371a;background:var(--signal-soft);padding:5px 12px;border-radius:999px}
-  .block h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--petrol-dark);font-weight:600;margin:14px 0 6px}
-  .block .lead{color:var(--text-soft);font-size:15px;max-width:70ch}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
-  @media(max-width:680px){.steps{grid-template-columns:1fr 1fr}}
-  .step{background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:16px 16px 18px;border-top:3px solid var(--erkenntnis)}
-  .step__n{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--erkenntnis)}
-  .step__t{font-weight:600;color:var(--petrol-dark);font-size:14.5px;margin:6px 0 6px}
-  .step__d{font-size:13px;color:var(--text-soft);line-height:1.55}
+  /* Cases — Muster-Faelle im 4-Schritt-Raster (Aufklapp-Kacheln); Links & Q&A darunter.
+     Die vier Schritte als eingefaerbte Boxen, weisse Schrift; Kuehl-zu-Warm-Abfolge
+     Situation -> Recht -> Bewertung -> Mitnehmen (Farbe ueber nth-of-type). */
+  .case-intro{max-width:70ch;color:var(--text-soft);font-size:15.5px;margin:2px 0 4px}
+  .case-step{margin:12px 0;border-radius:12px;padding:15px 17px;color:#fff}
+  .case-step__n{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:5px}
+  .case-step p{font-size:14.5px;line-height:1.6;margin:0;color:#fff;max-width:70ch}
+  .case-step p b{color:#fff;font-weight:700}
+  .kap__body .case-step:nth-of-type(1){background:var(--petrol-dark)}
+  .kap__body .case-step:nth-of-type(2){background:var(--petrol)}
+  .kap__body .case-step:nth-of-type(3){background:var(--erkenntnis)}
+  .kap__body .case-step:nth-of-type(4){background:var(--signal)}
 
   .links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
   @media(max-width:680px){.links{grid-template-columns:1fr}}
@@ -386,35 +386,97 @@
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Cases aus der Praxis</h2></div>
-      <div class="block">
-        <span class="tag">Muster · folgt</span>
-        <h3>So ist ein Case aufgebaut</h3>
-        <p class="lead">Jeder Case ist ein neutraler, anonymisierter Muster-Fall — faktenbasiert,
-          mit Quellen, entlang eines festen Rasters. Reale Namen, Firmen oder Einzelfälle kommen
-          nicht vor. Die freigegebenen Cases folgen nach rechtlicher Prüfung.</p>
-        <div class="steps">
-          <div class="step">
-            <div class="step__n">Schritt 1</div>
-            <div class="step__t">Situation</div>
-            <div class="step__d">Der Sachverhalt neutral und generisch — ohne Namen, ohne Wertung.</div>
+      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Fälle aus der Praxis</h2></div>
+      <p class="case-intro">Neutrale Muster-Fälle — real erlebt, vollständig anonymisiert, am
+        geltenden Recht gemessen. So erkennt jede Gemeinschaft ihr Thema wieder, ohne dass
+        jemand bloßgestellt wird. Jeder Fall folgt demselben Raster: Situation → geltendes
+        Recht → Bewertung → was Sie mitnehmen.</p>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">1</span>
+            <span class="kap__h"><span class="kap__t">Nur ein Angebot für eine größere Maßnahme</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>In einer Eigentümergemeinschaft soll eine größere Erhaltungsmaßnahme beauftragt werden (etwa an Dach oder Heizung). Die Verwaltung legt nur ein einziges Angebot vor und verweist darauf, dass Vergleichsangebote nicht mehr verpflichtend seien.</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Der BGH hat entschieden, dass bei Erhaltungsmaßnahmen keine generelle Pflicht zur Einholung mehrerer Vergleichsangebote besteht (BGH, Urteil vom 27.03.2026 – V ZR 7/25). Es gilt aber weiterhin das <b>Wirtschaftlichkeitsgebot</b> als Teil ordnungsmäßiger Verwaltung (§ 19 Abs. 2 WEG), und ein von der Gemeinschaft selbst gefasster Beschluss bleibt wirksam.</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Dass nur ein Angebot vorliegt, ist nach der neuen Rechtsprechung nicht schon für sich regelwidrig. Die Gegenstimme: Die Gemeinschaft ist dem nicht ausgeliefert — sie kann sich die verlorene Absicherung selbst zurückholen, indem sie per Beschluss festlegt, dass ab einer bestimmten Kostenschwelle Vergleichsangebote einzuholen sind. Ein solcher Beschluss bindet die Verwaltung.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Einen eigenen Beschluss fassen — „Ab X € sind mindestens zwei Vergleichsangebote einzuholen." Das stellt die Automatik wieder her und macht die Verwaltung überprüfbar.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> BGH V ZR 7/25 (27.03.2026); § 19 Abs. 2 WEG · <b>Quelle:</b> lto.de, beck-aktuell.de · <b>Stand:</b> 18.07.2026</p>
           </div>
-          <div class="step">
-            <div class="step__n">Schritt 2</div>
-            <div class="step__t">Was sagt das geltende Recht</div>
-            <div class="step__d">Die einschlägigen §§ und die Rechtsprechung, mit Quelle.</div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">2</span>
+            <span class="kap__h"><span class="kap__t">Belegeinsicht wird verweigert</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>Ein Eigentümer oder ein Beiratsmitglied möchte vor einer Beschlussfassung Belege, Verträge oder Wirtschaftspläne prüfen. Die Verwaltung verweist auf ein Online-Portal, in dem Unterlagen nur zeitweise sichtbar sind, oder gewährt die Einsicht nur zögerlich.</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Jeder Eigentümer hat Anspruch auf Einsicht in die Verwaltungsunterlagen (§ 18 Abs. 4 WEG) — Verträge, Belege, Wirtschaftspläne, Abrechnungen — sowie in die Beschluss-Sammlung (§ 24 Abs. 7 WEG). Ein Portal, in dem Unterlagen nur vorübergehend erscheinen, genügt diesem Anspruch nicht.</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Erschwerte oder verweigerte Einsicht ist kein Ausdruck ordnungsmäßiger Verwaltung. Die Gegenstimme: Das Einsichtsrecht besteht <b>unabhängig davon, ob man Beirat ist</b> — jeder einzelne Eigentümer kann es geltend machen.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Einsicht schriftlich und mit Frist verlangen, ausdrücklich auf § 18 Abs. 4 verweisen und eine Verweigerung dokumentieren — sie ist prüf- und beschlussrelevant und kann eine spätere Anfechtung stützen.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 18 Abs. 4, § 24 Abs. 7 WEG · <b>Quelle:</b> gesetze-im-internet.de/woeigg · <b>Stand:</b> 18.07.2026</p>
           </div>
-          <div class="step">
-            <div class="step__n">Schritt 3</div>
-            <div class="step__t">Bewertung</div>
-            <div class="step__d">Wo entspricht das Vorgehen den Regeln — und wo nicht?</div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">3</span>
+            <span class="kap__h"><span class="kap__t">Die Verwaltung als eigener Dienstleister</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>Die Verwaltung erbringt zugleich eine bezahlte Dienstleistung für die Liegenschaft (etwa Hausmeister- oder Reinigungsdienst) und passt deren Vergütung an — ohne Beschluss der Gemeinschaft und ohne Mitzeichnung eines Beirats.</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Steht der Verwalter auf beiden Seiten eines Geschäfts, ist das ein <b>Insichgeschäft</b>, das § 181 BGB grundsätzlich verbietet. Eine Befreiung von § 181 wirkt nur „soweit zulässig" und legitimiert kein Selbstkontrahieren dort, wo Angemessenheit und Neutralität berührt sind. Grundlegende Maßnahmen bedürfen eines Beschlusses (§ 27 WEG); Geschäfte in eigener Sache sind offenzulegen.</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Eine einseitige Vergütungsanpassung in der Doppelrolle ohne Beschluss ist angreifbar. Die Gegenstimme: Die Gemeinschaft muss das nicht hinnehmen — sie kann Offenlegung, eine Beschlussgrundlage und eine Angemessenheitsprüfung verlangen.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Bei Doppelrollen auf Transparenz bestehen; Vergütungsänderungen nur per Beschluss; und eine Schwelle beschließen, ab der Änderungen der Vergütung der Zustimmung der Gemeinschaft bedürfen.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 181 BGB; § 27 WEG · <b>Quelle:</b> gesetze-im-internet.de/bgb/§ 181 · <b>Stand:</b> 18.07.2026</p>
           </div>
-          <div class="step">
-            <div class="step__n">Schritt 4</div>
-            <div class="step__t">Was Eigentümer &amp; Beiräte mitnehmen</div>
-            <div class="step__d">Die verallgemeinerbare Lehre für die eigene Gemeinschaft.</div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">4</span>
+            <span class="kap__h"><span class="kap__t">Ein Kostensprung ohne Begründung</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>Eine laufende Dienstleistung (etwa der Hausmeisterdienst) wird in einem einzigen Jahr deutlich teurer — ein Sprung weit über den üblichen Tarifsteigerungen —, begründet mit dem Hinweis, man habe „jahrelang nicht erhöht".</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Für die Verwaltung gilt das <b>Wirtschaftlichkeitsgebot</b> als Teil ordnungsmäßiger Verwaltung (§ 19 Abs. 2 WEG). Einen festen zulässigen Prozentsatz gibt es nicht; Kostensteigerungen müssen sachlich begründet und belegt sein. Beschlüsse über unwirtschaftliche Ausgaben können angefochten werden (§ 45 WEG).</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Ein unbegründeter Sprung ist erklärungsbedürftig; das Nachhol-Argument rechtfertigt ihn nicht automatisch und kann zugleich auf mangelnde Sorgfalt der Verwaltung hindeuten. Die Gegenstimme: Die Gemeinschaft darf Nachweise verlangen und den Beschluss bei Unwirtschaftlichkeit innerhalb der Frist anfechten.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Eine nachvollziehbare Kalkulation und einen Marktvergleich anfordern; im Zweifel fristgerecht anfechten; und mit der Verwaltung ein Quartals-Reporting (Budget vs. Ist) vereinbaren, damit solche Sprünge früh sichtbar werden.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 19 Abs. 2, § 27, § 45 WEG · <b>Quelle:</b> gesetze-im-internet.de/woeigg/§ 19 · <b>Stand:</b> 18.07.2026</p>
           </div>
-        </div>
+        </details>
+
+        <details class="kap kap--warm">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">5</span>
+            <span class="kap__h"><span class="kap__t">Die Wärmeentscheidung unter Zeitdruck</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>Eine Gemeinschaft steht vor der Erneuerung der zentralen Heizung. Es wird Eile suggeriert — kommunale Wärmeplanung, gesetzlicher Druck —, und ein Beschluss soll rasch gefasst werden, ohne klare Einordnung der Maßnahme und ohne saubere Kostenregelung.</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Die zentrale Heizung ist regelmäßig Gemeinschaftseigentum; die Entscheidung trifft die Gemeinschaft per Beschluss. Je nach Fall ist die Maßnahme Erhaltung, modernisierende Erhaltung oder bauliche Veränderung (§§ 20, 21 WEG), mit unterschiedlicher Kostenverteilung (§ 16 WEG). Ein beschlossener kommunaler Wärmeplan setzt noch keine Pflicht in Kraft — verbindlich wird es erst mit einer gesonderten Gebietsausweisung.</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Panik ist rechtlich nicht geboten. Die Gegenstimme: Funktionierende Anlagen dürfen weiterlaufen; die Gemeinschaft hat Zeit, sauber zu entscheiden. Ein Beschluss ohne klare Einordnung und Kostenregelung ist anfechtbar.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Vor dem Beschluss die Einordnung (Erhaltung / Modernisierung / bauliche Veränderung) und die Kostenverteilung klären und in den Beschlusstext schreiben; über den Lebenszyklus rechnen statt über den Anschaffungspreis; und den Unterschied zwischen einem Wärmeplan und einer verbindlichen Gebietsausweisung kennen.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> §§ 20, 21, 16 WEG; Wärmeplanungsgesetz (WPG) · <b>Quelle:</b> gesetze-im-internet.de/woeigg; bbsr-geg.bund.de · <b>Stand:</b> 18.07.2026</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true">6</span>
+            <span class="kap__h"><span class="kap__t">Wenn Verwalter und Sachverständiger dieselbe Person sind</span></span>
+          </summary>
+          <div class="kap__body">
+            <div class="case-step"><span class="case-step__n">Situation</span><p>Eine folgenreiche Entscheidung — etwa zur Wärmeversorgung — wird auf eine fachliche Stellungnahme gestützt, die von einer Person stammt, die zugleich als Verwalter auftritt oder die Versammlung leitet. Es wird erklärt, man agiere „nur als Verwalter".</p></div>
+            <div class="case-step"><span class="case-step__n">Was sagt das geltende Recht</span><p>Ein öffentlich bestellter und vereidigter Sachverständiger (§ 36 GewO) ist zu Neutralität, Unabhängigkeit und Unparteilichkeit verpflichtet. Wer in eigener Sache mitwirkt — als Verwalter oder Partei —, kann die Neutralitätspflicht des Sachverständigen nicht zugleich für sich beanspruchen. Grundlegende Entscheidungen brauchen eine vollständige, neutrale Grundlage (ordnungsmäßige Verwaltung, § 19 WEG).</p></div>
+            <div class="case-step"><span class="case-step__n">Bewertung</span><p>Eine Rolle lässt sich nicht beliebig „umschalten". Die Gegenstimme: Die Gemeinschaft darf offenlegen lassen, mit welcher Rolle und welchem Interesse eine Stellungnahme erstellt wurde — und eine unabhängige Zweitperspektive verlangen.</p></div>
+            <div class="case-step case-step--take"><span class="case-step__n">Was Eigentümer &amp; Beiräte mitnehmen</span><p>Fragen, wer eine Stellungnahme mit welcher Rolle erstellt hat; bei folgenreichen Entscheidungen eine unabhängige, neutrale zweite Einschätzung einholen; und die Abwägung dokumentieren — das macht die Entscheidung nachvollziehbar und anfechtungsfester.</p></div>
+            <p class="kap__meta"><b>Rechtsgrundlage:</b> § 36 GewO (öbuv-Sachverständige); § 19 WEG · <b>Quelle:</b> gesetze-im-internet.de/gewo/§ 36 · <b>Stand:</b> 18.07.2026</p>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
