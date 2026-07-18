@@ -28,14 +28,14 @@ fonts/            Inter und Playfair Display, selbst gehostet (kein Dritt-CDN)
 ## Wartungshinweis zur Datenschutzerklärung
 
 Die Datenschutzerklärung sagt aus, dass die Seite **keine Cookies setzt, nicht
-trackt und kein JavaScript ausführt**. Das gilt nur für den aktuellen Stand und
-ist heute nachweislich zutreffend — die Seite lädt ausschließlich HTML, zwei
-Schriften und ein Bild vom eigenen Server.
+trackt und keine Drittanbieter einbindet**. **Eigenes (First-Party-)JavaScript
+ist zulässig**, solange es keine Daten an Dritte überträgt, keine fremden Skripte
+nachlädt und weder der Analyse noch der Nachverfolgung dient.
 
-Sobald ein Kontaktformular, ein Analysewerkzeug, eine Karte, ein eingebettetes
-Video oder irgendein Script hinzukommt, werden diese Aussagen **falsch**. Dann
-müssen die betroffenen Abschnitte und die Rechtsgrundlagen angepasst werden,
-bevor die Änderung live geht.
+Sobald ein Analysewerkzeug, eine Karte, ein eingebettetes Video oder irgendein
+**fremdes Skript/CDN** hinzukommt, werden die Aussagen zur Drittanbieter-Freiheit
+**falsch**. Dann müssen die betroffenen Abschnitte und die Rechtsgrundlagen
+angepasst werden, bevor die Änderung live geht.
 
 Der Transfer-Satz zu Netlify stützt sich auf das EU-U.S. Data Privacy Framework.
 Netlify, Inc. ist dort als aktiver Teilnehmer gelistet (geprüft Juli 2026,
