@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guideline — Eigentümerstimme</title>
+<meta name="description" content="Die Eigentümerstimme-Guideline: WEG, Rollen und Entscheidungen rund um Gebäude und Wärme — verständlich erklärt, mit den §§ zum Nachlesen. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .guide{max-width:940px;margin:0 auto;padding:0 24px}
+
+  /* Kopf — kraeftiges Petrol-Band wie der Startseiten-Hero: Gewicht + Kontrast */
+  .ghead{background:var(--petrol-dark);color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  .ghead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+    background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 46%,var(--signal) 46%,var(--signal) 64%,var(--erkenntnis) 64%,var(--erkenntnis) 100%)}
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:20ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:60ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  /* Cluster-Zwischenueberschrift mit Petrol-Chip */
+  .cluster{padding:46px 0 4px}
+  .cluster__label{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .cluster__chip{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--petrol);padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .cluster__label h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;white-space:nowrap}
+  .cluster__label::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--stimme-soft),rgba(230,227,223,0))}
+
+  /* Kachel-Wand — kraeftig: je Kachel eine Akzentfarbe (--acc), Koralle als Aktiv-Fokus */
+  .wall{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.wall{grid-template-columns:1fr}}
+  .kap{--acc:var(--stimme);position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+    transition:box-shadow .2s,border-color .2s,transform .2s}
+  .kap--warm{--acc:var(--signal)}
+  .kap--wiss{--acc:var(--erkenntnis)}
+  .kap::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--acc)}
+  .kap:hover{box-shadow:0 12px 30px rgba(26,53,53,.12);border-color:var(--acc);transform:translateY(-2px)}
+  .kap[open]{grid-column:1/-1;box-shadow:0 16px 38px rgba(26,53,53,.15);transform:none}
+  .kap[open]::before{background:var(--signal)}
+  .kap--full{grid-column:1/-1}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:16px;padding:24px 22px 22px}
+  summary::-webkit-details-marker{display:none}
+  .kap__ic{flex:0 0 auto;width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--acc);color:#fff;transition:background .2s}
+  .kap[open] .kap__ic{background:var(--signal)}
+  .kap__ic svg{width:25px;height:25px}
+  .kap__h{flex:1;min-width:0}
+  .kap__t{font-family:'Playfair Display',serif;font-size:17.5px;font-weight:600;color:var(--petrol-dark);line-height:1.3}
+  .kap__s{margin-top:6px;font-size:13.5px;color:var(--text-soft);line-height:1.55}
+  .kap__no{flex:0 0 auto;font-family:'Playfair Display',serif;font-size:22px;color:var(--acc);font-weight:600;line-height:1;padding-top:2px;transition:color .2s}
+  .kap[open] .kap__no{color:var(--signal)}
+  .kap__body{padding:2px 22px 26px}
+  .kap__lead{font-size:15.5px;color:var(--petrol-dark);font-weight:500;margin:16px 0 6px;line-height:1.6;padding:2px 0 2px 16px;border-left:3px solid var(--signal)}
+  .kap__body p{font-size:15px;color:var(--text-soft);margin:12px 0;max-width:66ch}
+  .kap__body p b{color:var(--text);font-weight:600}
+  .kap__body ul{margin:12px 0;padding-left:20px;font-size:15px;color:var(--text-soft);max-width:66ch}
+  .kap__body li{margin:7px 0}
+  .kap__body li::marker{color:var(--acc)}
+
+  /* Kurzregister — Paragrafen auf einen Blick */
+  .register{position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;padding:26px 26px 12px}
+  .register::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--petrol)}
+  .register dl{margin:0}
+  .register dt{font-family:'Playfair Display',serif;font-weight:600;color:var(--petrol-dark);font-size:14.5px;margin-top:14px}
+  .register dd{margin:2px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-soft)}
+  .register dd:last-child{border-bottom:0}
+
+  /* Download — der eine wichtigste Button der Seite: Koralle */
+  .dl{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .dl a{display:inline-flex;align-items:center;gap:10px;background:var(--signal);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:13px 24px;border-radius:10px;transition:filter .2s}
+  .dl a:hover{filter:brightness(1.06)}
+  .dl a svg{width:20px;height:20px}
+  .dl .meta{font-size:13px;color:var(--text-mute)}
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav">
+        <a href="warum.html">Warum wir</a>
+        <a href="guideline.html" aria-current="page">Guideline</a>
+      </nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Guideline</div>
+      <h1>Ihr Recht in der Eigentümergemeinschaft — verständlich.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Rollen, Rechte, Pflichten und die großen Entscheidungen rund um
+        Wohnungseigentum, Gebäude und Wärme. <b>Oben in Klartext, darunter der Paragraf zum
+        Nachlesen</b> — damit Sie auf Augenhöhe mit den Fachleuten sprechen.</p>
+      <p class="rdg"><b>Allgemeine Information, keine Rechtsberatung.</b> Diese Guideline
+        erklärt, was Gesetz und Rechtsprechung allgemein vorsehen — sie ersetzt im Einzelfall
+        weder Anwalt noch Ingenieurbüro noch Steuerberater. Rechtsstand Juli 2026; das
+        Gebäudeenergierecht ist derzeit in Bewegung.</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Teil 1</span><h2>Das Fundament</h2></div>
+      <div class="wall">
+
+        <details class="kap kap--full">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Was Ihnen gehört — und warum die Heizung der Gemeinschaft gehört</span>
+              <span class="kap__s">Sonder- und Gemeinschaftseigentum, die rechtsfähige Gemeinschaft, die Teilungserklärung.</span>
+            </span>
+            <span class="kap__no">01</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Kurz gesagt: Ihre Wohnung gehört Ihnen, das Gebäude drumherum
+              allen gemeinsam — und über die zentrale Heizung entscheidet nicht der Einzelne,
+              sondern die Gemeinschaft.</p>
+            <p><b>Sondereigentum und Gemeinschaftseigentum.</b> Wohnungseigentum ist immer
+              zweigeteilt: das <b>Sondereigentum</b> (die eigene Wohnung, an der Alleineigentum
+              besteht) und das <b>Gemeinschaftseigentum</b> (alles, was allen gehört und dem
+              gemeinschaftlichen Gebrauch dient — Dach, Fassade, tragende Wände, Treppenhaus,
+              zentrale Heizungsanlage, Leitungen). Die Faustregel für jede Wärmeentscheidung:
+              Die <b>zentrale Heizungsanlage ist regelmäßig Gemeinschaftseigentum</b> — über sie
+              entscheidet nicht der einzelne Eigentümer, sondern die Gemeinschaft.</p>
+            <p><b>Die Gemeinschaft der Wohnungseigentümer (GdWE).</b> Seit der Reform 2020 ist
+              die Gemeinschaft <b>selbst rechtsfähig</b>: Sie ist Trägerin der Rechte und
+              Pflichten, sie schließt Verträge, sie klagt und wird verklagt. Das hat eine
+              wichtige Folge: Ansprüche gegen Handwerker, gegen den Verwalter oder gegen einen
+              Versorger stehen in aller Regel <b>der Gemeinschaft</b> zu, nicht dem Einzelnen.</p>
+            <p><b>Teilungserklärung und Gemeinschaftsordnung — das „Grundgesetz" der WEG.</b>
+              Was wem gehört, wie Kosten verteilt werden und welche Sonderregeln gelten, steht in
+              der <b>Teilungserklärung</b> (mit der Gemeinschaftsordnung als deren
+              „Verfassungsteil"). Sie geht dem Gesetz in vielem vor. <b>Erster Schritt bei jeder
+              strittigen Frage ist deshalb immer: die Teilungserklärung lesen.</b> Viele
+              vermeintliche Gesetzesfragen sind in der eigenen Gemeinschaftsordnung längst
+              geregelt — abweichend vom gesetzlichen Standard.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Teil 2</span><h2>Orte &amp; Rollen der Entscheidung</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.5a3 3 0 0 1 0 5.6"/><path d="M17.5 14.4A5.6 5.6 0 0 1 20.5 19"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Wo entschieden wird — und welche Fristen zählen</span>
+              <span class="kap__s">Einberufung, Mehrheiten, Beschluss-Sammlung, Anfechtung.</span>
+            </span>
+            <span class="kap__no">02</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Die Eigentümerversammlung ist der Ort, an dem verbindlich
+              entschieden wird. Wer die Fristen kennt, ist nicht ausgeliefert.</p>
+            <p><b>Einberufung und Frist.</b> Der Verwalter beruft ein, mindestens einmal
+              jährlich, in <b>Textform</b> mit einer Frist von <b>drei Wochen</b> (§ 24). Die
+              Einladung muss die <b>Tagesordnung</b> benennen: Über nicht angekündigte Gegenstände
+              kann grundsätzlich kein bindender Beschluss gefasst werden. Ein Viertel der
+              Eigentümer kann die Einberufung verlangen.</p>
+            <p><b>Beschlussfähigkeit.</b> Seit 2020 gibt es <b>kein Mindestquorum</b> mehr: Jede
+              ordnungsgemäß einberufene Versammlung ist beschlussfähig. Wer fehlt, entscheidet
+              mit, ohne dabei zu sein — hingehen oder eine Vollmacht erteilen.</p>
+            <p><b>Mehrheiten.</b> Der <b>Regelfall ist die einfache Mehrheit</b> der abgegebenen
+              Stimmen — seit der Reform auch für bauliche Veränderungen. Qualifizierte Mehrheiten
+              können sich aus der Gemeinschaftsordnung ergeben.</p>
+            <p><b>Beschluss-Sammlung.</b> Der Verwalter führt eine <b>Beschluss-Sammlung</b>
+              (§ 24 Abs. 7) — das fortlaufende Gedächtnis der Gemeinschaft. Wer wissen will, was
+              gilt, schaut hier, nicht in alten Protokollen.</p>
+            <p><b>Anfechtung — die Frist, die man kennen muss.</b> Ein rechtswidriger Beschluss
+              ist zunächst wirksam. Die <b>Anfechtungsklage</b> muss innerhalb <b>eines Monats</b>
+              ab Beschlussfassung erhoben und innerhalb <b>zweier Monate</b> begründet werden
+              (§ 45). Die Frist ist scharf: Wer sie versäumt, gegen den gilt der Beschluss, auch
+              wenn er rechtswidrig war. Davon zu unterscheiden ist die <b>Nichtigkeit</b> (etwa
+              bei fehlender Beschlusskompetenz) — sie kann jederzeit geltend gemacht werden.</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5" width="13" height="15" rx="2"/><path d="M9.5 5V4a2.5 2.5 0 0 1 5 0v1"/><path d="M9 11h6M9 14.5h4"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Was der Verwalter darf — und wo seine Grenzen sind</span>
+              <span class="kap__s">Bestellung, Pflichten, Transparenz, jederzeit abberufbar.</span>
+            </span>
+            <span class="kap__no">03</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Der Verwalter führt aus, entscheidet aber nicht das
+              Grundsätzliche — und die Gemeinschaft kann ihn jederzeit abberufen.</p>
+            <p><b>Bestellung und Vertrag.</b> Die <b>Bestellung</b> (der organschaftliche Akt) ist
+              vom <b>Verwaltervertrag</b> zu trennen. Bestellt wird für höchstens fünf Jahre. Die
+              <b>Abberufung ist jederzeit möglich</b> (§ 26 Abs. 3); der Vertrag endet dann
+              spätestens sechs Monate später. Ein starkes Recht: Die Gemeinschaft ist einem
+              schlechten Verwalter nicht auf Jahre ausgeliefert.</p>
+            <p><b>Aufgaben (§ 27).</b> Der Verwalter darf Maßnahmen <b>untergeordneter
+              Bedeutung</b> und <b>eilbedürftige</b> Maßnahmen eigenständig treffen. Alles
+              Grundlegende — größere Erhaltung, die Wärmeentscheidung — braucht einen
+              <b>Beschluss</b> der Gemeinschaft.</p>
+            <p><b>Transparenzpflichten.</b> Er erstellt Wirtschaftsplan und Jahresabrechnung und
+              legt einen <b>Vermögensbericht</b> vor (§ 28 Abs. 4). Er muss <b>Belegeinsicht</b>
+              ermöglichen — verweigerte oder erschwerte Belegeinsicht ist ein deutliches
+              Warnsignal.</p>
+            <p><b>Zertifizierter Verwalter (§ 26a).</b> Seit Dezember 2023 besteht grundsätzlich
+              ein <b>Anspruch auf einen zertifizierten Verwalter</b> (Sachkundenachweis per
+              IHK-Prüfung). Ein Verwalter ohne Zertifizierung ist regelmäßig nicht mehr Ausdruck
+              ordnungsmäßiger Verwaltung.</p>
+            <p><b>Interessenkonflikt (§ 181 BGB).</b> Heikel wird es, wenn der Verwalter zugleich
+              auf der anderen Seite eines Geschäfts steht. § 181 BGB verbietet solches
+              Selbstkontrahieren grundsätzlich; eine Befreiung wirkt nur „soweit zulässig" und
+              deckt keine Rollen, die unabhängig sein müssen. Vergütungsänderungen in einer
+              Doppelrolle gehören vor die Gemeinschaft — nicht in die alleinige Hand des
+              Verwalters.</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19 6v5c0 4.3-3 7.2-7 8.5-4-1.3-7-4.2-7-8.5V6z"/><path d="M9 11.8l2.2 2.2L15 10.2"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Die unterschätzte Kontrollrolle der Eigentümer</span>
+              <span class="kap__s">Unterstützen und überwachen, Belegprüfung, Grenzen, Haftung.</span>
+            </span>
+            <span class="kap__no">04</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Der Beirat unterstützt den Verwalter — und kontrolliert ihn.
+              Seine schärfste Waffe ist die Belegprüfung.</p>
+            <p><b>Rolle (§ 29): unterstützen UND überwachen.</b> Der Beirat ist kein
+              Erfüllungsgehilfe der Verwaltung und kein Nebenverwalter, sondern das
+              <b>Kontrollorgan der Eigentümer</b>. Die Überwachungsfunktion ist kein
+              Misstrauensvotum, sondern gute Governance.</p>
+            <p><b>Die Kernaufgabe: Rechnungs- und Belegprüfung.</b> Der Beirat <b>prüft
+              Wirtschaftsplan und Jahresabrechnung, bevor die Versammlung darüber beschließt</b>,
+              und gibt eine Stellungnahme ab. Das ist die schärfste Waffe gegen intransparente
+              Verwaltung — nicht lautes Auftreten, sondern belegte Prüfung.</p>
+            <p><b>Grenzen — was der Beirat NICHT ist.</b> Er hat <b>kein Weisungsrecht</b>
+              gegenüber dem Verwalter im laufenden Geschäft und <b>keine Vertretungsmacht</b> für
+              die Gemeinschaft. Er bereitet vor, prüft, empfiehlt, überwacht — die Entscheidung
+              trifft die Gemeinschaft.</p>
+            <p><b>Haftung (§ 29 Abs. 3).</b> Übt der Beirat sein Amt <b>unentgeltlich</b> aus, ist
+              seine Haftung auf <b>Vorsatz und grobe Fahrlässigkeit</b> beschränkt — ein bewusster
+              Schutz des Ehrenamts. Die verbreitete Angst vor Beiratshaftung ist meist größer als
+              das reale Risiko.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Teil 3</span><h2>Die großen Themen</h2></div>
+      <div class="wall">
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a3.8 3.8 0 0 0-4.9 4.9l-5.1 5.1a1.5 1.5 0 0 0 0 2.1l.9.9a1.5 1.5 0 0 0 2.1 0l5.1-5.1a3.8 3.8 0 0 0 4.9-4.9l-2.4 2.4-2-.5-.5-2z"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Reparatur, Modernisierung, Umbau — welche Mehrheit, wer zahlt</span>
+              <span class="kap__s">Erhaltung, Rücklage, Vergleichsangebote, bauliche Veränderung.</span>
+            </span>
+            <span class="kap__no">05</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Ob eine Maßnahme bloße Erhaltung oder eine bauliche Veränderung
+              ist, entscheidet über Mehrheit und Kostenverteilung — hier liegt der häufigste
+              Streit.</p>
+            <p><b>Erhaltung.</b> Die laufende Erhaltung des Gemeinschaftseigentums ist
+              Pflichtaufgabe; sie wird mit <b>einfacher Mehrheit</b> beschlossen, die Kosten
+              tragen alle nach dem geltenden Verteilerschlüssel. Der Austausch einer defekten
+              Anlage gegen eine gleichwertige ist typischerweise Erhaltung.</p>
+            <p><b>Erhaltungsrücklage (§ 19 Abs. 2 Nr. 4).</b> Die Gemeinschaft muss eine
+              <b>angemessene</b> Rücklage ansammeln — die Kriegskasse für künftige Maßnahmen. Eine
+              chronisch unterfinanzierte Rücklage ist ein Governance-Risiko und ein häufiger
+              Prüfpunkt des Beirats; die Anlage muss sicher und getrennt erfolgen.</p>
+            <p><b>Vergleichsangebote bei Erhaltung.</b> Eine starre Pflicht, vor jeder
+              Erhaltungsmaßnahme mehrere Angebote einzuholen, besteht nach der Rechtsprechung nicht
+              mehr (BGH, 27.03.2026 – V ZR 7/25). Wichtig: Ein von der Gemeinschaft selbst
+              gefasster Beschluss, der Vergleichsangebote ab einer Kostenschwelle verlangt, bleibt
+              davon unberührt und bindet die Verwaltung weiter.</p>
+            <p><b>Bauliche Veränderungen (§§ 20, 21).</b> Veränderungen über die bloße Erhaltung
+              hinaus werden seit der Reform mit <b>einfacher Mehrheit</b> beschlossen. Die
+              Kostenfolge ist der Kern:</p>
+            <ul>
+              <li>Grundsatz: <b>Nur die zustimmenden Eigentümer</b> tragen die Kosten und dürfen die Veränderung nutzen.</li>
+              <li>Ausnahme 1: Stimmen <b>mehr als zwei Drittel der abgegebenen Stimmen und mehr als die Hälfte aller Miteigentumsanteile</b> zu, tragen alle die Kosten (Grenze: keine unverhältnismäßigen Kosten).</li>
+              <li>Ausnahme 2: Amortisiert sich die Maßnahme in <b>angemessener Zeit</b>, tragen ebenfalls alle.</li>
+            </ul>
+            <p><b>Privilegierte Maßnahmen (§ 20 Abs. 2).</b> Auf Barrierefreiheit, Laden von
+              E-Fahrzeugen, Einbruchschutz und Glasfaseranschluss besteht ein <b>Anspruch auf
+              Gestattung</b>; die Kosten trägt, wer die Maßnahme verlangt. Das „Ob" ist hier
+              weitgehend entschieden, verhandelt wird nur das „Wie".</p>
+            <p><b>Einordnung der Wärmeentscheidung.</b> Der Austausch der zentralen Heizung kann
+              Erhaltung, modernisierende Erhaltung oder bauliche Veränderung sein — mit
+              unterschiedlicher Kostenfolge. Diese <b>Einordnung sollte vor dem Beschluss geklärt
+              und im Beschlusstext sauber gefasst werden</b>, sonst droht Anfechtung.</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.6a4.5 4.5 0 1 0 0 6.8"/><path d="M7 11h6.2M7 13.4h5.2"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Wer zahlt was — und warum „das zahlt der Mieter" trügt</span>
+              <span class="kap__s">Verteilerschlüssel, Investition vs. Betrieb, Umlagefähigkeit.</span>
+            </span>
+            <span class="kap__no">06</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Kosten verteilen sich nach Miteigentumsanteilen — und längst
+              nicht alles lässt sich auf Mieter umlegen. Wer das verwechselt, entscheidet blind.</p>
+            <p><b>Die Verteilung in der Gemeinschaft (§ 16 Abs. 2).</b> Kosten werden nach
+              <b>Miteigentumsanteilen</b> getragen, soweit die Gemeinschaftsordnung nichts anderes
+              bestimmt. Seit der Reform kann die Gemeinschaft den Verteilerschlüssel für einzelne
+              Kosten <b>per einfachem Beschluss ändern</b> (§ 16 Abs. 2 S. 2) — ein mächtiges,
+              sorgsam zu nutzendes Werkzeug.</p>
+            <p><b>Investition vs. Betriebskosten.</b> Eine Wärmeentscheidung hat zwei Kostenseiten:
+              die einmalige <b>Investition</b> und die laufenden <b>Betriebskosten</b> über zwanzig
+              bis dreißig Jahre. Wer nur auf den Anschaffungspreis schaut, entscheidet blind — oft
+              ist die günstigere Anlage im Einkauf die teurere über den Lebenszyklus.</p>
+            <p><b>Warum „das zahlt der Mieter" gefährlich verkürzt ist.</b> In vermieteten
+              Einheiten lassen sich <b>nur bestimmte laufende Betriebskosten</b> über BetrKV und
+              Heizkostenverordnung umlegen. <b>Investitions- und Instandhaltungskosten sind
+              NICHT umlagefähig.</b> Eine Modernisierung kann über eine Modernisierungsmieterhöhung
+              (§ 559 BGB) nur gedeckelt und anteilig weitergegeben werden.</p>
+            <ul>
+              <li><b>Selbstnutzende Eigentümer tragen alles selbst</b> — Investition und Betrieb.</li>
+              <li><b>Vermietende Eigentümer</b> können nur einen Teil weiterreichen und tragen den Investitionsanteil selbst.</li>
+            </ul>
+            <p>Das erzeugt <b>unterschiedliche Interessenlagen innerhalb derselben
+              Gemeinschaft</b>. Gute Entscheidungen benennen diesen Unterschied offen, statt ihn zu
+              übergehen — das sorgt für eine tragfähigere Willensbildung.</p>
+          </div>
+        </details>
+
+        <details class="kap kap--warm">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.6 3 3 4.6 3.9 6.7A5 5 0 1 1 7 11c0-1 .4-2 1-2.8C9 9.6 9.7 10 10 10.6 10 7 11 4.6 12 3z"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Die Wärmeentscheidung — der Stand 2026</span>
+              <span class="kap__s">65-%-Regel ausgesetzt, kommunale Wärmeplanung, kein automatischer Zwang.</span>
+            </span>
+            <span class="kap__no">07</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Das brennende Thema — und der Rechtsrahmen ändert sich gerade.
+              Wichtigste Botschaft: keine Panik-Entscheidung.</p>
+            <p><b>Der aktuelle Stand (Juli 2026 — im Umbruch).</b> Die viel zitierte
+              <b>65-Prozent-Regel</b> des Gebäudeenergiegesetzes ist derzeit <b>faktisch
+              ausgesetzt</b>, während der Gesetzgeber sie reformiert. Geplant ist ein
+              <b>Gebäudemodernisierungsgesetz</b> zum 1. November 2026, das die starre Vorgabe
+              durch einen technologieoffeneren, an CO₂-Kosten orientierten Ansatz ersetzen soll.
+              <b>Der Gesetzestext war noch nicht final — konkrete Pflichten müssen zum
+              Entscheidungszeitpunkt am dann geltenden Recht geprüft werden.</b></p>
+            <p><b>Die kommunale Wärmeplanung entscheidet über den Zeitpunkt.</b></p>
+            <ul>
+              <li><b>Große Kommunen</b> (über 100.000 Einwohner): ab <b>30. Juni 2026</b> — dazu zählt <b>Erfurt</b> (rund 214.000 Einwohner).</li>
+              <li><b>Kleinere Kommunen</b>: ab <b>30. Juni 2028</b>.</li>
+              <li><b>Neubaugebiete</b>: bereits seit 1. Januar 2024.</li>
+            </ul>
+            <p><b>Die häufigste Fehlinformation.</b> Ein <b>beschlossener Wärmeplan setzt die
+              Pflicht NICHT automatisch in Kraft.</b> Erst wenn die Kommune in einem separaten
+              Schritt konkrete Gebiete ausweist, werden dort Vorgaben bindend. Ein Ausbaugebiet
+              bedeutet zudem <b>nicht automatisch einen Anschlusszwang</b> — das ist
+              kommunalrechtlich eine gesonderte Frage.</p>
+            <p><b>Was das praktisch heißt:</b></p>
+            <ul>
+              <li><b>Keine Panik-Entscheidung.</b> Funktionierende Anlagen dürfen weiterlaufen und repariert werden; Austausch ist erst bei irreparablem Defekt zwingend.</li>
+              <li><b>Beschlusskompetenz sichern.</b> Einordnung und Kostenverteilung gehören sauber in den Beschlusstext.</li>
+              <li><b>Über den Lebenszyklus rechnen</b>, nicht über den Anschaffungspreis — und die Annahmen offenlegen.</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Teil 4</span><h2>Gut entscheiden</h2></div>
+      <div class="wall">
+
+        <details class="kap kap--wiss">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="M8.5 20h7"/><path d="M5 8h14"/><path d="M12 6.3 5 8M12 6.3 19 8"/><path d="M5 8l-2.3 5a2.6 2.6 0 0 0 4.6 0z"/><path d="M19 8l-2.3 5a2.6 2.6 0 0 0 4.6 0z"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Wenn zwei Gutachten sich widersprechen</span>
+              <span class="kap__s">Warum Gutachten differieren, das Prüfraster, der öbuv-Sachverständige.</span>
+            </span>
+            <span class="kap__no">08</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Zwei Fachgutachten, zwei Ergebnisse — kein Skandal, sondern
+              erklärbar. Entscheidend ist ein strukturiertes Prüfraster statt einer Wahl zwischen
+              Autoritäten.</p>
+            <p><b>Warum Gutachten differieren.</b> Unterschiedliche <b>Annahmen</b> (Energiepreise,
+              Zinsen, Nutzungsdauer), unterschiedlicher <b>Auftrag</b>, unterschiedliche
+              <b>Datenbasis</b> (Voll- oder Teilkosten, mit oder ohne Förderung), unterschiedliche
+              <b>Systemgrenzen</b>. Zwei seriöse Fachleute können mit jeweils vertretbaren Annahmen
+              zu verschiedenen Zahlen kommen.</p>
+            <p><b>Das Prüfraster für die Gemeinschaft.</b></p>
+            <ul>
+              <li><b>Wer hat beauftragt</b> — und hat der Ersteller ein Eigeninteresse am Ergebnis (Versorger, Anlagenbauer)?</li>
+              <li><b>Welche Annahmen</b> liegen zugrunde — sind sie offengelegt und plausibel?</li>
+              <li><b>Voll- oder Teilkostenrechnung</b> — sind alle Kostenarten über den Lebenszyklus erfasst?</li>
+              <li><b>Neutralität und Qualifikation</b> — ist der Ersteller unabhängig, ggf. öffentlich bestellt und vereidigt?</li>
+              <li><b>Sensitivität</b> — wie stabil ist das Ergebnis, wenn man eine Annahme variiert?</li>
+            </ul>
+            <p><b>Die Rolle des Sachverständigen (öbuv, § 36 GewO).</b> Ein öffentlich bestellter
+              und vereidigter Sachverständiger ist zu Neutralität und Unparteilichkeit
+              verpflichtet — anders als ein beauftragtes Fachbüro. Ist eine Person zugleich
+              Verwalter (oder Partei) und Sachverständiger, lässt sich die Rolle nicht beliebig
+              „umschalten": Wer in eigener Sache mitwirkt, kann die Neutralitätspflicht nicht
+              zugleich für sich beanspruchen.</p>
+            <p><b>Das Verfahren in der Gemeinschaft.</b> Zweite Perspektive aktiv einholen;
+              Annahmen offenlegen statt Ergebnisse gegeneinander auszuspielen; die Abwägung
+              <b>dokumentieren</b>. Eine Gemeinschaft, die transparent macht, <i>warum</i> sie sich
+              entschieden hat, entscheidet nicht nur besser, sondern auch <b>anfechtungsfester</b>.</p>
+          </div>
+        </details>
+
+        <details class="kap">
+          <summary>
+            <span class="kap__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h8M4 12h8M4 17.5h5"/><path d="M15.5 16.7l1.6 1.6 3.4-3.7"/></svg></span>
+            <span class="kap__h">
+              <span class="kap__t">Woran Sie ordnungsmäßige Verwaltung erkennen</span>
+              <span class="kap__s">Die Prüfliste — von Zertifizierung bis Belegeinsicht.</span>
+            </span>
+            <span class="kap__no">09</span>
+          </summary>
+          <div class="kap__body">
+            <p class="kap__lead">Eine kompakte Prüfliste. Fehlen mehrere Punkte dauerhaft, ist das
+              kein Komfortproblem, sondern ein Governance-Problem.</p>
+            <ul>
+              <li><b>Zertifiziert</b> nach § 26a (oder zulässige Ausnahme) und fachlich einschlägig.</li>
+              <li><b>Neutral</b> — keine verdeckten Eigeninteressen, keine Verquickung mit Anbietern; bei Interessenkonflikten Offenlegung.</li>
+              <li><b>Fristgerechte Ladung</b> (drei Wochen, Textform, vollständige Tagesordnung).</li>
+              <li><b>Transparente Abrechnung</b> — nachvollziehbare Jahresabrechnung, Wirtschaftsplan, Vermögensbericht (§ 28 Abs. 4), gepflegte Beschluss-Sammlung.</li>
+              <li><b>Belegeinsicht</b> wird aktiv ermöglicht, nicht erschwert.</li>
+              <li><b>Beschlüsse werden umgesetzt</b> und dokumentiert; Rückmeldung an die Gemeinschaft.</li>
+              <li><b>Erhaltungsrücklage</b> sicher, getrennt, angemessen dotiert.</li>
+              <li><b>Erreichbarkeit und Reaktionszeit</b> in zumutbarem Rahmen.</li>
+            </ul>
+            <p>Fehlen mehrere dieser Punkte dauerhaft, ist das ein legitimer Anlass, über
+              <b>Abberufung</b> (§ 26 Abs. 3) nachzudenken.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <div class="cluster__label"><span class="cluster__chip">Anhang</span><h2>WEG-Kernnormen im Kurzregister</h2></div>
+      <div class="register">
+        <dl>
+          <dt>§ 9a / § 9b</dt><dd>Rechtsfähigkeit und Vertretung der Gemeinschaft (GdWE).</dd>
+          <dt>§ 16</dt><dd>Nutzungen und Kostentragung (Verteilerschlüssel, abweichende Verteilung).</dd>
+          <dt>§ 18 / § 19</dt><dd>Verwaltung; ordnungsmäßige Verwaltung, Erhaltungsrücklage.</dd>
+          <dt>§ 20 / § 21</dt><dd>Bauliche Veränderungen und deren Kostenverteilung.</dd>
+          <dt>§ 23</dt><dd>Beschlussfassung, Umlaufbeschluss.</dd>
+          <dt>§ 24</dt><dd>Einberufung, Frist, Beschluss-Sammlung.</dd>
+          <dt>§ 25</dt><dd>Stimmrecht, Mehrheiten, Vertretung und Vollmacht (i. V. m. §§ 164 ff. BGB).</dd>
+          <dt>§ 26 / § 26a</dt><dd>Bestellung/Abberufung des Verwalters; zertifizierter Verwalter.</dd>
+          <dt>§ 27 / § 28</dt><dd>Aufgaben des Verwalters; Wirtschaftsplan, Jahresabrechnung, Vermögensbericht.</dd>
+          <dt>§ 29</dt><dd>Verwaltungsbeirat (Aufgaben, Überwachung, Haftungsbeschränkung).</dd>
+          <dt>§ 44 / § 45</dt><dd>Beschlussklagen, Anfechtungs- und Begründungsfrist.</dd>
+          <dt>§ 181 BGB</dt><dd>Verbot des Insichgeschäfts (Doppelrolle des Verwalters).</dd>
+          <dt>§ 36 GewO</dt><dd>Öffentlich bestellte und vereidigte Sachverständige (öbuv).</dd>
+          <dt>Art. 15 DSGVO</dt><dd>Auskunft über einheitsbezogene Verbrauchsdaten (Messdienst).</dd>
+          <dt>BGH V ZR 7/25 (27.03.2026)</dt><dd>Keine starre Pflicht zu Vergleichsangeboten bei Erhaltung.</dd>
+          <dt>Weitere Rahmengesetze</dt><dd>GEG / geplantes GMG (Gebäudeenergierecht), WPG (Wärmeplanung), BetrKV &amp; HeizkostenV (umlagefähige Betriebskosten), § 559 BGB (Modernisierungsmieterhöhung).</dd>
+        </dl>
+      </div>
+
+      <div class="dl">
+        <a href="documents/260718_Eigentuemerstimme-Guideline_v2.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 11l4 4 4-4M5 19h14"/></svg>
+          Guideline als PDF laden
+        </a>
+        <span class="meta">Konsolidierte Fassung v2 · Stand Juli 2026 · reines Rechtsgerüst</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
