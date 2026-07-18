@@ -62,6 +62,13 @@
 
   .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
 
+  /* Grundsatzprogramm-Download */
+  .dl{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:20px}
+  .dl a{display:inline-flex;align-items:center;gap:10px;background:var(--stimme);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:10px;transition:filter .2s}
+  .dl a:hover{filter:brightness(1.06)}
+  .dl a svg{width:20px;height:20px}
+  .dlmeta{font-size:13px;color:var(--text-mute)}
+
   @media(max-width:760px){
     /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
     .hero{
@@ -305,6 +312,21 @@
         entscheiden und die Konsequenzen tragen.</p>
       <p class="kicker">Was im Einzelfall unsichtbar bleibt, wird in der gemeinsamen Stimme
         zum Muster.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2>Das Grundsatzprogramm</h2>
+      <p>Wofür der Verein steht — ausführlich und zum Nachlesen. Das „Warum" hinter der
+        Initiative, allgemein und zeitlos formuliert.</p>
+      <div class="dl">
+        <a href="documents/260718_Eigentuemerstimme_Grundsatzprogramm.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 11l4 4 4-4M5 19h14"/></svg>
+          Grundsatzprogramm als PDF laden
+        </a>
+        <span class="dlmeta">Stand Juli 2026</span>
+      </div>
     </div>
   </section>
 
