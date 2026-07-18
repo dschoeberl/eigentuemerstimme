@@ -81,8 +81,10 @@ footer a:hover{text-decoration:underline}
 .wall{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:680px){.wall{grid-template-columns:1fr}}
 .kap{--acc:var(--stimme);position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .2s}
-.kap--warm{--acc:var(--signal)}
-.kap--wiss{--acc:var(--erkenntnis)}
+/* Doppelklasse = hoehere Spezifitaet, damit eine Seiten-Signatur (.kap{--acc}) die
+   semantischen Modifier nicht ueberschreibt (Waerme bleibt Koralle, Entscheidung Blau). */
+.kap.kap--warm{--acc:var(--signal)}
+.kap.kap--wiss{--acc:var(--erkenntnis)}
 .kap::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--acc)}
 .kap:hover{box-shadow:0 12px 30px rgba(26,53,53,.12);border-color:var(--acc);transform:translateY(-2px)}
 .kap[open]{grid-column:1/-1;box-shadow:0 16px 38px rgba(26,53,53,.15);transform:none}
