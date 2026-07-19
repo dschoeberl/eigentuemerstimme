@@ -32,27 +32,35 @@
   .rdg b{color:#fff;font-weight:600}
 
   /* Filter */
-  .filter{margin:34px 0 6px}
-  .filter__q{font-size:14px;color:var(--text-soft);margin-bottom:12px;font-weight:500}
+  .filter{margin:6px 0 6px}
+  .filter__q{font-size:14px;color:#c4d0ce;margin-bottom:12px;font-weight:500}
   .filter__btns{display:flex;flex-wrap:wrap;gap:9px}
   .fbtn{border:1px solid var(--border);background:#fff;color:var(--text-soft);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
   .fbtn:hover{border-color:var(--text-mute)}
   .fbtn[aria-pressed="true"]{color:#fff;border-color:transparent}
-  .fbtn[data-role="alle"][aria-pressed="true"]{background:var(--petrol-dark)}
+  .fbtn[data-role="alle"][aria-pressed="true"]{background:var(--petrol-light);color:var(--petrol-dark)}
   .fbtn[data-role="eigentuemer"][aria-pressed="true"]{background:var(--stimme)}
   .fbtn[data-role="mieter"][aria-pressed="true"]{background:var(--signal)}
   .fbtn[data-role="verwalter"][aria-pressed="true"]{background:var(--petrol)}
   .fbtn[data-role="versorger"][aria-pressed="true"]{background:#5c6b74}
-  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px;font-size:12.5px;color:var(--text-mute)}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px;font-size:12.5px;color:#93a09c}
   .legend span{display:inline-flex;align-items:center;gap:7px}
   .legend i{width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--petrol);box-sizing:border-box}
   .legend .u{border-color:var(--signal)}
   .legend .w{border-color:var(--erkenntnis)}
 
-  /* Zeitstrahl */
-  /* Dunkles Petrol-Board: helle Kacheln poppen darauf; oben ein feiner
-     Koralle-Streifen als Signal „lebende Chronik". */
-  .tl{position:relative;margin-top:26px;padding:30px 24px 30px 34px;background:var(--petrol-dark);border-radius:16px;box-shadow:inset 0 3px 0 var(--signal),0 12px 30px rgba(26,53,53,.12)}
+  /* Zeitstrahl — der ganze Block ist ein durchgehendes Petrol-Band (deckt die
+     Sektion voll bis an die Raender, kein heller Rahmen mehr). Die Eintraege
+     liegen in einem Innen-Scrollbereich mit Koralle-Schiebebalken. */
+  .cluster.tl-band{background:var(--petrol-dark);padding-bottom:24px}
+  .tl-scroll{margin-top:22px;max-height:600px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    border-top:2px solid var(--signal);border-bottom:2px solid var(--signal);
+    scrollbar-width:thin;scrollbar-color:var(--signal) transparent}
+  .tl-scroll::-webkit-scrollbar{width:10px}
+  .tl-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.06)}
+  .tl-scroll::-webkit-scrollbar-thumb{background:var(--signal);border-radius:6px}
+  .tl-scroll::-webkit-scrollbar-thumb:hover{background:#c8461f}
+  .tl{position:relative;padding:8px 20px 12px 34px}
   /* Achse als Verlauf von Petrol-Hell (Vergangenheit) zu Koralle (Jetzt/Geplant). */
   .tl::before{content:"";position:absolute;left:8.5px;top:8px;bottom:8px;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--petrol-light) 0%,var(--petrol-light) 42%,var(--signal) 100%)}
   .ev{position:relative;padding:0 0 20px}
@@ -115,7 +123,7 @@
     </div>
   </div>
 
-  <section class="cluster">
+  <section class="cluster tl-band">
     <div class="guide">
       <div class="filter">
         <div class="filter__q">Aus welcher Perspektive schauen Sie?</div>
@@ -133,7 +141,9 @@
         </div>
       </div>
 
-      <div class="tl" id="tl"></div>
+      <div class="tl-scroll">
+        <div class="tl" id="tl"></div>
+      </div>
     </div>
   </section>
 </main>
