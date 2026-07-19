@@ -9,6 +9,11 @@
 *.xlsx
 *.msg
 
+# Arbeits-/Ablageordner fuer interne Unterlagen (Vertraege, Protokolle,
+# INTERN-Praesentationen). Enthaelt Klarnamen/Adressen — nie ins oeffentliche
+# Repo. Gehoert langfristig nach OneDrive, hier nur als zweite Sicherung.
+news/
+
 # Werkzeuge / Betriebssystem
 .claude/
 .DS_Store
