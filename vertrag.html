@@ -64,9 +64,12 @@
   .bt-back .lbl{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--petrol)}
   .bt-back .rule{font-size:13px;color:var(--text);line-height:1.5}
   .bt-back .rule a{color:var(--petrol);font-weight:600;text-underline-offset:2px}
-  .bt-back .warn{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+  .bt-back .warn{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding-right:40px}
   .bt-back .pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:var(--signal);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
   .bt-back .wtx{font-size:12.5px;color:#7a2b16;line-height:1.45}
+  /* Immer sichtbare Dreh-Badge (Koralle-Kreis mit Pfeil) — Signal: Kachel drehen und zurück. */
+  .bt-front::after,.bt-back::after{content:"";position:absolute;right:13px;bottom:13px;width:30px;height:30px;border-radius:50%;background:var(--signal) url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23fff'%20stroke-width='2.6'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%2011.5a8%208%200%201%200-2.4%205.7'/%3E%3Cpath%20d='M20%205v6.5h-6.5'/%3E%3C/svg%3E") center / 16px 16px no-repeat;box-shadow:0 3px 9px rgba(0,0,0,.3);pointer-events:none;transition:transform .25s}
+  .bt:hover .bt-front::after,.bt:focus-visible .bt-front::after,.bt:hover .bt-back::after,.bt:focus-visible .bt-back::after{transform:rotate(-40deg) scale(1.06)}
 
   /* Disclaimer + Abschluss */
   .disc{margin-top:30px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:70ch;font-style:italic}
@@ -140,7 +143,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">01</span><span class="par">§</span><span class="nm">Laufzeit &amp; Bestellung</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">01</span><span class="par">§</span><span class="nm">Laufzeit &amp; Bestellung</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">An die Bestellung gekoppelt: höchstens fünf Jahre, bei der ersten Bestellung höchstens drei (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 2 WEG</a>). Verlängerung nur per Beschluss.</span>
@@ -151,7 +154,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">02</span><span class="par">§</span><span class="nm">Abberufung &amp; Ende</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">02</span><span class="par">§</span><span class="nm">Abberufung &amp; Ende</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Die Bestellung kann jederzeit auch ohne wichtigen Grund widerrufen werden; der Vertrag endet spätestens sechs Monate nach der Abberufung (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 3 WEG</a>).</span>
@@ -162,7 +165,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">03</span><span class="par">§</span><span class="nm">Vergütung &amp; Sonderhonorare</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">03</span><span class="par">§</span><span class="nm">Vergütung &amp; Sonderhonorare</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Klare Grundvergütung mit nachvollziehbarer Anpassungslogik; über den Wirtschaftsplan beschlossen (<a href="https://www.gesetze-im-internet.de/woeigg/__28.html" target="_blank" rel="noopener">§ 28 WEG</a>). Regie bei Großmaßnahmen gestaffelt.</span>
@@ -173,7 +176,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">04</span><span class="par">§</span><span class="nm">Neutralität &amp; § 181</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">04</span><span class="par">§</span><span class="nm">Neutralität &amp; § 181</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Befreiung von <a href="https://www.gesetze-im-internet.de/bgb/__181.html" target="_blank" rel="noopener">§ 181 BGB</a> nur bewusst und eng. Ist die Verwaltung zugleich Auftragnehmerin (z. B. Hausmeisterdienst), gehört jede Vergütungsänderung unter Beschluss-Vorbehalt.</span>
@@ -184,7 +187,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">05</span><span class="par">§</span><span class="nm">Kontrolle &amp; Beirat</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">05</span><span class="par">§</span><span class="nm">Kontrolle &amp; Beirat</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Der Beirat ist gesetzliches Kontrollorgan (<a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 WEG</a>). Der Vertrag muss seine Arbeit ermöglichen — Vorlage von Plan und Abrechnung, Belegprüfung, Vergleichsangebote vorab (Zahl der Angebote frei: <a href="https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/2026057.html" target="_blank" rel="noopener">BGH 2026</a>).</span>
@@ -195,7 +198,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">06</span><span class="par">§</span><span class="nm">Eigentümerrechte &amp; Einsicht</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">06</span><span class="par">§</span><span class="nm">Eigentümerrechte &amp; Einsicht</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Das Einsichtsrecht jeder Eigentümerin und jedes Eigentümers (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>) besteht unabhängig vom Vertrag — ein guter Vertrag lässt es ausdrücklich „unberührt".</span>
@@ -206,7 +209,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">07</span><span class="par">§</span><span class="nm">Transparenz &amp; Aufbewahrung</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">07</span><span class="par">§</span><span class="nm">Transparenz &amp; Aufbewahrung</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Vermögensbericht (<a href="https://www.gesetze-im-internet.de/woeigg/__28.html" target="_blank" rel="noopener">§ 28 Abs. 4 WEG</a>), mehrjähriger Portal-Vorhalt der Kernunterlagen und eine DSGVO-Auftragsverarbeitung.</span>
@@ -217,7 +220,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">08</span><span class="par">§</span><span class="nm">Änderungen</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">08</span><span class="par">§</span><span class="nm">Änderungen</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Vertragsänderungen brauchen einen Eigentümerbeschluss — aber kein Veto der Verwaltung, das die Gemeinschaft dauerhaft bindet (AGB-Grenze <a href="https://www.gesetze-im-internet.de/bgb/__307.html" target="_blank" rel="noopener">§ 307 BGB</a>).</span>
@@ -228,7 +231,7 @@
 
         <div class="bt">
           <div class="bt-in">
-            <div class="bt-face bt-front"><span class="no">09</span><span class="par">§</span><span class="nm">Unabhängige Gutachten</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-front"><span class="no">09</span><span class="par">§</span><span class="nm">Unabhängige Gutachten</span></div>
             <div class="bt-face bt-back">
               <span class="lbl">So gehört es geregelt</span>
               <span class="rule">Die <a href="https://www.gesetze-im-internet.de/bgb/__181.html" target="_blank" rel="noopener">§ 181</a>-Befreiung (Selbstbeauftragung) betrifft nur Leistungen, bei denen die Verwaltung <b>selbst Anbieterin</b> ist (z. B. Hausmeisterdienst), und muss eng bleiben. <b>Unabhängige</b> Fachleute — Architektinnen, Ingenieure, Sachverständige — sind neutrale Dritte: Ihre Beauftragung gehört transparent geregelt (Beirat/ETV), ohne wirtschaftliches Eigeninteresse der Verwaltung an der Auswahl.</span>
