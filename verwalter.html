@@ -37,10 +37,12 @@
   .vcol-title svg{width:22px;height:22px}
   .vergleich{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:16px}
   .vtopic{grid-column:1/-1;font-family:'Playfair Display',serif;font-size:15px;color:var(--petrol-dark);font-weight:600;margin-top:12px}
-  .vcell{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 12px 12px 0;padding:16px 18px;font-size:14.5px;color:var(--text-soft);line-height:1.6}
-  .vcell--warn{border-left-color:var(--signal)}
-  .vcell .ic{flex:0 0 auto;width:24px;height:24px;color:var(--petrol)}
-  .vcell--warn .ic{color:var(--signal)}
+  .vcell{display:flex;gap:13px;align-items:flex-start;background:#eef4f3;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 12px 12px 0;padding:16px 18px;font-size:14.5px;color:var(--text-soft);line-height:1.6}
+  .vcell--warn{background:#fceee8;border-left-color:var(--signal)}
+  /* Gefuelltes Farb-Badge: Haken/Warnzeichen weiss im Kreis — traegt die Bedeutung staerker als ein duennes Strich-Icon. */
+  .vcell .ic{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--petrol);color:#fff}
+  .vcell--warn .ic{background:var(--signal);color:#fff}
+  .vcell .ic svg{width:17px;height:17px}
   .vcell b{color:var(--text);font-weight:600}
 
   .schluss{margin-top:34px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:22px 24px}
@@ -53,6 +55,9 @@
     .vhead-row{display:none}
     .vergleich{grid-template-columns:1fr;gap:10px}
     .vtopic{margin-top:16px}
+    /* Spaltenkoepfe fehlen am Handy — je Zelle ein Farb-Chip, damit Gut/Warnsignal sofort erkennbar bleibt. */
+    .vcell > span:last-child::before{content:"Gut";display:inline-block;margin-right:8px;padding:2px 9px;border-radius:999px;background:var(--petrol);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;vertical-align:1px}
+    .vcell--warn > span:last-child::before{content:"Warnsignal";background:var(--signal)}
   }
 
   main{padding-bottom:72px}
