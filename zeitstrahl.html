@@ -50,20 +50,23 @@
   .legend .w{border-color:var(--erkenntnis)}
 
   /* Zeitstrahl */
-  .tl{position:relative;margin-top:26px;padding-left:34px}
-  .tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--stimme),var(--petrol),var(--erkenntnis))}
+  /* Dunkles Petrol-Board: helle Kacheln poppen darauf; oben ein feiner
+     Koralle-Streifen als Signal „lebende Chronik". */
+  .tl{position:relative;margin-top:26px;padding:30px 24px 30px 34px;background:var(--petrol-dark);border-radius:16px;box-shadow:inset 0 3px 0 var(--signal),0 12px 30px rgba(26,53,53,.12)}
+  /* Achse als Verlauf von Petrol-Hell (Vergangenheit) zu Koralle (Jetzt/Geplant). */
+  .tl::before{content:"";position:absolute;left:8.5px;top:8px;bottom:8px;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--petrol-light) 0%,var(--petrol-light) 42%,var(--signal) 100%)}
   .ev{position:relative;padding:0 0 20px}
-  .ev::before{content:"";position:absolute;left:-31.5px;top:8px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:#fff;border:3px solid var(--petrol);box-shadow:0 0 0 4px var(--bg-light);transition:opacity .2s}
+  .ev::before{content:"";position:absolute;left:-32px;top:8px;width:17px;height:17px;box-sizing:border-box;border-radius:50%;background:#fff;border:3px solid var(--petrol-light);box-shadow:0 0 0 4px var(--petrol-dark);transition:opacity .2s}
   .ev[data-kat="Urteil"]::before{border-color:var(--signal)}
   .ev[data-kat="Wärmeplanung"]::before{border-color:var(--erkenntnis)}
-  .ev[data-status="geplant"]::before{border-style:dashed;background:var(--bg-light)}
+  .ev[data-status="geplant"]::before{border-style:dashed;border-color:var(--signal);background:var(--petrol-dark)}
   .ev--dim{opacity:.32}
-  .ev__card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:box-shadow .2s}
+  .ev__card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:0 10px 26px rgba(0,0,0,.30);transition:box-shadow .2s}
   .ev__top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:7px}
   .ev__date{font-family:'Playfair Display',serif;font-weight:600;color:var(--petrol-dark);font-size:14px}
   .ev__kat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:var(--bg-light);color:var(--text-soft)}
   .ev__status{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px}
-  .ev__status--plan{background:var(--erkenntnis-tint);color:#245066}
+  .ev__status--plan{background:#fbe6de;color:#a6371a}
   .ev__status--aus{background:var(--signal-soft);color:#a6371a}
   .ev__title{font-family:'Playfair Display',serif;font-size:17.5px;color:var(--petrol-dark);font-weight:600;line-height:1.3;margin:2px 0 7px}
   .ev__text{font-size:14.5px;color:var(--text-soft);margin-bottom:12px;line-height:1.6}
