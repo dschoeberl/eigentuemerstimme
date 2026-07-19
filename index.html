@@ -55,11 +55,19 @@
   .welt::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:16px 0 0 16px}
   .welt--weg::before{background:var(--stimme)}
   .welt--wiss::before{background:var(--erkenntnis)}
+  /* Eigene Welt-Toenung + farbiges Icon-Badge: die zwei Karten sind auch
+     untereinander (Handy) sofort als zwei Welten lesbar, nicht als graue Zwillinge. */
+  .welt--weg{background:var(--stimme-tint)}
+  .welt--wiss{background:var(--erkenntnis-tint)}
+  .welt__ic{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;color:#fff;margin-bottom:16px}
+  .welt--weg .welt__ic{background:var(--stimme)}
+  .welt--wiss .welt__ic{background:var(--erkenntnis)}
+  .welt__ic svg{width:27px;height:27px}
   .welt__tag{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
   .welt__tag::before{content:"";width:7px;height:7px;border-radius:50%}
-  .welt--weg .welt__tag{color:#7a5411;background:var(--stimme-tint)}
+  .welt--weg .welt__tag{color:#7a5411;background:#fff}
   .welt--weg .welt__tag::before{background:var(--stimme)}
-  .welt--wiss .welt__tag{color:#245066;background:var(--erkenntnis-tint)}
+  .welt--wiss .welt__tag{color:#245066;background:#fff}
   .welt--wiss .welt__tag::before{background:var(--erkenntnis)}
   .welt h3{font-size:22px;color:var(--petrol-dark);margin:18px 0 8px}
   .welt__q{font-size:15px;color:var(--text-soft);font-style:italic;margin-bottom:16px}
@@ -210,6 +218,7 @@
 
     <div class="welten__grid">
       <a class="welt welt--weg" href="guideline.html">
+        <span class="welt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <span class="welt__tag">Welt WEG · Eigentümergemeinschaft</span>
         <h3>Recht, Rollen &amp; Entscheidungen in der WEG</h3>
         <p class="welt__q">Wer darf was, worauf habe ich Anspruch, wie entscheidet die Gemeinschaft richtig?</p>
@@ -222,6 +231,7 @@
       </a>
 
       <a class="welt welt--wiss" href="wissenschaft.html">
+        <span class="welt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
         <span class="welt__tag">Welt Wissenschaft · Entscheidungsqualität</span>
         <h3>Wie gute Entscheidungen entstehen</h3>
         <p class="welt__q">Wie trifft eine Gemeinschaft eine Entscheidung, die dreißig Jahre trägt?</p>
