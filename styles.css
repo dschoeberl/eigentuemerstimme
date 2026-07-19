@@ -56,8 +56,8 @@ header{padding:26px 0;border-bottom:1px solid var(--border);background:var(--bg-
 .mainnav a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding-bottom:2px;border-bottom:2px solid transparent}
 .mainnav a:hover{color:var(--petrol-dark)}
 .mainnav a[aria-current="page"]{color:var(--petrol-dark);border-bottom-color:var(--stimme)}
-.badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stimme);border:1px solid var(--stimme-soft);background:#fff;padding:6px 12px;border-radius:999px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block}
+.badge{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stimme-soft);border:1px solid rgba(233,211,166,.22);background:var(--petrol-dark);padding:7px 15px;border-radius:999px;box-shadow:0 2px 12px rgba(26,53,53,.18)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block;box-shadow:0 0 0 3px rgba(192,138,44,.2)}
 
 /* Footer */
 footer{background:var(--petrol-dark);color:#aebfbe;padding:44px 0 52px;font-size:14px}
