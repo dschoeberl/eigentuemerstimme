@@ -60,8 +60,13 @@
   .linkcard .u{font-size:12px;color:var(--stimme);margin-top:8px;word-break:break-word}
   .linknote{margin-top:16px;font-size:12.5px;color:var(--text-mute);font-style:italic}
 
-  .qa{background:var(--bg-light);border:1px dashed var(--border);border-radius:14px;padding:22px 24px;color:var(--text-soft);font-size:14.5px;line-height:1.6}
+  .qa{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 14px 14px 0;padding:22px 24px;color:var(--text-soft);font-size:14.5px;line-height:1.6}
   .qa b{color:var(--petrol-dark);font-weight:600}
+  .qa .dl{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .qa .dl a{display:inline-flex;align-items:center;gap:10px;background:var(--stimme);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:10px;transition:filter .2s}
+  .qa .dl a:hover{filter:brightness(1.06)}
+  .qa .dl a svg{width:19px;height:19px}
+  .qa .dl .meta{font-size:12.5px;color:var(--text-mute)}
 
   main{padding-bottom:72px}
 </style>
@@ -534,9 +539,16 @@
     <div class="guide">
       <div class="cluster__label"><span class="cluster__chip">Q&amp;A</span><h2>Die ganze Breite — zum Nachlesen</h2></div>
       <div class="qa">
-        <b>Das vertiefte Q&amp;A-Dokument folgt.</b> Es entsteht, sobald die Top-Fragen final
-        stehen — fortlaufend nummeriert, mit derselben Sorgfalt: geprüft, belegt, neutral. Dann
-        steht es hier als Download.
+        <b>Das vertiefte Q&amp;A-Dokument (Charge 1).</b> Fortlaufend nummeriert und thematisch
+        gegliedert — dieselbe Sorgfalt wie die Top-Fragen: geprüft, belegt, neutral. Die Breite
+        hinter der schlanken Auswahl, zum Nachlesen und Mitnehmen.
+        <div class="dl">
+          <a href="documents/260718_Eigentuemerstimme_Wegweiser_Q-und-A_Charge-1.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 11l4 4 4-4M5 19h14"/></svg>
+            Q&amp;A-Dokument als PDF laden
+          </a>
+          <span class="meta">Charge 1 · Stand Juli 2026</span>
+        </div>
       </div>
     </div>
   </section>
