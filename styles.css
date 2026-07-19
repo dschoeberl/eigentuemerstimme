@@ -60,6 +60,22 @@ header{padding:26px 0;border-bottom:1px solid var(--border);background:var(--bg-
 .badge{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stimme-soft);border:1px solid rgba(233,211,166,.22);background:var(--petrol-dark);padding:7px 15px;border-radius:999px;box-shadow:0 2px 12px rgba(26,53,53,.18)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--stimme);display:inline-block;box-shadow:0 0 0 3px rgba(192,138,44,.2)}
 
+/* Kopfzeilen-Menue — ab schmalen Viewports einklappbar. Reines CSS ueber ein
+   verstecktes Checkbox + Label (Hamburger); kein JavaScript, kein Drittanbieter. */
+.nav-toggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.nav-burger{display:none}
+@media(max-width:760px){
+  .headleft{flex:1 1 100%;justify-content:space-between;gap:12px}
+  .nav-burger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;margin-left:auto;cursor:pointer;border-radius:8px}
+  .nav-burger span{display:block;width:100%;height:2px;border-radius:2px;background:var(--petrol-dark);transition:transform .2s,opacity .2s}
+  .nav-toggle:checked + .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle:checked + .nav-burger span:nth-child(2){opacity:0}
+  .nav-toggle:checked + .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mainnav{display:none;order:3;flex-basis:100%;flex-direction:column;gap:0;margin-top:8px}
+  .nav-toggle:checked ~ .mainnav{display:flex}
+  .mainnav a{padding:13px 4px;border-bottom:1px solid var(--border)}
+}
+
 /* Footer */
 footer{background:var(--petrol-dark);color:#aebfbe;padding:44px 0 52px;font-size:14px}
 footer .frow{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
