@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der Verwaltervertrag — die Grundlage auf Augenhöhe — Eigentümerstimme</title>
+<meta name="description" content="Woran man einen fairen, heutigen Verwaltervertrag erkennt — Baustein für Baustein: Laufzeit, Vergütung, Neutralität, Kontrolle und Beirat, Einsichtsrechte. Belegt mit Paragraphen. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .prose{max-width:680px}
+
+  /* Hero — Petrol mit Amber-Akzent (Farbe der „Welt WEG"). Noch ohne eigenes Motiv. */
+  .hero{
+    background:var(--petrol-dark);
+    background-image:linear-gradient(118deg, var(--petrol-dark) 0%, #163f3e 58%, var(--petrol) 130%);
+    color:#fff;padding:84px 0 92px;position:relative;overflow:hidden
+  }
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 60%,var(--petrol) 60%,var(--petrol) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:22px}
+  .accentline{width:56px;height:3px;background:var(--stimme);margin:0 0 30px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(29px,5vw,50px);line-height:1.15;letter-spacing:-.01em;color:#fff;max-width:20ch}
+  .hero .sub{margin-top:26px;max-width:62ch;font-size:clamp(16px,2vw,19px);color:#d7e2e1}
+  .hero .sub b{color:#fff;font-weight:600}
+
+  section{padding:52px 0}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(22px,3vw,29px);line-height:1.2;letter-spacing:-.01em;color:var(--petrol-dark);margin-bottom:18px;max-width:26ch}
+  p{color:var(--text-soft);font-size:17px;margin-bottom:16px}
+  p:last-child{margin-bottom:0}
+  p b{color:var(--text);font-weight:600}
+
+  /* Zwei-Ebenen-Hinweis: gesetzlich vs. vertraglich */
+  .ebenen{margin-top:22px;padding:18px 20px;background:var(--stimme-tint);border-left:3px solid var(--stimme);border-radius:0 10px 10px 0;max-width:680px}
+  .ebenen p{font-size:15px;color:#5a4a2a;margin:0}
+  .ebenen b{color:#4a3a12}
+
+  /* ── Bausteine: Flip-Kacheln ── */
+  .bausteine-lead{font-size:15px;color:var(--text-soft);margin:0 0 24px;max-width:66ch}
+  .bausteine-lead b{color:var(--text)}
+  .bausteine{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.bausteine{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.bausteine{grid-template-columns:1fr}}
+  .bt{perspective:1200px;min-height:212px;cursor:pointer;outline:none}
+  .bt:focus-visible{border-radius:18px;box-shadow:0 0 0 3px var(--stimme)}
+  .bt-in{position:relative;width:100%;height:212px;transition:transform .55s cubic-bezier(.4,.1,.2,1);transform-style:preserve-3d}
+  .bt.flip .bt-in{transform:rotateY(180deg)}
+  .bt-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:18px;display:flex;flex-direction:column;box-sizing:border-box}
+  .bt-front{background:var(--petrol-dark);box-shadow:0 8px 22px rgba(26,53,53,.14)}
+  .bt-front .no{position:absolute;top:15px;right:17px;font-size:12px;font-weight:700;color:#5f7a78}
+  .bt-front .par{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:600;color:var(--stimme);line-height:1}
+  .bt-front .nm{margin-top:auto;font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#fff;line-height:1.22}
+  .bt-front .hint{margin-top:9px;font-size:11px;letter-spacing:.04em;color:var(--petrol-light)}
+  .bt-back{background:#fff;border:1px solid var(--border);transform:rotateY(180deg);gap:9px;overflow:auto}
+  .bt-back .lbl{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--petrol)}
+  .bt-back .rule{font-size:13px;color:var(--text);line-height:1.5}
+  .bt-back .rule a{color:var(--petrol);font-weight:600;text-underline-offset:2px}
+  .bt-back .warn{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+  .bt-back .pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:var(--signal);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+  .bt-back .wtx{font-size:12.5px;color:#7a2b16;line-height:1.45}
+
+  /* Disclaimer + Abschluss */
+  .disc{margin-top:30px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:70ch;font-style:italic}
+  .weiter{margin-top:20px}
+  .weiter a{display:inline-flex;align-items:center;gap:8px;color:var(--petrol);font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--stimme);padding-bottom:2px}
+
+  .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
+
+  @media(max-width:760px){
+    .hero{padding:62px 0 70px}
+    section{padding:42px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="verwalter.html">Verwalter</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Der Verwaltervertrag</div>
+      <div class="accentline"></div>
+      <h1>Ein Vertrag ist kein Formular. Er ist die Grundlage auf Augenhöhe.</h1>
+      <p class="sub">Zwischen Eigentümergemeinschaft und Verwaltung steht ein Vertrag — oft
+        jahrzehntealt, oft einseitig. Woran man einen fairen, heutigen Vertrag erkennt,
+        zeigt sich <b>Baustein für Baustein.</b></p>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Warum der Vertrag zählt</h2>
+      <p>Der Verwaltervertrag regelt die Zusammenarbeit über Jahre. Wer ihn nur unterschreibt,
+        übernimmt oft Klauseln aus einer Zeit vor der WEG-Reform 2020 — und manche, die einseitig
+        zugunsten der Verwaltung wirken. Ein guter Vertrag ist beweglich, transparent und
+        kontrollierbar.</p>
+      <div class="ebenen">
+        <p><b>Zwei Ebenen, die zusammenpassen müssen.</b> Manches gilt ohnehin — kraft Gesetzes:
+          das Kontrollrecht des Beirats (§ 29 WEG) und das Einsichtsrecht jeder Eigentümerin und
+          jedes Eigentümers (§ 18 Abs. 4 WEG). Der Vertrag kann es weder verleihen noch nehmen —
+          er muss es <b>achten</b>. Anderes formt der Vertrag aktiv: Laufzeit, Vergütung,
+          Sonderhonorare.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Die Bausteine eines fairen Vertrags</h2>
+      <p class="bausteine-lead">Ein guter Verwaltervertrag besteht aus wenigen, klaren Bausteinen.
+        <b>Tippen Sie eine Kachel an</b> — sie zeigt, wie der Baustein heute geregelt gehört (belegt
+        mit Paragraph) und wo Vorsicht geboten ist.</p>
+
+      <div class="bausteine">
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">01</span><span class="par">§</span><span class="nm">Laufzeit &amp; Bestellung</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">An die Bestellung gekoppelt: höchstens fünf Jahre, bei der ersten Bestellung höchstens drei (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 2 WEG</a>). Verlängerung nur per Beschluss.</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">„läuft weiter, bis ein neuer Vertrag vereinbart wird" — eine Selbstverlängerung.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">02</span><span class="par">§</span><span class="nm">Abberufung &amp; Ende</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Die Bestellung kann jederzeit auch ohne wichtigen Grund widerrufen werden; der Vertrag endet spätestens sechs Monate nach der Abberufung (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 3 WEG</a>).</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Kündigung „nur aus wichtigem Grund" — das ist Recht von vor 2020 und heute überholt.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">03</span><span class="par">§</span><span class="nm">Vergütung &amp; Sonderhonorare</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Klare Grundvergütung mit nachvollziehbarer Anpassungslogik; über den Wirtschaftsplan beschlossen (<a href="https://www.gesetze-im-internet.de/woeigg/__28.html" target="_blank" rel="noopener">§ 28 WEG</a>). Regie bei Großmaßnahmen gestaffelt.</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Pauschale 5-%-Regie ohne Staffel und Sonderhonorare, die den Grundpreis aushöhlen.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">04</span><span class="par">§</span><span class="nm">Neutralität &amp; § 181</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Befreiung von <a href="https://www.gesetze-im-internet.de/bgb/__181.html" target="_blank" rel="noopener">§ 181 BGB</a> nur bewusst und eng. Ist die Verwaltung zugleich Auftragnehmerin (z. B. Hausmeisterdienst), gehört jede Vergütungsänderung unter Beschluss-Vorbehalt.</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Pauschale § 181-Befreiung bei Doppelrolle, ohne jedes Compliance-Verfahren.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">05</span><span class="par">§</span><span class="nm">Kontrolle &amp; Beirat</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Der Beirat ist gesetzliches Kontrollorgan (<a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 WEG</a>). Der Vertrag muss seine Arbeit ermöglichen — Vorlage von Plan und Abrechnung, Belegprüfung, Vergleichsangebote vorab (Zahl der Angebote frei: <a href="https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/2026057.html" target="_blank" rel="noopener">BGH 2026</a>).</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Der Beirat erscheint nur als Kostenposten — Sitzungen werden extra berechnet. Das schwächt die Kontrolle.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">06</span><span class="par">§</span><span class="nm">Eigentümerrechte &amp; Einsicht</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Das Einsichtsrecht jeder Eigentümerin und jedes Eigentümers (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>) besteht unabhängig vom Vertrag — ein guter Vertrag lässt es ausdrücklich „unberührt".</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Belege werden nur zeitweise im Portal gezeigt und sollen die Einsicht ersetzen — das tun sie nicht.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">07</span><span class="par">§</span><span class="nm">Transparenz &amp; Aufbewahrung</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Vermögensbericht (<a href="https://www.gesetze-im-internet.de/woeigg/__28.html" target="_blank" rel="noopener">§ 28 Abs. 4 WEG</a>), mehrjähriger Portal-Vorhalt der Kernunterlagen und eine DSGVO-Auftragsverarbeitung.</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">Kern-Unterlagen wie Wirtschaftspläne und Abrechnungen verschwinden aus dem Portal.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bt">
+          <div class="bt-in">
+            <div class="bt-face bt-front"><span class="no">08</span><span class="par">§</span><span class="nm">Änderungen</span><span class="hint">umdrehen ↻</span></div>
+            <div class="bt-face bt-back">
+              <span class="lbl">So gehört es geregelt</span>
+              <span class="rule">Vertragsänderungen brauchen einen Eigentümerbeschluss — aber kein Veto der Verwaltung, das die Gemeinschaft dauerhaft bindet (AGB-Grenze <a href="https://www.gesetze-im-internet.de/bgb/__307.html" target="_blank" rel="noopener">§ 307 BGB</a>).</span>
+              <span class="warn"><span class="pill">Vorsicht</span><span class="wtx">„Änderungen nur mit Zustimmung des Verwalters" — zusammen mit einer Selbstverlängerung eine Einbahnstraße.</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="disc">Allgemeine Information, keine Rechtsberatung. Die Paragraphen sind zur eigenen
+        Prüfung verlinkt; für einen konkreten Vertrag ist die anwaltliche Prüfung maßgeblich.</p>
+      <div class="weiter">
+        <a href="verwalter.html">Und woran man eine gute Verwaltung erkennt <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="status">
+    <div class="wrap prose">
+      Initiative in Gründung — der Verein „Eigentümerstimme" befindet sich im
+      Gründungsprozess.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Erste-Party-JavaScript: Flip der Bausteine per Klick/Tastatur; laedt nichts
+     von Dritten nach (Datenschutz-Zusage bleibt gewahrt). Links auf der Rueckseite
+     loesen keinen Flip aus. -->
+<script>
+(function(){
+  var tiles = document.querySelectorAll('.bt');
+  tiles.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.setAttribute('role','button');
+    t.setAttribute('aria-label', 'Baustein umdrehen');
+    function toggle(){ t.classList.toggle('flip'); t.setAttribute('aria-pressed', t.classList.contains('flip') ? 'true' : 'false'); }
+    t.addEventListener('click', function(e){ if(e.target.closest('a')) return; toggle(); });
+    t.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
+  });
+})();
+</script>
+
+</body>
+</html>
