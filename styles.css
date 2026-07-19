@@ -100,6 +100,13 @@ footer a:hover{text-decoration:underline}
 .kap__s{margin-top:6px;font-size:13.5px;color:var(--text-soft);line-height:1.55}
 .kap__no{flex:0 0 auto;font-family:'Playfair Display',serif;font-size:22px;color:var(--acc);font-weight:600;line-height:1;padding-top:2px;transition:color .2s}
 .kap[open] .kap__no{color:var(--signal)}
+/* Auf-/Zuklapp-Signal: Kreis mit + / − rechts an der summary (rein per CSS,
+   kein Markup noetig). Farbe = Kachel-Akzent, offen = Koralle (Fokus). */
+.kap>summary::after{content:"";flex:0 0 auto;align-self:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--acc);background:linear-gradient(var(--acc),var(--acc)) center/12px 1.6px no-repeat,linear-gradient(var(--acc),var(--acc)) center/1.6px 12px no-repeat;transition:background-color .2s,border-color .2s}
+.kap:hover>summary::after{border-color:var(--acc);background-color:var(--acc);background-image:linear-gradient(#fff,#fff),linear-gradient(#fff,#fff)}
+.kap[open]>summary::after{border-color:var(--signal);background-color:var(--signal);background-image:linear-gradient(#fff,#fff);background-size:12px 1.6px;background-position:center;background-repeat:no-repeat}
+/* Offener Zustand: Frage-Zeile abgesetzt, damit Frage und Antwort zwei Zonen sind. */
+.kap[open]>summary{background:rgba(26,92,90,.09);border-bottom:1px solid rgba(26,92,90,.16)}
 .kap__body{padding:2px 22px 26px}
 .kap__lead{font-size:15.5px;color:var(--petrol-dark);font-weight:500;margin:16px 0 6px;line-height:1.6;padding:2px 0 2px 16px;border-left:3px solid var(--signal)}
 .kap__body p{font-size:15px;color:var(--text-soft);margin:12px 0;max-width:66ch}
