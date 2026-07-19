@@ -53,22 +53,21 @@
   .kap__body .case-step:nth-of-type(4){--cacc:var(--signal);background:#fdf1ec}
   .kap__body .case-step:nth-of-type(4) .case-step__n{color:#b23a17}
 
-  .links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
-  @media(max-width:680px){.links{grid-template-columns:1fr}}
-  .linkcard{display:block;background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 12px 12px 0;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s}
-  .linkcard:hover{box-shadow:0 8px 22px rgba(26,53,53,.10);transform:translateY(-2px)}
-  .linkcard .t{font-weight:600;color:var(--petrol-dark);font-size:15px}
-  .linkcard .d{font-size:13px;color:var(--text-soft);margin-top:3px;line-height:1.5}
-  .linkcard .u{font-size:12px;color:var(--stimme);margin-top:8px;word-break:break-word}
-  .linknote{margin-top:16px;font-size:12.5px;color:var(--text-mute);font-style:italic}
-
-  .qa{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 14px 14px 0;padding:22px 24px;color:var(--text-soft);font-size:14.5px;line-height:1.6}
-  .qa b{color:var(--petrol-dark);font-weight:600}
-  .qa .dl{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
-  .qa .dl a{display:inline-flex;align-items:center;gap:10px;background:var(--stimme);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:10px;transition:filter .2s}
-  .qa .dl a:hover{filter:brightness(1.06)}
-  .qa .dl a svg{width:19px;height:19px}
-  .qa .dl .meta{font-size:12.5px;color:var(--text-mute)}
+  /* Quellen als gruppierte Punkt-Listen (statt Kaesten): Kategorie-Ueberschrift
+     mit Petrol-Linie + Link mit Notiz — ruhig, klar, nicht boxig. */
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px 44px;margin-top:8px}
+  @media(max-width:680px){.qgrid{grid-template-columns:1fr;gap:22px}}
+  .qgroup__t{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--petrol);padding-bottom:7px;margin-bottom:4px;border-bottom:1px solid var(--petrol)}
+  .qlist{list-style:none;margin:0;padding:0}
+  .qitem{display:flex;gap:11px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(26,53,53,.07)}
+  .qitem:last-child{border-bottom:none}
+  .qitem__dot{flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--petrol);margin-top:8px}
+  .qitem a{font-size:14.5px;color:var(--petrol-dark);text-decoration:none;font-weight:600}
+  .qitem a:hover{color:var(--petrol);text-decoration:underline;text-underline-offset:2px}
+  .qitem__note{display:block;font-size:12px;color:var(--text-mute);margin-top:2px;line-height:1.5;font-weight:400}
+  .qitem--dl .qitem__dot{background:var(--stimme)}
+  .qitem--dl a{color:var(--stimme)}
+  .linknote{margin-top:20px;font-size:12.5px;color:var(--text-mute);font-style:italic}
 
   main{padding-bottom:72px}
 </style>
@@ -621,69 +620,41 @@
   <section class="cluster">
     <div class="guide">
       <div class="cluster__label"><span class="cluster__chip">Links</span><h2>Wichtige Quellen &amp; Anlaufstellen</h2></div>
-      <div class="links">
-        <a class="linkcard" href="https://www.gesetze-im-internet.de/woeigg/" target="_blank" rel="noopener">
-          <div class="t">Wohnungseigentumsgesetz (WEG)</div>
-          <div class="d">Der Gesetzestext — Rollen, Rechte, Beschlüsse, Verwaltung.</div>
-          <div class="u">gesetze-im-internet.de/woeigg</div>
-        </a>
-        <a class="linkcard" href="https://www.gesetze-im-internet.de/bgb/" target="_blank" rel="noopener">
-          <div class="t">Bürgerliches Gesetzbuch (BGB)</div>
-          <div class="d">U. a. Vertretung/Vollmacht (§§ 164 ff.) und Insichgeschäft (§ 181).</div>
-          <div class="u">gesetze-im-internet.de/bgb</div>
-        </a>
-        <a class="linkcard" href="https://www.gesetze-im-internet.de/betrkv/" target="_blank" rel="noopener">
-          <div class="t">BetrKV &amp; HeizkostenV</div>
-          <div class="d">Welche Betriebskosten umlagefähig sind — und was nicht.</div>
-          <div class="u">gesetze-im-internet.de/betrkv · /heizkostenv</div>
-        </a>
-        <a class="linkcard" href="https://www.bbsr-geg.bund.de/" target="_blank" rel="noopener">
-          <div class="t">GEG-Infoportal (BBSR)</div>
-          <div class="d">Gebäudeenergiegesetz, Wärmeplanungsgesetz, weiterführende Links.</div>
-          <div class="u">bbsr-geg.bund.de</div>
-        </a>
-        <a class="linkcard" href="https://www.bmwsb.bund.de/" target="_blank" rel="noopener">
-          <div class="t">BMWSB — Gebäudeenergiegesetz</div>
-          <div class="d">Das zuständige Bundesministerium zum aktuellen Stand.</div>
-          <div class="u">bmwsb.bund.de</div>
-        </a>
-        <a class="linkcard" href="https://www.erfurt.de/" target="_blank" rel="noopener">
-          <div class="t">Erfurt — kommunale Wärmeplanung</div>
-          <div class="d">Wärmeplan und Verfügbarkeitscheck (Stand 26.03.2026).</div>
-          <div class="u">erfurt.de</div>
-        </a>
-        <a class="linkcard" href="https://dejure.org/" target="_blank" rel="noopener">
-          <div class="t">Rechtsprechung: dejure · openjur · rewis</div>
-          <div class="d">Urteile im Volltext prüfen — z. B. BGH V ZR 7/25.</div>
-          <div class="u">dejure.org · openjur.de · rewis.io</div>
-        </a>
-        <a class="linkcard" href="https://www.vzth.de/" target="_blank" rel="noopener">
-          <div class="t">Verbraucherzentrale Thüringen</div>
-          <div class="d">Neutrale Verbraucherinfo zu WEG und Energie.</div>
-          <div class="u">vzth.de</div>
-        </a>
+      <div class="qgrid">
+        <div class="qgroup">
+          <div class="qgroup__t">Gesetzestexte</div>
+          <ul class="qlist">
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.gesetze-im-internet.de/woeigg/" target="_blank" rel="noopener">Wohnungseigentumsgesetz (WEG)</a><span class="qitem__note">Rollen, Rechte, Beschlüsse, Verwaltung · gesetze-im-internet.de/woeigg</span></span></li>
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.gesetze-im-internet.de/bgb/" target="_blank" rel="noopener">Bürgerliches Gesetzbuch (BGB)</a><span class="qitem__note">U. a. Vertretung/Vollmacht (§§ 164 ff.) und Insichgeschäft (§ 181) · gesetze-im-internet.de/bgb</span></span></li>
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.gesetze-im-internet.de/betrkv/" target="_blank" rel="noopener">BetrKV &amp; HeizkostenV</a><span class="qitem__note">Welche Betriebskosten umlagefähig sind — und was nicht · /betrkv · /heizkostenv</span></span></li>
+          </ul>
+        </div>
+        <div class="qgroup">
+          <div class="qgroup__t">Behörden &amp; Portale</div>
+          <ul class="qlist">
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.bbsr-geg.bund.de/" target="_blank" rel="noopener">GEG-Infoportal (BBSR)</a><span class="qitem__note">Gebäudeenergiegesetz, Wärmeplanungsgesetz, weiterführende Links · bbsr-geg.bund.de</span></span></li>
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.bmwsb.bund.de/" target="_blank" rel="noopener">BMWSB — Gebäudeenergiegesetz</a><span class="qitem__note">Das zuständige Bundesministerium zum aktuellen Stand · bmwsb.bund.de</span></span></li>
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.erfurt.de/" target="_blank" rel="noopener">Erfurt — kommunale Wärmeplanung</a><span class="qitem__note">Wärmeplan und Verfügbarkeitscheck (Stand 26.03.2026) · erfurt.de</span></span></li>
+          </ul>
+        </div>
+        <div class="qgroup">
+          <div class="qgroup__t">Rechtsprechung &amp; Verbraucherschutz</div>
+          <ul class="qlist">
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://dejure.org/" target="_blank" rel="noopener">Rechtsprechung: dejure · openjur · rewis</a><span class="qitem__note">Urteile im Volltext prüfen — z. B. BGH V ZR 7/25 · dejure.org · openjur.de · rewis.io</span></span></li>
+            <li class="qitem"><span class="qitem__dot" aria-hidden="true"></span><span><a href="https://www.vzth.de/" target="_blank" rel="noopener">Verbraucherzentrale Thüringen</a><span class="qitem__note">Neutrale Verbraucherinfo zu WEG und Energie · vzth.de</span></span></li>
+          </ul>
+        </div>
+        <div class="qgroup">
+          <div class="qgroup__t">Eigene Unterlagen</div>
+          <ul class="qlist">
+            <li class="qitem qitem--dl"><span class="qitem__dot" aria-hidden="true"></span><span><a href="documents/260718_Eigentuemerstimme_Wegweiser_Q-und-A_Charge-1.pdf" download>Vertieftes Q&amp;A-Dokument (PDF)</a><span class="qitem__note">Charge 1 · fortlaufend nummeriert, geprüft und belegt · Stand Juli 2026</span></span></li>
+          </ul>
+        </div>
       </div>
       <p class="linknote">Externe Quellen, Stand Juli 2026 — Änderungen möglich. Öffnen in einem neuen Tab.</p>
     </div>
   </section>
 
-  <section class="cluster">
-    <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Q&amp;A</span><h2>Die ganze Breite — zum Nachlesen</h2></div>
-      <div class="qa">
-        <b>Das vertiefte Q&amp;A-Dokument (Charge 1).</b> Fortlaufend nummeriert und thematisch
-        gegliedert — dieselbe Sorgfalt wie die Top-Fragen: geprüft, belegt, neutral. Die Breite
-        hinter der schlanken Auswahl, zum Nachlesen und Mitnehmen.
-        <div class="dl">
-          <a href="documents/260718_Eigentuemerstimme_Wegweiser_Q-und-A_Charge-1.pdf" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 11l4 4 4-4M5 19h14"/></svg>
-            Q&amp;A-Dokument als PDF laden
-          </a>
-          <span class="meta">Charge 1 · Stand Juli 2026</span>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
