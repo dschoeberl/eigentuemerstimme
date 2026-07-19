@@ -7,6 +7,7 @@
 <meta name="description" content="Woran man einen fairen, heutigen Verwaltervertrag erkennt — Baustein für Baustein: Laufzeit, Vergütung, Neutralität, Kontrolle und Beirat, Einsichtsrechte. Belegt mit Paragraphen. Allgemeine Information, keine Rechtsberatung.">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/hero-vertrag.jpg" as="image">
 <link rel="stylesheet" href="styles.css">
 <style>
   body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -14,8 +15,13 @@
 
   /* Hero — Petrol mit Amber-Akzent (Farbe der „Welt WEG"). Noch ohne eigenes Motiv. */
   .hero{
-    background:var(--petrol-dark);
-    background-image:linear-gradient(118deg, var(--petrol-dark) 0%, #163f3e 58%, var(--petrol) 130%);
+    background-color:var(--petrol-dark);
+    background-image:
+      linear-gradient(90deg, rgba(26,53,53,.95) 0%, rgba(26,53,53,.88) 34%, rgba(26,53,53,.60) 62%, rgba(26,53,53,.34) 100%),
+      url('images/hero-vertrag.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     color:#fff;padding:84px 0 92px;position:relative;overflow:hidden
   }
   .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 60%,var(--petrol) 60%,var(--petrol) 100%)}
@@ -70,7 +76,13 @@
   .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
 
   @media(max-width:760px){
-    .hero{padding:62px 0 70px}
+    .hero{
+      background-position:center;
+      background-image:
+        linear-gradient(180deg, rgba(26,53,53,.90) 0%, rgba(26,53,53,.84) 55%, rgba(26,53,53,.80) 100%),
+        url('images/hero-vertrag.jpg');
+      padding:62px 0 70px
+    }
     section{padding:42px 0}
   }
 </style>
