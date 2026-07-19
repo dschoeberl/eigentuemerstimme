@@ -44,6 +44,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
 /* Header / Wortmarke */
@@ -75,7 +76,7 @@ footer a:hover{text-decoration:underline}
 .cluster{padding:46px 0 4px}
 .cluster__label{display:flex;align-items:center;gap:14px;margin-bottom:20px}
 .cluster__chip{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--petrol);padding:6px 13px;border-radius:999px;white-space:nowrap}
-.cluster__label h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;white-space:nowrap}
+.cluster__label h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;min-width:0}
 .cluster__label::after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--stimme-soft),rgba(230,227,223,0))}
 
 .wall{display:grid;grid-template-columns:1fr 1fr;gap:18px}
