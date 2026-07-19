@@ -7,6 +7,7 @@
 <meta name="description" content="Woraus Eigentümerstimme kommt: das Forschungsprojekt Future Readiness am eco2050 Institut — und die offene Frage, wie in der Wärmewende tatsächlich entschieden wird. Neutral, evidenzbasiert, ergebnisoffen.">
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/hero-wissenschaft.jpg" as="image">
 <link rel="stylesheet" href="styles.css">
 <style>
   body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -15,8 +16,13 @@
   /* Hero — Petrol-Fläche (noch ohne eigenes Motiv; Bild kann später wie bei den
      anderen Seiten nachgerüstet werden). Diagonaler Petrol-Verlauf für Tiefe. */
   .hero{
-    background:var(--petrol-dark);
-    background-image:linear-gradient(118deg, var(--petrol-dark) 0%, #163f3e 58%, var(--petrol) 128%);
+    background-color:var(--petrol-dark);
+    background-image:
+      linear-gradient(90deg, rgba(26,53,53,.95) 0%, rgba(26,53,53,.88) 34%, rgba(26,53,53,.62) 62%, rgba(26,53,53,.38) 100%),
+      url('images/hero-wissenschaft.jpg');
+    background-size:cover;
+    background-position:center right;
+    background-repeat:no-repeat;
     color:#fff;padding:88px 0 96px;position:relative;overflow:hidden
   }
   .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--erkenntnis) 0%,var(--erkenntnis) 60%,var(--petrol) 60%,var(--petrol) 100%)}
@@ -56,7 +62,14 @@
   .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
 
   @media(max-width:760px){
-    .hero{padding:64px 0 72px}
+    /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
+    .hero{
+      background-position:right center;
+      background-image:
+        linear-gradient(180deg, rgba(26,53,53,.92) 0%, rgba(26,53,53,.86) 60%, rgba(26,53,53,.80) 100%),
+        url('images/hero-wissenschaft.jpg');
+      padding:64px 0 72px
+    }
     section{padding:42px 0}
     .proj{gap:18px;padding:22px}
   }
