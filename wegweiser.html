@@ -43,7 +43,13 @@
      Text (lesbar statt Weiss-auf-Vollton); Farbe ueber --cacc/nth-of-type, der
      Mitnehmen-Schritt als Koralle-Highlight. */
   .case-intro{max-width:70ch;color:var(--text-soft);font-size:15.5px;margin:2px 0 4px}
-  .case-step{--cacc:var(--petrol);margin:12px 0;border:1px solid var(--border);border-left:4px solid var(--cacc);border-radius:0 12px 12px 0;padding:14px 18px;background:#fff}
+  .kap__body{counter-reset:castep}
+  .case-step{--cacc:var(--petrol);counter-increment:castep;position:relative;margin:10px 0;border:1px solid var(--border);border-left:4px solid var(--cacc);border-radius:0 12px 12px 0;padding:14px 18px 14px 54px;background:#fff}
+  /* Nummer-Badge 1-4 je Schritt + duenne Verbindungslinie: die vier Schritte
+     lesen sich als ein Gang (Situation -> Recht -> Bewertung -> Mitnehmen). */
+  .case-step::before{content:counter(castep);position:absolute;left:12px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--cacc);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:700}
+  .case-step::after{content:"";position:absolute;left:25px;top:41px;bottom:-10px;width:2px;background:var(--border)}
+  .case-step:nth-of-type(4)::after{display:none}
   .case-step__n{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cacc);margin-bottom:5px}
   .case-step p{font-size:14.5px;line-height:1.6;margin:0;color:var(--text-soft);max-width:70ch}
   .case-step p b{color:var(--text);font-weight:700}
