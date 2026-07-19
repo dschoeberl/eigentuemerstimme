@@ -39,17 +39,19 @@
   .kap__meta a:hover{border-bottom-color:var(--petrol)}
 
   /* Cases — Muster-Faelle im 4-Schritt-Raster (Aufklapp-Kacheln); Links & Q&A darunter.
-     Die vier Schritte als eingefaerbte Boxen, weisse Schrift; Kuehl-zu-Warm-Abfolge
-     Situation -> Recht -> Bewertung -> Mitnehmen (Farbe ueber nth-of-type). */
+     Die vier Schritte als helle Karten mit farbigem Balken links und dunklem
+     Text (lesbar statt Weiss-auf-Vollton); Farbe ueber --cacc/nth-of-type, der
+     Mitnehmen-Schritt als Koralle-Highlight. */
   .case-intro{max-width:70ch;color:var(--text-soft);font-size:15.5px;margin:2px 0 4px}
-  .case-step{margin:12px 0;border-radius:12px;padding:15px 17px;color:#fff}
-  .case-step__n{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:5px}
-  .case-step p{font-size:14.5px;line-height:1.6;margin:0;color:#fff;max-width:70ch}
-  .case-step p b{color:#fff;font-weight:700}
-  .kap__body .case-step:nth-of-type(1){background:var(--petrol-dark)}
-  .kap__body .case-step:nth-of-type(2){background:var(--petrol)}
-  .kap__body .case-step:nth-of-type(3){background:var(--erkenntnis)}
-  .kap__body .case-step:nth-of-type(4){background:var(--signal)}
+  .case-step{--cacc:var(--petrol);margin:12px 0;border:1px solid var(--border);border-left:4px solid var(--cacc);border-radius:0 12px 12px 0;padding:14px 18px;background:#fff}
+  .case-step__n{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cacc);margin-bottom:5px}
+  .case-step p{font-size:14.5px;line-height:1.6;margin:0;color:var(--text-soft);max-width:70ch}
+  .case-step p b{color:var(--text);font-weight:700}
+  .kap__body .case-step:nth-of-type(1){--cacc:var(--petrol-dark)}
+  .kap__body .case-step:nth-of-type(2){--cacc:var(--petrol)}
+  .kap__body .case-step:nth-of-type(3){--cacc:var(--erkenntnis)}
+  .kap__body .case-step:nth-of-type(4){--cacc:var(--signal);background:#fdf1ec}
+  .kap__body .case-step:nth-of-type(4) .case-step__n{color:#b23a17}
 
   .links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
   @media(max-width:680px){.links{grid-template-columns:1fr}}
