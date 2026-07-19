@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forschung &amp; Entscheidung — Eigentümerstimme</title>
+<meta name="description" content="Woraus Eigentümerstimme kommt: das Forschungsprojekt Future Readiness am eco2050 Institut — und die offene Frage, wie in der Wärmewende tatsächlich entschieden wird. Neutral, evidenzbasiert, ergebnisoffen.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .prose{max-width:660px}
+
+  /* Hero — Petrol-Fläche (noch ohne eigenes Motiv; Bild kann später wie bei den
+     anderen Seiten nachgerüstet werden). Diagonaler Petrol-Verlauf für Tiefe. */
+  .hero{
+    background:var(--petrol-dark);
+    background-image:linear-gradient(118deg, var(--petrol-dark) 0%, #163f3e 58%, var(--petrol) 128%);
+    color:#fff;padding:88px 0 96px;position:relative;overflow:hidden
+  }
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--erkenntnis) 0%,var(--erkenntnis) 60%,var(--petrol) 60%,var(--petrol) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--erkenntnis-soft);margin-bottom:22px}
+  .accentline{width:56px;height:3px;background:var(--erkenntnis);margin:0 0 30px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,52px);line-height:1.15;letter-spacing:-.01em;color:#fff;max-width:20ch}
+  .hero .sub{margin-top:26px;max-width:60ch;font-size:clamp(16px,2vw,19px);color:#d7e2e1}
+  .hero .sub b{color:#fff;font-weight:600}
+
+  /* Abschnittsrhythmus — heller Grund und Weiss im Wechsel, wie auf den anderen Seiten. */
+  section{padding:52px 0}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(22px,3vw,29px);line-height:1.2;letter-spacing:-.01em;color:var(--petrol-dark);margin-bottom:18px;max-width:24ch}
+  p{color:var(--text-soft);font-size:17px;margin-bottom:16px}
+  p:last-child{margin-bottom:0}
+  p b{color:var(--text);font-weight:600}
+  em{font-style:italic}
+
+  /* Projektkarte eco2050 — Logo, Kurzbeschreibung, Link zum Projekt. */
+  .proj{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:28px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--erkenntnis);border-radius:12px;padding:24px 26px}
+  .proj__logo{flex:0 0 auto}
+  .proj__logo img{display:block;height:70px;width:auto}
+  .proj__body{flex:1;min-width:240px}
+  .proj__t{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:var(--petrol-dark);margin-bottom:6px}
+  .proj__d{font-size:14.5px;color:var(--text-soft);line-height:1.6;margin-bottom:14px;max-width:52ch}
+  .proj__link{display:inline-flex;align-items:center;gap:9px;background:var(--erkenntnis);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:10px;transition:filter .2s}
+  .proj__link:hover{filter:brightness(1.07)}
+  .proj__link svg{width:17px;height:17px}
+
+  /* Resonanz-Schlusssatz — trägt allein. */
+  .kicker{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.35;color:var(--petrol-dark);margin-top:28px;padding-left:18px;border-left:3px solid var(--erkenntnis)}
+
+  /* Dialog-Zeile */
+  .mail{display:inline-block;margin-top:20px;font-family:'Playfair Display',serif;font-size:clamp(19px,2.6vw,24px);color:var(--petrol-dark);text-decoration:none;border-bottom:3px solid var(--erkenntnis);padding-bottom:3px}
+
+  .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
+
+  @media(max-width:760px){
+    .hero{padding:64px 0 72px}
+    section{padding:42px 0}
+    .proj{gap:18px;padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="verwalter.html">Verwalter</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Forschung &amp; Entscheidung</div>
+      <div class="accentline"></div>
+      <h1>Entscheidungen, die Jahrzehnte tragen, brauchen mehr als eine Meinung.</h1>
+      <p class="sub">Eigentümerstimme sucht bewusst die Nähe zur Forschung — zu der Frage,
+        wie in der Wärmewende tatsächlich entschieden wird. <b>Neutral, evidenzbasiert,
+        ergebnisoffen.</b></p>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Woraus wir kommen</h2>
+      <p>Eigentümerstimme ist nicht aus einer Meinung entstanden, sondern aus einer
+        Untersuchung. Grundlage ist ein Forschungsprojekt zu den gelingenden Faktoren der
+        kommunalen Wärmeplanung, entwickelt am eco2050 Institut für Nachhaltigkeit — auf Basis
+        eines Vergleichs von zehn Städten, leitfadengestützter Experteninterviews mit zentralen
+        Akteurinnen und Akteuren der Wärmewende und internationaler Erfahrungen.</p>
+      <p>Daraus entstand der <b>Future Readiness Index</b> — ein Rahmen aus elf
+        Kompetenzfeldern, der nicht fragt, <em>ob</em> eine Kommune plant, sondern ob sie
+        wirklich zukunftsfähig entscheidet. Zukunftsfähigkeit als Muskel, nicht als Zustand:
+        etwas, das trainiert, erprobt und weiterentwickelt werden muss.</p>
+      <p>Angewandt wurde dieser Rahmen zuerst auf die kommunale Wärmeplanung der
+        <b>Stadt Erfurt</b> — und dann, erstmals, auf ein <b>einzelnes Gebäude</b>: von der
+        Systemebene der Stadt hinunter zur Eigentümergemeinschaft, mit den Zahlen, Fristen und
+        Zwängen, die eine solche Entscheidung wirklich bestimmen.</p>
+
+      <div class="proj">
+        <div class="proj__logo">
+          <img src="images/eco2050-logo-horz-farbe.svg" alt="eco2050 Institut für Nachhaltigkeit" height="70">
+        </div>
+        <div class="proj__body">
+          <div class="proj__t">Kommunale Wärmeplanung — das Forschungsprojekt</div>
+          <p class="proj__d">Zukunftsfähigkeit als Fähigkeit: Wie kommunale Wärmeplanung
+            resilient, wirksam und weiterentwickelbar wird. Am eco2050 Institut für
+            Nachhaltigkeit.</p>
+          <a class="proj__link" href="https://eco2050.de/kommunale-waermeplanung/" target="_blank" rel="noopener">
+            Zum Projekt bei eco2050
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2>Die offene Frage</h2>
+      <p>Der Future-Readiness-Ansatz betrachtet die <em>systemische</em> Seite — die Fähigkeit
+        von Kommunen, unter Unsicherheit und Komplexität zukunftsfähig zu handeln. Eine
+        gelingende Wärmewende entscheidet sich aber nicht nur in Plänen, sondern dort, wo
+        räumliche Planung auf die einzelne Entscheidung trifft: am Gebäude, in der
+        Eigentümergemeinschaft.</p>
+      <p>Genau hier setzt die Frage an, der die Initiative weiter nachgeht: <b>Wie werden
+        große, langfristige Entscheidungen in der Wärmewende tatsächlich getroffen — im
+        Spannungsfeld von Eigentümergemeinschaft, Hausverwaltung, Beratung und
+        Ingenieurbüros?</b> Wer trägt Verantwortung, welche Rolle spielen Transparenz und
+        Beratungspflichten, und wie prägen Präferenzen, Information und Beteiligung das
+        Ergebnis?</p>
+      <p>Das ist ein bewusst <b>offener Punkt</b> — eine Fragestellung, der sich die Initiative
+        widmen und die sie mit der Wissenschaft weiterverfolgen will: evidenzbasiert,
+        ergebnisoffen, an der Schnittstelle von System und Mensch.</p>
+      <p class="kicker">Die Initiative will nicht entscheiden — sie will die Voraussetzungen für
+        gute Entscheidungen schaffen. Dort, wo sie über Jahrzehnte tragen.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap prose">
+      <h2>Im Dialog mit der Wissenschaft</h2>
+      <p>Eigentümerstimme ersetzt keine Forschung. Sie bringt die Perspektive derjenigen ein,
+        die am Ende entscheiden und die Folgen tragen — und sucht dafür den wissenschaftlichen
+        Austausch. Wer in Forschung oder Fachöffentlichkeit an Entscheidungsverhalten,
+        Präferenzen und Beteiligung in der Transformation arbeitet, ist zum Gespräch eingeladen.</p>
+      <a class="mail" href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+    </div>
+  </section>
+
+  <div class="status">
+    <div class="wrap prose">
+      Initiative in Gründung — der Verein „Eigentümerstimme" befindet sich im
+      Gründungsprozess.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
