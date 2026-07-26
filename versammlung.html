@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die beschlussreife Eigentümerversammlung — Eigentümerstimme</title>
+<meta name="description" content="Eine Versammlung entscheidet nur, wenn sie entscheidungsfähig vorbereitet ist. Zehn Merkmale der Beschlussreife — So gehört es und Warnsignal — und was Sie tun können, wenn sie fehlt. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Kopf — Hero mit Motiv (images/hero-versammlung.jpg), Petrol-Fallback */
+  .ghead{background-color:var(--petrol-dark);
+    background-image:linear-gradient(90deg, rgba(26,53,53,.96) 0%, rgba(26,53,53,.90) 34%, rgba(26,53,53,.64) 64%, rgba(26,53,53,.40) 100%), url('images/hero-versammlung.jpg');
+    background-size:cover;background-position:center right;background-repeat:no-repeat;
+    color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  @media(max-width:760px){
+    .ghead{background-position:right center;
+      background-image:linear-gradient(180deg, rgba(26,53,53,.93) 0%, rgba(26,53,53,.86) 55%, rgba(26,53,53,.78) 100%), url('images/hero-versammlung.jpg')}
+  }
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:24ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:62ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  /* Was Beschlussreife heißt */
+  .intro-block{padding:46px 0 8px}
+  .intro-block h2{font-family:'Playfair Display',serif;font-size:clamp(20px,2.6vw,26px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px;max-width:26ch}
+  .intro-block p{font-size:16px;color:var(--text-soft);max-width:70ch;margin-bottom:14px}
+  .intro-block p b{color:var(--text)}
+
+  /* Gegenueberstellung (wie verwalter.html) */
+  .vhead-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .vcol-title{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#fff;padding:13px 18px;border-radius:12px}
+  .vcol-title--gut{background:var(--petrol)}
+  .vcol-title--warn{background:var(--signal)}
+  .vcol-title svg{width:22px;height:22px}
+  .vergleich{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:16px}
+  .vtopic{grid-column:1/-1;font-family:'Playfair Display',serif;font-size:15px;color:var(--petrol-dark);font-weight:600;margin-top:12px}
+  .vcell{display:flex;gap:13px;align-items:flex-start;background:#eef4f3;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 12px 12px 0;padding:16px 18px;font-size:14.5px;color:var(--text-soft);line-height:1.6}
+  .vcell--warn{background:#fceee8;border-left-color:var(--signal)}
+  .vcell .ic{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--petrol);color:#fff}
+  .vcell--warn .ic{background:var(--signal);color:#fff}
+  .vcell .ic svg{width:17px;height:17px}
+  .vcell b{color:var(--text);font-weight:600}
+
+  /* Was Sie tun koennen */
+  .handeln{margin-top:40px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 14px 14px 0;padding:24px 26px}
+  .handeln h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;margin-bottom:8px}
+  .handeln p.hlead{font-size:15px;color:var(--text-soft);margin-bottom:16px;max-width:66ch}
+  .handeln ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .handeln li{position:relative;padding-left:30px;font-size:15px;color:var(--text-soft);line-height:1.6}
+  .handeln li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--stimme);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;background-color:var(--stimme)}
+  .handeln li b{color:var(--text);font-weight:600}
+
+  /* Rechtsanker */
+  .anker{margin-top:36px}
+  .anker h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px}
+  .anker ul{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:760px}
+  .anker li{padding-left:18px;border-left:3px solid var(--stimme-soft);font-size:15.5px;color:var(--text-soft);line-height:1.6}
+  .anker b{color:var(--petrol-dark);font-weight:600}
+  .anker a{color:var(--petrol);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .anker a:hover{border-bottom-color:var(--petrol)}
+
+  .schluss{margin-top:34px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:22px 24px}
+  .schluss p{font-size:15px;color:var(--text-soft);margin:0}
+  .schluss b{color:var(--petrol-dark);font-weight:600}
+  .schluss a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .schluss a:hover{border-bottom-color:var(--petrol)}
+
+  .disc{margin-top:24px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:70ch;font-style:italic}
+
+  @media(max-width:680px){
+    .vhead-row{display:none}
+    .vergleich{grid-template-columns:1fr;gap:10px}
+    .vtopic{margin-top:16px}
+    .vcell > span:last-child::before{content:"So gehört es";display:inline-block;margin-right:8px;padding:2px 9px;border-radius:999px;background:var(--petrol);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;vertical-align:1px}
+    .vcell--warn > span:last-child::before{content:"Warnsignal";background:var(--signal)}
+  }
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle">
+      <label for="navtoggle" class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></label>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="verwalter.html">Verwalter</a><a href="verwaltung-waehlen.html">Verwaltung wählen</a><a href="versammlung.html" aria-current="page">Versammlung</a><a href="vertrag.html">Vertrag</a><a href="wissenschaft.html">Wissenschaft</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Die beschlussreife Versammlung</div>
+      <h1>Eine Versammlung entscheidet nur, wenn sie entscheiden kann.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Eine Eigentümerversammlung ist nur dann ein Ort echter Entscheidung, wenn sie
+        <b>entscheidungsfähig vorbereitet</b> ist. „Beschlussreife" ist der Maßstab dafür — und man
+        erkennt sie an konkreten Merkmalen.</p>
+      <p class="rdg"><b>Allgemeine Information, keine Rechtsberatung.</b> Diese Merkmale sind
+        allgemein und überprüfbar — keine konkreten Personen oder Firmen, kein Pranger. Paragrafen
+        beziehen sich auf das WEG, sofern nicht anders angegeben.</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+
+      <div class="intro-block">
+        <h2>Was „Beschlussreife" bedeutet</h2>
+        <p>Beschlussreif ist ein Tagesordnungspunkt, wenn die Eigentümer auf einer <b>ausreichenden,
+          rechtzeitig bekannten Grundlage</b> abstimmen können — nicht erst im Saal, nicht nur über
+          eine einzige Zahl, nicht ohne die Alternativen zu kennen. Wer eine Vorlage zum ersten Mal
+          in der Versammlung liest, stimmt zu; <b>entschieden</b> hat er nicht.</p>
+        <p>Die folgenden zehn Merkmale zeigen, woran Sie eine beschlussreife Vorbereitung erkennen —
+          und woran das Gegenteil.</p>
+      </div>
+
+      <div class="vhead-row">
+        <div class="vcol-title vcol-title--gut">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          So gehört es
+        </div>
+        <div class="vcol-title vcol-title--warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          Warnsignal
+        </div>
+      </div>
+
+      <div class="vergleich">
+
+        <div class="vtopic">1 · Einladung &amp; Fristen</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Fristgerechte, vollständige Einladung — <b>drei Wochen, Textform, vollständige Tagesordnung</b>.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Kurzfristige oder unvollständige Ladung; Beschlüsse zu <b>nicht angekündigten Punkten</b>.</span></div>
+
+        <div class="vtopic">2 · Beschlussvorlagen</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Die Vorlagen liegen <b>vor der Versammlung</b> vor — nachlesbar, nicht erst im Saal.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Die entscheidende Vorlage wird erst <b>im Saal verteilt</b> oder mündlich vorgetragen.</span></div>
+
+        <div class="vtopic">3 · Varianten</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Mindestens <b>zwei entscheidungsreife Varianten</b> — beide gleich tief dargestellt.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Nur ein Vorschlag; Alternativen bloß angedeutet oder als „gibt es nicht" abgetan.</span></div>
+
+        <div class="vtopic">4 · Kosten</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Kosten über den <b>Lebenszyklus</b> — Betrieb, Wartung, Instandhaltung, nicht nur der Angebotspreis.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Nur der <b>Angebotspreis</b> steht im Raum; Folgekosten bleiben ungenannt.</span></div>
+
+        <div class="vtopic">5 · Risiken</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Risiken und Unsicherheiten sind benannt — auch: <b>Was passiert, wenn nicht entschieden wird?</b></span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Die Vorlage wirkt alternativlos; Risiken und das Nichtstun-Szenario bleiben unerwähnt.</span></div>
+
+        <div class="vtopic">6 · Förderung</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Fördermöglichkeiten geprüft und <b>mit Fristen</b> dargestellt — inklusive Reihenfolge des Handelns.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Förderung fehlt in der Vorlage oder steht ohne Frist da — der Antrag kommt womöglich zu spät.</span></div>
+
+        <div class="vtopic">7 · Interessenkonflikte</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Interessenkonflikte werden <b>vor der Abstimmung</b> offengelegt — nicht erst auf Nachfrage.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Eine Doppelrolle wird verschwiegen oder erst nach direkter Frage eingeräumt.</span></div>
+
+        <div class="vtopic">8 · Anwesenheit &amp; Vollmachten</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Anwesenheits- und <b>Vollmachtslage transparent</b> — nachvollziehbar, wer wen vertritt.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Unklar, wie viele Vollmachten sich bei wem bündeln — die Mehrheit ist nicht nachvollziehbar.</span></div>
+
+        <div class="vtopic">9 · Aussprache</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Zeit für <b>Aussprache vor der Abstimmung</b>; gestellte Fragen und ihre Antworten stehen im Protokoll.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Der Punkt wird <b>durchgewinkt</b>; Fragen bleiben unbeantwortet oder tauchen im Protokoll nicht auf.</span></div>
+
+        <div class="vtopic">10 · Niederschrift &amp; Umsetzung</div>
+        <div class="vcell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Niederschrift <b>mit Beschlussgründen</b>; der Umsetzungsstand kommt später an die Gemeinschaft zurück.</span></div>
+        <div class="vcell vcell--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.3 2.7 18a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><span>Protokoll <b>ohne Gründe</b>; über die Umsetzung erfährt man nichts mehr.</span></div>
+
+      </div>
+
+      <div class="handeln">
+        <h2>Was Sie tun können, wenn Beschlussreife fehlt</h2>
+        <p class="hlead">Sie müssen einen unzureichend vorbereiteten Punkt nicht in der Sache ablehnen —
+          oft ist der sachlichere und mehrheitsfähigere Weg, die Grundlage einzufordern.</p>
+        <ul>
+          <li>Unterlagen <b>vorher schriftlich anfordern</b> — und die Anforderung datiert dokumentieren.</li>
+          <li><b>Vertagung des Punktes beantragen</b>, statt in der Sache abzulehnen.</li>
+          <li>Eine <b>Protokollnotiz verlangen</b>, wenn eine Frage unbeantwortet bleibt.</li>
+          <li><b>Beschlussgründe im Beschlusstext</b> einfordern — sie machen die Entscheidung nachvollziehbar und anfechtungsfester.</li>
+        </ul>
+      </div>
+
+      <div class="anker">
+        <h2>Rechtliche Anker</h2>
+        <ul>
+          <li><b>Einberufung &amp; Fristen, Niederschrift:</b> Drei-Wochen-Frist, Textform, Bindung an die angekündigte Tagesordnung (<a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 WEG</a>); Beschlussfassung nur zu ordnungsgemäß angekündigten Punkten (<a href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 WEG</a>).</li>
+          <li><b>Einsicht in die Unterlagen:</b> jede Eigentümerin und jeder Eigentümer kann die Verwaltungsunterlagen einsehen (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>).</li>
+          <li><b>Maßstab jeder Entscheidung:</b> ordnungsmäßige Verwaltung — dazu gehört eine ausreichende Entscheidungsgrundlage (<a href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 WEG</a>).</li>
+          <li><b>Vorbereitung &amp; Kontrolle:</b> der Verwaltungsbeirat unterstützt und überwacht die Verwaltung und prüft Wirtschaftsplan und Jahresabrechnung (<a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 Abs. 2 WEG</a>).</li>
+        </ul>
+      </div>
+
+      <div class="schluss">
+        <p><b>Beschlussreife ist kein Formalismus, sondern der Unterschied zwischen Zustimmen und
+          Entscheiden.</b> Konkrete Fragen rund um Versammlung und Beschlüsse stehen im
+          <a href="wegweiser.html">Wegweiser</a>; wie man eine Verwaltung auswählt, die so arbeitet,
+          zeigt <a href="verwaltung-waehlen.html">Verwaltung wählen</a>.</p>
+      </div>
+
+      <p class="disc">Allgemeine Information, keine Rechtsberatung. Die Paragrafen sind zur eigenen
+        Prüfung verlinkt; für einen konkreten Fall ist die anwaltliche Prüfung maßgeblich.</p>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
