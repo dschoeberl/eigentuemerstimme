@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der Beirat: Kontrolle mit Rückhalt — Eigentümerstimme</title>
+<meta name="description" content="Wer in einer Eigentümergemeinschaft prüft und nachfragt, trägt das persönliche Risiko oft allein. Rolle, Rechte und Grenzen des Verwaltungsbeirats — und Verfahren, die Kontrolle auf sicheren Boden stellen. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Hero — Petrol, Motiv images/hero-beirat.jpg, Petrol-Fallback */
+  .ghead{background-color:var(--petrol-dark);
+    background-image:linear-gradient(90deg, rgba(26,53,53,.96) 0%, rgba(26,53,53,.90) 34%, rgba(26,53,53,.64) 64%, rgba(26,53,53,.40) 100%), url('images/hero-beirat.jpg');
+    background-size:cover;background-position:center right;background-repeat:no-repeat;
+    color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  @media(max-width:760px){
+    .ghead{background-position:right center;
+      background-image:linear-gradient(180deg, rgba(26,53,53,.93) 0%, rgba(26,53,53,.86) 55%, rgba(26,53,53,.80) 100%), url('images/hero-beirat.jpg')}
+  }
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:64ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+
+  .cluster h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(21px,2.7vw,28px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px;max-width:28ch}
+  .cluster > .guide > p{font-size:16px;color:var(--text-soft);max-width:70ch;margin-bottom:16px}
+  .cluster > .guide > p b{color:var(--text)}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+  /* Das Muster — vier Beobachtungen als Karten */
+  .muster{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;max-width:900px}
+  @media(max-width:680px){.muster{grid-template-columns:1fr}}
+  .mkarte{background:#fff;border:1px solid var(--border);border-left:4px solid var(--signal);border-radius:0 14px 14px 0;padding:20px 22px}
+  section.alt .mkarte{background:var(--bg-light)}
+  .mkarte__k{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+  .mkarte__n{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--signal);color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:16px;display:grid;place-items:center}
+  .mkarte__t{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--petrol-dark);line-height:1.2}
+  .mkarte p{font-size:14.5px;color:var(--text-soft);margin:0;line-height:1.6}
+
+  /* Rechtliche Anker — verlinkte Liste */
+  .anker{margin-top:8px;list-style:none;display:flex;flex-direction:column;gap:13px;max-width:820px}
+  .anker li{padding-left:18px;border-left:3px solid var(--stimme-soft);font-size:15.5px;color:var(--text-soft);line-height:1.6}
+  .anker b{color:var(--petrol-dark);font-weight:600}
+  .anker a{color:var(--petrol);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .anker a:hover{border-bottom-color:var(--petrol)}
+  .anker .hint{color:var(--text-mute);font-style:italic;font-size:13.5px}
+
+  /* Rückhalt — Verfahrens-Checkliste */
+  .handeln{margin-top:8px;list-style:none;display:flex;flex-direction:column;gap:12px;max-width:820px}
+  .handeln li{position:relative;padding-left:30px;font-size:15px;color:var(--text-soft);line-height:1.6}
+  .handeln li::before{content:"";position:absolute;left:0;top:6px;width:17px;height:17px;border-radius:50%;background-color:var(--stimme);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+  .handeln li b{color:var(--text);font-weight:600}
+
+  /* Formulierungs-Beispiel */
+  .beispiel{margin-top:22px;padding:18px 20px;background:var(--stimme-tint);border-left:3px solid var(--stimme);border-radius:0 10px 10px 0;max-width:760px}
+  .beispiel .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--stimme);background:#fff;border:1px solid var(--stimme-soft);padding:3px 10px;border-radius:999px;margin-bottom:11px}
+  .beispiel p{font-size:15px;color:#5a4a2a;margin:0;font-style:italic}
+
+  /* Gemeinsame Stimme — hervorgehobener Block */
+  .stimmeblock{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 16px 16px 0;padding:24px 26px;max-width:820px}
+  .stimmeblock p{font-size:16px;color:var(--text-soft);margin:0 0 12px}
+  .stimmeblock p:last-child{margin-bottom:0}
+  .stimmeblock b{color:var(--petrol-dark);font-weight:600}
+
+  .disc{margin-top:26px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:74ch;font-style:italic}
+  .weiter{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+  .weiter a{display:inline-flex;align-items:center;gap:8px;color:var(--petrol);font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--stimme);padding-bottom:2px;align-self:flex-start}
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle">
+      <label for="navtoggle" class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></label>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="index.html#der-weg">Der Weg</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="wissenschaft.html">Wissenschaft</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Der Beirat</div>
+      <h1>Kontrolle braucht Rückhalt.</h1>
+      <div class="accentline"></div>
+      <p class="intro">Wer in einer Eigentümergemeinschaft nachfragt, Belege prüft oder eine zweite
+        Meinung einholt, tut das ehrenamtlich, oft auf eigene Kosten — und trägt das persönliche
+        Risiko allein. <b>Wo Kontrolle als Angriff verstanden wird, hört Kontrolle auf.</b> Diese Seite
+        gibt ihr einen Boden.</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <h2>Warum Kontrolle oft aufhört</h2>
+      <p>Manchmal liegt alles vor — die geprüfte Zahl, das Zweitgutachten, die Rechtslage — und die
+        Entscheidung fällt trotzdem auf der unvollständigen Grundlage. Warum, lässt sich in vier
+        Beobachtungen sagen. Sie sind allgemein und gegen niemanden gerichtet:</p>
+      <div class="muster">
+        <div class="mkarte">
+          <div class="mkarte__k"><span class="mkarte__n">1</span><span class="mkarte__t">Betroffenheit schlägt Beleg</span></div>
+          <p>Sobald eine geprüfte Zahl jemanden persönlich Geld kostet, wird oft nicht mehr argumentiert, sondern abgewehrt.</p>
+        </div>
+        <div class="mkarte">
+          <div class="mkarte__k"><span class="mkarte__n">2</span><span class="mkarte__t">Wer prüft, wird zum Gegenstand</span></div>
+          <p>Aus „diese Zahl stimmt nicht" wird schnell „mit dieser Person haben wir ein Problem". Die Sachfrage kippt in eine Personenfrage.</p>
+        </div>
+        <div class="mkarte">
+          <div class="mkarte__k"><span class="mkarte__n">3</span><span class="mkarte__t">Ablehnung ohne Begründung ist überlegen</span></div>
+          <p>„Ich habe Zweifel", „das Fass ist übergelaufen" — Aussagen über einen inneren Zustand lassen sich nicht widerlegen. Wer mit Belegen antwortet, hat es schwer gegen jemanden, der keine liefert.</p>
+        </div>
+        <div class="mkarte">
+          <div class="mkarte__k"><span class="mkarte__n">4</span><span class="mkarte__t">Es fehlt ein Verfahren, das trägt</span></div>
+          <p>Das Gesetz gibt dem Beirat eine Kontrollaufgabe, aber keinen Prozess, der ihre Wahrnehmung schützt. Prüfen ist eine Pflicht ohne Rückhalt — und hört deshalb irgendwann auf.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px">Der Schluss daraus ist nicht Resignation, sondern Methode: Wer prüft,
+        braucht ein <b>Verfahren</b> und eine <b>Form</b>, die ihn tragen. Genau darum geht es hier.</p>
+    </div>
+  </section>
+
+  <section class="cluster alt">
+    <div class="guide">
+      <h2>Was der Beirat darf — und wo seine Grenzen liegen</h2>
+      <p>Der Verwaltungsbeirat ist das gesetzliche Kontrollorgan der Gemeinschaft. Seine Stärke liegt
+        in klaren Aufgaben — und im Wissen um die Grenzen.</p>
+      <ul class="anker">
+        <li><b>Kontrollaufgabe:</b> Der Beirat unterstützt und überwacht die Verwaltung und prüft Wirtschaftsplan und Jahresabrechnung (<a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 Abs. 2 WEG</a>).</li>
+        <li><b>Einsicht — unabhängig vom Amt:</b> Jede Eigentümerin und jeder Eigentümer kann die Verwaltungsunterlagen einsehen; dieses Recht besteht auch ohne Beiratsamt (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>).</li>
+        <li><b>Vertretung gegenüber dem Verwalter:</b> Gegenüber dem Verwalter wird die Gemeinschaft nicht durch ihn selbst vertreten, sondern durch den Vorsitzenden des Verwaltungsbeirats oder einen durch Beschluss ermächtigten Wohnungseigentümer (<a href="https://www.gesetze-im-internet.de/woeigg/__9b.html" target="_blank" rel="noopener">§ 9b Abs. 2 WEG</a>).</li>
+        <li><b>Grenze — der Beirat entscheidet nicht:</b> Er bereitet vor und prüft; entschieden wird in der Versammlung (<a href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 WEG</a>). Und er ist ein <b>Gremium</b>: Ein einzelnes Mitglied vertritt nicht „den Beirat".</li>
+        <li><b>Abberufung:</b> Ein Beiratsmitglied kann durch Mehrheitsbeschluss abberufen werden; ein besonderer wichtiger Grund ist dafür nicht erforderlich. Wie jeder Beschluss muss aber auch dieser ordnungsmäßiger Verwaltung entsprechen (<a href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 WEG</a>) und ist gerichtlich überprüfbar (<a href="https://www.gesetze-im-internet.de/woeigg/__44.html" target="_blank" rel="noopener">§ 44 WEG</a>; Fristen nach <a href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>). <span class="hint">Einordnung nach überwiegender Auffassung; keine gesicherte höchstrichterliche Klärung.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <h2>Wie Prüfen auf sicherem Boden steht</h2>
+      <p>Kontrolle wird angreifbar, wenn sie als <b>Person</b> auftritt. Sie wird belastbar, wenn sie
+        als <b>Verfahren</b> auftritt. Ein paar Muster, die den Unterschied machen:</p>
+      <ul class="handeln">
+        <li><b>Fragen statt behaupten.</b> Legen Sie den eigenen Rechenweg offen und benennen Sie die Annahmen — eine Frage auf offengelegter Grundlage ist nicht angreifbar, eine Behauptung schon.</li>
+        <li><b>Schriftlich und datiert.</b> Anfragen mit Datum und Frist, sachlich begründet. Das dokumentiert den Vorgang und nimmt ihm das Persönliche.</li>
+        <li><b>Über den nächsten Schritt beschließen, nicht über die Sache.</b> Regen Sie einen Beschluss an, wer bis wann welche Grundlage vorlegt. Das ist leichter mehrheitsfähig und macht Verzögerung sichtbar.</li>
+        <li><b>Eine Protokollnotiz anregen,</b> wenn eine Frage unbeantwortet bleibt — die Niederschrift ist ein zentrales Beweismittel.</li>
+        <li><b>Nicht allein tragen.</b> Suchen Sie Verbündete in der Gemeinschaft. Was mehrere tragen, ist keine Einzelperson mehr — und damit schwerer zur Personenfrage zu machen.</li>
+      </ul>
+      <div class="beispiel">
+        <span class="tag">Beispiel — neutrale Formulierung</span>
+        <p>„Zur Vorbereitung der anstehenden Beschlussfassung bitte ich um Einsicht in [Unterlage] bis
+          zum [Datum]. Sollten Unterlagen fehlen, bitte ich um kurze Rückmeldung, wer sie bis wann
+          beschafft."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster alt">
+    <div class="guide">
+      <h2>Aus einer Einzelperson wird eine Sache</h2>
+      <div class="stimmeblock">
+        <p>Das Gesetz gibt dem Beirat eine Aufgabe, aber keinen Rückhalt. Den schafft die Gemeinschaft —
+          und eine <b>gemeinsame Stimme</b>.</p>
+        <p>Was der Einzelne allein trägt, wird als <b>Muster</b> sichtbar, sobald viele dasselbe
+          erleben. Genau dafür gibt es die Eigentümerstimme: neutrale Aufbereitung, ein Netzwerk, eine
+          Anbindung an die Wissenschaft — damit aus „mit dieser Person haben wir ein Problem" wieder
+          „das ist eine Sachfrage" wird. <b>Wer prüft, soll das nicht allein tun müssen.</b></p>
+      </div>
+
+      <p class="disc">Allgemeine Information, keine Rechtsberatung. Kein Pranger: Die meisten
+        Verwaltungen arbeiten sorgfältig. Die Paragrafen sind zur eigenen Prüfung verlinkt; für einen
+        konkreten Fall ist die anwaltliche Prüfung maßgeblich.</p>
+
+      <div class="weiter">
+        <a href="wegweiser.html">Konkrete Fragen im Wegweiser <span aria-hidden="true">→</span></a>
+        <a href="versammlung.html">Was eine beschlussreife Versammlung ausmacht <span aria-hidden="true">→</span></a>
+        <a href="guideline.html">Die rechtlichen Grundlagen in der Guideline <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
