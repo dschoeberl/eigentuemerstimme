@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verwaltung wählen — der Preis, der wirklich entscheidet — Eigentümerstimme</title>
+<meta name="description" content="Der Preis, über den gesprochen wird, ist selten der Preis, der entscheidet. Die drei Kostenebenen einer Verwaltung, der Unterschied zwischen prozentualer und aufwandsbasierter Abrechnung und zehn Fragen für jeden Angebotsvergleich. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .prose{max-width:680px}
+
+  /* Hero — Petrol mit Amber-Akzent (Farbe der „Welt WEG"). Noch ohne eigenes Motiv;
+     Platz ist über das Petrol-Gerüst freigehalten, ein Hero-Bild kann später ergänzt werden. */
+  .hero{
+    background-color:var(--petrol-dark);
+    color:#fff;padding:84px 0 92px;position:relative;overflow:hidden
+  }
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 60%,var(--petrol) 60%,var(--petrol) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:22px}
+  .accentline{width:56px;height:3px;background:var(--stimme);margin:0 0 30px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(29px,5vw,50px);line-height:1.15;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .hero .sub{margin-top:26px;max-width:64ch;font-size:clamp(16px,2vw,19px);color:#d7e2e1}
+  .hero .sub b{color:#fff;font-weight:600}
+  .rdg{margin-top:26px;max-width:66ch;font-size:13.5px;color:#b7cbca;line-height:1.6;
+    padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
+  .rdg b{color:#fff;font-weight:600}
+
+  section{padding:52px 0}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(22px,3vw,29px);line-height:1.2;letter-spacing:-.01em;color:var(--petrol-dark);margin-bottom:18px;max-width:28ch}
+  p{color:var(--text-soft);font-size:17px;margin-bottom:16px}
+  p:last-child{margin-bottom:0}
+  p b{color:var(--text);font-weight:600}
+  .lead{font-size:15px;color:var(--text-soft);margin:0 0 24px;max-width:68ch}
+  .lead b{color:var(--text)}
+
+  /* ── Abschnitt 1: drei Kostenebenen — sichtbare, gestapelte Karten.
+     Die Eskalation Ebene 1 → 2 → 3 muss auf einen Blick lesbar bleiben, darum
+     offen und nicht weggeklappt. Ebene 3 (kein Rechnungsposten) ist mit der
+     Signal-Koralle abgesetzt — der versteckten Kostenebene ein sichtbares Signal. */
+  .ebenen-stack{display:flex;flex-direction:column;gap:14px;margin-top:8px;max-width:820px}
+  .ebene{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 14px 14px 0;padding:20px 24px}
+  section.alt .ebene{background:var(--bg-light)}
+  .ebene__k{display:flex;align-items:baseline;gap:12px;margin-bottom:9px;flex-wrap:wrap}
+  .ebene__n{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--stimme)}
+  .ebene__t{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--petrol-dark);line-height:1.2}
+  .ebene p{font-size:15.5px;color:var(--text-soft);margin:0;max-width:none}
+  .ebene b{color:var(--text);font-weight:600}
+  .ebene--3{border-left-color:var(--signal)}
+  .ebene--3 .ebene__n{color:var(--signal)}
+
+  /* ── Beispiel-Callout (glatte Zahlen, kein realer Fall) ── */
+  .beispiel{margin-top:24px;padding:18px 20px;background:var(--stimme-tint);border-left:3px solid var(--stimme);border-radius:0 10px 10px 0;max-width:720px}
+  .beispiel .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--stimme);background:#fff;border:1px solid var(--stimme-soft);padding:3px 10px;border-radius:999px;margin-bottom:11px}
+  .beispiel p{font-size:15px;color:#5a4a2a;margin:0}
+  .beispiel b{color:#4a3a12;font-weight:600}
+
+  /* Hervorgehobener Merksatz am Abschnitts-Ende */
+  .merk{margin-top:26px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:20px 24px;max-width:760px}
+  section.alt .merk{background:var(--bg-light)}
+  .merk p{font-size:16px;color:var(--text-soft);margin:0}
+  .merk b{color:var(--petrol-dark);font-weight:600}
+
+  /* ── Abschnitt 3: zehn Fragen — sichtbare, nummerierte Checkliste zum Mitnehmen ── */
+  .fragen{list-style:none;counter-reset:f;display:flex;flex-direction:column;gap:14px;margin-top:8px;max-width:820px}
+  .fragen li{counter-increment:f;position:relative;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 22px 18px 68px}
+  .fragen li::before{content:counter(f);position:absolute;left:16px;top:16px;width:38px;height:38px;border-radius:11px;background:var(--petrol);color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:18px;display:grid;place-items:center}
+  .fragen .q{display:block;font-weight:600;color:var(--text);font-size:16px;line-height:1.45}
+  .fragen .why{display:block;margin-top:7px;font-size:13.5px;color:var(--text-mute);font-style:italic;line-height:1.5}
+
+  /* ── Abschnitt 5: was das Gesetz vorgibt — verlinkte Liste, ohne Auslegung ── */
+  .gesetz{margin-top:8px;list-style:none;display:flex;flex-direction:column;gap:13px;max-width:760px}
+  .gesetz li{padding-left:18px;border-left:3px solid var(--stimme-soft);font-size:15.5px;color:var(--text-soft);line-height:1.6}
+  .gesetz b{color:var(--petrol-dark);font-weight:600}
+  .gesetz a{color:var(--petrol);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .gesetz a:hover{border-bottom-color:var(--petrol)}
+
+  /* Disclaimer + Abschluss */
+  .disc{margin-top:8px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:70ch;font-style:italic}
+  .weiter{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+  .weiter a{display:inline-flex;align-items:center;gap:8px;color:var(--petrol);font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--stimme);padding-bottom:2px;align-self:flex-start}
+
+  .status{padding:26px 0 34px;font-size:14px;font-style:italic;color:var(--text-mute)}
+
+  @media(max-width:760px){
+    .hero{padding:62px 0 70px}
+    section{padding:42px 0}
+    .fragen li{padding:16px 18px 16px 60px}
+    .fragen li::before{width:34px;height:34px;left:14px;top:14px;font-size:16px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle">
+      <label for="navtoggle" class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></label>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="verwalter.html">Verwalter</a><a href="verwaltung-waehlen.html" aria-current="page">Verwaltung wählen</a><a href="vertrag.html">Vertrag</a><a href="wissenschaft.html">Wissenschaft</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Verwaltung wählen</div>
+      <div class="accentline"></div>
+      <h1>Der Preis, über den gesprochen wird, ist selten der Preis, der entscheidet.</h1>
+      <p class="sub">Alle paar Jahre steht die Bestellung einer Verwaltung an. In der Praxis läuft
+        der Vergleich fast immer über eine einzige Zahl: die Grundgebühr je Einheit und Monat. Sie
+        ist leicht zu vergleichen — und sie ist die <b>kleinste der drei Kostenebenen</b>, die eine
+        Gemeinschaft tatsächlich trägt.</p>
+      <p class="rdg"><b>Allgemeine Information, keine Rechtsberatung.</b> Paragrafen beziehen sich auf
+        das WEG, sofern nicht anders angegeben. Diese Seite nennt keine Anbieter und bewertet keine
+        Firmen.</p>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Die drei Kostenebenen, die eine Gemeinschaft trägt</h2>
+      <p class="lead">Nur die erste steht groß im Angebot. Die zweite steht im Kleingedruckten, die
+        dritte in keiner Rechnung — <b>und trotzdem sind es die beiden hinteren, die den Unterschied
+        machen.</b></p>
+
+      <div class="ebenen-stack">
+
+        <div class="ebene">
+          <div class="ebene__k"><span class="ebene__n">Ebene 1</span><span class="ebene__t">Die Grundgebühr</span></div>
+          <p>Monatlich, planbar, gut vergleichbar. Sie deckt die laufende Verwaltung ab. Marktüblich
+            liegen die Sätze für neue Verträge je nach Anlagengröße in einer Spanne von etwa
+            <b>30 bis 48 Euro brutto je Einheit und Monat</b> (Verwalterentgeltstudie 2026); kleinere
+            Anlagen liegen dabei deutlich über größeren. Die Grundgebühr ist die Zahl, über die
+            verhandelt wird.</p>
+        </div>
+
+        <div class="ebene">
+          <div class="ebene__k"><span class="ebene__n">Ebene 2</span><span class="ebene__t">Die anlassbezogenen Honorare</span></div>
+          <p>Sie entstehen, wenn etwas passiert: Baumaßnahmen (Regie), Sonderaufgaben nach Stunden,
+            außerordentliche Versammlungen, Eigentümerwechsel, Mahnungen, Online-Teilnahme. Im
+            Angebotsvergleich stehen sie meist im Kleingedruckten — obwohl sie in einem Jahr mit
+            einer größeren Maßnahme <b>die Grundgebühr übersteigen können.</b></p>
+        </div>
+
+        <div class="ebene ebene--3">
+          <div class="ebene__k"><span class="ebene__n">Ebene 3</span><span class="ebene__t">Die Kosten der erschwerten Kontrolle</span></div>
+          <p>Kein Rechnungsposten, aber real. Werden Beiratssitzungen und die Begleitung der
+            Belegprüfung gesondert berechnet, wird Kontrolle teuer — <b>und findet seltener statt.</b>
+            Liegen Wirtschaftspläne, Abrechnungen und Niederschriften nicht dauerhaft im Portal, muss
+            man sie beschaffen. Wer neu kauft, kennt die Vorgeschichte dann gar nicht.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Der größte Unterschied: prozentual oder nach Aufwand</h2>
+      <p>Bei Baumaßnahmen berechnen viele Verwaltungen eine „Regie" — einen Prozentsatz der Bausumme,
+        marktüblich in einer Größenordnung von etwa <b>zwei bis fünf Prozent</b> ab einer vertraglich
+        festgelegten Schwelle. Andere rechnen nach Aufwand, also nach Stunden. Solange nichts gebaut
+        wird, macht das keinen Unterschied.</p>
+
+      <div class="beispiel">
+        <span class="tag">Beispiel · glatte Zahlen, kein realer Fall</span>
+        <p>Eine Gemeinschaft mit 20 Einheiten erneuert die Heizung. Bei einer Nettobausumme von
+          100.000 Euro sind fünf Prozent Regie 5.000 Euro. Eine aufwandsbasierte Abrechnung von etwa
+          60 Stunden liegt je nach Stundensatz in einer ähnlichen Größenordnung. Verdoppelt sich die
+          Bausumme, verdoppelt sich die prozentuale Regie — der Aufwand in Stunden tut das nicht.
+          <b>Der Unterschied zwischen beiden Modellen wächst also mit der Investitionshöhe.</b></p>
+      </div>
+
+      <p style="margin-top:22px">Zum Vergleich: Zwei Euro Unterschied bei der Grundgebühr machen bei
+        20 Einheiten rund 480 Euro im Jahr aus. Eine einzige größere Maßnahme kann diese Differenz um
+        ein Vielfaches übersteigen — und in der Wärmewende steht genau diese Maßnahme in vielen
+        Gemeinschaften bevor.</p>
+
+      <p><b>Ein zweiter Punkt, der leicht übersehen wird:</b> Manche Verträge senken die Regie, wenn
+        ein Architekt oder Ingenieur die Maßnahme begleitet — andere nicht. Das ist relevant, weil
+        unabhängige Fachplanung gerade bei einer Wärmeentscheidung sinnvoll ist. Ein Vertrag, der die
+        Regie in diesem Fall nicht reduziert, macht die Fachplanung für die Gemeinschaft teurer.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Zehn Fragen, die in jeden Angebotsvergleich gehören</h2>
+      <p class="lead">Zum Mitnehmen in die Beiratssitzung oder die Versammlung. Jede Frage mit einem
+        Satz, warum sie zählt.</p>
+
+      <ol class="fragen">
+        <li>
+          <span class="q">Wie wird bei Baumaßnahmen abgerechnet — prozentual oder nach Aufwand, und ab welcher Summe?</span>
+          <span class="why">Der strukturell größte Unterschied zwischen Angeboten.</span>
+        </li>
+        <li>
+          <span class="q">Ändert sich der Satz, wenn ein Architekt oder Ingenieur die Maßnahme begleitet?</span>
+          <span class="why">Entscheidet mit darüber, wie teuer unabhängige Fachplanung für Sie wird.</span>
+        </li>
+        <li>
+          <span class="q">Ab welchem Betrag darf die Verwaltung ohne Beschluss beauftragen?</span>
+          <span class="why">Legt fest, wo Ihre Mitsprache beginnt.</span>
+        </li>
+        <li>
+          <span class="q">Werden vor einer Vergabe Vergleichsangebote eingeholt und dem Beirat vorgelegt?</span>
+          <span class="why">Ohne Vergleich gibt es keinen Preisdruck.</span>
+        </li>
+        <li>
+          <span class="q">Welche Leistungen sind im Grundhonorar enthalten — und welche nicht?</span>
+          <span class="why">Zwei Angebote mit gleicher Grundgebühr können unterschiedlich viel enthalten.</span>
+        </li>
+        <li>
+          <span class="q">Werden Beiratssitzungen und die Begleitung der Belegprüfung gesondert berechnet?</span>
+          <span class="why">Kontrolle, die extra kostet, findet seltener statt.</span>
+        </li>
+        <li>
+          <span class="q">Wie lange bleiben Wirtschaftspläne, Abrechnungen und Niederschriften im Portal abrufbar?</span>
+          <span class="why">Wer neu kauft oder etwas nachvollziehen will, braucht die Vorgeschichte.</span>
+        </li>
+        <li>
+          <span class="q">Bietet die Verwaltung selbst Leistungen an, die sie der Gemeinschaft in Rechnung stellt — etwa Hausmeisterdienste? Wie werden Interessenkonflikte dann behandelt?</span>
+          <span class="why">Doppelrollen sind zulässig, brauchen aber ein nachvollziehbares Verfahren (§ 181 BGB).</span>
+        </li>
+        <li>
+          <span class="q">Wie lang ist die Bestellperiode, und was geschieht am Ende automatisch?</span>
+          <span class="why">Ein Vertrag, der sich selbst verlängert, entkoppelt sich von der Bestellung.</span>
+        </li>
+        <li>
+          <span class="q">Was kostet ein Eigentümerwechsel — und wer trägt die Kosten?</span>
+          <span class="why">Trifft Sie erst beim Verkauf, steht aber jetzt im Vertrag.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Wie man Angebote vergleichbar macht</h2>
+      <p>Ein Vergleich wird erst dann zum Kostenvergleich, wenn für alle Anbieter dieselben Annahmen
+        gelten: dieselbe Zahl der Einheiten, dieselbe Beispielmaßnahme, dieselbe Laufzeit. Rechnen Sie
+        für jedes Angebot drei Zahlen aus: die Grundgebühr über die gesamte Bestellperiode, die
+        Honorare für eine typische Maßnahme, und die Kosten der Ereignisse, die in dieser Zeit
+        wahrscheinlich eintreten. Erst diese Summe ist vergleichbar.</p>
+      <div class="merk">
+        <p>Ein Vergleich, der nur Grundgebühren nebeneinanderstellt, ist <b>kein Kostenvergleich,
+          sondern ein Preisschild.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Was das Gesetz vorgibt</h2>
+      <ul class="gesetz">
+        <li><b>Bestelldauer:</b> höchstens fünf Jahre, bei der ersten Bestellung nach Begründung der
+          Gemeinschaft höchstens drei Jahre (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 2 WEG</a>).</li>
+        <li><b>Abberufung:</b> die Bestellung kann jederzeit widerrufen werden; der Vertrag endet
+          spätestens sechs Monate nach der Abberufung (<a href="https://www.gesetze-im-internet.de/woeigg/__26.html" target="_blank" rel="noopener">§ 26 Abs. 3 WEG</a>).</li>
+        <li><b>Vertretung gegenüber dem Verwalter:</b> in eigener Sache vertritt nicht der Verwalter
+          die Gemeinschaft — dafür handelt der Vorsitzende des Verwaltungsbeirats oder ein durch
+          Beschluss ermächtigter Wohnungseigentümer (<a href="https://www.gesetze-im-internet.de/woeigg/__9b.html" target="_blank" rel="noopener">§ 9b Abs. 2 WEG</a>).</li>
+        <li><b>Beirat:</b> unterstützt und überwacht die Verwaltung, prüft Wirtschaftsplan und
+          Jahresabrechnung (<a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 Abs. 2 WEG</a>).</li>
+        <li><b>Transparenz:</b> Wirtschaftsplan, Jahresabrechnung, Vermögensbericht
+          (<a href="https://www.gesetze-im-internet.de/woeigg/__28.html" target="_blank" rel="noopener">§ 28 WEG</a>);
+          Einsichtsrecht jedes Eigentümers (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>).</li>
+        <li><b>Maßstab jeder Entscheidung:</b> ordnungsmäßige Verwaltung
+          (<a href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 WEG</a>).
+          Die Bestellung eines zertifizierten Verwalters
+          (<a href="https://www.gesetze-im-internet.de/woeigg/__26a.html" target="_blank" rel="noopener">§ 26a WEG</a>)
+          entspricht ordnungsmäßiger Verwaltung.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="disc">Allgemeine Information, keine Rechtsberatung. Die Paragrafen sind zur eigenen
+        Prüfung verlinkt; für einen konkreten Vertrag ist die anwaltliche Prüfung maßgeblich. Genannte
+        Preisspannen sind veröffentlichte Marktwerte, keine Angebote.</p>
+      <div class="weiter">
+        <a href="verwalter.html">Und woran man eine gute Verwaltung erkennt <span aria-hidden="true">→</span></a>
+        <a href="vertrag.html">Woran man einen fairen Vertrag erkennt <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="status">
+    <div class="wrap prose">
+      Initiative in Gründung — der Verein „Eigentümerstimme" befindet sich im Gründungsprozess.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
