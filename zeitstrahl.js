@@ -65,6 +65,13 @@ const ZEITSTRAHL = [
     geschwaecht: null
   },
   {
+    iso: "2026-07-17", datum: "17.07.2026",
+    titel: "BGH V ZR 162/25 — Gestattungsanspruch bauliche Veränderung", kategorie: "Urteil", status: "in-kraft",
+    text: "Der BGH konkretisiert den Anspruch auf Gestattung baulicher Veränderungen: Ein Wohnungseigentümer kann ein Klima-Splitgerät auf dem eigenen Balkon verlangen, solange kein anderer über das bei geordnetem Zusammenleben unvermeidliche Maß hinaus beeinträchtigt wird (§ 20 Abs. 3 WEG); übliche Betriebsgeräusche genügen dafür regelmäßig nicht. Der Spielraum der Gemeinschaft, solche Maßnahmen mit dem Hinweis auf eine allgemeine Beeinträchtigung abzulehnen, verengt sich damit.",
+    profitiert: { rolle: "eigentuemer", why: "Der Weg zur eigenen baulichen Maßnahme wird berechenbarer; eine Ablehnung braucht eine konkrete, benennbare Beeinträchtigung statt eines allgemeinen Unbehagens." },
+    geschwaecht: null
+  },
+  {
     iso: "2026-11-01", datum: "01.11.2026 · geplant",
     titel: "Gebäudemodernisierungsgesetz", kategorie: "Gesetz", status: "geplant",
     text: "Geplant: ein technologieoffeneres, an CO₂-Kosten orientiertes Gebäudemodernisierungsgesetz. Vermietende Eigentümer sollen stärker an CO₂-Preis und Netzentgelten beteiligt werden. Der Gesetzestext ist noch nicht final.",
