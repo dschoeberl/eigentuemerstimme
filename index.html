@@ -205,6 +205,19 @@
     .weg__arrow{display:none}
   }
 
+  /* Einstiegsrampe — problemgetriebener Einstieg (dunkles Petrol-Band) */
+  .rampe{background:var(--petrol-dark);color:#fff}
+  .rampe .lead-label{color:var(--stimme-soft)}
+  .rampe h2{color:#fff;font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,30px);font-weight:600;max-width:26ch}
+  .rampe__intro{margin-top:14px;max-width:60ch;color:#d7e2e1;font-size:17px}
+  .rampe__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .rampe__card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:20px 22px;text-decoration:none;color:#fff;display:flex;flex-direction:column;transition:background .2s,border-color .2s,transform .2s}
+  .rampe__card:hover{background:rgba(255,255,255,.1);border-color:var(--stimme);transform:translateY(-2px)}
+  .rampe__q{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;color:#fff;line-height:1.25}
+  .rampe__d{margin-top:8px;font-size:14px;color:#c4d0ce;line-height:1.55}
+  .rampe__go{margin-top:auto;padding-top:16px;font-size:13.5px;font-weight:600;color:var(--stimme-soft)}
+  @media(max-width:720px){.rampe__grid{grid-template-columns:1fr}}
+
   @media(max-width:760px){
     .welten__grid{grid-template-columns:1fr;gap:20px}
     /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
@@ -256,6 +269,11 @@
       auch die, die im Gebäude wohnen: die Mieterinnen und Mieter.
       <b>Diese Lücke schließen wir gemeinsam</b> — als kollektive Stimme dort, wo der
       Einzelne bisher allein stand.</p>
+    <p>Doch Information allein entscheidet nicht. Zwischen „die Zahlen liegen vor" und „wir haben
+      gut entschieden" liegt ein <b>Verfahren</b> — und wer nachfragt, braucht dabei <b>Rückhalt</b>.
+      Eigentümerstimme sorgt dafür, dass Eigentümer nicht nur wissen, was richtig wäre, sondern dass
+      es auch <b>beschlossen</b> werden kann — und dass die, die nachfragen, das <b>nicht allein</b>
+      tun.</p>
     <p>Wohnungseigentumsrecht ist Bundesrecht: Was wir aufbereiten, hilft einer
       Eigentümergemeinschaft in Erfurt genauso wie einer in Hamburg oder München. Der Verein
       hat seinen Sitz in Erfurt — seinem Reallabor und Netzwerk —, sein Anliegen endet aber
@@ -404,6 +422,32 @@
     </div>
 
     <p class="weg__loop"><span class="weg__loopic" aria-hidden="true">↻</span> <span>Der Kreislauf läuft im Uhrzeigersinn — und für die <b>nächsten Eigentümer</b> beginnt der Weg von vorn. Die Gemeinschaft bleibt.</span></p>
+  </div>
+</section>
+
+<section class="rampe">
+  <div class="wrap">
+    <div class="lead-label">Wo anfangen?</div>
+    <h2>Bei uns stimmt etwas nicht — wo fange ich an?</h2>
+    <p class="rampe__intro">Für den Moment, in dem Sie zum ersten Mal das Gefühl haben, dass etwas
+      nicht aufgeht. Wählen Sie, was am ehesten passt.</p>
+    <div class="rampe__grid">
+      <a class="rampe__card" href="wegweiser.html">
+        <span class="rampe__q">Ich habe eine konkrete Frage</span>
+        <span class="rampe__d">Belege, Einsicht, Fristen, Kosten — geprüfte Antworten mit Rechtsgrundlage und Quelle.</span>
+        <span class="rampe__go">Zum Wegweiser <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="rampe__card" href="beirat.html">
+        <span class="rampe__q">Ich prüfe — und stoße auf Widerstand</span>
+        <span class="rampe__d">Wenn Nachfragen persönlich beantwortet wird: Rolle, Rechte und ein Verfahren, das trägt.</span>
+        <span class="rampe__go">Zum Beirat <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="rampe__card" href="versammlung.html">
+        <span class="rampe__q">Bald wird entschieden</span>
+        <span class="rampe__d">Woran Sie erkennen, ob eine Versammlung entscheidungsreif vorbereitet ist — und was Sie tun können.</span>
+        <span class="rampe__go">Zur Versammlung <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
   </div>
 </section>
 
