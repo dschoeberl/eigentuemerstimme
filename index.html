@@ -145,6 +145,36 @@
   /* Footer-Basis in styles.css; hier nur die startseiten-spezifische Notiz. */
   .note{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);color:#8fa3a2;max-width:70ch}
 
+  /* Der Weg — Lebenszyklus des Wohnungseigentums (Kreislauf im Uhrzeigersinn).
+     2x2-Raster als Ring: ① oben-links → ② oben-rechts → ③ unten-rechts → ④ unten-links → zurück zu ①.
+     ② und ④ sind noch in Vorbereitung (gestrichelt, gedämpft). */
+  .weg{background:var(--bg-light)}
+  .weg h2{font-size:clamp(24px,3.4vw,34px);max-width:24ch;color:var(--petrol-dark)}
+  .weg__intro{margin-top:18px;max-width:64ch;color:var(--text-soft);font-size:17px}
+  .weg__intro b{color:var(--text);font-weight:600}
+  .weg__cycle{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"s1 s2" "s4 s3";gap:20px;margin-top:34px;max-width:960px}
+  .weg__step{background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 16px 16px 0;padding:22px 24px;display:flex;flex-direction:column}
+  .weg__step--1{grid-area:s1}
+  .weg__step--2{grid-area:s2}
+  .weg__step--3{grid-area:s3}
+  .weg__step--4{grid-area:s4}
+  .weg__step--soon{border-left-style:dashed;border-left-color:var(--border);background:#fafaf7}
+  .weg__k{display:flex;align-items:center;gap:13px;margin-bottom:11px}
+  .weg__n{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--petrol);color:#fff;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:18px;display:grid;place-items:center}
+  .weg__step--soon .weg__n{background:var(--text-mute)}
+  .weg__t{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;color:var(--petrol-dark);line-height:1.2}
+  .weg__desc{font-size:14.5px;color:var(--text-soft);margin:0 0 15px;line-height:1.55}
+  .weg__links{margin-top:auto;display:flex;flex-wrap:wrap;gap:9px}
+  .weg__links a{display:inline-flex;align-items:center;font-size:13.5px;font-weight:600;color:var(--petrol-dark);text-decoration:none;background:var(--stimme-tint);border:1px solid var(--border);border-radius:999px;padding:6px 13px;transition:background .15s,border-color .15s}
+  .weg__links a:hover{background:#fff;border-color:var(--stimme)}
+  .weg__soon{align-self:flex-start;margin-top:auto;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute);border:1px dashed var(--border);border-radius:999px;padding:5px 12px}
+  .weg__loop{margin-top:24px;display:flex;align-items:flex-start;gap:11px;color:var(--text-soft);font-size:14.5px;font-style:italic;max-width:66ch}
+  .weg__loop b{color:var(--petrol-dark);font-style:normal;font-weight:600}
+  .weg__loopic{flex:0 0 auto;font-style:normal;font-size:24px;color:var(--stimme);line-height:1.1}
+  @media(max-width:720px){
+    .weg__cycle{grid-template-columns:1fr;grid-template-areas:"s1" "s2" "s3" "s4";gap:14px;margin-top:26px}
+  }
+
   @media(max-width:760px){
     .welten__grid{grid-template-columns:1fr;gap:20px}
     /* Schmale Viewports beschneiden das Motiv — Text braucht mehr Deckung. */
@@ -251,6 +281,50 @@
 
     <div class="welten__rule" aria-hidden="true"></div>
     <div class="prinzipien"><span>Aufklärung statt Beratung</span><span>belegt statt behauptet</span><span>auf Augenhöhe</span></div>
+  </div>
+</section>
+
+<section class="weg" id="der-weg">
+  <div class="wrap">
+    <div class="lead-label">Der Weg</div>
+    <h2>Ein Wohnungseigentum durchläuft einen Kreislauf.</h2>
+    <p class="weg__intro">Kaufen, ankommen, über Jahre verwalten, wieder verkaufen — an jeder Station
+      stellen sich andere Fragen. <b>Springen Sie zu der Station, die Sie gerade betrifft.</b></p>
+
+    <div class="weg__cycle">
+      <div class="weg__step weg__step--1">
+        <div class="weg__k"><span class="weg__n">1</span><span class="weg__t">Vor dem Kauf</span></div>
+        <p class="weg__desc">Welche Unterlagen Sie über den Verkäufer anfordern, worauf Sie achten — und welche Informationsrechte Sie als Interessent haben (und welche nicht).</p>
+        <div class="weg__links"><a href="vor-dem-kauf.html">Vor dem Kauf <span aria-hidden="true">→</span></a></div>
+      </div>
+
+      <div class="weg__step weg__step--2 weg__step--soon">
+        <div class="weg__k"><span class="weg__n">2</span><span class="weg__t">Übernehmen</span></div>
+        <p class="weg__desc">Was die Verwaltung wann liefern muss, ob das Portal vollständig ist und wer dafür sorgt, dass am Ende nichts fehlt — Vorbesitzer oder Verwaltung.</p>
+        <span class="weg__soon">In Vorbereitung</span>
+      </div>
+
+      <div class="weg__step weg__step--3">
+        <div class="weg__k"><span class="weg__n">3</span><span class="weg__t">Besitzen &amp; Verwalten</span></div>
+        <p class="weg__desc">Das Herzstück: Rechte und Kontrolle, Verwalter und Beirat, Kosten, Wärme, Versammlung und Vertrag — über die Jahre, in denen Ihnen die Wohnung gehört.</p>
+        <div class="weg__links">
+          <a href="verwalter.html">Verwalter</a>
+          <a href="verwaltung-waehlen.html">Verwaltung wählen</a>
+          <a href="versammlung.html">Versammlung</a>
+          <a href="vertrag.html">Vertrag</a>
+          <a href="guideline.html">Guideline</a>
+          <a href="wegweiser.html">Wegweiser</a>
+        </div>
+      </div>
+
+      <div class="weg__step weg__step--4 weg__step--soon">
+        <div class="weg__k"><span class="weg__n">4</span><span class="weg__t">Verkaufen</span></div>
+        <p class="weg__desc">Aus Verkäufersicht: welche Unterlagen Sie bereitstellen, was einen Käufer überzeugt — und welche Kosten der Eigentümerwechsel auslöst.</p>
+        <span class="weg__soon">In Vorbereitung</span>
+      </div>
+    </div>
+
+    <p class="weg__loop"><span class="weg__loopic" aria-hidden="true">↻</span> <span>Der Kreislauf läuft im Uhrzeigersinn — und für die <b>nächsten Eigentümer</b> beginnt der Weg von vorn. Die Gemeinschaft bleibt.</span></p>
   </div>
 </section>
 
