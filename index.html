@@ -175,16 +175,17 @@
   .wt--2 .wt-front{background:linear-gradient(145deg,#23726e,#134c4a)}
   .wt--3 .wt-front{background:linear-gradient(145deg,#31708f,#1b4257)}
   .wt--4 .wt-front{background:linear-gradient(145deg,#e4572e,#b23a17)}
-  .wt__n{font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:700;letter-spacing:.14em;opacity:.85}
-  .wt__t{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2.3vw,24px);font-weight:600;line-height:1.14;margin-top:auto}
+  .wt__n{font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:700;letter-spacing:.12em;opacity:.95}
+  .wt__t{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,2.9vw,30px);font-weight:600;line-height:1.1;margin-top:auto;text-shadow:0 1px 4px rgba(15,32,32,.35)}
   .wt__hint{margin-top:9px;font-size:11px;letter-spacing:.03em;opacity:.82;padding-right:34px}
   .wt__badge{position:absolute;top:15px;right:15px;font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 9px;border-radius:999px}
   .wt-back{background:#fff;border:1px solid var(--border);transform:rotateY(180deg);overflow:auto}
   .wt__bt{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;color:var(--petrol-dark);line-height:1.2}
   .wt-back p{font-size:12.5px;color:var(--text-soft);line-height:1.5;margin:7px 0 11px}
-  .wt__links{margin-top:auto;display:flex;flex-wrap:wrap;gap:7px}
-  .wt__links a{font-size:12px;font-weight:600;color:var(--petrol-dark);text-decoration:none;background:var(--stimme-tint);border:1px solid var(--border);border-radius:999px;padding:5px 10px}
-  .wt__links a:hover{border-color:var(--stimme);background:#fff}
+  .wt__links{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .wt__links a{display:flex;align-items:center;justify-content:flex-start;min-height:34px;font-size:11.5px;font-weight:600;color:#fff;text-decoration:none;background:var(--petrol);border-radius:9px;padding:6px 11px;line-height:1.18;transition:background .15s,transform .15s}
+  .wt__links a:hover{background:var(--petrol-dark);transform:translateY(-1px)}
+  .wt__links a:only-child{grid-column:1/-1;justify-content:center}
   .wt__soon{margin-top:auto;font-size:12px;color:var(--text-mute);font-style:italic}
   /* Immer sichtbare Dreh-Badge */
   .wt-face::after{content:"";position:absolute;right:12px;bottom:12px;width:26px;height:26px;border-radius:50%;background-position:center;background-size:14px;background-repeat:no-repeat;pointer-events:none;transition:transform .25s}
@@ -364,7 +365,7 @@
           </span>
           <span class="wt-face wt-back">
             <span class="wt__bt">Besitzen &amp; Verwalten</span>
-            <p>Das Herzstück: Rechte und Kontrolle, Verwalter und Beirat, Kosten, Wärme, Versammlung und Vertrag.</p>
+            <p>Ihre sechs Praxis-Felder für die Jahre, in denen Ihnen die Wohnung gehört:</p>
             <span class="wt__links">
               <a href="verwalter.html">Verwalter</a>
               <a href="verwaltung-waehlen.html">Verwaltung wählen</a>
