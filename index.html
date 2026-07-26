@@ -153,11 +153,11 @@
   .weg h2{font-size:clamp(24px,3.4vw,34px);max-width:24ch;color:var(--petrol-dark)}
   .weg__intro{margin-top:18px;max-width:64ch;color:var(--text-soft);font-size:17px}
   .weg__intro b{color:var(--text);font-weight:600}
-  .weg__cycle{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"s1 s2" "s4 s3";gap:30px;margin:40px auto 0;max-width:860px}
+  .weg__cycle{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"s1 s2" "s4 s3";gap:34px;margin:44px auto 0;max-width:860px}
   .wt-toggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-  /* Richtungspfeile im Uhrzeigersinn (in den Zwischenräumen) */
-  .weg__arrow{position:absolute;z-index:4;width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--border);display:grid;place-items:center;color:var(--petrol);box-shadow:0 5px 14px rgba(26,53,53,.16);pointer-events:none}
-  .weg__arrow svg{width:18px;height:18px}
+  /* Dreh-Pfeile im Uhrzeigersinn (in den Zwischenräumen) — gefüllt, kräftig */
+  .weg__arrow{position:absolute;z-index:4;width:50px;height:50px;border-radius:50%;background:var(--petrol-dark);border:3px solid #fff;display:grid;place-items:center;color:#fff;box-shadow:0 8px 20px rgba(26,53,53,.36);pointer-events:none}
+  .weg__arrow svg{width:26px;height:26px}
   .weg__arrow--top{left:50%;top:25%;transform:translate(-50%,-50%)}
   .weg__arrow--right{left:75%;top:50%;transform:translate(-50%,-50%) rotate(90deg)}
   .weg__arrow--bottom{left:50%;top:75%;transform:translate(-50%,-50%) rotate(180deg)}
@@ -322,10 +322,10 @@
       stellen sich andere Fragen. <b>Springen Sie zu der Station, die Sie gerade betrifft.</b></p>
 
     <div class="weg__cycle">
-      <span class="weg__arrow weg__arrow--top" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
-      <span class="weg__arrow weg__arrow--right" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
-      <span class="weg__arrow weg__arrow--bottom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
-      <span class="weg__arrow weg__arrow--left" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+      <span class="weg__arrow weg__arrow--top" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5a9 9 0 0 1 13 2.4"/><path d="M18.4 4.6v6h-6"/></svg></span>
+      <span class="weg__arrow weg__arrow--right" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5a9 9 0 0 1 13 2.4"/><path d="M18.4 4.6v6h-6"/></svg></span>
+      <span class="weg__arrow weg__arrow--bottom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5a9 9 0 0 1 13 2.4"/><path d="M18.4 4.6v6h-6"/></svg></span>
+      <span class="weg__arrow weg__arrow--left" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5a9 9 0 0 1 13 2.4"/><path d="M18.4 4.6v6h-6"/></svg></span>
 
       <input type="checkbox" id="wt-1" class="wt-toggle">
       <label class="wt wt--1" for="wt-1">
