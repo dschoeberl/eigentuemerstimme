@@ -31,15 +31,35 @@
     padding:14px 18px;border-left:3px solid var(--signal);background:rgba(255,255,255,.05);border-radius:0 8px 8px 0}
   .rdg b{color:#fff;font-weight:600}
 
-  /* Modul-Grundgerüst */
-  .modul{padding:44px 0 4px}
-  .modul__label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--petrol);margin-bottom:8px}
-  .modul h2{font-family:'Playfair Display',serif;font-size:clamp(21px,2.8vw,28px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px;max-width:30ch}
-  .modul h3{font-family:'Playfair Display',serif;font-size:clamp(17px,2.1vw,21px);color:var(--petrol-dark);font-weight:600;margin:26px 0 10px}
-  .modul p{font-size:16px;color:var(--text-soft);max-width:72ch;margin-bottom:14px}
-  .modul p b{color:var(--text);font-weight:600}
-  .modul a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
-  .modul a:hover{border-bottom-color:var(--petrol)}
+  /* ===== KAPITEL-SYSTEM: Farbe = Kapitel =====
+     Jedes Kapitel setzt --chap; alle neutralen Akzente darin ziehen diese Farbe. */
+  .chapter{--chap:var(--petrol);padding:40px 0 6px}
+  .chapter + .chapter{border-top:1px solid var(--border);margin-top:10px}
+  .chead{display:flex;align-items:center;gap:18px;margin-bottom:4px}
+  .cnum{flex:0 0 auto;width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
+    font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;color:#fff;background:var(--chap);
+    box-shadow:0 8px 20px -10px var(--chap)}
+  .cnum svg{width:25px;height:25px}
+  .ctitles{min-width:0}
+  .ckicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--chap);margin-bottom:3px}
+  .chead h2{font-family:'Playfair Display',serif;font-size:clamp(21px,2.8vw,27px);color:var(--petrol-dark);margin:0;font-weight:600;line-height:1.12;max-width:30ch}
+  .crule{height:3px;border-radius:3px;margin:10px 0 20px;
+    background:linear-gradient(90deg,var(--chap) 0,var(--chap) 20%,var(--border) 20%,var(--border) 100%)}
+  .c-ueber{--chap:var(--petrol-dark)}
+  .c-vor{--chap:var(--stimme)}
+  .c-saal{--chap:var(--petrol)}
+  .c-nach{--chap:var(--signal)}
+  .c-tool{--chap:var(--erkenntnis)}
+
+  /* Fließtext & Zwischenüberschriften innerhalb der Kapitel */
+  .chapter h3{font-family:'Playfair Display',serif;font-size:clamp(17px,2.1vw,21px);color:var(--petrol-dark);font-weight:600;margin:26px 0 10px}
+  .chapter h3::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--chap);margin-right:10px;vertical-align:middle;transform:translateY(-2px)}
+  .chapter p{font-size:16px;color:var(--text-soft);max-width:72ch;margin-bottom:14px}
+  .chapter p b{color:var(--text);font-weight:600}
+  .chapter a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .chapter a:hover{border-bottom-color:var(--petrol)}
+  .clead{font-size:16px;color:var(--text-soft);max-width:72ch;margin:0 0 16px}
+  .clead b{color:var(--text)}
 
   /* Modul 1 — Zeitstrahl. Basis: vertikale Schiene (mobil + Druck).
      Ab 980px kippt sie in eine horizontale Abfolge. */
@@ -79,16 +99,16 @@
   .ba__card q{font-style:italic;color:var(--text)}
   .ba__card b{color:var(--text);font-weight:600}
 
-  /* Hervorgehobene Hinweis-/Balance-Box */
-  .box{margin:16px 0;background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 12px 12px 0;padding:18px 20px}
+  /* Hervorgehobene Hinweis-/Balance-Box — zieht die Kapitelfarbe */
+  .box{margin:16px 0;background:#fff;border:1px solid var(--border);border-left:4px solid var(--chap);border-radius:0 12px 12px 0;padding:18px 20px}
   .box p{margin:0;font-size:15px;color:var(--text-soft)}
   .box p b{color:var(--text)}
 
-  /* Ziel-Werkzeug-Tabelle */
+  /* Ziel-Werkzeug-Tabelle — zieht die Kapitelfarbe */
   .ziel{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:14.5px}
   .ziel caption{text-align:left;font-family:'Playfair Display',serif;font-size:18px;color:var(--petrol-dark);font-weight:600;margin-bottom:12px}
-  .ziel th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--petrol);
-    border-bottom:2px solid var(--petrol);padding:0 16px 8px 0;vertical-align:bottom}
+  .ziel th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--chap);
+    border-bottom:2px solid var(--chap);padding:0 16px 8px 0;vertical-align:bottom}
   .ziel td{padding:12px 16px 12px 0;border-bottom:1px solid var(--border);color:var(--text-soft);line-height:1.55;vertical-align:top}
   .ziel td:first-child{color:var(--text);font-weight:600;width:44%}
   .ziel tr:last-child td{border-bottom:none}
@@ -96,6 +116,7 @@
   /* Fristen-Block (endgültige Fristen) */
   .frist-block{margin:18px 0;background:#fdf1ec;border:1px solid var(--signal-soft);border-left:4px solid var(--signal);border-radius:0 14px 14px 0;padding:22px 24px}
   .frist-block h3{margin-top:0;color:#b23a17}
+  .frist-block h3::before{background:var(--signal)}
   .frist-block .frist-row{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--signal-soft)}
   .frist-block .frist-row:last-of-type{border-bottom:none}
   .frist-block .frist-when{flex:0 0 118px;font-weight:700;color:#b23a17;font-size:14px}
@@ -103,7 +124,7 @@
   .frist-block .frist-what b{color:var(--text)}
   .frist-block .frist-key{margin:12px 0 0;font-size:15px;color:var(--text);font-weight:600}
 
-  /* Beschlussreife — Gegenüberstellung (Bestand) */
+  /* Beschlussreife — Gegenüberstellung (Bestand, semantisch grün/rot) */
   .intro-block{padding:6px 0 4px}
   .intro-block p{font-size:16px;color:var(--text-soft);max-width:72ch;margin-bottom:14px}
   .intro-block p b{color:var(--text)}
@@ -128,36 +149,42 @@
     .vcell--warn > span:last-child::before{content:"Warnsignal";background:var(--signal)}
   }
 
-  .handeln{margin-top:26px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 14px 14px 0;padding:24px 26px}
+  .handeln{margin-top:26px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--chap);border-radius:0 14px 14px 0;padding:24px 26px}
   .handeln h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--petrol-dark);font-weight:600;margin:0 0 8px}
+  .handeln h3::before{display:none}
   .handeln p.hlead{font-size:15px;color:var(--text-soft);margin-bottom:16px;max-width:68ch}
   .handeln ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:0;padding:0}
   .handeln li{position:relative;padding-left:30px;font-size:15px;color:var(--text-soft);line-height:1.6}
   .handeln li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;
     -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;
-    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;background-color:var(--stimme)}
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat;background-color:var(--chap)}
   .handeln li b{color:var(--text);font-weight:600}
 
-  /* AP3 — Druckbare Checklisten-Karten */
+  /* Werkzeugkasten-Untertitel */
+  .toolsub{font-family:'Playfair Display',serif;font-size:clamp(18px,2.3vw,22px);color:var(--petrol-dark);font-weight:600;margin:30px 0 10px;display:flex;align-items:center;gap:11px}
+  .toolsub::before{content:"";width:11px;height:11px;border-radius:3px;background:var(--erkenntnis)}
+
+  /* AP3 — Druckbare Checklisten-Karten (Kartenfarben spiegeln die Kapitel vor/im/nach) */
   .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:14px 0 6px}
   @media(max-width:820px){.checks{grid-template-columns:1fr}}
   .check-card{border:1px solid var(--border);border-top:4px solid var(--cacc,var(--petrol));border-radius:12px;padding:18px 20px;background:#fff;break-inside:avoid}
-  .check-card:nth-child(1){--cacc:var(--petrol-dark)}
+  .check-card:nth-child(1){--cacc:var(--stimme)}
   .check-card:nth-child(2){--cacc:var(--petrol)}
   .check-card:nth-child(3){--cacc:var(--signal)}
   .check-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--petrol-dark);font-weight:600;margin:0 0 4px}
+  .check-card h3::before{display:none}
   .check-card .ct{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cacc,var(--petrol));margin-bottom:12px}
   .check-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
   .check-card li{position:relative;padding-left:26px;font-size:13.8px;color:var(--text-soft);line-height:1.5}
   .check-card li::before{content:"";position:absolute;left:0;top:1px;width:15px;height:15px;border:1.5px solid var(--cacc,var(--petrol));border-radius:4px}
   .check-card li b{color:var(--text);font-weight:600}
   .print-hint{margin:12px 0 0;font-size:13px;color:var(--text-mute);font-style:italic}
-  .print-btn{display:inline-flex;align-items:center;gap:8px;margin:12px 0 2px;padding:10px 18px;border:1px solid var(--petrol);
-    background:var(--petrol);color:#fff;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
-  .print-btn:hover{background:var(--petrol-dark);border-color:var(--petrol-dark)}
+  .print-btn{display:inline-flex;align-items:center;gap:8px;margin:12px 0 2px;padding:10px 18px;border:1px solid var(--erkenntnis);
+    background:var(--erkenntnis);color:#fff;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .print-btn:hover{filter:brightness(.92)}
   .print-btn svg{width:16px;height:16px}
 
-  /* Modul 5 — Fünf-Minuten-Prüfung */
+  /* Fünf-Minuten-Prüfung */
   .fmp{margin:14px 0 6px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--erkenntnis);border-radius:0 14px 14px 0;padding:22px 26px;break-inside:avoid}
   .fmp ol{margin:0;padding:0;list-style:none;counter-reset:fmp}
   .fmp li{counter-increment:fmp;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--border)}
@@ -169,7 +196,7 @@
   .fmp .h a{color:var(--erkenntnis);text-decoration:none;border-bottom:1px solid var(--erkenntnis-soft)}
   .fmp .h a:hover{border-bottom-color:var(--erkenntnis)}
 
-  .anker{margin-top:30px}
+  .anker{margin-top:8px}
   .anker h2{font-family:'Playfair Display',serif;font-size:clamp(19px,2.4vw,24px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px}
   .anker ul{list-style:none;display:flex;flex-direction:column;gap:12px;max-width:780px;margin:0;padding:0}
   .anker li{padding-left:18px;border-left:3px solid var(--stimme-soft);font-size:15.5px;color:var(--text-soft);line-height:1.6}
@@ -177,7 +204,7 @@
   .anker a{color:var(--petrol);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
   .anker a:hover{border-bottom-color:var(--petrol)}
 
-  .schluss{margin-top:30px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:22px 24px}
+  .schluss{margin-top:26px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--petrol);border-radius:0 14px 14px 0;padding:22px 24px}
   .schluss p{font-size:15px;color:var(--text-soft);margin:0}
   .schluss b{color:var(--petrol-dark);font-weight:600}
   .schluss a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
@@ -192,7 +219,9 @@
     header, .ghead, footer, .nav-toggle, .nav-burger, .print-btn, .no-print{display:none !important}
     body{background:#fff;color:#000;line-height:1.5}
     main{padding:0}
-    .modul{padding:14px 0 0}
+    .chapter{padding:14px 0 0;break-inside:avoid}
+    .chead{break-after:avoid}
+    .cnum{box-shadow:none !important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
     a{color:#000 !important;border-bottom:none !important}
     .tl__list{flex-direction:column !important}
     .tl__item{flex:none !important;border-left:2px solid #999 !important;border-top:none !important;padding:0 0 12px 30px !important}
@@ -237,12 +266,21 @@
   <section class="cluster">
     <div class="guide">
 
-      <!-- MODUL 1 — ZEITSTRAHL -->
-      <div class="modul" id="zeitstrahl">
-        <div class="modul__label">Der Ablauf entlang der Zeit</div>
-        <h2>Von der Einladung bis zum Ende der Fristen</h2>
-        <p>„T" ist der Tag der Versammlung. Die beiden rot hervorgehobenen Fristen sind die einzigen
-          auf dieser Seite, deren Versäumnis <b>endgültig</b> ist — alles andere lässt sich nachholen.</p>
+      <!-- ÜBERBLICK — ZEITSTRAHL -->
+      <section class="chapter c-ueber" id="zeitstrahl">
+        <div class="chead">
+          <div class="cnum" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div class="ctitles">
+            <div class="ckicker">Überblick</div>
+            <h2>Der Ablauf entlang der Zeit</h2>
+          </div>
+        </div>
+        <div class="crule"></div>
+        <p class="clead">„T" ist der Tag der Versammlung. Die beiden rot hervorgehobenen Fristen sind
+          die einzigen auf dieser Seite, deren Versäumnis <b>endgültig</b> ist — alles andere lässt
+          sich nachholen.</p>
 
         <div class="tl">
           <ol class="tl__list">
@@ -290,12 +328,18 @@
           <p class="tl__note">Wichtig: Die Fristen des § 45 WEG laufen <b>ab der Beschlussfassung</b> —
             nicht ab dem Zugang der Niederschrift. Das ist der häufigste Irrtum überhaupt.</p>
         </div>
-      </div>
+      </section>
 
-      <!-- MODUL 2 — VOR DER VERSAMMLUNG -->
-      <div class="modul" id="vorher">
-        <div class="modul__label">Vor der Versammlung</div>
-        <h2>Was in den Wochen davor passiert</h2>
+      <!-- KAPITEL 1 — VOR DER VERSAMMLUNG -->
+      <section class="chapter c-vor" id="vorher">
+        <div class="chead">
+          <div class="cnum" aria-hidden="true">1</div>
+          <div class="ctitles">
+            <div class="ckicker">Vor der Versammlung</div>
+            <h2>Was in den Wochen davor passiert</h2>
+          </div>
+        </div>
+        <div class="crule"></div>
 
         <h3>Was die Einladung leisten muss</h3>
         <p>Ein Beschluss ist nur gültig, wenn sein Gegenstand <b>bereits bei der Einberufung
@@ -343,12 +387,18 @@
           Versammlung (§ 18 Abs. 4 WEG). Praktisch heißt das: Belege gehören <b>vor</b> die
           Genehmigung, nicht danach — eine einmal genehmigte Abrechnung lässt sich nur noch über die
           Anfechtung angreifen. Fordern Sie schriftlich und datiert an.</p>
-      </div>
+      </section>
 
-      <!-- MODUL 3 — IN DER VERSAMMLUNG -->
-      <div class="modul" id="imsaal">
-        <div class="modul__label">In der Versammlung</div>
-        <h2>Was im Saal möglich ist</h2>
+      <!-- KAPITEL 2 — IN DER VERSAMMLUNG -->
+      <section class="chapter c-saal" id="imsaal">
+        <div class="chead">
+          <div class="cnum" aria-hidden="true">2</div>
+          <div class="ctitles">
+            <div class="ckicker">In der Versammlung</div>
+            <h2>Was im Saal möglich ist</h2>
+          </div>
+        </div>
+        <div class="crule"></div>
 
         <h3>Wer leitet</h3>
         <p>Den Vorsitz führt der Verwalter, <b>sofern die Versammlung nichts anderes beschließt</b>
@@ -391,12 +441,18 @@
             <tr><td>Ich bin überstimmt worden</td><td>Widerspruch zu Protokoll, Datum notieren, Frist nach § 45 WEG in den Kalender</td></tr>
           </tbody>
         </table>
-      </div>
+      </section>
 
-      <!-- MODUL 4 — NACH DER VERSAMMLUNG -->
-      <div class="modul" id="nachher">
-        <div class="modul__label">Nach der Versammlung</div>
-        <h2>Welche Fristen jetzt laufen</h2>
+      <!-- KAPITEL 3 — NACH DER VERSAMMLUNG -->
+      <section class="chapter c-nach" id="nachher">
+        <div class="chead">
+          <div class="cnum" aria-hidden="true">3</div>
+          <div class="ctitles">
+            <div class="ckicker">Nach der Versammlung</div>
+            <h2>Welche Fristen jetzt laufen</h2>
+          </div>
+        </div>
+        <div class="crule"></div>
 
         <h3>Die Niederschrift</h3>
         <p>Sie ist <b>unverzüglich</b> zu erstellen und von dem Vorsitzenden, einem Wohnungseigentümer
@@ -423,12 +479,26 @@
           wirksam — auch dann, wenn er auf unvollständiger Grundlage zustande kam. Genau deshalb zählt
           die Frist. Warum Zeit in dieser Sache auch Geld ist, ordnet der
           <a href="zeitstrahl.html">Zeitstrahl</a> ein.</p>
-      </div>
+      </section>
 
-      <!-- MODUL — BESCHLUSSREIFE (Bestand, als Vertiefung erhalten) -->
-      <div class="modul" id="beschlussreife">
-        <div class="modul__label">Zur Vertiefung</div>
-        <h2>Woran Sie eine beschlussreife Vorbereitung erkennen</h2>
+      <!-- WERKZEUGKASTEN — Beschlussreife · Checklisten · Selbsttest -->
+      <section class="chapter c-tool">
+        <div class="chead">
+          <div class="cnum" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="ctitles">
+            <div class="ckicker">Werkzeugkasten</div>
+            <h2>Zum Nachschlagen, Prüfen und Mitnehmen</h2>
+          </div>
+        </div>
+        <div class="crule"></div>
+        <p class="clead">Der Erzählteil endet hier. Was jetzt folgt, ist der Nachschlage-Teil: die
+          Merkmale einer beschlussreifen Vorbereitung, drei druckbare Checklisten und ein schneller
+          Selbsttest.</p>
+
+        <!-- Werkzeug 1: Beschlussreife -->
+        <div class="toolsub" id="beschlussreife">Woran Sie eine beschlussreife Vorbereitung erkennen</div>
         <div class="intro-block">
           <p>Beschlussreif ist ein Tagesordnungspunkt, wenn die Eigentümer auf einer <b>ausreichenden,
             rechtzeitig bekannten Grundlage</b> abstimmen können — nicht erst im Saal, nicht nur über
@@ -502,12 +572,9 @@
             <li><b>Anregen, dass Beschlussgründe in den Beschlusstext</b> aufgenommen werden — sie machen die Entscheidung nachvollziehbar und anfechtungsfester.</li>
           </ul>
         </div>
-      </div>
 
-      <!-- AP3 — DRUCKBARE CHECKLISTEN -->
-      <div class="modul" id="checklisten">
-        <div class="modul__label">Zum Ausdrucken &amp; Mitnehmen</div>
-        <h2>Drei Checklisten für den Tag</h2>
+        <!-- Werkzeug 2: Checklisten -->
+        <div class="toolsub" id="checklisten">Drei Checklisten für den Tag</div>
         <p>Vor, während und nach der Versammlung auf einen Blick. Zum Ausdrucken genügt die
           Druckfunktion Ihres Browsers — Menü, Kopfbild und Fuß werden dabei automatisch
           ausgeblendet, damit die Karten auf ein bis zwei Seiten passen.</p>
@@ -552,12 +619,9 @@
           </div>
         </div>
         <p class="print-hint">Die Kästchen sind zum Abhaken auf dem Ausdruck gedacht.</p>
-      </div>
 
-      <!-- MODUL 5 — FÜNF-MINUTEN-PRÜFUNG -->
-      <div class="modul" id="fuenf-minuten">
-        <div class="modul__label">Der schnelle Selbsttest</div>
-        <h2>Die Fünf-Minuten-Prüfung</h2>
+        <!-- Werkzeug 3: Fünf-Minuten-Prüfung -->
+        <div class="toolsub" id="fuenf-minuten">Die Fünf-Minuten-Prüfung</div>
         <p>Sechs Fragen, die vor der nächsten Versammlung in wenigen Minuten Klarheit schaffen.
           Jede führt zum passenden Abschnitt oder Musterfall.</p>
         <div class="fmp">
@@ -570,30 +634,33 @@
             <li><span class="q">Wird eine Anwesenheits- und Vollmachtsliste geführt und offengelegt?</span><span class="h">Siehe <a href="#imsaal">„In der Versammlung"</a> — jederzeit beantragbar.</span></li>
           </ol>
         </div>
-      </div>
+      </section>
 
-      <div class="anker">
-        <h2>Rechtliche Anker</h2>
-        <ul>
-          <li><b>Einberufung, Frist &amp; Ankündigung:</b> Textform, mindestens drei Wochen (<a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 4 WEG</a>); Beschluss nur zu einem bei der Einberufung bezeichneten Gegenstand (<a href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>).</li>
-          <li><b>Vorsitz, Niederschrift, Beschluss-Sammlung:</b> Vorsitz des Verwalters, sofern nichts anderes beschlossen (§ 24 Abs. 5); Niederschrift und Unterschriften (§ 24 Abs. 6); Beschluss-Sammlung (<a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 7 WEG</a>).</li>
-          <li><b>Abstimmung &amp; Vollmacht:</b> Mehrheit der abgegebenen Stimmen, Kopfprinzip als Regelfall, Vollmacht in Textform, Stimmverbote (<a href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 WEG</a>).</li>
-          <li><b>Einsicht in die Unterlagen:</b> jederzeit für jeden Eigentümer (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>).</li>
-          <li><b>Fristen:</b> Anfechtungsklage binnen eines Monats, Begründung binnen zweier Monate — je ab der Beschlussfassung (<a href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>).</li>
-        </ul>
-      </div>
+      <!-- ABSCHLUSS — Rechtliche Anker -->
+      <section class="chapter c-ueber">
+        <div class="anker">
+          <h2>Rechtliche Anker</h2>
+          <ul>
+            <li><b>Einberufung, Frist &amp; Ankündigung:</b> Textform, mindestens drei Wochen (<a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 4 WEG</a>); Beschluss nur zu einem bei der Einberufung bezeichneten Gegenstand (<a href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>).</li>
+            <li><b>Vorsitz, Niederschrift, Beschluss-Sammlung:</b> Vorsitz des Verwalters, sofern nichts anderes beschlossen (§ 24 Abs. 5); Niederschrift und Unterschriften (§ 24 Abs. 6); Beschluss-Sammlung (<a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 7 WEG</a>).</li>
+            <li><b>Abstimmung &amp; Vollmacht:</b> Mehrheit der abgegebenen Stimmen, Kopfprinzip als Regelfall, Vollmacht in Textform, Stimmverbote (<a href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 WEG</a>).</li>
+            <li><b>Einsicht in die Unterlagen:</b> jederzeit für jeden Eigentümer (<a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>).</li>
+            <li><b>Fristen:</b> Anfechtungsklage binnen eines Monats, Begründung binnen zweier Monate — je ab der Beschlussfassung (<a href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>).</li>
+          </ul>
+        </div>
 
-      <div class="schluss">
-        <p><b>Die Versammlung ist der Ort, an dem alles wirksam wird — Recht, Verträge,
-          Verwaltermerkmale.</b> Konkrete Einzelfragen und Musterfälle stehen im
-          <a href="wegweiser.html">Wegweiser</a>; woran man eine beschlussreife Vorbereitung erkennt,
-          zeigt der Abschnitt <a href="#beschlussreife">Beschlussreife</a> weiter oben.</p>
-      </div>
+        <div class="schluss">
+          <p><b>Die Versammlung ist der Ort, an dem alles wirksam wird — Recht, Verträge,
+            Verwaltermerkmale.</b> Konkrete Einzelfragen und Musterfälle stehen im
+            <a href="wegweiser.html">Wegweiser</a>; woran man eine beschlussreife Vorbereitung erkennt,
+            zeigt der <a href="#beschlussreife">Werkzeugkasten</a> weiter oben.</p>
+        </div>
 
-      <p class="disc">Allgemeine Information, keine Rechtsberatung. Die Paragrafen sind zur eigenen
-        Prüfung verlinkt; für einen konkreten Fall ist die anwaltliche Prüfung maßgeblich.
-        Rechtsstand Juli 2026. Paragrafen ohne Zusatz beziehen sich auf das
-        Wohnungseigentumsgesetz (WEG).</p>
+        <p class="disc">Allgemeine Information, keine Rechtsberatung. Die Paragrafen sind zur eigenen
+          Prüfung verlinkt; für einen konkreten Fall ist die anwaltliche Prüfung maßgeblich.
+          Rechtsstand Juli 2026. Paragrafen ohne Zusatz beziehen sich auf das
+          Wohnungseigentumsgesetz (WEG).</p>
+      </section>
 
     </div>
   </section>
