@@ -40,9 +40,10 @@
   .fbtn[aria-pressed="true"]{color:#fff;border-color:transparent}
   .fbtn[data-role="alle"][aria-pressed="true"]{background:var(--petrol-light);color:var(--petrol-dark)}
   .fbtn[data-role="eigentuemer"][aria-pressed="true"]{background:var(--stimme)}
-  .fbtn[data-role="mieter"][aria-pressed="true"]{background:var(--signal)}
+  .fbtn[data-role="gemeinschaft"][aria-pressed="true"]{background:var(--taupe)}
+  .fbtn[data-role="mieter"][aria-pressed="true"]{background:var(--terrakotta)}
   .fbtn[data-role="verwalter"][aria-pressed="true"]{background:var(--petrol)}
-  .fbtn[data-role="versorger"][aria-pressed="true"]{background:#5c6b74}
+  .fbtn[data-role="versorger"][aria-pressed="true"]{background:var(--schiefer)}
   .legend{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px;font-size:12.5px;color:#93a09c}
   .legend span{display:inline-flex;align-items:center;gap:7px}
   .legend i{width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--petrol);box-sizing:border-box}
@@ -50,16 +51,10 @@
   .legend .w{border-color:var(--erkenntnis)}
 
   /* Zeitstrahl — der ganze Block ist ein durchgehendes Petrol-Band (deckt die
-     Sektion voll bis an die Raender, kein heller Rahmen mehr). Die Eintraege
-     liegen in einem Innen-Scrollbereich mit Koralle-Schiebebalken. */
+     Sektion voll bis an die Raender). Die Eintraege laufen im natuerlichen
+     Seitenfluss — kein Innen-Scrollbereich, damit keine Karte abgeschnitten wird. */
   .cluster.tl-band{background:var(--petrol-dark);padding-bottom:24px}
-  .tl-scroll{margin-top:22px;max-height:600px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;
-    border-top:2px solid var(--signal);border-bottom:2px solid var(--signal);
-    scrollbar-width:thin;scrollbar-color:var(--signal) transparent}
-  .tl-scroll::-webkit-scrollbar{width:10px}
-  .tl-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.06)}
-  .tl-scroll::-webkit-scrollbar-thumb{background:var(--signal);border-radius:6px}
-  .tl-scroll::-webkit-scrollbar-thumb:hover{background:#c8461f}
+  .tl-scroll{margin-top:22px}
   .tl{position:relative;padding:8px 20px 12px 34px}
   /* Achse als Verlauf von Petrol-Hell (Vergangenheit) zu Koralle (Jetzt/Geplant). */
   .tl::before{content:"";position:absolute;left:8.5px;top:8px;bottom:8px;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--petrol-light) 0%,var(--petrol-light) 42%,var(--signal) 100%)}
@@ -83,6 +78,8 @@
   .imp__badge{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;color:#fff;font-weight:600;font-size:12px;padding:5px 11px;border-radius:999px;line-height:1.2}
   .imp__why{color:var(--text-soft);line-height:1.55}
   .imp__why b{color:var(--text);font-weight:600}
+  .ev__src{margin-top:12px;padding-top:11px;border-top:1px solid var(--border);font-size:12px;color:var(--text-mute);line-height:1.5}
+  .ev__src b{color:var(--text-soft);font-weight:600}
 
   main{padding-bottom:72px}
   .foot-rdg{margin-top:14px;font-size:12px;opacity:.72;font-style:italic;line-height:1.55;max-width:74ch}
@@ -121,6 +118,7 @@
         <div class="filter__btns">
           <button class="fbtn" data-role="alle" aria-pressed="true">Alle</button>
           <button class="fbtn" data-role="eigentuemer" aria-pressed="false">Eigentümer</button>
+          <button class="fbtn" data-role="gemeinschaft" aria-pressed="false">Gemeinschaft</button>
           <button class="fbtn" data-role="mieter" aria-pressed="false">Mieter</button>
           <button class="fbtn" data-role="verwalter" aria-pressed="false">Verwalter</button>
           <button class="fbtn" data-role="versorger" aria-pressed="false">Versorger</button>
@@ -173,6 +171,7 @@
   var tl = document.getElementById("tl");
   if(!tl || typeof ZEITSTRAHL === "undefined") return;
   var esc = function(s){ var d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; };
+  var fmtStand = function(iso){ var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ""); return m ? m[3] + "." + m[2] + "." + m[1] : (iso || ""); };
   var data = ZEITSTRAHL.slice().sort(function(a,b){ return a.iso < b.iso ? -1 : (a.iso > b.iso ? 1 : 0); });
 
   function impact(kind, imp){
@@ -202,6 +201,12 @@
 
     var imps = impact("pro", e.profitiert) + impact("con", e.geschwaecht);
 
+    var src = "";
+    if(e.quelle){
+      src = '<div class="ev__src"><b>Quelle:</b> ' + esc(e.quelle)
+          + (e.stand ? ' · <b>Stand:</b> ' + esc(fmtStand(e.stand)) : "") + '</div>';
+    }
+
     ev.innerHTML =
       '<div class="ev__card">'
         + '<div class="ev__top"><span class="ev__date">' + esc(e.datum) + '</span>'
@@ -209,6 +214,7 @@
         + '<div class="ev__title">' + esc(e.titel) + '</div>'
         + '<div class="ev__text">' + esc(e.text) + '</div>'
         + (imps ? '<div class="ev__impact">' + imps + '</div>' : '')
+        + src
       + '</div>';
     tl.appendChild(ev);
   });

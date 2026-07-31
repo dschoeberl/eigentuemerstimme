@@ -14,6 +14,10 @@
 # Repo. Gehoert langfristig nach OneDrive, hier nur als zweite Sicherung.
 news/
 
+# Redaktionswerkzeuge — nicht oeffentlich (z. B. Guardrail-Auswertung des
+# Zeitstrahls). Liegen lokal, werden nicht ausgeliefert.
+redaktion/
+
 # Werkzeuge / Betriebssystem
 .claude/
 .DS_Store

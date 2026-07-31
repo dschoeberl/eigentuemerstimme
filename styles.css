@@ -38,7 +38,8 @@
   --petrol:#1a5c5a; --petrol-dark:#1a3535; --petrol-light:#7ab8b5;
   --stimme:#c08a2c; --stimme-soft:#e9d3a6; --stimme-tint:#f6ecd8;                 /* Amber · Welt WEG / Eigentuemer */
   --erkenntnis:#2f6e8c; --erkenntnis-soft:#a9cad8; --erkenntnis-tint:#e6eff3;     /* Erkenntnisblau · Welt Wissenschaft */
-  --signal:#e4572e; --signal-soft:#f7d9cf;                                        /* Signal-Koralle · neu / wichtig / ein CTA je Seite — sparsam */
+  --signal:#e4572e; --signal-soft:#f7d9cf;                                        /* Signal-Koralle · neu / wichtig / ein CTA je Seite — sparsam; NIE als Bewertungsfarbe */
+  --taupe:#9a8674; --terrakotta:#b5533b; --schiefer:#5b6b73;                      /* Zeitstrahl-Perspektiven: Gemeinschaft (GdWE) · Mieter:innen · Versorger */
   --bg-light:#f5f4f2; --border:#e0dedd;
   --text:#1a1a1a; --text-soft:#5a5956; --text-mute:#8a8680;
 }
