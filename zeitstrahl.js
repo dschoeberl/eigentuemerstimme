@@ -58,7 +58,7 @@ const ZEITSTRAHL = [
   },
   {
     iso: "2024-01-01", datum: "01.01.2024",
-    titel: "Gebäudeenergiegesetz („Heizungsgesetz") in Kraft", kategorie: "Gesetz", status: "in-kraft",
+    titel: "Gebäudeenergiegesetz („Heizungsgesetz“) in Kraft", kategorie: "Gesetz", status: "in-kraft",
     text: "Die GEG-Novelle führt die 65-Prozent-Pflicht für erneuerbare Energien bei neuen Heizungen ein und schreibt eine Beratung vor dem Einbau einer fossilen Heizung vor. Im Bestand greift die Pflicht gestuft mit der kommunalen Wärmeplanung, im Neubaugebiet sofort.",
     profitiert: { rolle: "versorger", why: "Die EE-Pflicht schafft Nachfrage nach Wärmenetzen, Wärmepumpen und erneuerbarer Technik." },
     geschwaecht: { rolle: "eigentuemer", why: "Die technologische Wahl wird eingeengt, und vor einer fossilen Heizung steht eine verpflichtende Beratung — beides hebt das GModG 2026 wieder auf." },
