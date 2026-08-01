@@ -30,6 +30,15 @@ const ZEITSTRAHL = [
     stand: "2026-07-31"
   },
   {
+    iso: "2023-01-01", datum: "01.01.2023",
+    titel: "CO₂-Kostenaufteilungsgesetz in Kraft", kategorie: "Gesetz", status: "in-kraft",
+    text: "Ein Stufenmodell verteilt die CO₂-Kosten des Heizens zwischen Vermieter und Mieter nach dem CO₂-Ausstoß je Quadratmeter: Je schlechter der energetische Zustand des Gebäudes, desto größer der Anteil des Vermieters.",
+    profitiert: { rolle: "mieter", why: "Bei energetisch schlechten Gebäuden trägt der Vermieter einen wachsenden Teil der CO₂-Kosten — die Last verschiebt sich weg vom Mieter." },
+    geschwaecht: { rolle: "eigentuemer", why: "Vermietende Eigentümer tragen anteilig die CO₂-Kosten — zugleich ein Anreiz zur energetischen Sanierung." },
+    quelle: "Kohlendioxidkostenaufteilungsgesetz (CO₂KostAufG), in Kraft seit 01.01.2023",
+    stand: "2026-08-01"
+  },
+  {
     iso: "2023-12-01", datum: "01.12.2023",
     titel: "Anspruch auf zertifizierten Verwalter (§ 26a)", kategorie: "Gesetz", status: "in-kraft",
     text: "Eigentümer haben grundsätzlich Anspruch auf einen zertifizierten Verwalter — Nachweis der Sachkunde per IHK-Prüfung.",
@@ -46,6 +55,15 @@ const ZEITSTRAHL = [
     geschwaecht: { rolle: "eigentuemer", why: "Frühe Bindung an EE-Vorgaben — allerdings nur in Neubaugebieten." },
     quelle: "Wärmeplanungsgesetz (WPG), in Kraft seit 01.01.2024",
     stand: "2026-07-31"
+  },
+  {
+    iso: "2024-01-01", datum: "01.01.2024",
+    titel: "Gebäudeenergiegesetz („Heizungsgesetz") in Kraft", kategorie: "Gesetz", status: "in-kraft",
+    text: "Die GEG-Novelle führt die 65-Prozent-Pflicht für erneuerbare Energien bei neuen Heizungen ein und schreibt eine Beratung vor dem Einbau einer fossilen Heizung vor. Im Bestand greift die Pflicht gestuft mit der kommunalen Wärmeplanung, im Neubaugebiet sofort.",
+    profitiert: { rolle: "versorger", why: "Die EE-Pflicht schafft Nachfrage nach Wärmenetzen, Wärmepumpen und erneuerbarer Technik." },
+    geschwaecht: { rolle: "eigentuemer", why: "Die technologische Wahl wird eingeengt, und vor einer fossilen Heizung steht eine verpflichtende Beratung — beides hebt das GModG 2026 wieder auf." },
+    quelle: "Gebäudeenergiegesetz (GEG-Novelle), in Kraft seit 01.01.2024",
+    stand: "2026-08-01"
   },
   {
     iso: "2026-03-26", datum: "26.03.2026",
@@ -88,7 +106,7 @@ const ZEITSTRAHL = [
     titel: "Gebäudemodernisierungsgesetz in Kraft", kategorie: "Gesetz", status: "in-kraft",
     text: "Das Gebäudemodernisierungsgesetz (GModG) ist in Kraft — verkündet am 28.07.2026 im Bundesgesetzblatt, in Kraft seit 29.07.2026. Es lässt die 65-Prozent-Pflicht und die Beratungspflicht vor dem Einbau einer fossilen Heizung entfallen; auch ein fertiger kommunaler Wärmeplan verpflichtet nicht mehr zu einem bestimmten Heizsystem. Die Steuerungswirkung verschiebt sich in die Betriebsphase: Die CO₂-Kosten steigen ab 2029.",
     profitiert: { rolle: "gemeinschaft", why: "Die Gemeinschaft kann die Heizungslösung wieder frei wählen — ohne 65-Prozent-Vorgabe und ohne verpflichtende Vorab-Beratung." },
-    geschwaecht: null,
+    geschwaecht: { rolle: "eigentuemer", why: "Mit der Beratungspflicht entfällt eine Absicherung vor dem Heizungstausch; wer jetzt fossil wählt, trägt ab 2029 steigende CO₂-Kosten — deren Folgen erst spät sichtbar werden." },
     quelle: "Gebäudemodernisierungsgesetz (GModG), verkündet 28.07.2026 im Bundesgesetzblatt, in Kraft seit 29.07.2026",
     stand: "2026-07-31"
   },
