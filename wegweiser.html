@@ -77,6 +77,23 @@
 
   main{padding-bottom:72px}
   .foot-rdg{margin-top:14px;font-size:12px;opacity:.72;font-style:italic;line-height:1.55;max-width:74ch}
+
+  /* Themen-Akkordeon: jeder Cluster aufklappbar; die Ueberschriften bilden das
+     Inhaltsverzeichnis und halten die Seite auf den ersten Blick ruhig. Reines CSS. */
+  main .cluster{padding:0}
+  main .cluster:first-of-type{padding-top:14px}
+  .cluster-acc{border-top:1px solid var(--border)}
+  .cluster-acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:22px 2px}
+  .cluster-acc>summary::-webkit-details-marker{display:none}
+  .cluster-acc>summary h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,24px);font-weight:600;color:var(--petrol-dark);margin:0;min-width:0}
+  .cluster-acc>summary:hover h2{color:var(--petrol)}
+  .cluster-rule{flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--stimme-soft),rgba(230,227,223,0))}
+  .cluster-count{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--text-mute);white-space:nowrap}
+  .cluster-chevron{flex:0 0 auto;display:grid;place-items:center;color:var(--petrol);transition:transform .25s}
+  .cluster-acc[open]>summary .cluster-chevron{transform:rotate(180deg)}
+  .cluster-acc>.wall{margin:4px 0 34px}
+  .cluster-acc>.qgrid{margin:8px 0 20px}
+  .cluster-acc>.case-intro{margin-top:0}
 </style>
 </head>
 <body>
@@ -107,7 +124,8 @@
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Unterlagen &amp; Einsicht</h2></div>
+      <details class="cluster-acc" open>
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Unterlagen &amp; Einsicht</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">3 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap" id="teilungserklaerung-aktuell">
@@ -173,12 +191,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Versammlung &amp; Beschlüsse</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Versammlung &amp; Beschlüsse</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">4 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -258,12 +278,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Verwalter, Kontrolle &amp; Interessen</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Verwalter, Kontrolle &amp; Interessen</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">7 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -405,12 +427,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Kosten &amp; Aufträge</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Kosten &amp; Aufträge</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">5 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -524,12 +548,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Für Mieterinnen und Mieter</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Für Mieterinnen und Mieter</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">1 Frage</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap kap--warm">
@@ -553,12 +579,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Wenn es in der Versammlung schwierig wird</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Wenn es in der Versammlung schwierig wird</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">7 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -699,12 +727,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Unterlagen-Portal &amp; Gebäudesicherheit</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Unterlagen-Portal &amp; Gebäudesicherheit</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">2 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap" id="eigentuemerportal-vollstaendig">
@@ -752,12 +782,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Top-Fragen</span><h2>Weitere Praxisfragen</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Top-Fragen</span><h2>Weitere Praxisfragen</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">4 Fragen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -845,12 +877,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Kontrolle &amp; Interessen</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Kontrolle &amp; Interessen</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">3 Fälle</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <p class="case-intro">Neutrale Muster-Fälle — real erlebt, vollständig anonymisiert, am
         geltenden Recht gemessen. So erkennt jede Gemeinschaft ihr Thema wieder, ohne dass
         jemand bloßgestellt wird. Jeder Fall folgt demselben Raster: Situation → geltendes
@@ -900,12 +934,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Kosten &amp; Aufträge</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Kosten &amp; Aufträge</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">2 Fälle</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap">
@@ -937,12 +973,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Wärme &amp; Entscheidung</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Wärme &amp; Entscheidung</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">1 Fall</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="wall">
 
         <details class="kap kap--warm">
@@ -960,12 +998,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Versammlung, Beschluss &amp; Grundlagen</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Cases</span><h2>Muster-Fälle: Versammlung, Beschluss &amp; Grundlagen</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">5 Fälle</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <p class="case-intro">Fünf weitere neutrale Muster-Fälle rund um die Eigentümerversammlung —
         real erlebt, vollständig anonymisiert, am geltenden Recht gemessen. Denselben Ablauf entlang
         der Zeit beschreibt die Seite <a href="versammlung.html">Eigentümerversammlung</a>.
@@ -1044,12 +1084,14 @@
         </details>
 
       </div>
+      </details>
     </div>
   </section>
 
   <section class="cluster">
     <div class="guide">
-      <div class="cluster__label"><span class="cluster__chip">Links</span><h2>Wichtige Quellen &amp; Anlaufstellen</h2></div>
+      <details class="cluster-acc">
+      <summary><span class="cluster__chip">Links</span><h2>Wichtige Quellen &amp; Anlaufstellen</h2><span class="cluster-rule" aria-hidden="true"></span><span class="cluster-count">9 Quellen</span><span class="cluster-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
       <div class="qgrid">
         <div class="qgroup">
           <div class="qgroup__t">Gesetzestexte</div>
@@ -1082,6 +1124,7 @@
         </div>
       </div>
       <p class="linknote">Externe Quellen, Stand Juli 2026 — Änderungen möglich. Öffnen in einem neuen Tab.</p>
+      </details>
     </div>
   </section>
 
