@@ -2,7 +2,7 @@
 
 Stand: 02.08.2026 · Grundlage: Art. 50 KI-VO (Kennzeichnung KI-erzeugter Inhalte)
 
-Sichtbarer Hinweis „KI-generiert" als dezenter Chip unten rechts im jeweiligen Hero
+Sichtbarer Hinweis „Bild: KI-generiert" als dezenter Chip unten rechts im jeweiligen Hero
 (zentrale CSS-Klasse `.ki-hinweis` in `styles.css`). Spalten „Werkzeug" und „Datum"
 werden nachgetragen, wo bekannt — leer lassen ist besser als raten.
 
