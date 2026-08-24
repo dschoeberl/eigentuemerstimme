@@ -262,9 +262,15 @@ section{padding:52px 0 8px}
 .teil>summary:hover .phase__t,.pgrp>summary:hover .phase__t{filter:brightness(1.12)}
 
 .shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
-/* Als summary muss die Kopfzeile die Zaehlung und den Pfeil rechts halten. */
-.teil>summary.shead{align-items:center;padding:14px 0;margin-bottom:0}
-.teil>summary.shead h2{flex:1 1 240px;min-width:0}
+/* Als summary traegt die Kopfzeile links die Nummer, rechts Zaehlung und Pfeil.
+   Die Nummernspalte hat eine feste Breite — sonst beginnt jede Ueberschrift an
+   einer anderen Stelle, weil "Grundlage" breiter ist als "Teil 1", und die
+   Liste sieht ausgefranst aus. */
+.teil>summary.shead{align-items:flex-start;padding:15px 0;margin-bottom:0}
+.teil>summary.shead .num{flex:0 0 96px;padding-top:.45em}
+.teil>summary.shead h2{flex:1 1 240px;min-width:0;font-size:clamp(20px,2.3vw,26px)}
+.teil>summary.shead .teil__c,
+.teil>summary.shead .teil__v{align-self:center}
 .shead .num{
   font-family:var(--serif);font-size:15px;font-weight:600;color:var(--acc,var(--petrol));
   letter-spacing:.04em;
@@ -299,6 +305,10 @@ section{padding:52px 0 8px}
   .teil>summary.shead h2{flex:1 1 100%;order:3}
   .teil>summary.shead .teil__c{order:2}
   .teil>summary.shead .teil__v{order:2}
+  /* Eigene Zeile fuer die Ueberschrift — die feste Nummernspalte wuerde hier
+     nur eine Luecke reissen. */
+  .teil>summary.shead{align-items:center}
+  .teil>summary.shead .num{flex:0 0 auto;padding-top:0}
 }
 
 /* ── Reaktionskarte ────────────────────────────────────── */
