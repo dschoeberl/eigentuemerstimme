@@ -598,18 +598,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 .karte__zeile{display:block;height:3px;border-radius:2px;background:#cfcbc3}
 .karte__zeile--kurz{width:58%}
 
-/* Heller Grund am Seitenende. */
-.karte--hell{
-  background:linear-gradient(135deg, rgba(192,138,44,.13), rgba(192,138,44,.05));
-  border-color:var(--stimme-soft);
-}
-.karte--hell:hover{background:linear-gradient(135deg, rgba(192,138,44,.2), rgba(192,138,44,.08));
-  box-shadow:0 14px 34px rgba(26,53,53,.14)}
-.karte--hell .karte__k{color:#9a7526}
-.karte--hell .karte__t{color:var(--text)}
-.karte--hell .karte__d{color:var(--text-soft)}
-.karte--hell .karte__meta{color:var(--text-mute)}
-
 @media(max-width:600px){
   .karte{flex-direction:column;align-items:flex-start;gap:16px;padding:20px}
   .karte__bild{width:64px;height:86px;margin-top:0}
@@ -617,7 +605,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 }
 
 .mit__n{margin-top:11px;font-size:12.5px;color:#9fb8b6;line-height:1.5;max-width:62ch}
-.mit__n.mit--hell{color:var(--text-soft)}
 
 :focus-visible{outline:2.5px solid var(--stimme);outline-offset:2px;border-radius:4px}
 
@@ -2318,30 +2305,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
     </div>
   </div>
   </details>
-
-  <a class="karte karte--hell" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
-    <span class="karte__bild" aria-hidden="true">
-      <span class="karte__blatt karte__blatt--3"></span>
-      <span class="karte__blatt karte__blatt--2"></span>
-      <span class="karte__blatt karte__blatt--1">
-        <span class="karte__zeile"></span><span class="karte__zeile"></span>
-        <span class="karte__zeile karte__zeile--kurz"></span>
-      </span>
-    </span>
-    <span class="karte__text">
-      <span class="karte__k">Bevor Sie gehen</span>
-      <span class="karte__t">Die Saalkarte</span>
-      <span class="karte__d">Alles von dieser Seite, verdichtet auf vier Seiten A4 — damit Sie
-        im Saal nicht scrollen müssen.</span>
-      <span class="karte__cta">
-        <span class="karte__btn">PDF herunterladen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 12l6 6 6-6M4 20h16"/></svg>
-        </span>
-        <span class="karte__meta">PDF · 4 Seiten · 0,6 MB</span>
-      </span>
-    </span>
-  </a>
-  <p class="mit__n mit--hell">Ohne E-Mail-Abfrage, ohne Registrierung, ohne Zählpixel.</p>
 
   <div class="disc">
     <p><b>Allgemeine Information, keine Rechtsberatung.</b> Diese Unterlage erklärt, wie eine
