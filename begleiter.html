@@ -189,31 +189,6 @@ a{color:inherit}
 }
 .jump__hilfe{font-size:13.5px;color:#9fb8b6;margin:0 0 20px;max-width:64ch;line-height:1.55}
 
-/* Die Situationen sind nach denselben drei Phasen gruppiert wie der Teil 1
-   weiter unten — gleiche Beschriftung, gleiche Reihenfolge, gleiche Farbe.
-   Die Leiste ist damit das Inhaltsverzeichnis und nicht nur ein Haufen. */
-.chipgruppe + .chipgruppe{margin-top:14px}
-.chipgruppe__k{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.chipgruppe__p{
-  font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
-  color:var(--acc,var(--stimme-soft));
-}
-.chipgruppe__k::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
-.chipgruppe--lesen{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
-/* Nachlesen statt nachschlagen: andere Form, damit die beiden Sorten
-   Verweis nicht verwechselt werden. */
-.chip--lesen{border-radius:9px;background:none;border-style:dashed;color:#b9cecd;font-weight:400}
-.chip--lesen:hover,.chip--lesen:focus-visible{background:rgba(169,202,216,.14);border-color:var(--erkenntnis-soft);border-style:solid}
-.chip{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);
-  color:#dce8e7;text-decoration:none;
-  font-size:14px;line-height:1.3;font-weight:500;
-  padding:12px 14px;border-radius:999px;min-height:44px;
-  transition:background .16s,border-color .16s,transform .16s;
-}
-.chip:hover,.chip:focus-visible{background:rgba(192,138,44,.2);border-color:var(--stimme);transform:translateY(-1px)}
-.chip span{color:var(--stimme);font-weight:700;font-size:12px}
 
 /* ── Abschnitte ────────────────────────────────────────── */
 section{padding:52px 0 8px}
@@ -727,55 +702,11 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 <!-- ═══════════════ SOFORT-EINSTIEG ═══════════════ -->
 <div class="jump">
   <div class="wrap">
-    <h2>Direkt zu Ihrer Situation</h2>
-    <p class="jump__hilfe">Achtzehn Situationen, geordnet nach dem Zeitpunkt im Ablauf. Tippen Sie
-      die an, die gerade passt — Sie landen unmittelbar bei dem Satz dazu.</p>
-
-    <div class="chipgruppe">
-      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--stimme)">Bevor abgestimmt wird</span></div>
-      <div class="chips">
-      <a class="chip" href="#s1"><span>A1</span> Mein Thema fehlt auf der Tagesordnung</a>
-      <a class="chip" href="#s2"><span>A2</span> Es soll entschieden werden, Unterlagen fehlen</a>
-      <a class="chip" href="#s3"><span>A3</span> Eine Zahl trägt alles, die Rechnung fehlt</a>
-      <a class="chip" href="#s4"><span>A4</span> Die Reihenfolge benachteiligt mich</a>
-      <a class="chip" href="#s5"><span>A5</span> Die Verwaltung entscheidet über sich selbst</a>
-      <a class="chip" href="#s6"><span>A6</span> Unklar, wer die Unterlage verantwortet</a>
-      <a class="chip" href="#s7"><span>A7</span> Die Vollmachtslage ist unklar</a>
-      <a class="chip" href="#s15"><span>A8</span> Die Aussprache wird für beendet erklärt</a>
-      </div>
-    </div>
-
-    <div class="chipgruppe">
-      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--petrol-light)">Wenn abgestimmt wird</span></div>
-      <div class="chips">
-      <a class="chip" href="#s8"><span>B1</span> Jemand stimmt mit, obwohl es um ihn geht</a>
-      <a class="chip" href="#s9"><span>B2</span> Ich will geheime Abstimmung</a>
-      <a class="chip" href="#s10"><span>B3</span> Das Ergebnis wird nicht ausgezählt</a>
-      <a class="chip" href="#s11"><span>B4</span> Eine Aussage soll nachweisbar bleiben</a>
-      <a class="chip" href="#s16"><span>B5</span> Abgestimmt wird über eine andere Fassung</a>
-      </div>
-    </div>
-
-    <div class="chipgruppe">
-      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--signal)">Wenn es kippt</span></div>
-      <div class="chips">
-      <a class="chip" href="#s12"><span>C1</span> Mein Antrag wird nicht abgestimmt</a>
-      <a class="chip" href="#s13"><span>C2</span> Ich bin überstimmt worden</a>
-      <a class="chip" href="#s14"><span>C3</span> Es geht plötzlich um mich, nicht um die Sache</a>
-      <a class="chip" href="#s17"><span>C4</span> Ich bin mit dem Verlauf nicht einverstanden</a>
-      <a class="chip" href="#s18"><span>C5</span> Es soll nicht festgehalten werden, wer was gesagt hat</a>
-      </div>
-    </div>
-
-    <div class="chipgruppe chipgruppe--lesen">
-      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--erkenntnis-soft)">Zum Verstehen, nicht zum Nachschlagen</span></div>
-      <div class="chips">
-      <a class="chip chip--lesen" href="#grundlage">Versammlung, Tagesordnung, Geschäftsordnung — der Unterschied</a>
-      <a class="chip chip--lesen" href="#leitung">Woran Sie erkennen, dass gelenkt wird</a>
-      <a class="chip chip--lesen" href="#konter">Die acht Standardsätze — und was Sie antworten</a>
-      <a class="chip chip--lesen" href="#protokoll">Was ins Protokoll gehört</a>
-      </div>
-    </div>
+    <h2>So ist diese Seite gebaut</h2>
+    <p class="jump__hilfe">Ein Nachschlagewerk, kein Text zum Durchlesen. Unten stehen sieben
+      Abschnitte — klappen Sie den auf, den Sie gerade brauchen. Die achtzehn Situationen in Teil 1
+      sind nach dem Zeitpunkt im Ablauf geordnet: bevor abgestimmt wird, während abgestimmt wird,
+      und wenn es kippt.</p>
 
     <a class="karte" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
       <span class="karte__bild" aria-hidden="true">
@@ -2386,6 +2317,7 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
       Satz wirkt ein Jahr — und in der nächsten Versammlung noch einmal.</p>
     </div>
   </div>
+  </details>
 
   <a class="karte karte--hell" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
     <span class="karte__bild" aria-hidden="true">
@@ -2423,7 +2355,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
     (in Gründung)</b> — gemeinnützig, anbieterunabhängig, ohne Verkaufsabsicht. Weitergabe an
     andere Eigentümerinnen und Eigentümer ausdrücklich erwünscht.</p>
   </div>
-  </details>
 </section>
 </div>
 
