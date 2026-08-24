@@ -2411,8 +2411,16 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   // steht der Leser vor der Wand, die wir gerade weggeraeumt haben.
   // Zuerst alles schliessen, dann erst die Sprungmarke oeffnen; die
   // Reihenfolge ist wichtig, damit ein Tiefenlink weiterhin traegt.
-  document.querySelectorAll('details').forEach(function(d){ d.open = false; });
-  ausHash();
+  function zugeklapptStarten(){
+    document.querySelectorAll('details').forEach(function(d){ d.open = false; });
+    ausHash();
+  }
+  // Sofort — und noch einmal bei "pageshow". Die Engines stellen den Zustand zu
+  // unterschiedlichen Zeitpunkten wieder her: Chrome vor diesem Skript, Firefox
+  // und Safari danach. "pageshow" liegt in allen Faellen dahinter und deckt
+  // zusaetzlich den Rueckwaerts-Sprung aus dem Verlauf ab.
+  zugeklapptStarten();
+  window.addEventListener('pageshow', zugeklapptStarten);
 })();
 </script>
 
