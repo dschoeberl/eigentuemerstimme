@@ -1,6 +1,6 @@
 # eigentuemerstimme.de
 
-Website der gemeinnützigen Initiative **Eigentümerstimme** (in Gründung), Erfurt.
+Website der gemeinnützigen Initiative **Eigentümerstimme** (in Gründung), München.
 
 Statisches HTML/CSS, kein Build, kein Framework. Deployment über Netlify.
 
