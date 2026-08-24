@@ -6,6 +6,90 @@ Zielseite: `begleiter.html` — „Bevor Sie die Hand heben". Zieldatei: `images
 
 ---
 
+## 0 · Nachtrag 24.08.2026 — die Fassung ohne eingebrannten Verlauf
+
+Die erzeugte Fassung ist inhaltlich richtig und im Einsatz (`images/hero-begleiter.jpg`). Sie hat
+aber **den dunklen Petrol-Verlauf links ins Bild gerechnet**. Die Website legt denselben Verlauf
+noch einmal per CSS darüber — deshalb musste er dort auf gut die Hälfte reduziert werden, und diese
+eine Seite weicht als einzige vom Muster aller anderen Heros ab.
+
+Ziel des Nachtrags: **dieselbe Aufnahme, nur ohne Abdunklung.** Dann greift derselbe Verlauf wie auf
+allen anderen Seiten, und die Sonderbehandlung im Quelltext fällt weg.
+
+> **Am besten kein neuer Wurf, sondern eine Änderung am vorhandenen Bild.** Die Komposition sitzt —
+> die sprechende Frau, die zugewandten Zuhörer, die erhobene Hand am rechten Rand, der
+> Verwaltungstisch unscharf dahinter. Eine Neugenerierung trifft das womöglich nicht wieder.
+
+### 0.1 Erste Wahl — Änderung am vorhandenen Bild
+
+Das erzeugte Bild in ChatGPT erneut aufrufen und anfügen:
+
+> Nimm die dunkle Abdunklung auf der linken Bildseite heraus. Das Bild soll über die gesamte Breite
+> gleichmäßig belichtet sein, so wie der rechte Teil — natürliches Raumlicht, keine Vignette, kein
+> Farbverlauf, keine abgedunkelte Zone. Motiv, Bildausschnitt, Personen, Farben und Stimmung bleiben
+> exakt unverändert. Gib es in 16:9 und in der höchstmöglichen Auflösung aus.
+
+### 0.2 Zweite Wahl — neu erzeugen
+
+Nur falls die Änderung nicht trägt. Der Zusatz gegenüber dem Prompt in Abschnitt 2 und 3 ist der
+letzte Absatz — er ist der eigentliche Punkt:
+
+> Dokumentarische Reportage-Fotografie (Anmutung GEO oder ZEIT), 16:9. Eine Eigentümerversammlung in
+> einem schlichten Gemeinde- oder Hotelsaal, mitten im Gespräch. Sechs bis neun Erwachsene
+> unterschiedlichen Alters sitzen an zusammengestellten Tischen. Eine Frau rechts der Bildmitte
+> spricht gerade und untermalt es mit einer ruhigen Handbewegung; zwei Personen wenden sich ihr zu
+> und hören konzentriert zu, eine dritte hebt am rechten Bildrand halb die Hand für eine
+> Wortmeldung, eine vierte notiert etwas. Im Vordergrund links sitzt eine Person von hinten
+> angeschnitten. Auf den Tischen Papiere, Stifte, Wassergläser, eine Brille. Im unscharfen
+> Hintergrund ein Vorstandstisch und eine helle Wand, rechts hohe Altbaufenster mit warmem Tageslicht.
+> Alltagskleidung, keine Anzüge. Engagierter, sachlicher Austausch — unterschiedliche Meinungen sind
+> spürbar, der Ton bleibt respektvoll. Niemand lächelt in die Kamera, keine gestellten Posen. Warmes
+> Licht, gedämpfter Farbklang aus Petrol und Bernstein. Realistischer dokumentarischer Fotostil,
+> natürliche Hauttöne. Keine lesbare Schrift auf Papieren, Wänden oder Bildschirmen.
+>
+> **Wichtig zur Belichtung: das Bild muss über die gesamte Breite gleichmäßig ausgeleuchtet sein.
+> Keine Vignette, kein Farbverlauf, keine abgedunkelte Zone, kein dunkler Balken — auch nicht am
+> linken Rand. Die linke Bildhälfte soll ruhig komponiert sein (Wand, Tischkante, angeschnittene
+> Rücken — nichts, was der Betrachter sehen muss), aber genauso hell wie der Rest. Die Abdunklung
+> für den Text wird später technisch ergänzt und darf nicht im Bild stecken.**
+>
+> Seitenverhältnis 16:9, mindestens 2400 Pixel Breite.
+
+### 0.3 Englisch
+
+> Documentary reportage photograph (GEO / ZEIT feel), 16:9. A German homeowners' association meeting
+> in a plain community hall, caught mid-discussion. Six to nine adults of different ages at tables
+> pushed together. A woman right of centre is speaking with a calm hand gesture; two people turn
+> toward her listening intently, a third at the right edge half-raises a hand to ask for the floor,
+> a fourth is writing a note. In the left foreground, a person seen from behind, cropped. Papers,
+> pens, water glasses on the tables. Softly out of focus behind, a board table and a pale wall; tall
+> old-building windows on the right with warm daylight. Everyday clothing, no suits. Engaged,
+> matter-of-fact debate — differing views visible, tone respectful. Nobody smiles at the camera, no
+> staged poses. Warm light, muted petrol-teal and amber harmony. Realistic documentary photography,
+> natural skin tones. No legible text anywhere.
+>
+> **Critical lighting note: the image must be evenly lit across its entire width. No vignette, no
+> gradient, no darkened zone, no dark bar — especially not on the left edge. Compose the left half
+> to be calm (wall, table edge, cropped backs — nothing the viewer needs to see) but keep it exactly
+> as bright as the rest. The darkening for the text overlay is added later in code and must not be
+> baked into the image.**
+>
+> 16:9 aspect ratio, at least 2400 pixels wide.
+
+### 0.4 Wenn die neue Fassung da ist
+
+Als JPG unter `images/hero-begleiter.jpg` ablegen, dann sind im Quelltext von `begleiter.html` vier
+Zahlen zu ändern — die Zielwerte stehen als Kommentar direkt über der Regel:
+
+```
+von  rgba(13,32,31,.62) 0%, .58 34%, .46 64%, .26 100%
+auf  rgba(13,32,31,.96) 0%, .90 34%, .64 64%, .40 100%
+```
+
+Danach läuft die Seite auf demselben Verlauf wie alle anderen. Ich prüfe die Lesbarkeit erneut nach.
+
+---
+
 ## 1 · Was das Bild zeigen soll
 
 **Der Moment mitten in der Eigentümerversammlung.** Nicht die Vorbereitung am Schreibtisch, nicht
