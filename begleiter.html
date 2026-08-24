@@ -187,24 +187,7 @@ a{color:inherit}
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--stimme-soft);
   font-weight:700;margin-bottom:14px;font-family:var(--sans);
 }
-/* Das Suchfeld ist die schnellste Art, hier etwas zu finden — es muss wie ein
-   Eingabefeld aussehen und nicht wie noch eine Schaltflaeche. Deshalb heller
-   Grund und dunkle Schrift: der einzige helle Block auf der dunklen Leiste. */
-.suchzeile{
-  display:flex;align-items:center;gap:10px;margin-bottom:8px;max-width:520px;
-  background:#fff;border:1px solid #fff;
-  border-radius:10px;padding:0 14px;box-shadow:0 2px 14px rgba(0,0,0,.18);
-}
-.suchzeile svg{width:18px;height:18px;color:var(--petrol);flex:0 0 auto}
-.suchzeile input{
-  flex:1;min-width:0;background:none;border:none;outline:none;
-  font-family:var(--sans);font-size:16px;color:var(--text);padding:13px 0;
-}
-.suchzeile input::placeholder{color:#8a8680}
-.suchzeile:focus-within{box-shadow:0 0 0 3px rgba(192,138,44,.55),0 2px 14px rgba(0,0,0,.18)}
-.jump__hilfe{font-size:13px;color:#9fb8b6;margin:0 0 18px;max-width:520px;line-height:1.5}
-.jump__leer{margin:16px 0 0;font-size:14px;color:#cfe0df;max-width:60ch;line-height:1.55}
-.jump__leer b{color:var(--stimme-soft);font-weight:600}
+.jump__hilfe{font-size:13.5px;color:#9fb8b6;margin:0 0 20px;max-width:64ch;line-height:1.55}
 
 /* Die Situationen sind nach denselben drei Phasen gruppiert wie der Teil 1
    weiter unten — gleiche Beschriftung, gleiche Reihenfolge, gleiche Farbe.
@@ -221,10 +204,6 @@ a{color:inherit}
    Verweis nicht verwechselt werden. */
 .chip--lesen{border-radius:9px;background:none;border-style:dashed;color:#b9cecd;font-weight:400}
 .chip--lesen:hover,.chip--lesen:focus-visible{background:rgba(169,202,216,.14);border-color:var(--erkenntnis-soft);border-style:solid}
-/* Gruppe ausblenden, wenn der Filter darin nichts uebrig laesst. */
-.chipgruppe[hidden]{display:none}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip[hidden]{display:none}
 .chip{
   display:inline-flex;align-items:center;gap:7px;
   background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);
@@ -523,7 +502,14 @@ table.raster td.hint{padding:11px 12px;font-size:12.5px;color:var(--text-mute);f
 
 
 /* ── Grundlagenblock: drei Ebenen ──────────────────────── */
-.grund{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+/* Abwechselnde Baender: die Abschnitte sollen auch zugeklappt als eigene
+   Bloecke lesbar sein, nicht als eine durchlaufende Liste. */
+.band{border-top:1px solid var(--border)}
+.band>section{padding-bottom:34px}
+/* Zugeklappt ist der Abschnitt nur eine Zeile — dann traegt der Rahmen keine
+   zusaetzliche Luft. Faellt :has() aus, bleibt lediglich etwas mehr Abstand. */
+.band:has(.teil:not([open]))>section{padding-bottom:0}
+.band--t{background:var(--surface-2)}
 .drei{display:grid;grid-template-columns:1fr;gap:14px;margin:22px 0 0}
 @media(min-width:860px){.drei{grid-template-columns:repeat(3,1fr)}}
 .ebene{
@@ -741,13 +727,9 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 <!-- ═══════════════ SOFORT-EINSTIEG ═══════════════ -->
 <div class="jump">
   <div class="wrap">
-    <h2>Was passiert gerade?</h2>
-    <div class="suchzeile">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="search" id="filter" placeholder="Stichwort tippen — Vertagung, Vollmacht, Frist …" autocomplete="off" aria-label="Situationen filtern">
-    </div>
-    <p class="jump__hilfe">Tippen Sie ein Stichwort — die Liste unten wird kürzer. Oder suchen Sie
-      Ihre Situation direkt.</p>
+    <h2>Direkt zu Ihrer Situation</h2>
+    <p class="jump__hilfe">Achtzehn Situationen, geordnet nach dem Zeitpunkt im Ablauf. Tippen Sie
+      die an, die gerade passt — Sie landen unmittelbar bei dem Satz dazu.</p>
 
     <div class="chipgruppe">
       <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--stimme)">Bevor abgestimmt wird</span></div>
@@ -795,9 +777,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
       </div>
     </div>
 
-    <p class="jump__leer" id="nixgefunden" hidden>Zu diesem Stichwort steht hier nichts. Versuchen
-      Sie ein einzelnes Wort — <b>Vertagung</b>, <b>Vollmacht</b>, <b>Frist</b>, <b>Protokoll</b>.</p>
-
     <a class="karte" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
       <span class="karte__bild" aria-hidden="true">
         <span class="karte__blatt karte__blatt--3"></span>
@@ -827,8 +806,8 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 
 
 <!-- ═══════════════ GRUNDLAGE ═══════════════ -->
-<div class="grund">
-<section class="wrap" id="grundlage" style="--acc:var(--petrol);padding-top:44px">
+<div class="band band--t">
+<section class="wrap" id="grundlage" style="--acc:var(--petrol)">
   <details class="teil">
     <summary class="shead">
     <span class="num">Grundlage</span>
@@ -965,8 +944,9 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
 </div>
 
 <!-- ═══════════════ 1 · DIE SITUATIONEN ═══════════════ -->
+<div class="band">
 <section class="wrap" style="--acc:var(--stimme)">
-  <details class="teil" open>
+  <details class="teil">
     <summary class="shead">
     <span class="num">Teil 1</span>
     <h2>Achtzehn Situationen — und was Sie sagen</h2>
@@ -2028,9 +2008,11 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 
 <!-- ═══════════════ 2 · DIE LEITUNG ═══════════════ -->
+<div class="band band--t">
 <section class="wrap" id="leitung" style="--acc:var(--erkenntnis)">
   <details class="teil">
     <summary class="shead">
@@ -2126,8 +2108,10 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 <!-- ═══════════════ 3 · KONTER ═══════════════ -->
+<div class="band">
 <section class="wrap" id="konter" style="--acc:var(--signal)">
   <details class="teil">
     <summary class="shead">
@@ -2230,8 +2214,10 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 <!-- ═══════════════ 3 · PROTOKOLL ═══════════════ -->
+<div class="band band--t">
 <section class="wrap" id="protokoll" style="--acc:var(--erkenntnis)">
   <details class="teil">
     <summary class="shead">
@@ -2306,8 +2292,10 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 <!-- ═══════════════ 4 · NACH DER SITZUNG ═══════════════ -->
+<div class="band">
 <section class="wrap" style="--acc:var(--signal)">
   <details class="teil">
     <summary class="shead">
@@ -2365,8 +2353,10 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 <!-- ═══════════════ 5 · HALTUNG ═══════════════ -->
+<div class="band band--t">
 <section class="wrap" style="--acc:var(--petrol)">
   <details class="teil">
     <summary class="shead">
@@ -2435,6 +2425,7 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
   </div>
   </details>
 </section>
+</div>
 
 </main>
 
@@ -2475,32 +2466,6 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
     if(offen) document.querySelectorAll('details.teil').forEach(function(d){ d.open = true; });
     btn.lastChild.textContent = offen ? ' Alle Situationen zuklappen' : ' Alle Situationen aufklappen';
   });
-  // Stichwortfilter über Chip-Beschriftung UND Karteninhalt
-  var feld = document.getElementById('filter');
-  if(feld){
-    var index = [];
-    document.querySelectorAll('.chip').forEach(function(c){
-      var ziel = document.querySelector(c.getAttribute('href'));
-      var text = (c.textContent + ' ' + (ziel ? ziel.textContent : '')).toLowerCase();
-      index.push({el:c, text:text});
-    });
-    var gruppen = document.querySelectorAll('.chipgruppe');
-    feld.addEventListener('input', function(){
-      var q = feld.value.trim().toLowerCase();
-      index.forEach(function(e){ e.el.hidden = q.length > 1 && e.text.indexOf(q) === -1; });
-      // Eine Gruppenueberschrift ohne sichtbare Chips darunter ist ein
-      // Sackgassen-Signal — solche Gruppen verschwinden mit.
-      var uebrig = 0;
-      gruppen.forEach(function(g){
-        var sichtbar = g.querySelectorAll('.chip:not([hidden])').length;
-        g.hidden = sichtbar === 0;
-        uebrig += sichtbar;
-      });
-      var leer = document.getElementById('nixgefunden');
-      if(leer) leer.hidden = !(q.length > 1 && uebrig === 0);
-    });
-  }
-
   // Beim Drucken alles öffnen, danach den Zustand wiederherstellen —
   // jetzt über alle drei Ebenen, nicht nur über die Karten.
   var vorher = [];
