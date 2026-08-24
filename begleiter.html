@@ -2404,6 +2404,14 @@ table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
     if(t) t.scrollIntoView();
   }
   window.addEventListener('hashchange', ausHash);
+
+  // Browser stellen beim Neuladen den Zustand von <details> teilweise wieder
+  // her: wer einen Abschnitt aufgeklappt hatte und F5 drueckt, sieht ihn
+  // wieder offen. Die Seite soll aber immer zugeklappt beginnen — sonst
+  // steht der Leser vor der Wand, die wir gerade weggeraeumt haben.
+  // Zuerst alles schliessen, dann erst die Sprungmarke oeffnen; die
+  // Reihenfolge ist wichtig, damit ein Tiefenlink weiterhin traegt.
+  document.querySelectorAll('details').forEach(function(d){ d.open = false; });
   ausHash();
 })();
 </script>
