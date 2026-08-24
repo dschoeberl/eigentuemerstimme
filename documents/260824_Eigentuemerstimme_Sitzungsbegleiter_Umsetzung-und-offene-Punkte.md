@@ -12,7 +12,6 @@ Grundlage: `260823_Briefing_ClaudeCode_Sitzungsbegleiter.md` sowie die Lieferdat
 | Datei | Inhalt |
 |---|---|
 | `begleiter.html` | Der Sitzungsbegleiter. Achtzehn Situationen, Grundlagenteil, Leitungsmatrix, acht Standardsätze, Protokollteil, Fristen, drei Regeln. `noindex`, nicht in der Navigation. |
-| `saalkarte.html` | Die Saalkarte, vier Blätter A4, druck-zuerst. `noindex`, nicht in der Navigation. |
 | `documents/260823_…_Saalkarte_ENTWURF_v0.1.pdf` | Saalkarte zum Download, 216 KB. |
 | `versammlung.html` | ergänzt um neun Tiefenlinks und einen Übergangsblock (siehe 3). |
 
@@ -143,18 +142,21 @@ WEG-Recht. Was dabei anzusehen ist:
 
 ## 6 · Offene Punkte
 
-**Zuerst: das Saalkarten-PDF ist noch die Entwurfsfassung.** Es wurde am 23.08.2026 um 17:35 aus der
-Lieferdatei erzeugt, also bevor der Vermerk entfernt wurde — auf Blatt 1 steht dort weiterhin
-„Entwurf, noch nicht freigegeben". Die HTML-Fassung ist sauber, das PDF nicht. Neu erzeugen:
+**Zuerst: wie das Saalkarten-PDF künftig neu entsteht.** Die Seite `saalkarte.html` ist am
+24.08.2026 aus dem Projekt entfernt worden — angeboten wird ausschließlich die Druckfassung zum
+Download, keine Bildschirmfassung. Damit hat das PDF keine Quelle mehr im Arbeitsverzeichnis.
 
-1. `saalkarte.html` im Browser öffnen und drucken, Ziel „Als PDF speichern".
-2. Papierformat A4, Ränder „keine" — das Stylesheet setzt `@page{size:A4;margin:0}` selbst.
-   Ergebnis müssen genau vier Seiten sein.
-3. Unter `documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf` ablegen (ohne „ENTWURF" im Namen)
-   und die alte Datei löschen. Die beiden Verweise in `begleiter.html` sind dann anzupassen.
+Wenn die WEG-Durchsicht Sätze ändert, führt der Weg über eine dieser drei Quellen:
 
-Bis dahin führt der Knopf „Saalkarte im Browser drucken" auf die saubere Fassung, der PDF-Knopf auf
-die alte. Die Seite ist `noindex` und nicht verlinkt, öffentlich ist also noch nichts.
+1. Aus der Versionsgeschichte zurückholen — die angepasste Fassung liegt in Commit `4423622`:
+   `git show 4423622:saalkarte.html > saalkarte.html`. Ändern, im Browser drucken (A4, Ränder
+   „keine", genau vier Seiten), das PDF ersetzen, die Datei wieder entfernen.
+2. Die Word-Fassung von Cowork, sobald sie vorliegt — dann ist sie die bearbeitbare Quelle und das
+   PDF entsteht daraus.
+3. Coworks Lieferdatei `260823_saalkarte_LIEFERDATEI.html` im OneDrive-Konzeptordner; die trägt
+   allerdings noch die Google-Fonts-Aufrufe und den alten Fußverweis.
+
+Der zweite Weg ist der sauberste, sobald die Word-Datei da ist. Bis dahin gilt der erste.
 
 **Entscheidungen, die beim Vorstand liegen:**
 
@@ -185,10 +187,10 @@ Werte heben will, braucht eine Entscheidung über die Farben selbst — sie wirk
 
 **Zur Doppelpflege:** Saalkarte und Begleiter enthalten dieselben Sätze in zwei Fassungen, lang und
 verdichtet. Aus Druckregeln allein war das nicht zu lösen — die Saalkarte wählt anders aus,
-formuliert kürzer und hat eigene Bestandteile. Die zweite Datei ist damit begründet, bleibt aber
-Doppelpflege: **wer einen Satz ändert, muss ihn an zwei Stellen ändern** — in `begleiter.html` und
-in `saalkarte.html`, und danach das Saalkarten-PDF neu erzeugen. Mit dem Wegfall der PDF-Vollfassung
-ist immerhin die dritte Stelle weg.
+formuliert kürzer und hat eigene Bestandteile. **Wer einen Satz ändert, muss ihn an zwei Stellen
+ändern:** in `begleiter.html` und in der Saalkarte, aus der danach das PDF neu entsteht (Weg 1 bis 3
+oben). Die PDF-Vollfassung und die Bildschirmfassung der Saalkarte sind unterwegs entfallen — damit
+sind es zwei Stellen statt der ursprünglich vier.
 
 ## 7 · Nicht gebaut, bewusst
 

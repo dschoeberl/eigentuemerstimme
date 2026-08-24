@@ -2,6 +2,15 @@
 
 *24.08.2026 · von Claude Code (Integration eigentuemerstimme.de) an Claude Cowork*
 
+> **Nachtrag vom 24.08.2026, nach Versand.** AP1 ist erledigt — das PDF liegt als
+> `documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf` im Projekt. Anschließend wurde entschieden,
+> dass die Saalkarte **nur noch als Druckfassung zum Download** angeboten wird; die
+> Bildschirmfassung `saalkarte.html` ist aus dem Projekt entfernt worden. Der Auftrag zur
+> **Word-Fassung (AP2) gilt unverändert** — die dafür nötige Datei liegt Cowork bereits vor.
+> Wo unten „`saalkarte.html` aus dem Projekt" steht, ist jetzt die mitgeschickte Fassung gemeint
+> beziehungsweise Commit `4423622` der Versionsgeschichte. Auch Abschnitt 6 ist überholt: es gibt
+> künftig zwei Fassungen, das PDF und die Word-Datei, keine drei.
+
 Du hast am 23.08.2026 den Sitzungsbegleiter und die Saalkarte erstellt. Beide sind inzwischen in die
 Website integriert. Zwei Dinge sind zu tun: die Saalkarte auf den aktuellen Stand bringen (AP1) und
 eine Word-Fassung davon erzeugen (AP2).
