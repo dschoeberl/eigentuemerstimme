@@ -18,6 +18,7 @@ werden nachgetragen, wo bekannt — leer lassen ist besser als raten.
 | hero-guideline.jpg | KI-erzeugt | | | ja | guideline.html — Hero |
 | hero-heizkosten.jpg | KI-erzeugt | | | ja | heizkosten.html — Hero |
 | hero-transparenz.jpg | KI-erzeugt | | | ja | transparenz.html — Hero |
+| hero-begleiter.jpg | KI-erzeugt | ChatGPT | 24.08.2026 | ja | begleiter.html — Hero |
 | hero-versammlung.jpg | KI-erzeugt | | | ja | versammlung.html — Hero |
 | hero-verwalter.jpg | KI-erzeugt | | | ja | verwalter.html — Hero |
 | hero-wegweiser.jpg | KI-erzeugt | | | ja | wegweiser.html — Hero |

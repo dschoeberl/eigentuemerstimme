@@ -1,0 +1,542 @@
+<!-- noindex bis zur fachlichen Durchsicht der Musterformulierungen (WEG-Recht) -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Die Saalkarte — vier Seiten zum Mitnehmen | Eigentümerstimme</title>
+<meta name="description" content="Die Verdichtung des Sitzungsbegleiters auf vier Seiten A4: achtzehn Situationen mit dem Satz dazu, die acht Standardsätze mit Antwort, ein Mitschreibraster und die Fristen. Zum Ausdrucken und Mitnehmen in die Eigentümerversammlung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- styles.css nur wegen der selbst gehosteten @font-face-Regeln; das
+     Layout dieser Seite ist druck-zuerst und steht vollstaendig unten. -->
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   Die Saalkarte — vier Seiten A4 zum Mitnehmen
+   Eigentümerstimme e. V. (i. Gr.) · Verdichtung des Sitzungsbegleiters
+   Druck-zuerst gebaut: sparsame Farbflächen, hohe Zeilenökonomie.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Druckfarben. Bewusst dunkler als die Bildschirmtokens aus styles.css
+   (--d-stimme #b07d20 statt #c08a2c, --d-signal #c9421c statt #e4572e):
+   auf Papier deckt Farbe anders und der Kontrast muss ohne Hintergrund-
+   beleuchtung tragen. Deshalb eigener, praefixierter Satz — er ueberschreibt
+   das Bildschirmsystem nicht, sondern steht daneben. */
+:root{
+  --d-petrol:#1a5c5a; --d-petrol-dark:#14302f;
+  --d-stimme:#b07d20; --d-stimme-tint:#faf4e8;
+  --d-signal:#c9421c; --d-signal-tint:#fdf1ec;
+  --d-erkenntnis:#2f6e8c; --d-erkenntnis-tint:#eef4f7;
+  --d-line:#d8d4cd; --d-line-soft:#e8e5df;
+  --d-ink:#14201f; --d-ink-soft:#4f5a58; --d-ink-mute:#8a8f8b;
+  --d-serif:'Playfair Display','Iowan Old Style',Georgia,serif;
+  --d-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#e7e5e0;
+  font-family:var(--d-sans);
+  color:var(--d-ink);
+  font-size:10pt;
+  line-height:1.4;
+  -webkit-font-smoothing:antialiased;
+  padding:24px 12px;
+}
+
+.seite{
+  width:210mm;min-height:297mm;
+  background:#fff;
+  margin:0 auto 24px;
+  padding:13mm 12mm 11mm;
+  position:relative;
+  display:flex;flex-direction:column;
+  box-shadow:0 4px 22px rgba(20,48,47,.16);
+}
+
+/* ── Seitenkopf ─────────────────────────────────────────── */
+.kopf{display:flex;align-items:flex-end;justify-content:space-between;gap:10mm;
+  border-bottom:1.6pt solid var(--d-petrol-dark);padding-bottom:2.5mm;margin-bottom:4mm}
+.kopf__l{min-width:0}
+.marke{font-family:var(--d-serif);font-size:11pt;font-weight:600;color:var(--d-petrol-dark);line-height:1}
+.marke b{border-bottom:1.6pt solid var(--d-stimme);font-weight:600}
+.kopf h1{font-family:var(--d-serif);font-size:18pt;font-weight:600;color:var(--d-ink);line-height:1.12;margin-top:2.5mm}
+.kopf__r{text-align:right;flex:0 0 auto}
+.blattnr{font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--d-ink-mute)}
+.blattnr b{display:block;font-family:var(--d-serif);font-size:19pt;color:var(--d-stimme);letter-spacing:0;line-height:1;margin-top:1mm}
+.lead{font-size:8.6pt;color:var(--d-ink-soft);line-height:1.42;margin-bottom:2.6mm;max-width:170mm}
+.lead b{color:var(--d-ink);font-weight:600}
+
+/* ── Phasenband ─────────────────────────────────────────── */
+.band{display:flex;align-items:center;gap:3mm;margin:2.4mm 0 1.6mm}
+.band:first-of-type{margin-top:1mm}
+.band__t{font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--acc,var(--d-petrol));padding:1mm 2.6mm;border-radius:99px;white-space:nowrap}
+.band__l{flex:1;height:.4pt;background:var(--d-line)}
+
+/* ── Situationsraster ───────────────────────────────────── */
+.raster{display:grid;grid-template-columns:1fr 1fr;gap:1.9mm 5mm}
+.sit{display:grid;grid-template-columns:9mm 1fr;gap:2mm;break-inside:avoid}
+.sit__n{font-family:var(--d-serif);font-size:11pt;font-weight:600;color:var(--acc,var(--d-stimme));
+  line-height:1.15;padding-top:.3mm}
+.sit__t{font-size:8.8pt;font-weight:700;color:var(--d-ink);line-height:1.25;margin-bottom:.8mm}
+.sit__s{font-size:8.4pt;color:var(--d-ink-soft);line-height:1.31;
+  border-left:1.2pt solid var(--acc,var(--d-stimme));padding-left:2.2mm}
+.sit__s b{color:var(--d-ink);font-weight:600}
+
+/* ── Zwei-Spalten-Kontersätze ───────────────────────────── */
+.konter{display:grid;grid-template-columns:1fr 1fr;gap:2.3mm 5mm}
+.kz{break-inside:avoid;border-top:.8pt solid var(--d-line);padding-top:1.8mm}
+.kz__h{font-size:8.8pt;font-weight:700;color:var(--d-signal);line-height:1.25;margin-bottom:1.2mm}
+.kz__a{font-size:8.4pt;color:var(--d-ink-soft);line-height:1.36;padding-left:2.2mm;border-left:1.2pt solid var(--d-petrol)}
+.kz__a b{color:var(--d-ink);font-weight:600}
+
+/* ── Unterscheidungsblock ───────────────────────────────── */
+.unt{display:grid;grid-template-columns:1fr 1fr;gap:0;border:.8pt solid var(--d-line);border-radius:2mm;overflow:hidden;margin-bottom:3mm}
+.unt__c{padding:2.6mm 3.2mm}
+.unt__c:first-child{background:var(--d-stimme-tint);border-right:.8pt solid var(--d-line)}
+.unt__c:last-child{background:var(--d-erkenntnis-tint)}
+.unt__k{font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:1.4mm}
+.unt__c:first-child .unt__k{color:var(--d-stimme)}
+.unt__c:last-child .unt__k{color:var(--d-erkenntnis)}
+.unt__l{font-size:8.3pt;color:var(--d-ink-soft);line-height:1.42}
+.unt__l div{display:flex;gap:2mm;margin-bottom:.9mm}
+.unt__l span{flex:0 0 20mm;font-weight:700;color:var(--d-ink)}
+.unt__l em{font-style:normal;min-width:0}
+
+/* ── Lenkungssignale ────────────────────────────────────── */
+.lenk{display:grid;grid-template-columns:1fr 1fr;gap:1.1mm 5mm}
+.lk{display:grid;grid-template-columns:8mm 1fr;gap:2mm;font-size:8.3pt;color:var(--d-ink-soft);
+  line-height:1.35;break-inside:avoid;border-top:.5pt solid var(--d-line-soft);padding-top:1.4mm}
+.lk span{font-family:var(--d-serif);font-size:9.5pt;font-weight:600;color:var(--d-signal)}
+
+/* ── Tabellen / Raster zum Ausfüllen ────────────────────── */
+table{border-collapse:collapse;width:100%;font-size:8.2pt}
+.mit th{background:var(--d-petrol-dark);color:#fff;font-size:7.4pt;letter-spacing:.08em;
+  text-transform:uppercase;font-weight:700;text-align:left;padding:1.8mm 2mm;border-right:.5pt solid rgba(255,255,255,.22)}
+.mit th:last-child{border-right:none}
+.mit td{border:.5pt solid var(--d-line);height:11.2mm;padding:1mm 2mm;vertical-align:top;color:var(--d-ink-soft)}
+.mit tr:nth-child(even) td{background:#fbfaf8}
+
+.rahmen{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-bottom:3mm}
+.feld{border:.8pt solid var(--d-line);border-radius:1.5mm;padding:1.6mm 2.6mm 2mm}
+.feld__k{font-size:7.2pt;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--d-ink-mute);margin-bottom:2.5mm}
+.feld__l{border-bottom:.8pt dotted var(--d-line);height:5mm}
+
+/* ── Prüfliste ──────────────────────────────────────────── */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:2mm 5mm;margin-bottom:4mm}
+.ci{display:grid;grid-template-columns:4.5mm 1fr;gap:2mm;break-inside:avoid}
+.ci__b{width:3.6mm;height:3.6mm;border:1pt solid var(--d-petrol);border-radius:.8mm;margin-top:.9mm}
+.ci__t{font-size:8.5pt;line-height:1.35;color:var(--d-ink-soft)}
+.ci__t b{display:block;color:var(--d-ink);font-weight:700;font-size:8.8pt}
+
+/* ── Fristenblock ───────────────────────────────────────── */
+.frist{border:1pt solid var(--d-signal);border-radius:2mm;background:var(--d-signal-tint);padding:3mm 3.5mm;margin-bottom:4mm}
+.frist__h{font-family:var(--d-serif);font-size:11.5pt;font-weight:600;color:var(--d-signal);margin-bottom:1.5mm}
+.frist__z{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:2.5mm 0 2mm}
+.frist__f{background:#fff;border:.8pt solid rgba(201,66,28,.3);border-radius:1.5mm;padding:2mm 2.6mm}
+.frist__f .k{font-size:7.2pt;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--d-signal);margin-bottom:2mm}
+.frist__f .l{border-bottom:.8pt dotted rgba(201,66,28,.45);height:5.5mm}
+.frist p{font-size:8.3pt;color:var(--d-ink-soft);line-height:1.4}
+.frist p b{color:var(--d-ink);font-weight:600}
+
+/* ── Regeln ─────────────────────────────────────────────── */
+.regeln{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:4mm}
+.regel{background:var(--d-petrol-dark);color:#e4eeed;border-radius:2mm;padding:3mm 3.2mm}
+.regel h3{font-family:var(--d-serif);font-size:10.5pt;color:#fff;font-weight:600;line-height:1.22;margin-bottom:1.4mm}
+.regel p{font-size:8pt;line-height:1.4;color:#adc4c2}
+
+h2.abs{font-family:var(--d-serif);font-size:13pt;font-weight:600;color:var(--d-ink);margin:0 0 1.5mm}
+p.abs{font-size:8.5pt;color:var(--d-ink-soft);line-height:1.4;margin-bottom:2.4mm;max-width:170mm}
+p.abs b{color:var(--d-ink);font-weight:600}
+
+/* ── Fuß ────────────────────────────────────────────────── */
+.fuss{margin-top:auto;padding-top:2.5mm;border-top:.8pt solid var(--d-line);
+  display:flex;justify-content:space-between;gap:6mm;font-size:7.2pt;color:var(--d-ink-mute);line-height:1.4}
+.fuss b{color:var(--d-ink-soft);font-weight:600}
+.fuss__r{text-align:right;flex:0 0 auto}
+
+.hinweis{background:var(--d-erkenntnis-tint);border-left:1.6pt solid var(--d-erkenntnis);
+  border-radius:0 1.5mm 1.5mm 0;padding:2.2mm 3mm;font-size:8.2pt;color:var(--d-ink-soft);line-height:1.38;margin-bottom:2.8mm}
+.hinweis b{color:var(--d-ink);font-weight:600}
+
+/* Rechtshinweis auf Blatt 1. Gleiche Masse wie zuvor der Entwurfsvermerk,
+   damit das Blatt seinen Umbruch behaelt — aber neutral statt Warnfarbe. */
+.rhinweis{background:#f6f5f2;border:.8pt solid var(--d-line);border-radius:1.5mm;
+  padding:1.8mm 2.6mm;font-size:7.8pt;color:var(--d-ink-soft);line-height:1.32;margin-bottom:2.6mm}
+.rhinweis b{color:var(--d-ink);font-weight:700}
+
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff;padding:0}
+  .seite{box-shadow:none;margin:0;width:210mm;height:297mm;min-height:0;break-after:page}
+  .seite:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ BLATT 1 ══════════════════ -->
+<div class="seite">
+  <div class="kopf">
+    <div class="kopf__l">
+      <div class="marke">Eigentümer<b>stimme</b> e.&nbsp;V. (i.&nbsp;Gr.)</div>
+      <h1>Die Saalkarte — bevor Sie die Hand heben</h1>
+    </div>
+    <div class="kopf__r"><div class="blattnr">Blatt <b>1</b></div></div>
+  </div>
+
+  <p class="lead">Achtzehn Situationen, in denen eine Eigentümerversammlung kippt — und der Satz,
+    der sie zurückholt. <b>Suchen Sie die Zeile, lesen Sie den Satz vor.</b> Die ausführliche
+    Fassung mit Begründung, Eskalationsstufen und Rechtsgrundlage steht online.</p>
+
+  <div class="rhinweis"><b>Allgemeine Information, keine Rechtsberatung.</b> Rechtsstand August 2026 ·
+    Abweichende Regelungen Ihrer Gemeinschaftsordnung gehen dem gesetzlichen Regelfall in vielen
+    Punkten vor.</div>
+
+  <div class="band" style="--acc:var(--d-stimme)"><span class="band__t">Bevor abgestimmt wird</span><span class="band__l"></span></div>
+  <div class="raster" style="--acc:var(--d-stimme)">
+    <div class="sit"><div class="sit__n">A1</div><div>
+      <div class="sit__t">Mein Thema fehlt — oder steht nur unter „Sonstiges“</div>
+      <div class="sit__s">„Ich stelle den Antrag, folgenden Beschlussgegenstand in die Einladung zur nächsten Versammlung aufzunehmen: <b>…</b> Bitte mit diesem Wortlaut protokollieren.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A2</div><div>
+      <div class="sit__t">Es soll entschieden werden, Unterlagen fehlen</div>
+      <div class="sit__s">„Zur Geschäftsordnung: Ich beantrage, TOP <b>…</b> zu vertagen, bis <b>[eine Unterlage genau benennen]</b> allen Eigentümern in Textform vorliegt. Bitte jetzt abstimmen.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A3</div><div>
+      <div class="sit__t">Eine Zahl trägt alles, die Rechnung fehlt</div>
+      <div class="sit__s">„Ich bitte um die Berechnung, aus der sich die Zahl ergibt, und um die Eingangsgrößen. Bitte protokollieren, ob eine Berechnung vorlag.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A4</div><div>
+      <div class="sit__t">Die Reihenfolge benachteiligt mein Thema</div>
+      <div class="sit__s">„Zur Geschäftsordnung: Ich beantrage, TOP <b>…</b> vor TOP <b>…</b> zu behandeln, weil das eine Voraussetzung des anderen ist.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A5</div><div>
+      <div class="sit__t">Die Verwaltung leitet ihre eigene Sache</div>
+      <div class="sit__s">„Zur Geschäftsordnung: Ich beantrage, für TOP <b>…</b> eine andere Person mit der Leitung zu betrauen — § 24 Abs. 5 WEG. Es geht um die Trennung von Betroffenheit und Verfahren.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A6</div><div>
+      <div class="sit__t">Unklar, wer die Unterlage verantwortet</div>
+      <div class="sit__s">„Vier Fragen: Wer hat unterschrieben? Welche Qualifikation? Wer hat beauftragt und bezahlt? Berührt die Empfehlung ein eigenes Angebot? Bitte protokollieren.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A7</div><div>
+      <div class="sit__t">Die Vollmachtslage ist unklar</div>
+      <div class="sit__s">„Ich beantrage, vor der ersten Abstimmung die Anwesenheits- und Vollmachtsliste festzustellen und zu protokollieren: anwesende Eigentümer, vertretene Stimmen, durch wen.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">A8</div><div>
+      <div class="sit__t">Die Aussprache wird für beendet erklärt</div>
+      <div class="sit__s">„Zur Geschäftsordnung: Ich widerspreche der Beendigung der Aussprache — darüber entscheidet die Versammlung. Bitte vorher feststellen, wie viele Wortmeldungen offen sind.“</div></div></div>
+  </div>
+
+  <div class="band" style="--acc:var(--d-petrol)"><span class="band__t">Wenn abgestimmt wird</span><span class="band__l"></span></div>
+  <div class="raster" style="--acc:var(--d-petrol)">
+    <div class="sit"><div class="sit__n">B1</div><div>
+      <div class="sit__t">Jemand stimmt mit, obwohl es um ihn geht</div>
+      <div class="sit__s">„Ich weise <b>vor der Abstimmung</b> darauf hin, dass ein Stimmverbot nach § 25 Abs. 4 WEG in Betracht kommt, weil <b>…</b> Bitte Hinweis und Umgang damit protokollieren.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">B2</div><div>
+      <div class="sit__t">Ich möchte geheime Abstimmung</div>
+      <div class="sit__s">„Zur Geschäftsordnung: Ich beantrage geheime Abstimmung zu TOP <b>…</b>, damit jede Stimme frei von persönlichen Rücksichten abgegeben werden kann.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">B3</div><div>
+      <div class="sit__t">Das Ergebnis wird nicht ausgezählt</div>
+      <div class="sit__s">„Ich bitte, das Ergebnis auszuzählen, festzustellen und zu verkünden — Ja, Nein, Enthaltungen — und diese Zahlen ins Protokoll aufzunehmen.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">B4</div><div>
+      <div class="sit__t">Eine Aussage soll nachweisbar bleiben</div>
+      <div class="sit__s">„Ich beantrage, folgende Erklärung wörtlich zu Protokoll zu nehmen: <b>[ein Satz]</b>. Ich bitte um Bestätigung, dass sie aufgenommen ist.“</div></div></div>
+
+    <div class="sit" style="grid-column:1/-1"><div class="sit__n">B5</div><div>
+      <div class="sit__t">Abgestimmt wird über eine andere Fassung — oder über ein Paket aus mehreren Fragen</div>
+      <div class="sit__s">„Ich bitte, den Beschlusstext vor der Abstimmung im Wortlaut zu verlesen und so zu protokollieren. Und ich beantrage zur Geschäftsordnung, über <b>…</b> und <b>…</b> getrennt abzustimmen.“ · Bei eigenem Antrag: „Das ist nicht der Antrag, den ich gestellt habe. Ich bitte, über meinen Wortlaut abzustimmen.“</div></div></div>
+  </div>
+
+  <div class="band" style="--acc:var(--d-signal)"><span class="band__t">Wenn es kippt</span><span class="band__l"></span></div>
+  <div class="raster" style="--acc:var(--d-signal)">
+    <div class="sit"><div class="sit__n">C1</div><div>
+      <div class="sit__t">Mein Antrag wird nicht abgestimmt</div>
+      <div class="sit__s">„Ich bitte um Protokollierung: Ich habe zu TOP <b>…</b> folgenden Antrag gestellt — <b>[Wortlaut]</b> — und er wurde nicht zur Abstimmung gestellt.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">C2</div><div>
+      <div class="sit__t">Ich bin überstimmt worden</div>
+      <div class="sit__s">„Ich widerspreche dem Beschluss zu TOP <b>…</b> und bitte, den Widerspruch mit meinem Namen und dem Grund zu protokollieren: <b>…</b>“ → <b>Frist auf Blatt 4 eintragen.</b></div></div></div>
+
+    <div class="sit"><div class="sit__n">C3</div><div>
+      <div class="sit__t">Es geht plötzlich um mich, nicht um die Sache</div>
+      <div class="sit__s">„Ich nehme das zur Kenntnis. Meine Frage betrifft die Sache und ist weiterhin offen: <b>[wortgleich wiederholen]</b>. Bitte Frage und Antwort protokollieren.“</div></div></div>
+
+    <div class="sit"><div class="sit__n">C4</div><div>
+      <div class="sit__t">Ich bin mit dem Verlauf nicht einverstanden</div>
+      <div class="sit__s">„Ich gebe folgende Erklärung zu Protokoll: <b>[was geschah · wann · was fehlte]</b>. Bitte wörtlich aufnehmen unter TOP <b>…</b> und bestätigen.“</div></div></div>
+
+    <div class="sit" style="grid-column:1/-1"><div class="sit__n">C5</div><div>
+      <div class="sit__t">Es soll nicht festgehalten werden, wer etwas gesagt hat</div>
+      <div class="sit__s">Kein Anspruch auf ein Wortprotokoll — die Niederschrift ist eine Beschlussniederschrift. Zurechnung über die <b>Funktion</b> verlangen: „Ich bitte, folgende Feststellung zu protokollieren: Auf meine Frage nach <b>…</b> wurde <b>von der Verwaltung</b> erklärt, dass <b>…</b>“</div></div></div>
+  </div>
+
+  <div class="fuss">
+    <div><b>Die Saalkarte · Blatt 1 von 4</b><br>Herausgegeben von Eigentümerstimme e.&nbsp;V. (in Gründung) — gemeinnützig, anbieterunabhängig, ohne Verkaufsabsicht.</div>
+    <div class="fuss__r">Ausführliche Fassung:<br><b>eigentuemerstimme.de/begleiter.html</b></div>
+  </div>
+</div>
+
+<!-- ══════════════════ BLATT 2 ══════════════════ -->
+<div class="seite">
+  <div class="kopf">
+    <div class="kopf__l">
+      <div class="marke">Eigentümer<b>stimme</b> e.&nbsp;V. (i.&nbsp;Gr.)</div>
+      <h1>Was Sie hören — und was Sie antworten</h1>
+    </div>
+    <div class="kopf__r"><div class="blattnr">Blatt <b>2</b></div></div>
+  </div>
+
+  <h2 class="abs">Zuerst: Sachantrag oder Geschäftsordnungsantrag?</h2>
+  <p class="abs">Die wichtigste Unterscheidung des Abends. Sie erklärt, warum zwei Anliegen völlig
+    verschieden behandelt werden — und warum „dafür ist es heute zu spät“ beim einen stimmt und beim
+    anderen schlicht falsch ist.</p>
+
+  <div class="unt">
+    <div class="unt__c">
+      <div class="unt__k">Sachantrag — die Sache selbst</div>
+      <div class="unt__l">
+        <div><span>Worüber</span><em>Sanierung, Vertrag, Abrechnung, Beauftragung</em></div>
+        <div><span>Ankündigung</span><em><b>zwingend</b> in der Einladung (§ 23 Abs. 2 WEG)</em></div>
+        <div><span>Wann</span><em>nur zum aufgerufenen Punkt</em></div>
+        <div><span>Wirkung</span><em>bindet — Fristen nach § 45 WEG laufen</em></div>
+      </div>
+    </div>
+    <div class="unt__c">
+      <div class="unt__k">Geschäftsordnungsantrag — der Ablauf</div>
+      <div class="unt__l">
+        <div><span>Worüber</span><em>Reihenfolge, Vertagung, Abstimmungsform, Leitung</em></div>
+        <div><span>Ankündigung</span><em><b>nicht nötig</b> — kein Beschlussgegenstand</em></div>
+        <div><span>Wann</span><em><b>jederzeit</b>, auch als Zwischenruf</em></div>
+        <div><span>Wirkung</span><em>Vorrang, gilt nur für diesen Abend</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hinweis"><b>Nicht verwechseln:</b> Die <b>Gemeinschaftsordnung</b> (meist Teil der
+    Teilungserklärung) ist die Verfassung Ihrer Gemeinschaft — Stimmprinzip, Kostenverteilung,
+    Zweckbestimmung. Sie geht dem gesetzlichen Regelfall in vielen Punkten vor und lässt sich nicht
+    im Saal ändern. Die <b>Geschäftsordnung</b> regelt nur den Ablauf eines Abends. Wird auf „die
+    Ordnung“ verwiesen, fragen Sie, welche gemeint ist — und bitten Sie um die Fundstelle.</div>
+
+  <h2 class="abs">Acht Sätze, die Sie hören werden</h2>
+  <p class="abs">Sie klingen nach einer Auskunft, sind aber ein Verfahrensschritt: Sie beenden die
+    Befassung. <b>Antworten Sie auf den Verfahrensschritt, nicht auf den Inhalt.</b></p>
+
+  <div class="konter">
+    <div class="kz">
+      <div class="kz__h">„Das können wir heute nicht abstimmen.“</div>
+      <div class="kz__a">„Dann bitte ich zu protokollieren, dass der Punkt heute nicht zur Abstimmung gestellt wurde — und beantrage die Aufnahme in die nächste Einladung.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Das besprechen wir unter Sonstiges.“</div>
+      <div class="kz__a">„Unter Sonstiges kann kein wirksamer Beschluss gefasst werden, § 23 Abs. 2 WEG. Ich beantrage die Aufnahme als eigenen Tagesordnungspunkt.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Dazu haben wir doch schon beschlossen.“</div>
+      <div class="kz__a">„Bitte nennen Sie den Beschluss mit Datum und Wortlaut aus der Beschluss-Sammlung. Ich bitte, die Fundstelle zu protokollieren.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Ihr Antrag kommt zu spät.“</div>
+      <div class="kz__a">„Ein Geschäftsordnungsantrag ist jederzeit möglich und wird sofort abgestimmt. Ich beantrage, ihn jetzt zur Abstimmung zu stellen.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Die Unterlagen lagen doch aus.“</div>
+      <div class="kz__a">„Ich beantrage Vertagung, bis die Unterlage allen in Textform vorliegt. Einsicht steht mir laufend zu — § 18 Abs. 4 WEG.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Das schieben wir aufs nächste Jahr.“</div>
+      <div class="kz__a">„Einverstanden — dann beantrage ich den Beschluss, dass die Verwaltung bis zum <b>[Datum]</b> <b>[Unterlage]</b> vorlegt.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Darüber wird jetzt nicht abgestimmt.“</div>
+      <div class="kz__a">„Ich bitte um Protokollierung, dass ich folgenden Antrag gestellt habe — <b>[Wortlaut]</b> — und dass er nicht zur Abstimmung gestellt wurde.“</div>
+    </div>
+    <div class="kz">
+      <div class="kz__h">„Das ist alles rechtlich geprüft.“</div>
+      <div class="kz__a">„Von wem, mit welchem Datum, und liegt die Prüfung schriftlich vor? Ich bitte, die Fundstelle im Protokoll zu benennen.“</div>
+    </div>
+  </div>
+
+  <h2 class="abs" style="margin-top:4mm">Woran Sie erkennen, dass gelenkt wird</h2>
+  <p class="abs">Das meiste davon entsteht aus Zeitdruck, nicht aus Kalkül. Verdächtig wird es durch
+    die <b>Häufung</b> und dadurch, dass es <b>immer derselben Seite nützt</b>. Sagen Sie das nicht
+    im Saal — sagen Sie den Satz, der dahinter steht.</p>
+
+  <div class="lenk">
+    <div class="lk"><span>A5</span>Die Leitung führt auch die Punkte, die sie selbst betreffen — Vertrag, Vergütung, Entlastung.</div>
+    <div class="lk"><span>A1</span>Im Saal taucht ein Beschlussgegenstand auf, der nicht angekündigt war.</div>
+    <div class="lk"><span>A4</span>Das strittige Thema rutscht ans Ende, wenn der Saal sich geleert hat.</div>
+    <div class="lk"><span>A8</span>Bei einem Thema wird ausführlich diskutiert, beim nächsten heißt es „das ist doch klar“.</div>
+    <div class="lk"><span>C1</span>Anträge werden „mitgenommen“, zusammengefasst — oder gar nicht abgestimmt.</div>
+    <div class="lk"><span>B5</span>Der Beschlusstext existiert nur mündlich, bleibt vage oder bündelt drei Fragen in einer.</div>
+    <div class="lk"><span>B3</span>Es wird nur gefragt „Wer ist dagegen?“. Enthaltungen kommen nicht vor.</div>
+    <div class="lk"><span>A7</span>Ein großer Stimmenblock liegt in einer Hand, ohne dass die Liste genannt wurde.</div>
+  </div>
+
+  <div class="fuss">
+    <div><b>Die Saalkarte · Blatt 2 von 4</b><br>Formulierungshilfen zur eigenen Verwendung — bitte auf Ihren Fall anpassen.</div>
+    <div class="fuss__r">Ausführliche Fassung:<br><b>eigentuemerstimme.de/begleiter.html</b></div>
+  </div>
+</div>
+
+<!-- ══════════════════ BLATT 3 ══════════════════ -->
+<div class="seite">
+  <div class="kopf">
+    <div class="kopf__l">
+      <div class="marke">Eigentümer<b>stimme</b> e.&nbsp;V. (i.&nbsp;Gr.)</div>
+      <h1>Mitschrieb — eine Zeile je Tagesordnungspunkt</h1>
+    </div>
+    <div class="kopf__r"><div class="blattnr">Blatt <b>3</b></div></div>
+  </div>
+
+  <p class="lead">Oben vor der Versammlung ausfüllen, unten im Moment mitschreiben — nicht
+    hinterher. Dieses Blatt ist es, gegen das Sie die Niederschrift später abgleichen.</p>
+
+  <div class="rahmen">
+    <div class="feld"><div class="feld__k">Datum</div><div class="feld__l"></div></div>
+    <div class="feld"><div class="feld__k">Ort</div><div class="feld__l"></div></div>
+    <div class="feld"><div class="feld__k">Beginn / Ende</div><div class="feld__l"></div></div>
+    <div class="feld"><div class="feld__k">Vertretene Stimmen</div><div class="feld__l"></div></div>
+  </div>
+
+  <h2 class="abs">Vor der Versammlung ausfüllen: meine drei Punkte</h2>
+  <p class="abs">Wer mit drei ausformulierten Anliegen hineingeht, verliert sie nicht im Verlauf des
+    Abends. <b>Beschlussantrag im Indikativ</b> — mit Adressat, Frist und Folge.</p>
+
+  <table class="mit" style="margin-bottom:4mm">
+    <thead>
+      <tr>
+        <th style="width:10mm">Nr.</th>
+        <th style="width:44mm">Worum es mir geht</th>
+        <th style="width:78mm">Mein Beschlussantrag im Wortlaut</th>
+        <th style="width:44mm">Rückfallposition, wenn er nicht trägt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td></td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="abs">Mitschrieb</h2>
+
+  <table class="mit">
+    <thead>
+      <tr>
+        <th style="width:12mm">TOP</th>
+        <th style="width:58mm">Antrag / Beschluss im Wortlaut</th>
+        <th style="width:24mm">Ja / Nein / Enth.</th>
+        <th style="width:20mm">Verkündet?</th>
+        <th style="width:44mm">Widerspruch · Erklärung</th>
+        <th style="width:18mm">Uhrzeit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="hinweis" style="margin-top:3.5mm"><b>Zusätzlich notieren:</b> welche Unterlage
+    namentlich gefehlt hat · gestellte, aber nicht abgestimmte Anträge · Wechsel in der
+    Versammlungsleitung · den Zeitpunkt, zu dem Eigentümer den Raum verlassen haben · die genaue
+    <b>Uhrzeit der Verkündung</b> jedes Beschlusses, der Sie betrifft.</div>
+
+  <div class="fuss">
+    <div><b>Die Saalkarte · Blatt 3 von 4</b><br>Bewahren Sie dieses Blatt auf, bis die Niederschrift vorliegt und geprüft ist.</div>
+    <div class="fuss__r">Ausführliche Fassung:<br><b>eigentuemerstimme.de/begleiter.html</b></div>
+  </div>
+</div>
+
+<!-- ══════════════════ BLATT 4 ══════════════════ -->
+<div class="seite">
+  <div class="kopf">
+    <div class="kopf__l">
+      <div class="marke">Eigentümer<b>stimme</b> e.&nbsp;V. (i.&nbsp;Gr.)</div>
+      <h1>Danach: Protokoll prüfen, Fristen rechnen</h1>
+    </div>
+    <div class="kopf__r"><div class="blattnr">Blatt <b>4</b></div></div>
+  </div>
+
+  <div class="frist">
+    <div class="frist__h">Zwei Fristen, deren Versäumnis endgültig ist</div>
+    <p><b>Beide laufen ab dem Tag der Beschlussfassung</b> — nicht ab Zugang des Protokolls. Das ist
+    der häufigste und teuerste Irrtum (§ 45 WEG). Rechnen Sie die Daten noch am selben Abend aus und
+    tragen Sie sie hier ein.</p>
+    <div class="frist__z">
+      <div class="frist__f"><div class="k">Tag der Beschlussfassung</div><div class="l"></div></div>
+      <div class="frist__f"><div class="k">+ 1 Monat · Klage erheben</div><div class="l"></div></div>
+      <div class="frist__f"><div class="k">+ 2 Monate · Klage begründen</div><div class="l"></div></div>
+    </div>
+    <p>Die Anfechtungsklage ist gegen die <b>Gemeinschaft der Wohnungseigentümer</b> zu richten
+    (§ 44 Abs. 2 WEG). Ob eine Klage in Betracht kommt, gehört anwaltlich geprüft — die Frist läuft
+    in der Zwischenzeit weiter. Ein Berichtigungsverlangen verlängert sie <b>nicht</b>.</p>
+  </div>
+
+  <h2 class="abs">Was zu jedem Tagesordnungspunkt im Protokoll stehen muss</h2>
+  <p class="abs">Zu <b>jedem einzelnen</b> Punkt, nicht einmal pauschal am Ende. Was nicht darin
+    steht, hat später faktisch nicht stattgefunden.</p>
+
+  <div class="check">
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Der Beschluss im Wortlaut</b>So, wie abgestimmt wurde — nicht sinngemäß.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Das Ergebnis in Zahlen</b>Ja, Nein, Enthaltungen. „Mehrheitlich“ ist kein Ergebnis.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Feststellung und Verkündung</b>Daran hängt der Beginn Ihrer Fristen.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Anwesende und vertretene Stimmen</b>Zum Zeitpunkt <i>dieser</i> Abstimmung.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Erklärungen und Widersprüche</b>Mit Zuordnung und Wortlaut, nicht zusammengefasst.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Gestellte, nicht abgestimmte Anträge</b>Der am häufigsten fehlende Punkt.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Verfahrensentscheidungen</b>Vertagung, Reihenfolge, Abstimmungsform, Leitungswechsel.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Rahmen und Unterschriften</b>Datum, Ort, Beginn, Ende — Unterschriften nach § 24 Abs. 6 WEG.</div></div>
+  </div>
+
+  <h2 class="abs">Wenn das Protokoll nicht stimmt</h2>
+  <p class="abs">Ein Berichtigungs- und Ergänzungsverlangen, das <b>diese vier Angaben</b> enthält,
+    lässt sich schwer übergehen — sachlich, punktgenau, ohne Kommentar zur Person.</p>
+
+  <div class="check">
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Welcher Tagesordnungspunkt</b>Nummer und Bezeichnung wie im Protokoll.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Welche Stelle</b>Den Satz aus dem Protokoll zitieren, nicht beschreiben.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Was fehlt oder abweicht</b>Ein Antrag, ein Widerspruch, eine Zahl, ein Ergebnis.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Welche Fassung zutrifft</b>Ihr Formulierungsvorschlag, in einem Satz.</div></div>
+  </div>
+
+  <h2 class="abs">Noch am selben Abend</h2>
+  <div class="check" style="margin-bottom:3mm">
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Notizen vervollständigen</b>Solange die Erinnerung frisch ist — vor allem Wortlaute und Uhrzeiten.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Fristen eintragen</b>Oben ausrechnen, dann in den Kalender. Beide Daten, nicht nur eines.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Offene Punkte festhalten</b>Was nicht abgestimmt, nicht beantwortet, nicht vorgelegt wurde.</div></div>
+    <div class="ci"><div class="ci__b"></div><div class="ci__t"><b>Niederschrift abwarten — nicht auf sie warten</b>Der Abgleich kommt später, die Frist läuft ab heute.</div></div>
+  </div>
+
+  <div class="regeln">
+    <div class="regel"><h3>Zur Sache, nie zur Person.</h3><p>Wer über jemanden spricht statt über die Frage, hat das Thema gewechselt — meist war das der Zweck.</p></div>
+    <div class="regel"><h3>Fragen Sie nach der Grundlage, nicht nach dem Motiv.</h3><p>„Warum machen Sie das?“ bleibt unbeantwortet. „Auf welcher Berechnung beruht das?“ nicht.</p></div>
+    <div class="regel"><h3>Was nicht im Protokoll steht, hat nicht stattgefunden.</h3><p>Ein guter Beitrag ohne Protokollierung war ein guter Abend. Ein protokollierter Satz wirkt ein Jahr.</p></div>
+  </div>
+
+  <div class="fuss">
+    <div><b>Die Saalkarte · Blatt 4 von 4 · Stand August 2026</b><br>
+    Allgemeine Information, keine Rechtsberatung. Paragraphen beziehen sich auf das
+    Wohnungseigentumsgesetz. Abweichende Regelungen in Gemeinschaftsordnung oder Teilungserklärung
+    gehen dem gesetzlichen Regelfall in vielen Punkten vor. Herausgegeben von Eigentümerstimme
+    e.&nbsp;V. (in Gründung) — gemeinnützig, anbieterunabhängig, ohne Verkaufsabsicht.
+    Weitergabe ausdrücklich erwünscht.</div>
+    <div class="fuss__r">Ausführliche Fassung:<br><b>eigentuemerstimme.de/begleiter.html</b></div>
+  </div>
+</div>
+</body>
+</html>

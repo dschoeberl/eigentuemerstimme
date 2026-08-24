@@ -1,0 +1,2481 @@
+<!-- noindex bis zur fachlichen Durchsicht der Musterformulierungen (WEG-Recht) -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Der Sitzungsbegleiter — Bevor Sie die Hand heben | Eigentümerstimme</title>
+<meta name="description" content="Achtzehn Situationen, in denen eine Eigentümerversammlung kippt, und der Satz, der dazu gehört: zum Nachschlagen im Saal, mit Eskalationsstufen, Antworten auf die acht häufigsten Standardsätze und einer Prüfliste für das Protokoll. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Der Sitzungsbegleiter — Eigentümerstimme e.V. (i. Gr.)
+   Farbsystem übernommen aus styles.css der Website:
+   Petrol als Anker, Amber = Welt WEG, Koralle = Signal (sparsam),
+   Erkenntnisblau = Prüfen/Wissen.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Seitenlokale Tokens. Alles, was styles.css bereits fuehrt — Petrol,
+   --stimme*, --signal, --erkenntnis*, --text*, --border, --bg-light —
+   wird hier bewusst NICHT erneut definiert: ein Farbsystem, nicht zwei.
+   Die folgenden gibt es im Bestand nicht und bleiben deshalb lokal. */
+:root{
+  --petrol-deep:#0d201f;                 /* Kopfflaeche, dunkler als --petrol-dark */
+  --surface:#ffffff;
+  --surface-2:#faf9f6;
+  --line-strong:#cfcbc3;
+  --signal-tint:#fdf1ec;
+  --shadow-s:0 1px 2px rgba(20,48,47,.06), 0 4px 14px rgba(20,48,47,.05);
+  --shadow-m:0 10px 34px rgba(20,48,47,.13);
+
+  --serif:'Playfair Display', 'Iowan Old Style', Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --r:14px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg-light:#0f1817;
+    --surface:#16211f;
+    --surface-2:#1b2726;
+    --border:#283634;
+    --line-strong:#3a4a48;
+    --text:#e9e7e1;
+    --text-soft:#a8b3b0;
+    --text-mute:#7d8a87;
+    --petrol:#4f9a97;
+    --petrol-dark:#0c1a19;
+    --petrol-deep:#0a1514;
+    --stimme:#d9a84e;
+    --stimme-tint:#241d10;
+    --signal:#f0714b;
+    --signal-tint:#2a1611;
+    --signal-soft:#5c2a1b;
+    --erkenntnis:#79b3cd;
+    --erkenntnis-tint:#12242c;
+    --erkenntnis-soft:#2c4a58;
+    --stimme-soft:#5b4620;
+    --shadow-s:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.22);
+    --shadow-m:0 10px 34px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg-light:#0f1817;
+  --surface:#16211f;
+  --surface-2:#1b2726;
+  --border:#283634;
+  --line-strong:#3a4a48;
+  --text:#e9e7e1;
+  --text-soft:#a8b3b0;
+  --text-mute:#7d8a87;
+  --petrol:#4f9a97;
+  --petrol-dark:#0c1a19;
+  --petrol-deep:#0a1514;
+  --stimme:#d9a84e;
+  --stimme-tint:#241d10;
+  --signal:#f0714b;
+  --signal-tint:#2a1611;
+  --signal-soft:#5c2a1b;
+  --erkenntnis:#79b3cd;
+  --erkenntnis-tint:#12242c;
+  --erkenntnis-soft:#2c4a58;
+  --stimme-soft:#5b4620;
+  --shadow-s:0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.22);
+  --shadow-m:0 10px 34px rgba(0,0,0,.4);
+}
+
+/* Header und Footer stammen aus styles.css und rechnen mit hellem Grund.
+   Im dunklen Schema zeigen ihre Petrol-Tokens sonst dunkel auf dunkel
+   (Wortmarke, Burger, Badge). Dieser Block gehoert zum Dark-Theme und
+   faellt zusammen mit ihm weg, falls es entfernt wird. */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .brand,
+  :root:not([data-theme="light"]) .mainnav a:hover,
+  :root:not([data-theme="light"]) .mainnav a[aria-current="page"]{color:var(--petrol-light)}
+  :root:not([data-theme="light"]) .nav-burger span{background:var(--petrol-light)}
+  :root:not([data-theme="light"]) header{border-bottom-color:var(--border)}
+  :root:not([data-theme="light"]) .badge{background:#12211f;color:var(--stimme);border-color:rgba(192,138,44,.3)}
+  :root:not([data-theme="light"]) footer{background:#0a1514;color:#9fb0af}
+}
+:root[data-theme="dark"] .brand,
+:root[data-theme="dark"] .mainnav a:hover,
+:root[data-theme="dark"] .mainnav a[aria-current="page"]{color:var(--petrol-light)}
+:root[data-theme="dark"] .nav-burger span{background:var(--petrol-light)}
+:root[data-theme="dark"] header{border-bottom-color:var(--border)}
+:root[data-theme="dark"] .badge{background:#12211f;color:var(--stimme);border-color:rgba(192,138,44,.3)}
+:root[data-theme="dark"] footer{background:#0a1514;color:#9fb0af}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg-light);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.narrow{max-width:720px}
+
+h1,h2,h3{text-wrap:balance;margin:0}
+a{color:inherit}
+
+/* ── Kopf ──────────────────────────────────────────────── */
+/* Kopf mit Motiv. ACHTUNG, Abweichung vom Muster der anderen Seiten:
+   In hero-begleiter.jpg ist der dunkle Petrol-Keil links bereits ins Bild
+   gerechnet. Der Verlauf hier ist deshalb deutlich schwaecher als der in
+   .ghead auf versammlung.html — sonst deckt die linke Haelfte doppelt.
+   Kommt spaeter eine Fassung ohne eingebrannten Keil, gehoeren hier die
+   Werte aus .ghead hinein (.96 / .90 / .64 / .40). */
+.top{
+  background-color:var(--petrol-deep);
+  background-image:linear-gradient(90deg, rgba(13,32,31,.62) 0%, rgba(13,32,31,.58) 34%,
+    rgba(13,32,31,.46) 64%, rgba(13,32,31,.26) 100%), url('images/hero-begleiter.jpg');
+  background-size:cover;background-position:center right;background-repeat:no-repeat;
+  color:#e6efee;
+  padding:26px 0 34px;
+  position:relative;
+  overflow:hidden;
+}
+@media(max-width:760px){
+  .top{background-position:right center;
+    background-image:linear-gradient(180deg, rgba(13,32,31,.86) 0%, rgba(13,32,31,.80) 55%,
+      rgba(13,32,31,.72) 100%), url('images/hero-begleiter.jpg')}
+}
+@media print{ .top{background-image:none} }
+.top::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:3px;
+  background:linear-gradient(90deg,var(--stimme) 0%,var(--stimme) 34%,var(--signal) 34%,var(--signal) 50%,rgba(122,184,181,.5) 50%);
+}
+.absender{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+  color:#9fc0be;
+}
+.absender .mark{color:#fff;font-family:var(--serif);font-size:15px;letter-spacing:.02em;text-transform:none;font-weight:600}
+.absender .mark b{border-bottom:2px solid var(--stimme);font-weight:600}
+.top h1{
+  font-family:var(--serif);
+  font-size:clamp(30px,6.2vw,52px);
+  line-height:1.08;
+  font-weight:600;
+  color:#fff;
+  margin:20px 0 0;
+  max-width:16ch;
+}
+.top .claim{
+  margin-top:14px;max-width:52ch;font-size:clamp(15px,2.4vw,17.5px);color:#bcd2d0;line-height:1.55;
+}
+.top .claim b{color:#fff;font-weight:600}
+.kicker{
+  display:inline-block;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:700;color:var(--stimme-soft);
+}
+
+/* ── Sofort-Einstieg ───────────────────────────────────── */
+.jump{
+  background:var(--petrol-dark);
+  padding:22px 0 26px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.jump h2{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--stimme-soft);
+  font-weight:700;margin-bottom:14px;font-family:var(--sans);
+}
+/* Das Suchfeld ist die schnellste Art, hier etwas zu finden — es muss wie ein
+   Eingabefeld aussehen und nicht wie noch eine Schaltflaeche. Deshalb heller
+   Grund und dunkle Schrift: der einzige helle Block auf der dunklen Leiste. */
+.suchzeile{
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;max-width:520px;
+  background:#fff;border:1px solid #fff;
+  border-radius:10px;padding:0 14px;box-shadow:0 2px 14px rgba(0,0,0,.18);
+}
+.suchzeile svg{width:18px;height:18px;color:var(--petrol);flex:0 0 auto}
+.suchzeile input{
+  flex:1;min-width:0;background:none;border:none;outline:none;
+  font-family:var(--sans);font-size:16px;color:var(--text);padding:13px 0;
+}
+.suchzeile input::placeholder{color:#8a8680}
+.suchzeile:focus-within{box-shadow:0 0 0 3px rgba(192,138,44,.55),0 2px 14px rgba(0,0,0,.18)}
+.jump__hilfe{font-size:13px;color:#9fb8b6;margin:0 0 18px;max-width:520px;line-height:1.5}
+.jump__leer{margin:16px 0 0;font-size:14px;color:#cfe0df;max-width:60ch;line-height:1.55}
+.jump__leer b{color:var(--stimme-soft);font-weight:600}
+
+/* Die Situationen sind nach denselben drei Phasen gruppiert wie der Teil 1
+   weiter unten — gleiche Beschriftung, gleiche Reihenfolge, gleiche Farbe.
+   Die Leiste ist damit das Inhaltsverzeichnis und nicht nur ein Haufen. */
+.chipgruppe + .chipgruppe{margin-top:14px}
+.chipgruppe__k{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.chipgruppe__p{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--acc,var(--stimme-soft));
+}
+.chipgruppe__k::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+.chipgruppe--lesen{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+/* Nachlesen statt nachschlagen: andere Form, damit die beiden Sorten
+   Verweis nicht verwechselt werden. */
+.chip--lesen{border-radius:9px;background:none;border-style:dashed;color:#b9cecd;font-weight:400}
+.chip--lesen:hover,.chip--lesen:focus-visible{background:rgba(169,202,216,.14);border-color:var(--erkenntnis-soft);border-style:solid}
+/* Gruppe ausblenden, wenn der Filter darin nichts uebrig laesst. */
+.chipgruppe[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip[hidden]{display:none}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);
+  color:#dce8e7;text-decoration:none;
+  font-size:14px;line-height:1.3;font-weight:500;
+  padding:12px 14px;border-radius:999px;min-height:44px;
+  transition:background .16s,border-color .16s,transform .16s;
+}
+.chip:hover,.chip:focus-visible{background:rgba(192,138,44,.2);border-color:var(--stimme);transform:translateY(-1px)}
+.chip span{color:var(--stimme);font-weight:700;font-size:12px}
+
+/* ── Abschnitte ────────────────────────────────────────── */
+section{padding:52px 0 8px}
+/* ── Aufklappbare Teile ────────────────────────────────────
+   Zwei Ebenen, beide ohne JavaScript: der Teil (Grundlage, Teil 1–6)
+   und innerhalb von Teil 1 die drei Phasen. Zugeklappt sind die
+   Kopfzeilen zugleich das Inhaltsverzeichnis der Seite — man sieht in
+   einem Blick, was hier steht, ohne 40 Bildschirme zu scrollen. */
+.teil>summary,.pgrp>summary{list-style:none;cursor:pointer}
+.teil>summary::-webkit-details-marker,.pgrp>summary::-webkit-details-marker{display:none}
+.teil__c{
+  flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--text-mute);
+  white-space:nowrap;letter-spacing:.02em;
+}
+.teil__v{
+  flex:0 0 auto;display:grid;place-items:center;color:var(--acc,var(--petrol));
+  transition:transform .25s;
+}
+.teil__v svg{width:20px;height:20px}
+.teil[open]>summary .teil__v,.pgrp[open]>summary .teil__v{transform:rotate(180deg)}
+/* Zugeklappt braucht die Kopfzeile keine Trennlinie darunter. */
+.teil:not([open])>summary{margin-bottom:0}
+.teil:not([open]) + .srule{display:none}
+.teil>summary:hover h2{color:var(--acc,var(--petrol))}
+.teil>summary:hover .phase__t,.pgrp>summary:hover .phase__t{filter:brightness(1.12)}
+
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+/* Als summary muss die Kopfzeile die Zaehlung und den Pfeil rechts halten. */
+.teil>summary.shead{align-items:center;padding:14px 0;margin-bottom:0}
+.teil>summary.shead h2{flex:1 1 240px;min-width:0}
+.shead .num{
+  font-family:var(--serif);font-size:15px;font-weight:600;color:var(--acc,var(--petrol));
+  letter-spacing:.04em;
+}
+.shead h2{
+  font-family:var(--serif);font-size:clamp(23px,3.6vw,32px);font-weight:600;color:var(--text);line-height:1.18;
+}
+.srule{height:2px;background:linear-gradient(90deg,var(--acc,var(--petrol)),rgba(0,0,0,0));margin:16px 0 20px;border-radius:2px}
+.slead{font-size:16.5px;color:var(--text-soft);max-width:64ch;line-height:1.62;margin:0 0 26px}
+.slead b{color:var(--text);font-weight:600}
+
+/* Phasenband */
+.phase{
+  display:flex;align-items:center;gap:12px;margin:36px 0 16px;
+}
+.phase__t{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--acc,var(--petrol));padding:6px 13px;border-radius:999px;white-space:nowrap;
+}
+.phase__l{flex:1;height:1px;background:var(--line-strong)}
+/* Phasenband als summary — gleiche Optik, jetzt klickbar. */
+/* Padding statt reiner Zeilenhoehe: als Tippziel braucht die Zeile 44px. */
+.pgrp>summary.phase{margin:22px 0 10px;padding:8px 0}
+.pgrp:not([open])>summary.phase{margin-bottom:0}
+/* Auf schmalen Schirmen passen Pille, Linie, Zaehlung und Pfeil nicht in eine
+   Zeile — die Linie ist das Entbehrlichste, der Pfeil muss sichtbar bleiben. */
+@media(max-width:560px){
+  .teil>summary.shead,.pgrp>summary.phase{flex-wrap:wrap;gap:10px}
+  .phase__l{display:none}
+  .phase__t{white-space:normal}
+  .teil__v{margin-left:auto}
+  .teil>summary.shead h2{flex:1 1 100%;order:3}
+  .teil>summary.shead .teil__c{order:2}
+  .teil>summary.shead .teil__v{order:2}
+}
+
+/* ── Reaktionskarte ────────────────────────────────────── */
+.deck{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.deck{grid-template-columns:1fr 1fr}}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  box-shadow:var(--shadow-s);
+  overflow:hidden;
+  scroll-margin-top:16px;
+  transition:box-shadow .18s,border-color .18s;
+}
+.card[open]{grid-column:1/-1;box-shadow:var(--shadow-m);border-color:var(--acc,var(--petrol))}
+.card>summary{
+  list-style:none;cursor:pointer;display:flex;gap:14px;align-items:flex-start;
+  padding:18px 18px 18px 16px;
+}
+.card>summary::-webkit-details-marker{display:none}
+.card__sig{
+  flex:0 0 auto;width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;background:var(--acc,var(--petrol));color:#fff;
+}
+.card__sig svg{width:20px;height:20px}
+.card__q{
+  flex:1;min-width:0;font-size:16.5px;font-weight:600;color:var(--text);line-height:1.36;
+}
+.card__q em{display:block;font-style:normal;font-size:12.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--acc,var(--petrol));margin-bottom:5px}
+.card>summary::after{
+  content:"";flex:0 0 auto;align-self:center;width:26px;height:26px;border-radius:50%;
+  border:1.5px solid var(--acc,var(--petrol));
+  background:
+    linear-gradient(var(--acc,var(--petrol)),var(--acc,var(--petrol))) center/11px 1.6px no-repeat,
+    linear-gradient(var(--acc,var(--petrol)),var(--acc,var(--petrol))) center/1.6px 11px no-repeat;
+  transition:background-color .18s;
+}
+.card[open]>summary::after{
+  background:
+    linear-gradient(var(--acc,var(--petrol)),var(--acc,var(--petrol))) center/11px 1.6px no-repeat;
+}
+.card[open]>summary{background:var(--surface-2);border-bottom:1px solid var(--border)}
+.card__body{padding:4px 18px 22px}
+
+.lab{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--text-mute);margin:18px 0 7px;
+}
+.card__body p{margin:0 0 10px;font-size:15px;color:var(--text-soft);line-height:1.62;max-width:68ch}
+.card__body p b{color:var(--text);font-weight:600}
+
+/* Der Satz — die Signatur des Dokuments */
+.satz{
+  background:var(--petrol-deep);
+  color:#f4f2ec;
+  border-radius:12px;
+  padding:20px 20px 18px 22px;
+  position:relative;
+  border-left:4px solid var(--stimme);
+}
+.satz p{
+  font-family:var(--serif);
+  font-size:clamp(17px,2.7vw,20px);
+  line-height:1.45;
+  color:#fff;
+  margin:0 0 10px;
+  max-width:none;
+}
+.satz p:last-child{margin-bottom:0}
+.satz .hinweis{
+  font-family:var(--sans);font-size:12.5px;color:#9fc0be;line-height:1.5;margin:12px 0 0;
+  padding-top:11px;border-top:1px solid rgba(255,255,255,.12);
+}
+.satz .hinweis b{color:var(--stimme-soft);font-weight:600}
+
+/* Eskalationsleiter — echte Sequenz, daher nummeriert */
+.leiter{list-style:none;margin:0;padding:0;counter-reset:stufe}
+.leiter li{
+  counter-increment:stufe;position:relative;padding:0 0 14px 40px;
+  font-size:14.5px;color:var(--text-soft);line-height:1.55;
+}
+.leiter li::before{
+  content:counter(stufe);position:absolute;left:0;top:0;
+  width:25px;height:25px;border-radius:50%;
+  background:var(--surface-2);border:1.5px solid var(--acc,var(--petrol));color:var(--acc,var(--petrol));
+  display:grid;place-items:center;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;
+}
+.leiter li::after{
+  content:"";position:absolute;left:12px;top:27px;bottom:2px;width:1.5px;background:var(--line-strong);
+}
+.leiter li:last-child{padding-bottom:0}
+.leiter li:last-child::after{display:none}
+.leiter b{color:var(--text);font-weight:600}
+
+/* Protokoll-Merker */
+.merker{
+  background:var(--stimme-tint);
+  border:1px solid var(--stimme-soft);
+  border-radius:10px;padding:14px 16px;font-size:14px;color:var(--text);line-height:1.55;
+  display:flex;gap:11px;align-items:flex-start;
+}
+.merker svg{flex:0 0 auto;width:19px;height:19px;color:var(--stimme);margin-top:1px}
+.merker b{font-weight:600}
+
+/* Paragraphen-Anker */
+.para{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12.5px;font-weight:600;color:var(--erkenntnis);
+  background:var(--erkenntnis-tint);border:1px solid var(--erkenntnis-soft);
+  padding:4px 10px;border-radius:6px;text-decoration:none;
+  font-variant-numeric:tabular-nums;margin:2px 6px 2px 0;
+}
+.para:hover{background:var(--erkenntnis);color:#fff;border-color:var(--erkenntnis)}
+.paras{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;align-items:center}
+.paras .plab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text-mute);margin-right:10px}
+
+/* ── Konter-Tabelle ────────────────────────────────────── */
+.konter{display:grid;gap:12px}
+.kz{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;box-shadow:var(--shadow-s);
+  display:grid;grid-template-columns:1fr;
+}
+@media(min-width:860px){.kz{grid-template-columns:minmax(0,42%) minmax(0,58%)}}
+.kz__a{
+  padding:16px 18px;background:var(--signal-tint);border-bottom:1px solid var(--border);
+}
+@media(min-width:860px){.kz__a{border-bottom:none;border-right:1px solid var(--border)}}
+.kz__a .lab{margin:0 0 6px;color:var(--signal)}
+.kz__a p{margin:0;font-size:15.5px;font-weight:600;color:var(--text);line-height:1.45}
+.kz__b{padding:16px 18px}
+.kz__b .lab{margin:0 0 6px;color:var(--petrol)}
+.kz__b p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--text)}
+.kz__b .warum{font-family:var(--sans);font-size:13px;color:var(--text-mute);margin-top:9px;line-height:1.5}
+
+/* ── Prüfliste / Raster ────────────────────────────────── */
+.liste{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.liste li{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  padding:13px 15px;font-size:14.5px;color:var(--text-soft);line-height:1.55;
+}
+.liste li b{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
+.box-check{
+  flex:0 0 auto;width:19px;height:19px;border:1.8px solid var(--acc,var(--petrol));
+  border-radius:5px;margin-top:2px;
+}
+
+.raster-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface);box-shadow:var(--shadow-s)}
+table.raster{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px}
+table.raster th{
+  background:var(--petrol);color:#fff;text-align:left;padding:11px 12px;font-weight:600;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
+}
+table.raster td{border-bottom:1px solid var(--border);padding:0;height:44px;color:var(--text-soft)}
+table.raster td::after{content:"";display:block}
+table.raster tr:last-child td{border-bottom:none}
+table.raster td.hint{padding:11px 12px;font-size:12.5px;color:var(--text-mute);font-style:italic}
+
+/* ── Fristen ───────────────────────────────────────────── */
+.frist{
+  background:var(--signal-tint);border:1px solid var(--signal-soft);
+  border-radius:14px;padding:20px 22px;
+}
+.frist__row{display:flex;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(214,74,34,.2)}
+.frist__row:last-of-type{border-bottom:none}
+.frist__w{
+  font-family:var(--serif);font-size:19px;font-weight:600;color:var(--signal);
+  flex:0 0 128px;font-variant-numeric:tabular-nums;
+}
+.frist__x{flex:1;font-size:15px;color:var(--text);line-height:1.5}
+.frist__x b{font-weight:600}
+.frist__note{margin-top:14px;padding-top:14px;border-top:1px solid rgba(214,74,34,.2);font-size:14px;color:var(--text-soft);line-height:1.6}
+.frist__note b{color:var(--text);font-weight:600}
+
+/* ── Haltung ───────────────────────────────────────────── */
+.regeln{display:grid;gap:14px}
+@media(min-width:820px){.regeln{grid-template-columns:repeat(3,1fr)}}
+.regel{
+  background:var(--petrol-deep);color:#e6efee;border-radius:14px;padding:22px 20px;
+  position:relative;overflow:hidden;
+}
+.regel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--stimme)}
+.regel h3{font-family:var(--serif);font-size:19px;color:#fff;font-weight:600;line-height:1.3;margin-bottom:9px}
+.regel p{margin:0;font-size:14px;color:#b9d0ce;line-height:1.6}
+
+/* ── Fuß ───────────────────────────────────────────────── */
+.disc{
+  margin:44px 0 0;padding:20px 0 46px;border-top:1px solid var(--border);
+  font-size:13px;color:var(--text-mute);line-height:1.65;max-width:76ch;
+}
+.disc b{color:var(--text-soft);font-weight:600}
+.disc a{color:var(--erkenntnis)}
+
+.toolbar{
+  display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 0;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:14px;font-weight:600;
+  border-radius:9px;padding:11px 16px;cursor:pointer;text-decoration:none;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--text);
+  transition:border-color .16s,background .16s;
+}
+.btn:hover{border-color:var(--petrol)}
+.btn--p{background:var(--petrol);border-color:var(--petrol);color:#fff}
+.btn--p:hover{background:var(--petrol-dark);border-color:var(--petrol-dark)}
+.btn svg{width:17px;height:17px}
+
+
+
+/* ── Grundlagenblock: drei Ebenen ──────────────────────── */
+.grund{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.drei{display:grid;grid-template-columns:1fr;gap:14px;margin:22px 0 0}
+@media(min-width:860px){.drei{grid-template-columns:repeat(3,1fr)}}
+.ebene{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 20px 18px;box-shadow:var(--shadow-s);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:12px;
+}
+.ebene::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--acc)}
+.ebene__k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--acc)}
+.ebene h3{font-family:var(--serif);font-size:21px;font-weight:600;color:var(--text);line-height:1.2}
+.ebene__d{font-size:15px;color:var(--text-soft);line-height:1.6;margin:0}
+.ebene__d b{color:var(--text);font-weight:600}
+.ebene__f{margin-top:auto;padding-top:13px;border-top:1px solid var(--border);display:grid;gap:7px}
+.ebene__f div{display:flex;gap:9px;font-size:13.5px;color:var(--text-soft);line-height:1.45}
+.ebene__f span{flex:0 0 84px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--text-mute);padding-top:2px}
+.ebene__f b{color:var(--text);font-weight:600}
+
+table.vgl{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+table.vgl th{text-align:left;padding:12px 14px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:#fff}
+table.vgl th.m{background:var(--petrol-dark)}
+table.vgl th.s{background:var(--stimme)}
+table.vgl th.g{background:var(--erkenntnis)}
+table.vgl td{border-bottom:1px solid var(--border);padding:12px 14px;color:var(--text-soft);line-height:1.5;vertical-align:top}
+table.vgl td:first-child{font-weight:600;color:var(--text);width:26%}
+table.vgl td b{color:var(--text);font-weight:600}
+table.vgl tr:last-child td{border-bottom:none}
+table.vgl tbody tr:nth-child(odd) td{background:var(--surface-2)}
+
+/* ── Leitungsmatrix ────────────────────────────────────── */
+.lz{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  box-shadow:var(--shadow-s);overflow:hidden;display:grid;grid-template-columns:1fr;
+  margin-bottom:12px;
+}
+@media(min-width:900px){.lz{grid-template-columns:1fr 1fr minmax(0,34%)}}
+.lz__h{
+  grid-column:1/-1;background:var(--petrol);color:#fff;padding:9px 16px;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+}
+.lz__c{padding:15px 16px;border-top:1px solid var(--border)}
+@media(min-width:900px){
+  .lz__c{border-top:none;border-right:1px solid var(--border)}
+  .lz__c:last-child{border-right:none}
+}
+.lz__c .lab{margin:0 0 6px}
+.lz__c p{margin:0;font-size:14.5px;color:var(--text-soft);line-height:1.55}
+.lz__c p b{color:var(--text);font-weight:600}
+.lz--gut .lab{color:var(--petrol)}
+.lz--warn{background:var(--signal-tint)}
+.lz--warn .lab{color:var(--signal)}
+.lz--tun{background:var(--surface-2)}
+.lz--tun .lab{color:var(--stimme)}
+.lz--tun p{font-family:var(--serif);font-size:15px;color:var(--text)}
+.lz__ref{
+  display:inline-block;margin-top:8px;font-family:var(--sans);font-size:12px;font-weight:700;
+  letter-spacing:.06em;color:var(--stimme);text-decoration:none;
+  border:1px solid var(--stimme-soft);border-radius:6px;padding:3px 9px;
+}
+.lz__ref:hover{background:var(--stimme);color:#fff;border-color:var(--stimme)}
+
+/* Handzeichen-Zeile in der Sprechkarte */
+.hand{
+  display:flex;gap:10px;align-items:flex-start;
+  margin:0 0 14px;padding:0 0 13px;border-bottom:1px solid rgba(255,255,255,.13);
+  font-family:var(--sans);font-size:13px;line-height:1.5;color:#a8c6c4;
+}
+.hand svg{flex:0 0 auto;width:18px;height:18px;color:var(--stimme);margin-top:1px}
+.hand b{color:#fff;font-weight:600}
+
+/* ── Mitnehmen: die beiden Druckfassungen ──────────────── */
+.mit{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13)}
+.mit__k{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--stimme-soft);margin-bottom:12px}
+.mit__r{display:flex;gap:10px;flex-wrap:wrap}
+.mit__n{margin-top:11px;font-size:12.5px;color:#9fb8b6;line-height:1.5;max-width:62ch}
+/* Auf hellem Grund am Seitenende — dort traegt der Bestandsrahmen. */
+.mit--hell{border-top-color:var(--border)}
+.mit--hell .mit__k{color:var(--text-mute)}
+.mit--hell .mit__n{color:var(--text-soft)}
+.mit .btn{background:var(--surface);border-color:transparent;color:var(--text)}
+.mit .btn:hover{border-color:var(--stimme)}
+.mit--hell .btn{border-color:var(--line-strong)}
+.mit__b{flex-direction:column;align-items:flex-start;gap:2px;padding:10px 16px}
+.mit__b em{font-style:normal;font-size:12px;font-weight:500;color:var(--text-soft)}
+
+:focus-visible{outline:2.5px solid var(--stimme);outline-offset:2px;border-radius:4px}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+/* ── Druck ─────────────────────────────────────────────── */
+@media print{
+  @page{margin:16mm 14mm}
+  body{background:#fff;font-size:10.5pt}
+  /* Seitennavigation und Fussbereich sind Bildschirm-Elemente. Der
+     Rechtshinweis am Seitenende (.disc) bleibt im Druck stehen. */
+  header,footer{display:none}
+  /* Im Druck gehoert alles aufs Papier, auch was zugeklappt ist. Das Skript
+     oeffnet vor dem Druck ohnehin alle Ebenen; diese beiden Regeln sind der
+     Rueckfall, falls kein JavaScript laeuft. */
+  details>summary ~ *{display:revert !important}
+  details::details-content{content-visibility:visible !important;display:revert !important}
+  .top{background:#fff;color:#000;padding:0 0 12pt}
+  .top h1{color:#000;font-size:24pt}
+  .top .claim{color:#333}
+  .top::after{display:none}
+  .absender .mark{color:#000}
+  .jump,.toolbar,.mit{display:none}
+  .card{break-inside:avoid;box-shadow:none;border-color:#bbb}
+  .card__body{display:block !important}
+  .card>summary::after{display:none}
+  .top .claim b{color:#000}
+  .satz{background:#f2f1ed;color:#000;border-left:3pt solid #c08a2c}
+  .satz p{color:#000}
+  .satz .hinweis{color:#444;border-top-color:#cfcbc3}
+  .satz .hinweis b{color:#000}
+  .hand{color:#444;border-bottom-color:#cfcbc3}
+  .hand b{color:#000}
+  .hand svg{color:#b07d20}
+  .kicker{color:#8a6a20}
+  .regel{background:#f2f1ed;color:#000}
+  .regel h3{color:#000}
+  .regel p{color:#333}
+  .deck{grid-template-columns:1fr}
+  section{padding:14pt 0 0}
+  table.raster{min-width:0}
+  table.raster th{background:#e5e3de;color:#000}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle">
+      <label for="navtoggle" class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></label>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="index.html#der-weg">Der Weg</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="wissenschaft.html">Wissenschaft</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════ KOPF ═══════════════ -->
+<div class="top">
+  <span class="ki-hinweis">Bild: KI-generiert</span>
+  <div class="wrap">
+    <div class="absender">
+      <span class="mark">Eigentümer<b>stimme</b></span>
+      <span>e.&nbsp;V. · in Gründung</span>
+    </div>
+
+    <span class="kicker" style="display:block;margin-top:26px">Der Sitzungsbegleiter</span>
+    <h1>Bevor Sie die Hand heben</h1>
+    <p class="claim">Achtzehn Situationen, in denen eine Eigentümerversammlung kippt — und
+      der Satz, der sie zurückholt. <b>Nicht zum Lesen, zum Nachschlagen.</b> Sie haben
+      in der Regel dreißig Sekunden.</p>
+
+  </div>
+</div>
+
+<!-- ═══════════════ SOFORT-EINSTIEG ═══════════════ -->
+<div class="jump">
+  <div class="wrap">
+    <h2>Was passiert gerade?</h2>
+    <div class="suchzeile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="filter" placeholder="Stichwort tippen — Vertagung, Vollmacht, Frist …" autocomplete="off" aria-label="Situationen filtern">
+    </div>
+    <p class="jump__hilfe">Tippen Sie ein Stichwort — die Liste unten wird kürzer. Oder suchen Sie
+      Ihre Situation direkt.</p>
+
+    <div class="chipgruppe">
+      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--stimme)">Bevor abgestimmt wird</span></div>
+      <div class="chips">
+      <a class="chip" href="#s1"><span>A1</span> Mein Thema fehlt auf der Tagesordnung</a>
+      <a class="chip" href="#s2"><span>A2</span> Es soll entschieden werden, Unterlagen fehlen</a>
+      <a class="chip" href="#s3"><span>A3</span> Eine Zahl trägt alles, die Rechnung fehlt</a>
+      <a class="chip" href="#s4"><span>A4</span> Die Reihenfolge benachteiligt mich</a>
+      <a class="chip" href="#s5"><span>A5</span> Die Verwaltung entscheidet über sich selbst</a>
+      <a class="chip" href="#s6"><span>A6</span> Unklar, wer die Unterlage verantwortet</a>
+      <a class="chip" href="#s7"><span>A7</span> Die Vollmachtslage ist unklar</a>
+      <a class="chip" href="#s15"><span>A8</span> Die Aussprache wird für beendet erklärt</a>
+      </div>
+    </div>
+
+    <div class="chipgruppe">
+      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--petrol-light)">Wenn abgestimmt wird</span></div>
+      <div class="chips">
+      <a class="chip" href="#s8"><span>B1</span> Jemand stimmt mit, obwohl es um ihn geht</a>
+      <a class="chip" href="#s9"><span>B2</span> Ich will geheime Abstimmung</a>
+      <a class="chip" href="#s10"><span>B3</span> Das Ergebnis wird nicht ausgezählt</a>
+      <a class="chip" href="#s11"><span>B4</span> Eine Aussage soll nachweisbar bleiben</a>
+      <a class="chip" href="#s16"><span>B5</span> Abgestimmt wird über eine andere Fassung</a>
+      </div>
+    </div>
+
+    <div class="chipgruppe">
+      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--signal)">Wenn es kippt</span></div>
+      <div class="chips">
+      <a class="chip" href="#s12"><span>C1</span> Mein Antrag wird nicht abgestimmt</a>
+      <a class="chip" href="#s13"><span>C2</span> Ich bin überstimmt worden</a>
+      <a class="chip" href="#s14"><span>C3</span> Es geht plötzlich um mich, nicht um die Sache</a>
+      <a class="chip" href="#s17"><span>C4</span> Ich bin mit dem Verlauf nicht einverstanden</a>
+      <a class="chip" href="#s18"><span>C5</span> Es soll nicht festgehalten werden, wer was gesagt hat</a>
+      </div>
+    </div>
+
+    <div class="chipgruppe chipgruppe--lesen">
+      <div class="chipgruppe__k"><span class="chipgruppe__p" style="--acc:var(--erkenntnis-soft)">Zum Verstehen, nicht zum Nachschlagen</span></div>
+      <div class="chips">
+      <a class="chip chip--lesen" href="#grundlage">Versammlung, Tagesordnung, Geschäftsordnung — der Unterschied</a>
+      <a class="chip chip--lesen" href="#leitung">Woran Sie erkennen, dass gelenkt wird</a>
+      <a class="chip chip--lesen" href="#konter">Die acht Standardsätze — und was Sie antworten</a>
+      <a class="chip chip--lesen" href="#protokoll">Was ins Protokoll gehört</a>
+      </div>
+    </div>
+
+    <p class="jump__leer" id="nixgefunden" hidden>Zu diesem Stichwort steht hier nichts. Versuchen
+      Sie ein einzelnes Wort — <b>Vertagung</b>, <b>Vollmacht</b>, <b>Frist</b>, <b>Protokoll</b>.</p>
+
+    <div class="mit">
+      <div class="mit__k">Mit in den Saal nehmen</div>
+      <div class="mit__r">
+        <a class="btn mit__b" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
+          Saalkarte als PDF
+          <em>Vier Seiten A4 zum Falten — die Sätze, das Mitschreibraster, die Fristen</em>
+        </a>
+        <a class="btn mit__b" href="saalkarte.html">
+          Saalkarte im Browser drucken
+          <em>Dieselben vier Seiten, ohne Download</em>
+        </a>
+      </div>
+      <p class="mit__n">Die Saalkarte ist die Kurzfassung zur groben Orientierung — ausführlich
+        steht alles auf dieser Seite. Ohne E-Mail-Abfrage, ohne Registrierung, ohne Zählpixel.
+        Weitergabe an andere Eigentümerinnen und Eigentümer ausdrücklich erwünscht.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ GRUNDLAGE ═══════════════ -->
+<div class="grund">
+<section class="wrap" id="grundlage" style="--acc:var(--petrol);padding-top:44px">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Grundlage</span>
+    <h2>Drei Wörter, die ständig verwechselt werden</h2>
+    <span class="teil__c">3 Ebenen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Wenn eine Verwaltung zwei Anliegen an einem Abend völlig unterschiedlich
+    behandelt — eines wird abgestimmt, das andere „geht heute nicht“ —, liegt das fast immer an
+    dieser Unterscheidung. Sie ist der wichtigste Hebel des ganzen Abends und in fünf Minuten
+    verstanden. <b>Versammlung, Tagesordnung und Geschäftsordnung sind drei verschiedene Ebenen:
+    das Gremium, die Themen und die Spielregeln.</b></p>
+
+  <div class="drei">
+    <div class="ebene" style="--acc:var(--petrol)">
+      <div class="ebene__k">Die Ebene · Wer</div>
+      <h3>Die Eigentümer&shy;versammlung</h3>
+      <p class="ebene__d">Das <b>Gremium</b>, in dem die Gemeinschaft entscheidet — nicht ein
+      Termin, sondern das Organ. Nur hier entstehen Beschlüsse, die für alle gelten, auch für die
+      Abwesenden und für spätere Käufer. Alles, was im Flur, im Beirat oder in einer E-Mail
+      besprochen wird, ist Vorbereitung. Verbindlich wird es erst hier.</p>
+      <div class="ebene__f">
+        <div><span>Wer bestimmt</span><b>die Eigentümer, mit Mehrheit</b></div>
+        <div><span>Grundlage</span>§ 23, § 25 WEG</div>
+      </div>
+    </div>
+
+    <div class="ebene" style="--acc:var(--stimme)">
+      <div class="ebene__k">Das Was · Inhalt</div>
+      <h3>Die Tagesordnung</h3>
+      <p class="ebene__d">Die Liste der <b>Gegenstände, über die beschlossen werden darf</b>. Sie
+      steht in der Einladung — und sie ist eine geschlossene Liste: Zur Gültigkeit eines Beschlusses
+      ist erforderlich, dass der Gegenstand bei der Einberufung bezeichnet ist (§ 23 Abs. 2 WEG).
+      Was nicht draufsteht, kann besprochen, aber nicht beschlossen werden. Genau deshalb ist
+      „Sonstiges“ kein Tagesordnungspunkt, sondern ein Gesprächsangebot.</p>
+      <div class="ebene__f">
+        <div><span>Wer bestimmt</span><b>wer einlädt — meist die Verwaltung</b></div>
+        <div><span>Änderbar</span>nur für die <b>nächste</b> Einladung</div>
+      </div>
+    </div>
+
+    <div class="ebene" style="--acc:var(--erkenntnis)">
+      <div class="ebene__k">Das Wie · Verfahren</div>
+      <h3>Die Geschäfts&shy;ordnung</h3>
+      <p class="ebene__d">Die <b>Spielregeln des Abends</b>: wer leitet, in welcher Reihenfolge die
+      Punkte kommen, wie lange gesprochen wird, wie abgestimmt wird, ob vertagt wird. Sie betrifft
+      nie die Sache, immer nur den Weg dorthin. Und weil sie keinen Beschlussgegenstand im Sinne
+      des § 23 Abs. 2 WEG regelt, muss sie <b>nicht angekündigt sein</b> — ein
+      Geschäftsordnungsantrag ist nach überwiegender Auffassung jederzeit möglich und wird sofort
+      abgestimmt.</p>
+      <div class="ebene__f">
+        <div><span>Wer bestimmt</span><b>die Versammlung, nicht die Leitung</b></div>
+        <div><span>Änderbar</span><b>jederzeit im Saal</b></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:22px;margin:40px 0 8px;color:var(--text)">Warum zwei Anträge so verschieden behandelt werden</h3>
+  <p class="slead" style="margin-bottom:18px">Es gibt zwei Sorten von Anträgen, und sie folgen
+    entgegengesetzten Regeln. Wer sie auseinanderhält, verliert keinen Punkt mehr an ein
+    „das geht heute nicht“ — und erkennt sofort, wenn die Unterscheidung gegen ihn verwendet wird.</p>
+
+  <div class="raster-wrap">
+    <table class="vgl">
+      <thead>
+        <tr>
+          <th class="m">&nbsp;</th>
+          <th class="s">Sachantrag — die Sache selbst</th>
+          <th class="g">Geschäftsordnungsantrag — der Ablauf</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Worüber</td>
+          <td>Die Angelegenheit: Sanierung, Vertrag, Abrechnung, Beauftragung, Rücklage.</td>
+          <td>Nur der Weg: Reihenfolge, Vertagung, Redezeit, Abstimmungsform, Versammlungsleitung.</td>
+        </tr>
+        <tr>
+          <td>Ankündigung</td>
+          <td><b>Zwingend.</b> Der Gegenstand muss in der Einladung bezeichnet sein (§ 23 Abs. 2 WEG). Sonst kein wirksamer Beschluss.</td>
+          <td><b>Nicht nötig.</b> Er regelt keinen Beschlussgegenstand, sondern das Verfahren — er kann spontan gestellt werden.</td>
+        </tr>
+        <tr>
+          <td>Wann möglich</td>
+          <td>Nur zu dem Punkt, der aufgerufen ist. Eigene Anträge gehören Wochen vorher eingereicht.</td>
+          <td><b>Jederzeit</b> — auch mitten in einer Aussprache, auch als Zwischenruf „Zur Geschäftsordnung“.</td>
+        </tr>
+        <tr>
+          <td>Reihenfolge</td>
+          <td>Wird in der Reihenfolge der Tagesordnung behandelt.</td>
+          <td><b>Vorrang.</b> Er unterbricht die Sachdebatte und wird zuerst abgestimmt — sonst liefe er ins Leere.</td>
+        </tr>
+        <tr>
+          <td>Wirkung</td>
+          <td>Ein Beschluss, der bindet — bis er angefochten oder aufgehoben wird. Fristen nach § 45 WEG laufen.</td>
+          <td>Gilt nur für diesen Abend und diesen Punkt. Er entscheidet nichts in der Sache.</td>
+        </tr>
+        <tr>
+          <td>Typischer Satz</td>
+          <td>„Ich stelle den Antrag, folgenden Beschluss zu fassen: …“</td>
+          <td>„Zur Geschäftsordnung: Ich beantrage, … Bitte jetzt darüber abstimmen.“</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="merker" style="margin-top:22px;background:var(--signal-tint);border-color:var(--signal-soft)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--signal)"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    <div><b>Die zwei Manöver, die aus dieser Unterscheidung gemacht werden.</b><br>
+    <b>Erstens:</b> Ihr Geschäftsordnungsantrag wird wie ein Sachantrag behandelt — „dafür ist es
+    heute zu spät“, „das stand nicht in der Einladung“. Das ist der Punkt, an dem Sie ruhig bleiben
+    und sagen: <i>„Das ist ein Antrag zur Geschäftsordnung. Er braucht keine Ankündigung und wird
+    sofort abgestimmt. Ich bitte darum, das jetzt zu tun.“</i><br>
+    <b>Zweitens, seltener und wirksamer:</b> Eine Sachfrage wird als Verfahrensfrage ausgegeben und
+    schnell weggestimmt — etwa eine „Vertagung auf unbestimmte Zeit“, die faktisch eine Ablehnung
+    ist, oder ein „Prüfauftrag“ statt der beantragten Entscheidung. Dann gilt:
+    <i>„Das ist der Sache nach eine Entscheidung, kein Verfahrensschritt. Ich bitte, über meinen
+    Sachantrag im Wortlaut abzustimmen — und beides getrennt zu protokollieren.“</i></div>
+  </div>
+
+  <div class="merker" style="margin-top:14px;background:var(--erkenntnis-tint);border-color:var(--erkenntnis-soft)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--erkenntnis)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div><b>Nicht zu verwechseln: Geschäftsordnung und Gemeinschaftsordnung.</b> Die
+    <b>Gemeinschaftsordnung</b> — meist Teil der Teilungserklärung — ist die Verfassung Ihrer
+    Gemeinschaft: Stimmprinzip, Kostenverteilung, Zweckbestimmung, Sondernutzungsrechte. Sie geht
+    dem gesetzlichen Regelfall in vielen Punkten vor und lässt sich nicht im Saal ändern. Die
+    <b>Geschäftsordnung</b> regelt nur den Ablauf eines Abends. Wenn im Saal auf „die Ordnung“
+    verwiesen wird, lohnt die Nachfrage, welche gemeint ist — und die Bitte, die Fundstelle zu
+    nennen.</div>
+  </div>
+  </details>
+</section>
+</div>
+
+<!-- ═══════════════ 1 · DIE SITUATIONEN ═══════════════ -->
+<section class="wrap" style="--acc:var(--stimme)">
+  <details class="teil" open>
+    <summary class="shead">
+    <span class="num">Teil 1</span>
+    <h2>Achtzehn Situationen — und was Sie sagen</h2>
+    <span class="teil__c">18 Situationen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Jede Karte enthält denselben Aufbau: <b>woran Sie es erkennen</b>, <b>was gilt</b>,
+    <b>der Satz</b> zum Vorlesen, <b>was Sie tun, wenn das nicht reicht</b>, und <b>was davon ins
+    Protokoll gehört</b>. Die Sätze sind Formulierungshilfen, keine Rechtsberatung — passen Sie
+    sie auf Ihren Fall an.</p>
+
+  <div class="merker" style="--acc:var(--erkenntnis);background:var(--erkenntnis-tint);border-color:var(--erkenntnis-soft);margin-bottom:26px">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--erkenntnis)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div>Immer wenn unten <b>„Zur Geschäftsordnung“</b> steht, geht es um das Verfahren, nicht um
+    die Sache — solche Anträge brauchen keine Ankündigung und werden sofort abgestimmt. Warum das
+    so ist und wie die Unterscheidung gegen Sie verwendet wird, steht in
+    <a href="#grundlage" style="color:var(--erkenntnis);font-weight:600">Drei Wörter, die ständig
+    verwechselt werden</a>.</div>
+  </div>
+
+  <!-- ── Phase A ── -->
+  <details class="pgrp">
+  <summary class="phase">
+    <span class="phase__t">Bevor abgestimmt wird</span>
+    <span class="phase__l"></span>
+    <span class="teil__c">8 Situationen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+
+  <div class="deck">
+
+    <!-- 01 -->
+    <details class="card" id="s1">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
+        <span class="card__q"><em>Situation A1</em>Mein Thema steht nicht auf der Tagesordnung — oder nur unter „Sonstiges“</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Sie haben Ihr Anliegen eingereicht. In der Einladung findet es sich nicht wieder,
+        oder es ist in einem Sammelpunkt „Sonstiges“, „Verschiedenes“ oder „Anfragen“ aufgegangen.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Zur Gültigkeit eines Beschlusses ist erforderlich, dass der Gegenstand bei der Einberufung
+        bezeichnet ist (§ 23 Abs. 2 WEG). Unter „Sonstiges“ entsteht daher <b>kein wirksamer
+        Beschluss</b> — und damit auch nichts, was Sie anfechten könnten. Eine Aussprache im Saal
+        ersetzt ihn nicht.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Hand heben, Wortmeldung abwarten.</b> Kein Geschäftsordnungsantrag nötig —
+            Sie stellen einen Antrag für die <i>nächste</i> Einladung.</div>
+          </div>
+          <p>„Ich stelle den Antrag, folgenden Beschlussgegenstand in die Einladung zur nächsten
+          Eigentümerversammlung aufzunehmen: <i>[Wortlaut in einem Satz]</i>. Ich bitte, den Antrag
+          mit diesem Wortlaut zu protokollieren.“</p>
+          <p class="hinweis"><b>Warum das trägt:</b> Sie verlangen nichts Unmögliches — heute
+          <i>kann</i> nicht beschlossen werden. Sie sichern statt dessen den Wortlaut und den
+          Zeitpunkt. Damit ist Ihr Anliegen nicht mehr wegzudiskutieren.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Wiederholen Sie den Antrag <b>wortgleich</b> und bitten Sie ausdrücklich um
+          Protokollierung — auch der Ablehnung.</li>
+          <li>Nach der Versammlung: schriftlich an die Verwaltung, mit Wortlaut und Frist, unter
+          Bezug auf § 23 Abs. 2 WEG.</li>
+          <li>Wenn mehr als ein Viertel der Eigentümer mitzieht: Einberufung einer Versammlung in
+          Textform unter Angabe von Zweck und Gründen verlangen (§ 24 Abs. 2 WEG).</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der <b>Wortlaut</b> des Antrags, dass er <b>gestellt</b> wurde, und wie damit
+          verfahren wurde. Nicht: „Herr X brachte ein Anliegen vor.“</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 2 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 02 -->
+    <details class="card" id="s2">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span class="card__q"><em>Situation A2</em>Es soll entschieden werden, aber die Unterlagen fehlen</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Der Vertragsentwurf, die Vergleichsangebote oder die Kostenaufstellung liegen nicht vor,
+        wurden erst im Saal verteilt oder nur mündlich referiert. Wer eine Vorlage zum ersten Mal in
+        der Versammlung liest, stimmt zu — entschieden hat er nicht.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Einsicht in die Verwaltungsunterlagen können Sie jederzeit verlangen, nicht nur vor der
+        Versammlung (§ 18 Abs. 4 WEG). Die Versammlung beschließt eine <b>ordnungsmäßige</b>
+        Verwaltung (§ 19 Abs. 1 WEG) — dazu gehört eine tragfähige Entscheidungsgrundlage.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Hand heben und laut „Zur Geschäftsordnung“ sagen.</b> Damit ist der Sachantrag
+            unterbrochen — über Ihren Antrag wird zuerst abgestimmt.</div>
+          </div>
+          <p>„Zur Geschäftsordnung: Ich beantrage, TOP <i>[Nr.]</i> zu vertagen, bis
+          <i>[genau benennen: die drei Vergleichsangebote / der Vertragsentwurf / die Berechnung]</i>
+          allen Eigentümern in Textform vorliegen. Ich bitte, jetzt über diesen Antrag abzustimmen.“</p>
+          <p class="hinweis"><b>Warum das trägt:</b> Vertagung ist kein Nein zur Sache. Sie ist
+          deshalb fast immer mehrheitsfähiger als eine Ablehnung — auch für die, die inhaltlich
+          dafür sind. <b>Benennen Sie genau eine fehlende Unterlage</b>, nicht „die Unterlagen“.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Vor der Sachabstimmung: <b>„Ich bitte zu protokollieren, dass zum Zeitpunkt der
+          Abstimmung <i>[Unterlage]</i> nicht vorlag.“</b></li>
+          <li>Nach der Abstimmung: Widerspruch zu Protokoll (siehe C2) und Datum notieren.</li>
+          <li>Frist im Kalender: ein Monat ab <b>Beschlussfassung</b> — nicht ab Zugang des
+          Protokolls (§ 45 WEG).</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Welche Unterlage <b>namentlich</b> gefehlt hat, der Vertagungsantrag und sein
+          Abstimmungsergebnis in Zahlen.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 Abs. 1 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 03 -->
+    <details class="card" id="s3">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h8"/></svg></span>
+        <span class="card__q"><em>Situation A3</em>Eine einzige Zahl trägt die Entscheidung — die Berechnung dazu fehlt</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Eine Variante bekommt eine große, runde Zahl als Ausschlussgrund. Die bevorzugte Variante
+        bekommt gar keine Zahl. Die Zahl steht im Konjunktiv, ist als Schätzung gekennzeichnet — und
+        entscheidet trotzdem.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Eine Schätzung ist kein Fehler. Ohne Vorplanung lässt sich eine Größenordnung oft nur
+        schätzen. Der Punkt ist ein anderer: <b>Bestreiten Sie die Zahl nicht.</b> Fragen Sie nach
+        der Rechnung, aus der sie folgt. Das ist sachlich, unangreifbar — und in aller Regel
+        unbeantwortet.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Hand heben, Wortmeldung.</b> Ruhig sprechen, langsam — die Fragen wirken nur,
+            wenn sie einzeln stehen bleiben.</div>
+          </div>
+          <p>„Ich bitte um die Berechnung, aus der sich die Zahl von <i>[Betrag]</i> ergibt, und um
+          die Eingangsgrößen, mit denen gerechnet wurde. Solange die Berechnung nicht vorliegt,
+          beantrage ich zu protokollieren, dass die Zahl der Versammlung ohne Berechnungsgrundlage
+          vorgetragen wurde.“</p>
+          <p class="hinweis"><b>Wenn nur eine Variante beziffert ist:</b> „Für die Gegenvariante
+          liegt keine vergleichbare Zahl vor. Ich beantrage, beide Varianten mit derselben
+          Berechnungsmethode zu beziffern, bevor entschieden wird.“</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Vertagungsantrag zur Geschäftsordnung (A2) — mit genau dieser Begründung.</li>
+          <li>Beschlussantrag als Kompromiss: die Entscheidung fällt, <b>sobald</b> beide Varianten
+          nach gleicher Methode beziffert vorliegen.</li>
+          <li>Protokollierung der Antwort — auch wenn keine kam.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Die genannte Zahl, die Frage nach der Berechnung, und <b>ob eine Berechnung vorgelegt
+          wurde oder nicht</b>.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 Abs. 1 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 04 -->
+    <details class="card" id="s4">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V3M7 3 3 7M7 3l4 4M17 3v18M17 21l4-4M17 21l-4-4"/></svg></span>
+        <span class="card__q"><em>Situation A4</em>Die Reihenfolge der Punkte benachteiligt mein Thema</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Ihr Punkt steht am Ende einer langen Tagesordnung. Bis dahin ist der Saal leerer, die
+        Aufmerksamkeit geringer, die vertretenen Stimmen haben sich verschoben. Oder: Über eine
+        Folgeentscheidung soll abgestimmt werden, bevor die Grundlage entschieden ist.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Die Versammlung bestimmt über ihr Verfahren selbst. Ein Geschäftsordnungsantrag zur
+        Reihenfolge ist jederzeit möglich — am wirksamsten <b>gleich zu Beginn</b>, bevor der
+        erste Sachpunkt aufgerufen wird.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Zu Beginn, direkt nach der Begrüßung:</b> Hand heben, „Zur Geschäftsordnung“.</div>
+          </div>
+          <p>„Zur Geschäftsordnung: Ich beantrage, TOP <i>[x]</i> vor TOP <i>[y]</i> zu behandeln,
+          weil <i>[das Ergebnis von x Voraussetzung für y ist / weil zu diesem Zeitpunkt noch alle
+          Stimmen vertreten sind]</i>. Ich bitte, jetzt darüber abzustimmen.“</p>
+          <p class="hinweis"><b>Begründen Sie mit dem Verfahren, nicht mit der Sache.</b> „Das ist
+          mir wichtig“ trägt nicht. „Das eine ist Voraussetzung des anderen“ trägt.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Antrag auf Feststellung der noch vertretenen Stimmen vor dem späten Punkt
+          (A7) — das macht die Verschiebung sichtbar.</li>
+          <li>Protokollierung, dass der Reihenfolgeantrag gestellt und abgelehnt wurde.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der Antrag, das Ergebnis in Zahlen — und, falls die Tagesordnung geändert wurde, die
+          <b>tatsächliche</b> Reihenfolge der Behandlung.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 5 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 Abs. 1 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 05 -->
+    <details class="card" id="s5">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 6h6zM17 7l-3 6h6zM8 21h8"/></svg></span>
+        <span class="card__q"><em>Situation A5</em>Die Verwaltung leitet die Abstimmung über ihre eigene Sache</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Es geht um den Verwaltervertrag, die Vergütung, die Entlastung, eine Wiederbestellung
+        oder um eine Beauftragung, an der die Verwaltung mitverdient — und dieselbe Person führt
+        durch die Aussprache, bestimmt den Abstimmungsmodus und stellt das Ergebnis fest.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Den Vorsitz führt der Verwalter, <b>sofern die Versammlung nichts anderes beschließt</b>
+        (§ 24 Abs. 5 WEG). Der Nebensatz ist der entscheidende Teil: Die Versammlung kann die
+        Leitung für einen einzelnen Punkt in andere Hände legen.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>„Zur Geschäftsordnung“ — bevor der Punkt aufgerufen wird</b>, nicht mittendrin.</div>
+          </div>
+          <p>„Zur Geschäftsordnung: Ich beantrage, dass die Versammlung für TOP <i>[Nr.]</i> eine
+          andere Person mit der Versammlungsleitung betraut. Grundlage ist § 24 Abs. 5 WEG. Es geht
+          nicht um Vertrauen, sondern um die Trennung von Betroffenheit und Verfahrensleitung. Ich
+          bitte, jetzt darüber abzustimmen.“</p>
+          <p class="hinweis"><b>Der zweite Halbsatz ist wichtig.</b> Ohne ihn liest sich der Antrag
+          als Misstrauensvotum und verliert Stimmen aus der Mitte. Mit ihm ist er ein
+          Verfahrensvorschlag, dem auch zustimmen kann, wer mit der Verwaltung zufrieden ist.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Antrag auf getrennte Abstimmung über Teilfragen, damit nicht ein Paket alles trägt.</li>
+          <li>Antrag auf geheime Abstimmung (B2) — er nimmt Abhängigkeiten aus dem Raum.</li>
+          <li>Protokollierung des Antrags und des Ergebnisses.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div><b>Wer</b> den Vorsitz bei diesem Punkt geführt hat, der Antrag und sein Ergebnis in Zahlen.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 5 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 06 -->
+    <details class="card" id="s6">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></span>
+        <span class="card__q"><em>Situation A6</em>Es ist unklar, wer die fachliche Unterlage verantwortet</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Wer die Aussage im Raum vorträgt, ist nicht der, der sie unterschrieben hat.
+        Qualifikationen werden mündlich behauptet statt belegt. Der Auftraggeber der Stellungnahme
+        ist derselbe, dessen Vorschlag sie stützt. Und der empfohlene nächste Schritt berührt das
+        eigene Geschäft des Empfehlenden.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Keine der folgenden Fragen ist ein Vorwurf. Alle vier sind beantwortbar. Genau darin
+        liegt ihre Wirkung: Sie sind sachlich unangreifbar und lassen sich nicht als Angriff
+        umdeuten.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Hand heben.</b> Vier Fragen, einzeln, mit Pause dazwischen. Nicht als Liste
+            herunterlesen.</div>
+          </div>
+          <p>„Ich habe vier Fragen zu dieser Unterlage. Erstens: Wer hat sie unterschrieben?
+          Zweitens: Welche nachweisbare Qualifikation hat diese Person? Drittens: Wer hat sie
+          beauftragt und bezahlt? Viertens: Berührt die Empfehlung ein eigenes Angebot des
+          Verfassers? Ich bitte, Fragen und Antworten zu protokollieren.“</p>
+          <p class="hinweis"><b>Kein Urteil hinterherschieben.</b> Die Fragen wirken durch die
+          Antwort — oder durch deren Ausbleiben. Ein angehängter Kommentar nimmt ihnen genau das.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>„Ich bitte, im Protokoll festzuhalten, welche der vier Fragen beantwortet wurde und
+          welche nicht.“</li>
+          <li>Beschlussantrag: Vorlage der unterschriebenen Fassung mit Frist, vor der
+          Sachentscheidung.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Titel und Datum der Unterlage, <b>wer sie unterzeichnet hat</b>, wer beauftragt hat —
+          und welche Fragen offen blieben.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__19.html" target="_blank" rel="noopener">§ 19 Abs. 1 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 07 -->
+    <details class="card" id="s7">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+        <span class="card__q"><em>Situation A7</em>Die Anwesenheits- und Vollmachtslage ist unklar</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Es wird abgestimmt, ohne dass jemand gesagt hat, wie viele Eigentümer anwesend und wie
+        viele Stimmen vertreten sind. Eine Person hält auffällig viele Vollmachten. Oder Sie
+        entdecken, dass Sie selbst eine Vollmacht erteilt haben, ohne es zu bemerken — in manchen
+        Verwaltungsverträgen ist sie mit vereinbart.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Vollmachten bedürfen zu ihrer Gültigkeit der Textform (§ 25 Abs. 3 WEG). Einsicht in die
+        Verwaltungsunterlagen können Sie verlangen (§ 18 Abs. 4 WEG). <b>Vollmachten sind zulässig,
+        verbreitet und für auswärtige Eigentümer oft die einzige Möglichkeit teilzunehmen</b> — es
+        geht um Bewusstsein, nicht um Misstrauen.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Vor der ersten Abstimmung</b> — danach ist es eine Rüge, vorher eine Formalie.</div>
+          </div>
+          <p>„Ich beantrage, vor der ersten Abstimmung die Anwesenheits- und Vollmachtsliste
+          festzustellen und das Ergebnis zu Protokoll zu nehmen: wie viele Eigentümer anwesend
+          sind, wie viele Stimmen vertreten werden und durch wen.“</p>
+          <p class="hinweis"><b>Vor der Versammlung, zu Hause, fünf Minuten:</b> Steht in Ihrem
+          eigenen Verwaltungsvertrag eine Vollmacht für die Eigentümerversammlung? Eine erteilte
+          Vollmacht ist widerruflich — eine später und ausdrücklich an eine andere Person erteilte
+          Einzelvollmacht sollte in Textform vorliegen und der Verwaltung angezeigt werden.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>„Ich bitte um Protokollierung, dass eine Feststellung der Vollmachtslage beantragt und
+          nicht vorgenommen wurde.“</li>
+          <li>Nach der Versammlung: Einsicht in die Vollmachtsunterlagen verlangen — schriftlich,
+          datiert, mit Frist (§ 18 Abs. 4 WEG).</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Anwesende und vertretene Stimmen <b>zum Zeitpunkt jeder Abstimmung</b> — nicht nur
+          zu Beginn. Die Zahl ändert sich im Verlauf des Abends.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 Abs. 3 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a>
+          <a class="para" href="versammlung.html#vorher">Vollmachten ausführlich →</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- A8 -->
+    <details class="card" id="s15">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h7M21 12h-4M14 6l3 6-3 6"/><path d="M3 6h5M3 18h5"/></svg></span>
+        <span class="card__q"><em>Situation A8</em>Die Aussprache wird für beendet erklärt, bevor die Frage geklärt ist</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>„Ich denke, wir haben das Thema jetzt ausreichend besprochen.“ „Das führt zu weit.“
+        „Wir kommen zur Abstimmung.“ Ihre Wortmeldung steht noch, Ihre Frage ist unbeantwortet —
+        und der Punkt ist trotzdem zu Ende.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Die Leitung ordnet den Ablauf, ist dabei aber an die Versammlung gebunden: Den Vorsitz
+        führt der Verwalter, <b>sofern die Versammlung nichts anderes beschließt</b> (§ 24 Abs. 5
+        WEG). Über den Schluss der Aussprache entscheidet deshalb nach überwiegender Auffassung
+        die Versammlung, nicht die Leitung allein. Das Gesetz selbst spricht von <b>Teilnahme und
+        Rechteausübung</b> in der Versammlung (§ 23 Abs. 1a WEG) — dazu gehört, gehört zu werden,
+        bevor abgestimmt wird.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Sofort, nicht nach der nächsten Wortmeldung.</b> Hand heben und „Zur
+            Geschäftsordnung“ — der Schluss der Debatte ist selbst ein Geschäftsordnungsantrag.</div>
+          </div>
+          <p>„Zur Geschäftsordnung: Ich widerspreche der Beendigung der Aussprache zu TOP
+          <i>[Nr.]</i>. Über den Schluss der Debatte entscheidet die Versammlung. Ich beantrage,
+          jetzt darüber abzustimmen — und bitte vorher festzustellen, wie viele Wortmeldungen noch
+          offen sind.“</p>
+          <p class="hinweis"><b>Die Feststellung der offenen Wortmeldungen ist der wirksamere
+          Teil.</b> Sie kostet dreißig Sekunden, ist nicht abzulehnen — und sie macht im Raum
+          sichtbar, dass abgebrochen wird, während noch Leute sprechen wollen.</p>
+        </div>
+
+        <div class="lab">Wenn die Versammlung den Schluss beschließt</div>
+        <ul class="leiter">
+          <li>Das ist ihr gutes Recht — akzeptieren Sie es <b>ohne Kommentar</b>. Alles andere
+          kostet Sie die Mitte des Saals.</li>
+          <li>Sichern Sie statt dessen: „Ich bitte zu protokollieren, dass die Aussprache zu TOP
+          <i>[Nr.]</i> beendet wurde, während <i>[Anzahl]</i> Wortmeldungen offen waren, und dass
+          meine Frage — <i>[ein Satz]</i> — unbeantwortet blieb.“</li>
+          <li>Diese eine Zeile im Protokoll wirkt länger als jede Fortsetzung der Diskussion.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Dass die Aussprache <b>auf Antrag</b> beendet wurde, mit Ergebnis in Zahlen — und
+          die offen gebliebene Frage im Wortlaut.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 5 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 1a WEG</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+  </details>
+
+  <!-- ── Phase B ── -->
+  <div style="--acc:var(--petrol)">
+  <details class="pgrp">
+  <summary class="phase">
+    <span class="phase__t">Wenn abgestimmt wird</span>
+    <span class="phase__l"></span>
+    <span class="teil__c">5 Situationen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+
+  <div class="deck">
+
+    <!-- 08 -->
+    <details class="card" id="s8">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span>
+        <span class="card__q"><em>Situation B1</em>Jemand stimmt mit, obwohl die Sache ihn selbst betrifft</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Abgestimmt wird über einen Vertrag, eine Beauftragung oder einen Rechtsstreit — und
+        derjenige, mit dem das Geschäft geschlossen oder gegen den der Streit geführt wird, hebt
+        die Hand mit.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Ein Wohnungseigentümer ist nicht stimmberechtigt, wenn die Beschlussfassung die Vornahme
+        eines auf die Verwaltung des gemeinschaftlichen Eigentums bezüglichen <b>Rechtsgeschäfts mit
+        ihm</b> oder die Einleitung oder Erledigung eines <b>Rechtsstreits gegen ihn</b> betrifft
+        (§ 25 Abs. 4 WEG). Ob der Tatbestand im Einzelfall greift, ist eine Auslegungsfrage — und
+        die wird nicht im Saal entschieden.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Unbedingt vor der Abstimmung.</b> Danach hilft nur noch der Widerspruch.</div>
+          </div>
+          <p>„Ich weise vor der Abstimmung darauf hin, dass hier ein Stimmverbot nach § 25 Abs. 4
+          WEG in Betracht kommt, weil die Beschlussfassung ein Rechtsgeschäft mit
+          <i>[Beteiligter]</i> betrifft. Ich bitte, diesen Hinweis und den Umgang damit zu
+          protokollieren.“</p>
+          <p class="hinweis"><b>„In Betracht kommt“ — nicht „besteht“.</b> Sie rügen, Sie
+          entscheiden nicht. Das ist juristisch sauberer und im Raum wesentlich schwerer
+          abzuwehren als eine Behauptung.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Getrennte Abstimmung beantragen, damit erkennbar bleibt, welche Stimmen den
+          Ausschlag gaben.</li>
+          <li>Auszählung und Verkündung mit Zahlen verlangen (B3).</li>
+          <li>Nach der Abstimmung: Widerspruch zu Protokoll, Datum notieren, Frist nach § 45 WEG.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der Hinweis auf § 25 Abs. 4 WEG, wie die Leitung damit umgegangen ist, und das
+          Ergebnis <b>mit und ohne</b> die strittige Stimme, falls es darauf ankommt.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 Abs. 4 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 09 -->
+    <details class="card" id="s9">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <span class="card__q"><em>Situation B2</em>Ich möchte, dass geheim abgestimmt wird</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Es geht um Personen, um Vertrauen, um die Verlängerung eines Vertrags — und Sie spüren,
+        dass mehrere im Raum anders stimmen würden, wenn niemand zusähe. Wo Mieter, Nachbarn oder
+        geschäftliche Beziehungen im Spiel sind, ändert Sichtbarkeit das Ergebnis.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Bei der Beschlussfassung entscheidet die Mehrheit der abgegebenen Stimmen (§ 25 Abs. 1
+        WEG); wie abgestimmt wird, bestimmt die Versammlung. Ein Geschäftsordnungsantrag auf geheime
+        Abstimmung wird sofort abgestimmt — vor der Sachentscheidung.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>„Zur Geschäftsordnung“</b> — nachdem der Punkt aufgerufen, aber bevor
+            abgestimmt wurde.</div>
+          </div>
+          <p>„Zur Geschäftsordnung: Ich beantrage geheime Abstimmung über TOP <i>[Nr.]</i>, damit
+          jede Stimme frei von persönlichen Rücksichten abgegeben werden kann. Ich bitte, jetzt
+          über diesen Antrag abzustimmen.“</p>
+          <p class="hinweis"><b>Begründen Sie mit Freiheit, nicht mit Verdacht.</b> „Damit niemand
+          unter Druck steht“ gewinnt Stimmen. „Damit man sieht, wer hier wirklich abhängig ist“
+          verliert sie.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Namentliche Abstimmung als Gegenvorschlag — sie erzeugt dieselbe Ernsthaftigkeit auf
+          anderem Weg und ist im Protokoll nachweisbar.</li>
+          <li>Protokollierung des abgelehnten Antrags.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der Antrag, sein Ergebnis — und <b>in welcher Form</b> anschließend abgestimmt wurde.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 Abs. 1 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 10 -->
+    <details class="card" id="s10">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15v-4M12 15V7M17 15v-6"/></svg></span>
+        <span class="card__q"><em>Situation B3</em>Das Ergebnis wird nicht ausgezählt und nicht verkündet</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>„Damit ist das angenommen“ — ohne dass jemand gezählt hätte. Oder es wird gezählt, aber
+        das Ergebnis nicht laut genannt. Enthaltungen werden gar nicht erst abgefragt.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Es entscheidet die Mehrheit der abgegebenen Stimmen (§ 25 Abs. 1 WEG). Und: Die Fristen
+        des § 45 WEG laufen ab der <b>Beschlussfassung</b>. Wann genau ein Beschluss gefasst wurde,
+        muss deshalb feststellbar sein — für Sie und für jeden anderen.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Sofort, im selben Moment</b> — bevor der nächste Punkt aufgerufen wird.</div>
+          </div>
+          <p>„Ich bitte, das Abstimmungsergebnis auszuzählen, festzustellen und zu verkünden:
+          Ja-Stimmen, Nein-Stimmen, Enthaltungen. Und ich bitte, diese Zahlen ins Protokoll
+          aufzunehmen.“</p>
+          <p class="hinweis"><b>Das ist keine Provokation, sondern Standard.</b> Genau deshalb ist
+          der Satz so wirksam: Ihn abzulehnen kostet mehr Erklärung, als ihn zu befolgen.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>„Ich bitte um Protokollierung, dass das Ergebnis nicht ausgezählt und nicht mit Zahlen
+          verkündet wurde.“</li>
+          <li>Notieren Sie selbst: <b>Uhrzeit</b>, Ihre Zählung, wer den Beschluss verkündet hat.</li>
+          <li>Diese Uhrzeit ist Ihr Anker für die Frist nach § 45 WEG.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der <b>Wortlaut</b> des Beschlusses, das Ergebnis in Zahlen (Ja / Nein /
+          Enthaltungen) und die <b>Feststellung und Verkündung</b> durch die Leitung.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__25.html" target="_blank" rel="noopener">§ 25 Abs. 1 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 11 -->
+    <details class="card" id="s11">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span class="card__q"><em>Situation B4</em>Eine Aussage soll nachweisbar bleiben</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Es fällt eine Zusage, eine Zahl, eine Auskunft, auf die es später ankommt — „das ist
+        geprüft“, „das kostet nichts extra“, „das machen wir bis zum Sommer“. Im Protokoll wird
+        davon nichts stehen, wenn Sie es nicht jetzt verlangen.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Über die gefassten Beschlüsse ist unverzüglich eine Niederschrift aufzunehmen
+        (§ 24 Abs. 6 WEG). Eine Niederschrift gibt regelmäßig nur einen Teil dessen wieder, was
+        gesagt wurde — <b>und was nicht darin steht, hat später faktisch nicht stattgefunden.</b></p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Langsam diktieren.</b> Warten, bis die protokollführende Person mitschreibt —
+            und um Bestätigung bitten.</div>
+          </div>
+          <p>„Ich beantrage, folgende Erklärung wörtlich zu Protokoll zu nehmen: <i>[ein einziger
+          Satz]</i>. Ich bitte um Bestätigung, dass die Erklärung aufgenommen ist.“</p>
+          <p class="hinweis"><b>Ein Satz. Nicht drei.</b> Sachlich, ohne Wertung, mit Datum und
+          Bezug zum TOP. Je länger die Erklärung, desto größer die Chance, dass sie
+          zusammengefasst — also entschärft — wird.</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>Wortgleich wiederholen und ausdrücklich um <b>wörtliche</b> Aufnahme bitten.</li>
+          <li>„Ich bitte zu protokollieren, dass ich die wörtliche Aufnahme dieser Erklärung
+          beantragt habe.“</li>
+          <li>Denselben Satz noch am selben Abend in Ihre eigenen Notizen — mit Uhrzeit.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Die Erklärung im <b>Wortlaut</b>, mit Zuordnung zum TOP — nicht sinngemäß
+          zusammengefasst.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- B5 -->
+    <details class="card" id="s16">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h16"/><path d="m18 14 3 3-3 3"/></svg></span>
+        <span class="card__q"><em>Situation B5</em>Abgestimmt wird über eine andere Fassung als beantragt — oder über ein Paket</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Der Beschlusstext, der zur Abstimmung gestellt wird, ist nicht der, der gestellt wurde:
+        umformuliert, abgeschwächt, ohne Frist, ohne Adressat. Oder drei Sachfragen stecken in einem
+        Beschluss — Sanierung, Auftragsvergabe und Finanzierung —, sodass niemand einer davon
+        widersprechen kann, ohne alle abzulehnen. Oder der Text wird gar nicht vorgelesen.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Abgestimmt wird über den Antrag, der gestellt wurde. Und ein Beschluss muss nach
+        überwiegender Auffassung aus sich heraus verständlich sein: Was er anordnet, muss auch
+        Jahre später und für einen Rechtsnachfolger erkennbar sein, der bei der Versammlung nicht
+        dabei war. Ein Beschluss, den man nur versteht, wenn man den Abend miterlebt hat, ist
+        keiner.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Vor der Abstimmung, ruhig und ohne Vorwurf.</b> Der erste Teil ist eine
+            Selbstverständlichkeit — genau deshalb trägt er den zweiten.</div>
+          </div>
+          <p>„Ich bitte, den Beschlusstext vor der Abstimmung im Wortlaut vorzulesen und so ins
+          Protokoll zu nehmen. Und ich beantrage zur Geschäftsordnung, über <i>[Teil A]</i> und
+          <i>[Teil B]</i> getrennt abzustimmen — beide Fragen lassen sich unabhängig voneinander
+          entscheiden.“</p>
+          <p class="hinweis"><b>Wenn Ihr eigener Antrag verändert wurde:</b> „Das ist nicht der
+          Antrag, den ich gestellt habe. Ich bitte, über meinen Antrag im ursprünglichen Wortlaut
+          abzustimmen — <i>[Wortlaut]</i> — und die geänderte Fassung, wenn gewünscht, als
+          zweiten Antrag danach.“</p>
+        </div>
+
+        <div class="lab">Wenn das nicht reicht</div>
+        <ul class="leiter">
+          <li>„Ich bitte zu protokollieren, dass über eine andere Fassung abgestimmt wurde als
+          beantragt, und beide Fassungen im Wortlaut aufzunehmen.“</li>
+          <li>Nach der Verkündung: Widerspruch zu Protokoll mit genau diesem Grund (C2).</li>
+          <li>Fehlt im Beschlusstext der Adressat oder die Frist, ist auch das eine
+          protokollierbare Feststellung — sie entscheidet später darüber, ob der Beschluss
+          durchsetzbar ist.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Der Beschluss im <b>Wortlaut, über den abgestimmt wurde</b> — und, falls abweichend,
+          der ursprünglich gestellte Antrag daneben.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+  </details>
+  </div>
+
+  <!-- ── Phase C ── -->
+  <div style="--acc:var(--signal)">
+  <details class="pgrp">
+  <summary class="phase">
+    <span class="phase__t">Wenn es kippt</span>
+    <span class="phase__l"></span>
+    <span class="teil__c">5 Situationen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+
+  <div class="deck">
+
+    <!-- 12 -->
+    <details class="card" id="s12">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></span>
+        <span class="card__q"><em>Situation C1</em>Mein Antrag wird nicht zur Abstimmung gestellt</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Sie haben einen Antrag gestellt. Er wird kommentiert, relativiert, „mitgenommen“ — aber
+        nicht abgestimmt. Der nächste Punkt wird aufgerufen.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Ein Antrag, über den nicht abgestimmt wurde, hat kein Ergebnis — und ohne Ergebnis gibt
+        es nichts, was Sie anfechten könnten. Deshalb ist die Protokollierung hier wichtiger als
+        das Ergebnis: Sie ist das Einzige, was übrig bleibt.</p>
+
+        <div class="lab">Der Satz — in drei Stufen</div>
+        <ul class="leiter" style="margin-bottom:18px">
+          <li><b>Ruhig wiederholen und benennen:</b> „Das war ein Antrag, kein Diskussionsbeitrag.
+          Ich bitte, ihn zur Abstimmung zu stellen.“</li>
+          <li><b>Zur Geschäftsordnung:</b> „Zur Geschäftsordnung: Ich beantrage, meinen Antrag
+          jetzt zur Abstimmung zu stellen.“</li>
+          <li><b>Sichern:</b> siehe Satz unten — das ist der Moment, in dem aus einem verlorenen
+          Antrag ein dokumentierter Vorgang wird.</li>
+        </ul>
+
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Ohne Schärfe im Ton.</b> Der Satz wirkt durch seinen Inhalt, nicht durch
+            Lautstärke — und er wirkt vor allem später.</div>
+          </div>
+          <p>„Ich bitte um Protokollierung: Ich habe zu TOP <i>[Nr.]</i> folgenden Antrag gestellt —
+          <i>[Wortlaut]</i> — und der Antrag wurde nicht zur Abstimmung gestellt.“</p>
+          <p class="hinweis"><b>Warum das trägt:</b> Sie verlangen keine Entscheidung mehr, nur
+          eine Feststellung. Sie ist kaum zu verweigern — und sie ist die Grundlage für alles,
+          was Sie danach tun.</p>
+        </div>
+
+        <div class="lab">Danach</div>
+        <ul class="leiter">
+          <li>Notieren Sie Wortlaut und Uhrzeit noch im Saal.</li>
+          <li>Fehlt der Vorgang im Protokoll: Berichtigungs- und Ergänzungsverlangen (Teil 5).</li>
+          <li>Frist nach § 45 WEG prüfen, sofern zur Sache ein Beschluss gefasst wurde.</li>
+        </ul>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 13 -->
+    <details class="card" id="s13">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span class="card__q"><em>Situation C2</em>Ich bin überstimmt worden</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Was jetzt zählt</div>
+        <p>Der Widerspruch zu Protokoll ist <b>keine</b> Voraussetzung für eine spätere Anfechtung —
+        das ist ein verbreiteter Irrtum. Er ist aber das einzige Mittel, im Moment selbst
+        festzuhalten, dass etwas gefehlt hat. Und er kostet Sie dreißig Sekunden.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Unmittelbar nach der Verkündung</b> des Ergebnisses, bevor der nächste Punkt
+            aufgerufen wird.</div>
+          </div>
+          <p>„Ich widerspreche dem soeben gefassten Beschluss zu TOP <i>[Nr.]</i> und bitte, den
+          Widerspruch mit meinem Namen und dem Grund ins Protokoll aufzunehmen: <i>[ein Satz — was
+          zum Zeitpunkt der Abstimmung gefehlt hat]</i>.“</p>
+          <p class="hinweis"><b>Der Grund ist der wichtigere Teil.</b> „Ich widerspreche“ allein
+          dokumentiert Ihre Haltung. „Weil die Berechnung nicht vorlag“ dokumentiert den Mangel.</p>
+        </div>
+
+        <div class="lab">Sofort danach — noch im Saal</div>
+        <ul class="leiter">
+          <li>Datum und Uhrzeit der <b>Beschlussfassung</b> notieren.</li>
+          <li>Frist eintragen: <b>ein Monat</b> für die Klage, <b>zwei Monate</b> für die Begründung
+          — jeweils ab Beschlussfassung, nicht ab Zugang des Protokolls (§ 45 WEG).</li>
+          <li>Anfechtungsklagen sind gegen die Gemeinschaft der Wohnungseigentümer zu richten
+          (§ 44 Abs. 2 WEG). Ob eine Klage sinnvoll ist, gehört anwaltlich geprüft — die Frist
+          läuft in der Zwischenzeit weiter.</li>
+        </ul>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__44.html" target="_blank" rel="noopener">§ 44 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 14 -->
+    <details class="card" id="s14">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg></span>
+        <span class="card__q"><em>Situation C3</em>Es geht plötzlich um mich, nicht um die Sache</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Woran Sie es erkennen</div>
+        <p>Auf Ihre Frage folgt kein Gegenargument, sondern eine Zuschreibung: „nicht ergebnisoffen“,
+        „fehlende Expertise“, „das Klima vergiftet“. Vielleicht ein Vertrauensentzug, vielleicht ein
+        Antrag gegen Ihre Person. Die Sachfrage bleibt unbeantwortet — und genau das ist der Zweck.</p>
+
+        <div class="lab">Was jetzt zählt</div>
+        <p>Zwei Reaktionen verlieren zuverlässig: sich verteidigen und zurückgeben. Beide bestätigen
+        den Wechsel von der Sache zur Person. <b>Es gibt nur einen Weg zurück: dieselbe Frage,
+        wortgleich, noch einmal.</b> Wer sie zum zweiten Mal nicht beantwortet, beantwortet sie
+        sichtbar nicht — vor dem ganzen Raum.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Langsamer sprechen als vorher.</b> Ruhe ist hier die stärkste verfügbare
+            Antwort — sie ist im Raum sichtbar, das Argument nicht.</div>
+          </div>
+          <p>„Ich nehme das zur Kenntnis. Meine Frage betrifft die Sache und ist weiterhin offen:
+          <i>[Frage wortgleich wiederholen]</i>. Ich bitte, Frage und Antwort zu protokollieren.“</p>
+          <p class="hinweis"><b>Wenn ein Antrag gegen Ihre Person gestellt wird:</b> „Ich bitte,
+          den Antrag und seine Begründung wörtlich zu protokollieren.“ Eine Zuschreibung ohne
+          benannten Grund hält im Protokoll selten stand — im Raum dagegen fast immer.</p>
+        </div>
+
+        <div class="lab">Was Sie nicht tun</div>
+        <ul class="leiter">
+          <li>Nicht rechtfertigen. Jede Verteidigung Ihrer Person verlängert die Personendebatte.</li>
+          <li>Nicht mit gleicher Münze. Es macht Sie zum zweiten Teil des Problems.</li>
+          <li>Nicht nachgeben und die Frage fallen lassen — das ist das eigentliche Ziel des
+          Manövers.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Ihre Frage im Wortlaut, ob sie beantwortet wurde — und, falls ein Antrag gegen Sie
+          gestellt wurde, dessen <b>Begründung</b>.</div>
+        </div>
+      </div>
+    </details>
+
+    <!-- C4 -->
+    <details class="card" id="s17">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+        <span class="card__q"><em>Situation C4</em>Ich bin mit dem Verlauf nicht einverstanden — aber es gibt keinen Beschluss</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Worum es geht</div>
+        <p>Nicht jede Schieflage endet in einem Beschluss. Fragen werden abgebügelt, Redezeit
+        ungleich verteilt, Unterlagen nachgereicht, ein Punkt ohne Ergebnis verlassen. Es gibt
+        nichts anzufechten — und trotzdem soll es nicht folgenlos bleiben.</p>
+
+        <div class="lab">Was gilt</div>
+        <p>Der <b>Widerspruch</b> im engeren Sinn bezieht sich auf einen gefassten Beschluss. Für
+        den Verlauf gibt es ein anderes Mittel: die <b>Erklärung zu Protokoll</b>. Sie ist kein
+        Rechtsbehelf, sie ändert nichts an diesem Abend — aber sie ist der einzige Weg, wie der
+        Verlauf in die Unterlagen der Gemeinschaft gelangt. Und dorthin gehört er, wenn sich ein
+        Muster über Jahre wiederholt.</p>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Am Ende des betroffenen Punktes</b>, nicht am Ende des Abends. Später fehlt
+            die Zuordnung zum TOP.</div>
+          </div>
+          <p>„Ich gebe folgende Erklärung zu Protokoll: <i>[ein Satz — was geschehen ist, ohne
+          Bewertung]</i>. Ich bitte um wörtliche Aufnahme unter TOP <i>[Nr.]</i> und um
+          Bestätigung, dass sie aufgenommen ist.“</p>
+          <p class="hinweis"><b>Die Formel für den Satz:</b> was geschah · wann · was gefehlt hat.
+          Keine Adjektive, keine Motive, keine Person. „Die Aussprache wurde beendet, ohne dass die
+          Frage nach der Berechnung beantwortet wurde“ hält stand. „Die Verwaltung hat die
+          Diskussion abgewürgt“ nicht.</p>
+        </div>
+
+        <div class="lab">Wenn die Aufnahme verweigert wird</div>
+        <ul class="leiter">
+          <li>„Ich bitte dann zu protokollieren, dass ich eine Erklärung zu Protokoll gegeben und
+          um wörtliche Aufnahme gebeten habe.“ — Auch die Verweigerung ist ein Vorgang.</li>
+          <li>Denselben Satz noch am selben Abend in Ihre eigenen Notizen, mit Uhrzeit.</li>
+          <li>Fehlt die Erklärung in der Niederschrift: Berichtigungs- und Ergänzungsverlangen
+          (Teil 5) — mit dem Wortlaut, den Sie gegeben haben.</li>
+        </ul>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Die Erklärung im <b>Wortlaut</b>, mit Zuordnung zum Tagesordnungspunkt und Ihrem
+          Namen — bei eigenen Erklärungen ist die namentliche Zuordnung üblich und gewollt.</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- C5 -->
+    <details class="card" id="s18">
+      <summary>
+        <span class="card__sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span>
+        <span class="card__q"><em>Situation C5</em>Es soll nicht festgehalten werden, wer etwas gesagt hat</span>
+      </summary>
+      <div class="card__body">
+        <div class="lab">Der ehrliche Befund zuerst</div>
+        <p>Die Niederschrift nach § 24 Abs. 6 WEG ist eine <b>Beschlussniederschrift</b>, kein
+        Wortprotokoll. Einen allgemeinen Anspruch darauf, dass jeder Wortbeitrag mit Namen
+        festgehalten wird, gibt es daraus nicht. Wer im Saal „Ich verlange, dass protokolliert
+        wird, wer das gesagt hat“ ruft, bekommt deshalb meist ein sachlich richtiges Nein — und hat
+        seine Position geschwächt.</p>
+
+        <div class="lab">Was statt dessen funktioniert</div>
+        <p>Es gibt drei Wege, und alle drei sind belastbarer als die Forderung nach einem
+        Wortprotokoll. Der dritte ist der stärkste, weil er ohne Namen auskommt und trotzdem
+        zuordnet.</p>
+
+        <ul class="leiter">
+          <li><b>Ihre eigene Erklärung.</b> Sie betrifft nur Sie und wird mit Ihrem Namen
+          aufgenommen (C4). Das ist jederzeit möglich und wird selten verweigert.</li>
+          <li><b>Ein Verfahrensbeschluss.</b> Die Versammlung kann beschließen, dass über einen
+          bestimmten Punkt ausführlicher protokolliert wird. Am wirksamsten als eigener
+          Tagesordnungspunkt in der <i>nächsten</i> Einladung — „Protokollierung von Erklärungen
+          und Zusagen“ — und dann dauerhaft geregelt (§ 23 Abs. 2 WEG). Prüfen Sie vorher Ihre
+          Gemeinschaftsordnung: Manche sehen bereits mehr vor als das Gesetz.</li>
+          <li><b>Die Zurechnung über die Funktion.</b> Nicht der Name, sondern die Rolle — und
+          zwar in Ihrem eigenen Antrag formuliert. Siehe der Satz unten.</li>
+        </ul>
+
+        <div class="lab">Der Satz</div>
+        <div class="satz">
+          <div class="hand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 1 0-4 0v5M14 10V4a2 2 0 1 0-4 0v6M10 10.5V6a2 2 0 1 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            <div><b>Direkt nach der Aussage</b>, auf die es ankommt. Zitieren Sie sie so knapp,
+            dass sie in einen Satz passt.</div>
+          </div>
+          <p>„Ich bitte, folgende Feststellung zu protokollieren: Auf meine Frage nach
+          <i>[Gegenstand]</i> wurde <b>von der Verwaltung</b> erklärt, dass <i>[Aussage in einem
+          Satz]</i>.“</p>
+          <p class="hinweis"><b>Warum das trägt:</b> Sie verlangen kein Wortprotokoll, sondern die
+          Protokollierung <i>einer</i> Feststellung — und die Zurechnung erfolgt über die Funktion
+          („die Verwaltung“, „der Beirat“, „der Fachplaner“), nicht über den Namen einer
+          Privatperson. Das ist datenschutzrechtlich unbedenklich, weil das Protokoll an alle
+          Eigentümer geht, und es ist inhaltlich schärfer: Eine Zusage der Verwaltung bindet die
+          Verwaltung, unabhängig davon, wer sie ausgesprochen hat.</p>
+        </div>
+
+        <div class="lab">Muss ins Protokoll</div>
+        <div class="merker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div>Frage und Antwort als <b>eine</b> Feststellung, mit Zuordnung zur Funktion und zum
+          TOP. Nicht: „Es wurde über die Kosten gesprochen.“</div>
+        </div>
+
+        <div class="paras">
+          <span class="plab">Grundlage</span>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 6 WEG</a>
+          <a class="para" href="https://www.gesetze-im-internet.de/woeigg/__23.html" target="_blank" rel="noopener">§ 23 Abs. 2 WEG</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+  </details>
+  </div>
+  </details>
+</section>
+
+
+<!-- ═══════════════ 2 · DIE LEITUNG ═══════════════ -->
+<section class="wrap" id="leitung" style="--acc:var(--erkenntnis)">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Teil 2</span>
+    <h2>Die Leitung — was sie leisten muss, und woran Sie erkennen, dass gelenkt wird</h2>
+    <span class="teil__c">10 Punkte</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Eine Versammlung wird selten offen manipuliert. Sie wird <b>geführt</b> — und
+    Führung besteht aus vielen kleinen Entscheidungen: wer zuerst spricht, wie lange, welcher Punkt
+    wann kommt, wie der Beschlusstext lautet, wann Schluss ist. Jede dieser Entscheidungen ist für
+    sich harmlos. Die Frage ist, ob sie über den Abend hinweg <b>immer in dieselbe Richtung</b>
+    fallen.</p>
+
+  <div class="merker" style="background:var(--erkenntnis-tint);border-color:var(--erkenntnis-soft);margin-bottom:26px">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--erkenntnis)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div><b>Bevor Sie etwas davon für Absicht halten.</b> Das meiste in der mittleren Spalte
+    entsteht aus Zeitdruck, Routine und einer Tagesordnung, die für den Abend zu lang ist — nicht
+    aus Kalkül. Der Unterschied liegt nicht im einzelnen Vorgang, sondern in der <b>Häufung</b> und
+    in der <b>Richtung</b>: Wenn dieselbe Abkürzung dreimal genommen wird und dreimal derselben
+    Seite nützt, ist es keine Abkürzung mehr. Sagen Sie das trotzdem nicht im Saal. Sagen Sie den
+    Satz aus der rechten Spalte — er wirkt, ohne dass Sie jemandem etwas unterstellen müssen.</div>
+  </div>
+
+    <div class="lz">
+      <div class="lz__h">Der Vorsitz</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Der Verwalter leitet, <b>sofern die Versammlung nichts anderes beschließt</b> (§ 24 Abs. 5 WEG). Bei eigener Betroffenheit stellt er die Frage der Leitung selbst zur Abstimmung.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Er leitet auch die Punkte, die ihn selbst betreffen — Vertrag, Vergütung, Entlastung — und stellt das Ergebnis selbst fest.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Zur Geschäftsordnung: Ich beantrage, für TOP [Nr.] eine andere Person mit der Leitung zu betrauen.“</p><a class="lz__ref" href="#s5">A5</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Tagesordnung</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Behandelt werden die Gegenstände, die in der Einladung bezeichnet sind (§ 23 Abs. 2 WEG). Neues gehört in die nächste Einladung.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Im Saal taucht ein Beschlussgegenstand auf, der nicht angekündigt war — oder ein angekündigter verschwindet kommentarlos.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ein Beschluss setzt voraus, dass der Gegenstand in der Einladung bezeichnet war. Ich bitte, das zu protokollieren.“</p><a class="lz__ref" href="#s1">A1</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Reihenfolge</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Die Punkte werden in der angekündigten Reihenfolge behandelt; eine Abweichung beschließt die Versammlung.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Das strittige Thema rutscht ans Ende, wenn der Saal sich geleert hat und Stimmen abgewandert sind.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Zur Geschäftsordnung: Ich beantrage, TOP [x] vorzuziehen — und vorher die vertretenen Stimmen festzustellen.“</p><a class="lz__ref" href="#s4">A4</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Aussprache</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Wortmeldungen werden in der Reihenfolge des Eingangs aufgerufen und gleich behandelt. Über den Schluss der Debatte entscheidet die Versammlung.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Bei einem Thema wird ausführlich diskutiert, beim nächsten heißt es „das ist doch klar“. Ihre Wortmeldung wird übersehen — zweimal.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Zur Geschäftsordnung: Ich widerspreche der Beendigung der Aussprache und bitte um Feststellung der offenen Wortmeldungen.“</p><a class="lz__ref" href="#s15">A8</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Anträge</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Jeder gestellte Antrag wird so zur Abstimmung gebracht, wie er gestellt wurde.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Anträge werden „mitgenommen“, zusammengefasst, umformuliert — oder gar nicht abgestimmt.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ich bitte um Protokollierung: Ich habe folgenden Antrag gestellt — [Wortlaut] — und er wurde nicht zur Abstimmung gestellt.“</p><a class="lz__ref" href="#s12">C1</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Der Beschlusstext</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Er wird vor der Abstimmung verlesen und ist aus sich heraus verständlich — mit Adressat, Frist und Folge, wo es darauf ankommt.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Der Text existiert nur mündlich, bleibt vage („die Verwaltung wird beauftragt, das Erforderliche zu veranlassen“) oder bündelt drei Fragen in einer.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ich bitte, den Beschlusstext im Wortlaut zu verlesen — und beantrage getrennte Abstimmung über [A] und [B].“</p><a class="lz__ref" href="#s16">B5</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Abstimmung</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Ja, Nein und Enthaltung werden getrennt abgefragt und gezählt (§ 25 Abs. 1 WEG).</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Es wird nur gefragt „Wer ist dagegen?“. Enthaltungen kommen nicht vor. „Das war dann einstimmig.“</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ich bitte, Ja-Stimmen, Nein-Stimmen und Enthaltungen einzeln abzufragen und zu zählen.“</p><a class="lz__ref" href="#s10">B3</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Feststellung und Verkündung</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Das Ergebnis wird festgestellt und verkündet — daran hängt der Zeitpunkt, ab dem die Fristen des § 45 WEG laufen.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>„Damit ist das beschlossen“ — ohne Zahlen, ohne dass jemand den Zeitpunkt notieren könnte.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ich bitte, das Ergebnis mit Zahlen zu verkünden und ins Protokoll zu nehmen.“</p><a class="lz__ref" href="#s10">B3</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Vollmachten und Stimmen</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Anwesenheit und Vertretung sind festgestellt und nachvollziehbar; Vollmachten liegen in Textform vor (§ 25 Abs. 3 WEG).</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Ein großer Stimmenblock liegt in einer Hand, ohne dass die Liste je genannt wurde — und diese Hand gehört zur Verwaltung.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>„Ich beantrage, vor der ersten Abstimmung die Anwesenheits- und Vollmachtsliste festzustellen und zu protokollieren.“</p><a class="lz__ref" href="#s7">A7</a></div>
+    </div>
+    <div class="lz">
+      <div class="lz__h">Die Niederschrift</div>
+      <div class="lz__c lz--gut"><div class="lab">So gehört es</div><p>Unverzüglich, mit Beschlusswortlaut und Zahlen, unterschrieben nach § 24 Abs. 6 WEG.</p></div>
+      <div class="lz__c lz--warn"><div class="lab">Warnsignal</div><p>Sie kommt Wochen später, Beschlüsse sind gestrafft, gestellte Anträge und Erklärungen fehlen — und zwar dieselben jedes Jahr.</p></div>
+      <div class="lz__c lz--tun"><div class="lab">Ihre Reaktion</div><p>Berichtigungs- und Ergänzungsverlangen: TOP, Stelle, was fehlt, welche Fassung zutrifft.</p><a class="lz__ref" href="#protokoll">Teil 4</a></div>
+    </div>
+
+  <div class="merker" style="margin-top:22px">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <div><b>Der Prüfstein für den ganzen Abend:</b> Lässt sich allein aus dem Protokoll
+    rekonstruieren, was entschieden wurde und auf welcher Grundlage? Wenn ja, war die Leitung
+    ordentlich — unabhängig davon, wie die Abstimmungen ausgegangen sind. Wenn nein, ist das der
+    Punkt, an dem Sie ansetzen. Nicht die Frage, ob jemand es böse gemeint hat.</div>
+  </div>
+  </details>
+</section>
+
+<!-- ═══════════════ 3 · KONTER ═══════════════ -->
+<section class="wrap" id="konter" style="--acc:var(--signal)">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Teil 3</span>
+    <h2>Acht Sätze, die Sie hören werden</h2>
+    <span class="teil__c">8 Sätze</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Diese Sätze fallen in fast jeder Versammlung. Sie klingen nach einer Auskunft,
+    sind aber ein Verfahrensschritt: Sie beenden die Befassung. <b>Antworten Sie nicht auf den
+    Inhalt, sondern auf den Verfahrensschritt</b> — und verlangen Sie, dass er im Protokoll
+    sichtbar wird.</p>
+
+  <div class="konter">
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Das können wir heute nicht abstimmen.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Dann bitte ich zu protokollieren, dass der Punkt heute nicht zur Abstimmung gestellt
+        wurde, und stelle den Antrag, ihn als eigenen Tagesordnungspunkt in die nächste Einladung
+        aufzunehmen.“</p>
+        <p class="warum">Sie streiten nicht über das Können. Sie sichern den Vorgang und setzen den
+        nächsten Termin.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Das besprechen wir unter Sonstiges.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Unter Sonstiges kann kein wirksamer Beschluss gefasst werden, weil der Gegenstand bei
+        der Einberufung bezeichnet sein muss — § 23 Abs. 2 WEG. Ich beantrage die Aufnahme als
+        eigenen Tagesordnungspunkt in die nächste Einladung.“</p>
+        <p class="warum">Der häufigste Grund, aus dem Anliegen jahrelang folgenlos bleiben. Ein
+        Anliegen ohne Beschlussantrag ist kein Tagesordnungspunkt, sondern ein Gesprächsangebot.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Dazu haben wir doch schon beschlossen.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Bitte nennen Sie mir den Beschluss mit Datum und Wortlaut aus der Beschluss-Sammlung.
+        Ich bitte, die Fundstelle ins Protokoll aufzunehmen.“</p>
+        <p class="warum">Die Beschluss-Sammlung ist zu führen (§ 24 Abs. 7 WEG). Entweder es gibt
+        die Fundstelle — dann wissen Sie mehr. Oder es gibt sie nicht — dann steht das im Protokoll.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Ihr Antrag kommt zu spät.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Ein Geschäftsordnungsantrag ist jederzeit möglich und wird sofort abgestimmt. Ich
+        beantrage, ihn jetzt zur Abstimmung zu stellen.“</p>
+        <p class="warum">Gilt für Vertagung, Reihenfolge, Abstimmungsmodus, Versammlungsleitung —
+        nicht für neue Beschlussgegenstände. Die brauchen die Einladung.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Die Unterlagen lagen doch aus.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Ich beantrage die Vertagung, bis die Unterlage allen Eigentümern in Textform vorliegt.
+        Einsicht in die Verwaltungsunterlagen steht mir laufend zu — § 18 Abs. 4 WEG.“</p>
+        <p class="warum">Auslegen ist nicht vorlegen. Wer eine Vorlage zum ersten Mal in der
+        Versammlung liest, stimmt zu; entschieden hat er nicht.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Das schieben wir aufs nächste Jahr.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Einverstanden — dann beantrage ich den Beschluss, dass die Verwaltung bis zum
+        <i>[Datum]</i> <i>[konkrete Unterlage]</i> vorlegt, damit im nächsten Jahr entschieden
+        werden kann.“</p>
+        <p class="warum">Sie nehmen die Vertagung an und machen daraus einen Beschluss mit
+        Adressat und Frist. Ohne Beschluss ist „nächstes Jahr“ bloß eine Absichtserklärung.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Darüber wird jetzt nicht abgestimmt.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Ich bitte um Protokollierung, dass ich folgenden Antrag gestellt habe — <i>[Wortlaut]</i>
+        — und dass er nicht zur Abstimmung gestellt wurde.“</p>
+        <p class="warum">Eine Feststellung ist kaum zu verweigern. Und sie ist die Grundlage für
+        alles, was danach kommt.</p>
+      </div>
+    </div>
+
+    <div class="kz">
+      <div class="kz__a"><div class="lab">Sie hören</div><p>„Das ist alles rechtlich geprüft.“</p></div>
+      <div class="kz__b"><div class="lab">Sie antworten</div>
+        <p>„Von wem, mit welchem Datum, und liegt die Prüfung schriftlich vor? Ich bitte, die
+        Fundstelle im Protokoll zu benennen.“</p>
+        <p class="warum">Drei Fragen, alle beantwortbar, keine davon ein Vorwurf. Eine Prüfung, die
+        es gibt, wird gern genannt.</p>
+      </div>
+    </div>
+
+  </div>
+  </details>
+</section>
+
+<!-- ═══════════════ 3 · PROTOKOLL ═══════════════ -->
+<section class="wrap" id="protokoll" style="--acc:var(--erkenntnis)">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Teil 4</span>
+    <h2>Was im Protokoll stehen muss — und wie Sie es sichern</h2>
+    <span class="teil__c">8 Punkte</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Die Versammlung ist der Abend. Das Protokoll ist das Jahr. Über die gefassten
+    Beschlüsse ist unverzüglich eine Niederschrift aufzunehmen (§ 24 Abs. 6 WEG) — was nicht darin
+    steht, hat später faktisch nicht stattgefunden. <b>Diese acht Punkte gehören zu jedem
+    einzelnen Tagesordnungspunkt</b>, nicht einmal pauschal ans Ende.</p>
+
+  <ul class="liste">
+    <li><span class="box-check"></span><span><b>Der Beschluss im Wortlaut</b>So, wie abgestimmt wurde — nicht sinngemäß zusammengefasst. Mit Adressat, Frist und Folge, wenn der Beschluss sie enthält.</span></li>
+    <li><span class="box-check"></span><span><b>Das Ergebnis in Zahlen</b>Ja-Stimmen, Nein-Stimmen, Enthaltungen. „Mehrheitlich angenommen“ ist kein Ergebnis.</span></li>
+    <li><span class="box-check"></span><span><b>Feststellung und Verkündung</b>Dass die Leitung das Ergebnis festgestellt und verkündet hat — daran hängt der Zeitpunkt, ab dem Ihre Fristen laufen.</span></li>
+    <li><span class="box-check"></span><span><b>Anwesende und vertretene Stimmen</b>Zum Zeitpunkt <i>dieser</i> Abstimmung. Die Zahl ändert sich im Verlauf des Abends.</span></li>
+    <li><span class="box-check"></span><span><b>Protokollierte Erklärungen und Widersprüche</b>Mit Zuordnung und Wortlaut. Ein zusammengefasster Widerspruch ist keiner.</span></li>
+    <li><span class="box-check"></span><span><b>Gestellte, aber nicht abgestimmte Anträge</b>Der am häufigsten fehlende Punkt — und der, der später am meisten wiegt.</span></li>
+    <li><span class="box-check"></span><span><b>Verfahrensentscheidungen</b>Vertagungen, Reihenfolgeänderungen, Abstimmungsmodus, Wechsel der Versammlungsleitung — jeweils mit Ergebnis.</span></li>
+    <li><span class="box-check"></span><span><b>Rahmen und Unterschriften</b>Datum, Ort, Beginn und Ende, sowie die Unterschriften nach § 24 Abs. 6 WEG — Vorsitzender, ein Wohnungseigentümer und, falls ein Verwaltungsbeirat bestellt ist, dessen Vorsitzender oder sein Vertreter.</span></li>
+  </ul>
+
+  <div class="merker" style="margin-top:22px;background:var(--erkenntnis-tint);border-color:var(--erkenntnis-soft)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--erkenntnis)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div><b>Fehlt der Beiratsvorsitzende?</b> § 24 Abs. 6 WEG nennt ihn ausdrücklich, „falls ein
+    Verwaltungsbeirat bestellt ist“. Wurde ein Vorsitzender nie gewählt oder ist die Wahl nicht
+    dokumentiert, fehlt diese Unterschrift dauerhaft. Ein Punkt, den man einmal klärt — und dann
+    nie wieder.</div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:21px;margin:38px 0 6px;color:var(--text)">Ihr Mitschrieb im Saal</h3>
+  <p class="slead" style="margin-bottom:18px">Eine Zeile pro Tagesordnungspunkt. Ausgedruckt auf
+    dem Tisch oder auf dem Telefon — entscheidend ist, dass Sie <b>im Moment</b> notieren, nicht
+    hinterher. Dieser Zettel ist es, gegen den Sie das Protokoll später abgleichen.</p>
+
+  <div class="raster-wrap">
+    <table class="raster">
+      <thead>
+        <tr>
+          <th style="width:52px">TOP</th>
+          <th style="width:30%">Antrag / Beschluss im Wortlaut</th>
+          <th style="width:96px">Ja / Nein / Enth.</th>
+          <th style="width:92px">Verkündet?</th>
+          <th style="width:20%">Widerspruch / Erklärung</th>
+          <th style="width:72px">Uhrzeit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="hint" colspan="6">Zusätzlich notieren: fehlende Unterlagen, gestellte und nicht abgestimmte Anträge, Wechsel in der Versammlungsleitung, Zeitpunkt, zu dem Eigentümer den Raum verlassen haben.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn btn--p" type="button" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Seite drucken oder als PDF sichern
+    </button>
+    <button class="btn" type="button" id="alleAuf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></svg>
+      Alle Situationen aufklappen
+    </button>
+  </div>
+  </details>
+</section>
+
+<!-- ═══════════════ 4 · NACH DER SITZUNG ═══════════════ -->
+<section class="wrap" style="--acc:var(--signal)">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Teil 5</span>
+    <h2>Was in den Tagen danach zählt</h2>
+    <span class="teil__c">2 Fristen</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+
+  <div class="frist">
+    <div class="lab" style="margin-top:0;color:var(--signal)">Zwei Fristen, deren Versäumnis endgültig ist</div>
+    <div class="frist__row">
+      <div class="frist__w">+ 1 Monat</div>
+      <div class="frist__x"><b>Anfechtungsklage erheben</b> — ab dem Tag der Beschlussfassung.</div>
+    </div>
+    <div class="frist__row">
+      <div class="frist__w">+ 2 Monate</div>
+      <div class="frist__x"><b>Anfechtungsklage begründen</b> — ebenfalls ab dem Tag der Beschlussfassung.</div>
+    </div>
+    <p class="frist__note"><b>Nicht ab Zugang des Protokolls.</b> Das ist der häufigste und
+    teuerste Irrtum: Wer auf die Niederschrift wartet, verliert seine Rechte, während er wartet
+    (§ 45 WEG). Die Klage ist gegen die Gemeinschaft der Wohnungseigentümer zu richten
+    (§ 44 Abs. 2 WEG). Ob eine Klage in Betracht kommt, gehört anwaltlich geprüft — <b>rechnen Sie
+    die Frist trotzdem am selben Abend aus und tragen Sie sie ein</b>.</p>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:21px;margin:38px 0 10px;color:var(--text)">Wenn das Protokoll nicht stimmt</h3>
+  <p class="slead">Weicht die Niederschrift von Ihrem Mitschrieb ab oder fehlt etwas, ist ein
+    Berichtigungs- und Ergänzungsverlangen der richtige Weg: sachlich, punktgenau, ohne Kommentar
+    zur Person. Ein Verlangen, das vier Angaben enthält, lässt sich schwer übergehen:</p>
+
+  <ul class="liste" style="--acc:var(--signal)">
+    <li><span class="box-check"></span><span><b>Welcher Tagesordnungspunkt</b>Nummer und Bezeichnung, so wie sie im Protokoll steht.</span></li>
+    <li><span class="box-check"></span><span><b>Welche Stelle</b>Der Satz aus dem Protokoll, um den es geht — zitiert, nicht beschrieben.</span></li>
+    <li><span class="box-check"></span><span><b>Was fehlt oder abweicht</b>Konkret: ein Antrag, ein Widerspruch, eine Zahl, eine Erklärung, das Abstimmungsergebnis.</span></li>
+    <li><span class="box-check"></span><span><b>Welche Fassung zutrifft</b>Ihr Formulierungsvorschlag, in einem Satz. Wer die Fassung mitliefert, macht die Berichtigung leicht.</span></li>
+  </ul>
+
+  <div class="merker" style="margin-top:20px;--acc:var(--signal);background:var(--signal-tint);border-color:var(--signal-soft)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--signal)"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    <div>Ein Berichtigungsverlangen <b>verlängert keine Frist</b>. Beides läuft parallel: die
+    Berichtigung und die Uhr aus § 45 WEG.</div>
+  </div>
+
+  <div class="merker" style="margin-top:14px;--acc:var(--erkenntnis);background:var(--erkenntnis-tint);border-color:var(--erkenntnis-soft)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--erkenntnis)"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    <div><b>Die Fristen im Zusammenhang.</b> Hier stehen sie verkürzt, damit sie im Saal
+    auffindbar sind. Wie sie sich in den Ablauf einer Versammlung einordnen — von der Einladung
+    über die Beschlussreife bis zur Niederschrift —, zeigt der
+    <a href="versammlung.html#zeitstrahl" style="color:var(--erkenntnis);font-weight:600">Zeitstrahl
+    der Eigentümerversammlung</a>; die ausführliche Fristendarstellung steht unter
+    <a href="versammlung.html#nachher" style="color:var(--erkenntnis);font-weight:600">Nach der
+    Versammlung</a>.</div>
+  </div>
+  </details>
+</section>
+
+<!-- ═══════════════ 5 · HALTUNG ═══════════════ -->
+<section class="wrap" style="--acc:var(--petrol)">
+  <details class="teil">
+    <summary class="shead">
+    <span class="num">Teil 6</span>
+    <h2>Drei Sätze für den Weg in den Saal</h2>
+    <span class="teil__c">3 Regeln</span>
+    <span class="teil__v" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    </summary>
+  <div class="srule"></div>
+  <p class="slead">Wenn Sie sich nichts anderes merken — diese drei tragen durch jede Situation,
+    die in dieser Unterlage nicht steht.</p>
+
+  <div class="regeln">
+    <div class="regel">
+      <h3>Zur Sache, nie zur Person.</h3>
+      <p>Sobald Sie über jemanden sprechen statt über die Frage, haben Sie das Thema gewechselt —
+      und das war meist der Zweck. Die Frage wiederholen ist stärker als jede Erwiderung.</p>
+    </div>
+    <div class="regel">
+      <h3>Fragen Sie nach der Grundlage, nicht nach dem Motiv.</h3>
+      <p>„Warum machen Sie das?“ ist ein Angriff und bleibt unbeantwortet. „Auf welcher Berechnung
+      beruht das?“ ist eine Frage, die beantwortet werden muss — oder sichtbar nicht wird.</p>
+    </div>
+    <div class="regel">
+      <h3>Was nicht im Protokoll steht, hat nicht stattgefunden.</h3>
+      <p>Jeder gute Beitrag ist ohne Protokollierung ein guter Abend gewesen. Ein protokollierter
+      Satz wirkt ein Jahr — und in der nächsten Versammlung noch einmal.</p>
+    </div>
+  </div>
+
+  <div class="mit mit--hell">
+    <div class="mit__k">Bevor Sie gehen — nehmen Sie etwas mit</div>
+    <div class="mit__r">
+      <a class="btn btn--p mit__b" href="documents/260824_Eigentuemerstimme_Saalkarte_v1.pdf">
+        Saalkarte als PDF
+        <em style="color:rgba(255,255,255,.8)">Vier Seiten A4 — das Blatt für den Saal</em>
+      </a>
+      <a class="btn mit__b" href="saalkarte.html">
+        Saalkarte im Browser drucken
+        <em>Ohne Download</em>
+      </a>
+      <button class="btn mit__b" type="button" onclick="window.print()">
+        Diese Seite drucken
+        <em>Die Vollfassung — alle Karten aufgeklappt</em>
+      </button>
+    </div>
+    <p class="mit__n">Ohne E-Mail-Abfrage, ohne Registrierung, ohne Zählpixel.</p>
+  </div>
+
+  <div class="disc">
+    <p><b>Allgemeine Information, keine Rechtsberatung.</b> Diese Unterlage erklärt, wie eine
+    Eigentümerversammlung verfahrensmäßig abläuft, und stellt Formulierungshilfen zur eigenen
+    Verwendung bereit. Sie ersetzt keine Beratung im Einzelfall und trifft keine Aussage zu Ihrer
+    konkreten Gemeinschaft. Paragraphen beziehen sich auf das Wohnungseigentumsgesetz, sofern nicht
+    anders angegeben. <b>Abweichende Regelungen in Gemeinschaftsordnung oder Teilungserklärung gehen
+    dem gesetzlichen Regelfall in vielen Punkten vor — lesen Sie Ihre eigene nach.</b> Rechtsstand
+    August 2026. Für die Vollständigkeit und Aktualität wird keine Gewähr übernommen.</p>
+    <p style="margin-top:14px">Herausgegeben von der Initiative <b>Eigentümerstimme e.&nbsp;V.
+    (in Gründung)</b> — gemeinnützig, anbieterunabhängig, ohne Verkaufsabsicht. Weitergabe an
+    andere Eigentümerinnen und Eigentümer ausdrücklich erwünscht.</p>
+  </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, München</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  // Oeffnet ein Element samt aller Ebenen darueber. Die Seite hat drei:
+  // Teil → Phase → Karte. Ohne das Aufklappen der Elternebenen zeigt ein
+  // Sprung auf #s7 auf etwas, das im zugeklappten Teil steckt.
+  function oeffneMitEltern(el){
+    var n = el;
+    while(n){
+      if(n.tagName === 'DETAILS') n.open = true;
+      n = n.parentElement;
+    }
+  }
+
+  var btn = document.getElementById('alleAuf');
+  var offen = false;
+  if(btn) btn.addEventListener('click', function(){
+    offen = !offen;
+    document.querySelectorAll('details.card, details.pgrp').forEach(function(d){ d.open = offen; });
+    if(offen) document.querySelectorAll('details.teil').forEach(function(d){ d.open = true; });
+    btn.lastChild.textContent = offen ? ' Alle Situationen zuklappen' : ' Alle Situationen aufklappen';
+  });
+  // Stichwortfilter über Chip-Beschriftung UND Karteninhalt
+  var feld = document.getElementById('filter');
+  if(feld){
+    var index = [];
+    document.querySelectorAll('.chip').forEach(function(c){
+      var ziel = document.querySelector(c.getAttribute('href'));
+      var text = (c.textContent + ' ' + (ziel ? ziel.textContent : '')).toLowerCase();
+      index.push({el:c, text:text});
+    });
+    var gruppen = document.querySelectorAll('.chipgruppe');
+    feld.addEventListener('input', function(){
+      var q = feld.value.trim().toLowerCase();
+      index.forEach(function(e){ e.el.hidden = q.length > 1 && e.text.indexOf(q) === -1; });
+      // Eine Gruppenueberschrift ohne sichtbare Chips darunter ist ein
+      // Sackgassen-Signal — solche Gruppen verschwinden mit.
+      var uebrig = 0;
+      gruppen.forEach(function(g){
+        var sichtbar = g.querySelectorAll('.chip:not([hidden])').length;
+        g.hidden = sichtbar === 0;
+        uebrig += sichtbar;
+      });
+      var leer = document.getElementById('nixgefunden');
+      if(leer) leer.hidden = !(q.length > 1 && uebrig === 0);
+    });
+  }
+
+  // Beim Drucken alles öffnen, danach den Zustand wiederherstellen —
+  // jetzt über alle drei Ebenen, nicht nur über die Karten.
+  var vorher = [];
+  window.addEventListener('beforeprint', function(){
+    vorher = [];
+    document.querySelectorAll('details').forEach(function(d){ vorher.push(d.open); d.open = true; });
+  });
+  window.addEventListener('afterprint', function(){
+    document.querySelectorAll('details').forEach(function(d,i){ d.open = vorher[i]; });
+  });
+  // Beim Sprung aus der Chip-Leiste die Zielkarte öffnen
+  function oeffneZiel(id){
+    if(!id || id.charAt(0) !== '#' || id.length < 2) return null;
+    var t;
+    try { t = document.querySelector(id); } catch(e){ return null; }
+    if(!t) return null;
+    oeffneMitEltern(t);
+    // Zielt die Marke auf einen Abschnitt (#leitung, #protokoll, #grundlage),
+    // sitzt der Aufklapper darin, nicht darueber — sonst landet der Sprung
+    // auf einer zugeklappten Zeile.
+    if(t.tagName !== 'DETAILS'){
+      var innen = t.querySelector(':scope > details, :scope > * > details');
+      if(innen) innen.open = true;
+    }
+    return t;
+  }
+  // Jeder seiteninterne Sprung klappt sein Ziel auf: die Chip-Leiste, die
+  // Verweise aus der Leitungsmatrix, die Querverweise im Text. Nicht nur die
+  // Chips — sonst haengt es daran, ob hashchange feuert, und das tut es
+  // nicht, wenn die Marke schon stimmt.
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(){ oeffneZiel(a.getAttribute('href')); });
+  });
+  // Ebenso beim direkten Aufruf mit Sprungmarke — QR-Code, geteilter Link,
+  // Verweis aus der Leitungsmatrix — und bei jedem spaeteren Wechsel der
+  // Marke. Ohne das bliebe die Karte zu und der Leser landete auf einer
+  // geschlossenen Zeile.
+  function ausHash(){
+    var t = oeffneZiel(window.location.hash);
+    // Nach dem Aufklappen erneut anspringen, sonst steht der Browser an der
+    // Position von vor dem Oeffnen.
+    if(t) t.scrollIntoView();
+  }
+  window.addEventListener('hashchange', ausHash);
+  ausHash();
+})();
+</script>
+
+</body>
+</html>

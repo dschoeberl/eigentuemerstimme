@@ -112,6 +112,26 @@
   .ziel td{padding:12px 16px 12px 0;border-bottom:1px solid var(--border);color:var(--text-soft);line-height:1.55;vertical-align:top}
   .ziel td:first-child{color:var(--text);font-weight:600;width:44%}
   .ziel tr:last-child td{border-bottom:none}
+  /* Tiefenlink auf die passende Situation im Sitzungsbegleiter. Diese Seite
+     sagt, welches Mittel passt; der Begleiter sagt, welcher Satz dazugehoert. */
+  .zref{display:inline-block;margin-top:7px;font-size:12.5px;font-weight:600;
+    color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .zref:hover{color:var(--petrol-dark);border-bottom-color:var(--stimme)}
+
+  /* Uebergang zum Sitzungsbegleiter — Rollenteilung der beiden Seiten:
+     hier steht, was moeglich ist, dort der Satz, der dazugehoert. */
+  .weiter{margin:26px 0 6px;padding:22px 24px;background:var(--petrol-dark);
+    border-radius:14px;color:#cfdedd}
+  .weiter__t{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;
+    color:#fff;margin-bottom:8px}
+  .weiter p{font-size:15px;line-height:1.6;color:#cfdedd;max-width:64ch}
+  .weiter p b{color:#fff;font-weight:600}
+  .weiter__a{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .weiter__a a{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;
+    padding:10px 16px;border-radius:9px;background:var(--stimme);color:#1a1a1a}
+  .weiter__a a + a{background:transparent;color:var(--stimme-soft);
+    border:1px solid rgba(233,211,166,.4)}
+  .weiter__a a:hover{background:var(--stimme-soft);color:var(--petrol-dark)}
 
   /* Fristen-Block (endgültige Fristen) */
   .frist-block{margin:18px 0;background:#fdf1ec;border:1px solid var(--signal-soft);border-left:4px solid var(--signal);border-radius:0 14px 14px 0;padding:22px 24px}
@@ -387,7 +407,9 @@
           sich per Geschäftsordnungsbeschluss herbeiführen.</p>
         <div class="box"><p>Vollmachten sind zulässig, verbreitet und für Eigentümer in Entfernung
           praktisch unverzichtbar. Es geht hier um <b>Bewusstsein, nicht um Misstrauen</b> — man
-          sollte nur wissen, wen man wozu bevollmächtigt hat.</p></div>
+          sollte nur wissen, wen man wozu bevollmächtigt hat.</p>
+          <p style="margin-top:10px"><a class="zref" href="begleiter.html#s7">Wenn die Lage im Saal
+          unklar bleibt: der Satz dazu — Situation A7 im Sitzungsbegleiter →</a></p></div>
 
         <h3>Unterlagen anfordern</h3>
         <p>Das Einsichtsrecht in die Verwaltungsunterlagen besteht <b>laufend</b>, nicht nur vor der
@@ -435,22 +457,35 @@
           gefehlt hat. Ein möglicher Wortlaut zum Diktat ins Protokoll:</p>
         <div class="box"><p><q style="font-style:italic">Ich widerspreche dem Beschluss zu TOP …
           und bitte um Protokollierung: Die Entscheidungsgrundlage — namentlich … — lag bis zur
-          Abstimmung nicht vor.</q></p></div>
+          Abstimmung nicht vor.</q></p>
+          <p style="margin-top:10px"><a class="zref" href="begleiter.html#s13">Aufbau, Zeitpunkt und
+          die Schritte danach — Situation C2 im Sitzungsbegleiter →</a></p></div>
 
         <table class="ziel">
           <caption>Was Sie erreichen wollen — und welcher Antrag dazu passt</caption>
           <thead><tr><th>Ihr Ziel</th><th>Das passende Mittel</th></tr></thead>
           <tbody>
-            <tr><td>Über mein Anliegen soll tatsächlich entschieden werden</td><td>Ausformulierter Beschlussantrag, rechtzeitig vor der Einladung eingereicht (§ 23 Abs. 2 WEG)</td></tr>
-            <tr><td>Ich brauche mehr Zeit, weil Unterlagen fehlen</td><td>Geschäftsordnungsantrag auf Vertagung — mit der Angabe, was bis wann fehlt</td></tr>
-            <tr><td>Die Reihenfolge benachteiligt mein Thema</td><td>Geschäftsordnungsantrag zur Tagesordnung, gleich zu Beginn</td></tr>
-            <tr><td>Der Beschluss soll kommen, aber eine offene Frage geklärt werden</td><td>Beschluss mit Klärungsvorbehalt oder ein Prüfauftrag als zweiter Beschluss</td></tr>
-            <tr><td>Eine Aussage soll nachweisbar bleiben</td><td>Antrag auf Protokollierung einer Erklärung</td></tr>
-            <tr><td>Ich brauche Unterlagen</td><td>Beschlussantrag auf Vorlage mit Frist statt einer Bitte im Gespräch</td></tr>
+            <tr><td>Über mein Anliegen soll tatsächlich entschieden werden</td><td>Ausformulierter Beschlussantrag, rechtzeitig vor der Einladung eingereicht (§ 23 Abs. 2 WEG)<br><a class="zref" href="begleiter.html#s1">Der Satz dazu — Situation A1 im Sitzungsbegleiter →</a></td></tr>
+            <tr><td>Ich brauche mehr Zeit, weil Unterlagen fehlen</td><td>Geschäftsordnungsantrag auf Vertagung — mit der Angabe, was bis wann fehlt<br><a class="zref" href="begleiter.html#s2">Der Satz dazu — Situation A2 im Sitzungsbegleiter →</a></td></tr>
+            <tr><td>Die Reihenfolge benachteiligt mein Thema</td><td>Geschäftsordnungsantrag zur Tagesordnung, gleich zu Beginn<br><a class="zref" href="begleiter.html#s4">Der Satz dazu — Situation A4 im Sitzungsbegleiter →</a></td></tr>
+            <tr><td>Der Beschluss soll kommen, aber eine offene Frage geklärt werden</td><td>Beschluss mit Klärungsvorbehalt oder ein Prüfauftrag als zweiter Beschluss<br><a class="zref" href="begleiter.html#s16">Der Satz dazu — Situation B5 im Sitzungsbegleiter →</a></td></tr>
+            <tr><td>Eine Aussage soll nachweisbar bleiben</td><td>Antrag auf Protokollierung einer Erklärung<br><a class="zref" href="begleiter.html#s11">Der Satz dazu — Situation B4 im Sitzungsbegleiter →</a></td></tr>
+            <tr><td>Ich brauche Unterlagen</td><td>Beschlussantrag auf Vorlage mit Frist statt einer Bitte im Gespräch<br><a class="zref" href="begleiter.html#s3">Der Satz dazu — Situation A3 im Sitzungsbegleiter →</a></td></tr>
             <tr><td>Ich will Vergleichsangebote sichern</td><td>Beschluss über eine Angebotsregel ab einem Schwellenwert — allgemein und für die Zukunft</td></tr>
-            <tr><td>Ich bin überstimmt worden</td><td>Widerspruch zu Protokoll, Datum notieren, Frist nach § 45 WEG in den Kalender</td></tr>
+            <tr><td>Ich bin überstimmt worden</td><td>Widerspruch zu Protokoll, Datum notieren, Frist nach § 45 WEG in den Kalender<br><a class="zref" href="begleiter.html#s13">Der Satz dazu — Situation C2 im Sitzungsbegleiter →</a></td></tr>
           </tbody>
         </table>
+
+        <div class="weiter">
+          <div class="weiter__t">Und was sage ich dann?</div>
+          <p>Diese Seite erklärt, <b>was möglich ist</b>. Der Sitzungsbegleiter sagt, <b>welcher Satz
+          dazugehört</b> — achtzehn Situationen, jeweils mit dem Wortlaut zum Vorlesen, den nächsten
+          Schritten, wenn er nicht reicht, und dem, was davon ins Protokoll gehört.</p>
+          <p class="weiter__a">
+            <a href="begleiter.html">Zum Sitzungsbegleiter</a>
+            <a href="saalkarte.html">Die Saalkarte — vier Seiten zum Mitnehmen</a>
+          </p>
+        </div>
       </section>
 
       <!-- KAPITEL 3 — NACH DER VERSAMMLUNG -->
@@ -692,7 +727,7 @@
 <footer>
   <div class="wrap">
     <div class="frow">
-      <div><b>Eigentümerstimme</b> — Initiative in Gründung, Erfurt</div>
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, München</div>
       <div class="fnav">
         <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
         <span>·</span>
