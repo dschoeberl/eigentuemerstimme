@@ -156,15 +156,25 @@
   .weg__arrow--right{left:75%;top:50%;transform:translate(-50%,-50%) rotate(90deg)}
   .weg__arrow--bottom{left:50%;top:75%;transform:translate(-50%,-50%) rotate(180deg)}
   .weg__arrow--left{left:25%;top:50%;transform:translate(-50%,-50%) rotate(-90deg)}
-  /* Flip-Kachel */
-  .wt{perspective:1300px;height:200px;cursor:pointer;display:block}
+  /* Etappen-Kachel. Nur Etappe 1 dreht sich — dort passt genau eine Nutzlast auf die
+     Rueckseite (ein Absatz, ein Ziel). Etappe 2 und 4 haben noch keinen Inhalt und
+     drehen deshalb gar nicht; ein Klick, der "entsteht gerade" liefert, kostet Vertrauen.
+     Etappe 3 traegt neun Seiten — die stehen offen im Panel unter dem Kreislauf. */
+  .wt{perspective:1300px;height:200px;display:block;text-decoration:none}
+  .wt--flip,.wt--aktiv{cursor:pointer}
   .wt--1{grid-area:s1}.wt--2{grid-area:s2}.wt--3{grid-area:s3}.wt--4{grid-area:s4}
-  .wt-toggle:focus-visible + .wt{outline:none;border-radius:18px;box-shadow:0 0 0 3px var(--stimme)}
+  .wt-toggle:focus-visible + .wt,.wt--aktiv:focus-visible{outline:none;border-radius:18px;box-shadow:0 0 0 3px var(--stimme)}
   .wt-in{display:block;position:relative;width:100%;height:100%;transition:transform .62s cubic-bezier(.4,.1,.2,1);transform-style:preserve-3d}
   .wt-toggle:checked + .wt .wt-in{transform:rotateY(180deg)}
   .wt-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;box-sizing:border-box;overflow:hidden}
-  .wt-front{color:#fff;box-shadow:0 10px 26px rgba(26,53,53,.16);transition:transform .2s,box-shadow .2s}
-  .wt:hover .wt-front{transform:translateY(-4px);box-shadow:0 20px 44px rgba(26,53,53,.30)}
+  /* Die abgewandte Seite wird zur Flip-Mitte (.31s = halbe Dauer) wirklich unsichtbar.
+     backface-visibility versteckt nur optisch — die Links blieben sonst in der
+     Tabreihenfolge und im Screenreader. */
+  .wt-front{color:#fff;box-shadow:0 10px 26px rgba(26,53,53,.16);visibility:visible;transition:transform .2s,box-shadow .2s,visibility 0s linear .31s}
+  .wt-back{background:#fff;border:1px solid var(--border);transform:rotateY(180deg);overflow:auto;visibility:hidden;transition:visibility 0s linear .31s}
+  .wt-toggle:checked + .wt .wt-front{visibility:hidden}
+  .wt-toggle:checked + .wt .wt-back{visibility:visible}
+  .wt--flip:hover .wt-front,.wt--aktiv:hover .wt-front{transform:translateY(-4px);box-shadow:0 20px 44px rgba(26,53,53,.30)}
   .wt--1 .wt-front{background:linear-gradient(145deg,#cf9433,#9c650e)}
   .wt--2 .wt-front{background:linear-gradient(145deg,#23726e,#134c4a)}
   .wt--3 .wt-front{background:linear-gradient(145deg,#31708f,#1b4257)}
@@ -172,31 +182,77 @@
   .wt__n{font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:700;letter-spacing:.12em;opacity:.95}
   .wt__t{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,2.9vw,30px);font-weight:600;line-height:1.1;margin-top:auto;text-shadow:0 1px 4px rgba(15,32,32,.35)}
   .wt__hint{margin-top:9px;font-size:11px;letter-spacing:.03em;opacity:.82;padding-right:34px}
+  .wt__vor{margin-top:8px;font-size:12px;line-height:1.45;opacity:.9;padding-right:38px}
   .wt__badge{position:absolute;top:15px;right:15px;font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 9px;border-radius:999px}
-  .wt-back{background:#fff;border:1px solid var(--border);transform:rotateY(180deg);overflow:auto}
   .wt__bt{font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:600;color:var(--petrol-dark);line-height:1.2}
-  .wt-back p{font-size:12.5px;color:var(--text-soft);line-height:1.5;margin:7px 0 11px}
-  .wt__links{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:7px}
-  .wt__links a{display:flex;align-items:center;justify-content:flex-start;min-height:34px;font-size:11.5px;font-weight:600;color:#fff;text-decoration:none;background:var(--petrol);border-radius:9px;padding:6px 11px;line-height:1.18;transition:background .15s,transform .15s}
-  .wt__links a:hover{background:var(--petrol-dark);transform:translateY(-1px)}
-  .wt__links a:only-child{grid-column:1/-1;justify-content:center}
-  /* Buttons je Kachel in deren Hauptfarbe */
-  .wt--1 .wt__links a{background:#a06913}
-  .wt--1 .wt__links a:hover{background:#82540c}
-  .wt--3 .wt__links a{background:#2f6e8c}
-  .wt--3 .wt__links a:hover{background:#234f66}
-  .wt__soon{margin-top:auto;font-size:12px;color:var(--text-mute);font-style:italic}
-  /* Immer sichtbare Dreh-Badge */
+  .wt-back p{font-size:12.5px;color:var(--text-soft);line-height:1.48;margin:6px 0 9px}
+  .wt__links{margin-top:auto}
+  .wt__links a{display:flex;align-items:center;justify-content:center;min-height:36px;font-size:12px;font-weight:600;color:#fff;text-decoration:none;background:#a06913;border-radius:9px;padding:6px 12px;transition:background .15s,transform .15s}
+  .wt__links a:hover{background:#82540c;transform:translateY(-1px)}
+  /* Badge unten rechts: Etappe 1 dreht (Pfeilkreis), Etappe 3 fuehrt nach unten (Chevron) */
   .wt-face::after{content:"";position:absolute;right:12px;bottom:12px;width:26px;height:26px;border-radius:50%;background-position:center;background-size:14px;background-repeat:no-repeat;pointer-events:none;transition:transform .25s}
   .wt-front::after{background-color:rgba(255,255,255,.2);background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23fff'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%2011.5a8%208%200%201%200-2.4%205.7'/%3E%3Cpath%20d='M20%205v6.5h-6.5'/%3E%3C/svg%3E")}
   .wt-back::after{background-color:var(--stimme-tint);background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%231a5c5a'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%2011.5a8%208%200%201%200-2.4%205.7'/%3E%3Cpath%20d='M20%205v6.5h-6.5'/%3E%3C/svg%3E")}
-  .wt:hover .wt-front::after{transform:rotate(-40deg)}
+  .wt--flip:hover .wt-front::after{transform:rotate(-40deg)}
+  .wt--statisch .wt-front::after{display:none}
+  .wt--aktiv .wt-front::after{display:block;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23fff'%20stroke-width='2.6'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%205v14'/%3E%3Cpath%20d='M5%2012l7%207%207-7'/%3E%3C/svg%3E")}
+  .wt--aktiv:hover .wt-front::after{transform:translateY(3px)}
+
+  /* Praxis-Panel — die neun Seiten der Etappe 3 stehen offen unter dem Kreislauf,
+     statt hinter einer Kartenrueckseite mit Innenscroll zu liegen.
+     Drei Gruppen, drei Fragen, drei Farben aus der Hauspalette: Amber = die
+     Verwaltung (Welt WEG), Petrol = die Versammlung (der Verein selbst),
+     Erkenntnisblau = die Nachschlagewerke (Welt Wissenschaft). Die Leiste oben
+     nimmt die drei Farben als Drittel vorweg — sie steht genau ueber ihren Spalten. */
+  .felder{margin-top:34px;background:#fff;border:1px solid var(--border);border-radius:5px 5px 18px 18px;box-shadow:0 18px 44px rgba(26,53,53,.10);padding-bottom:28px;scroll-margin-top:90px;overflow:hidden}
+  .felder__rule{height:5px;background:linear-gradient(90deg,#a06913 0 33.333%,var(--petrol) 33.333% 66.666%,var(--erkenntnis) 66.666%)}
+  .felder__kopf{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;padding:24px 28px 0}
+  .felder__mark{font-family:'Playfair Display',Georgia,serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--petrol-dark);border-radius:999px;padding:4px 12px}
+  .felder__kopf h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.2vw,23px);font-weight:600;color:var(--petrol-dark)}
+  .felder__intro{margin:10px 28px 0;max-width:62ch;font-size:15px;color:var(--text-soft)}
+  .felder__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 28px 0}
+  .fgruppe{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:13px;overflow:hidden}
+  .fgruppe__kopf{font-family:'Playfair Display',Georgia,serif;font-size:14.5px;font-weight:600;color:#fff;line-height:1.25;padding:11px 15px;margin:0}
+  .fgruppe__liste{display:flex;flex-direction:column;gap:8px;padding:10px;flex:1}
+  .fgruppe--verwaltung .fgruppe__kopf{background:#a06913}
+  .fgruppe--verwaltung .fgruppe__liste{background:var(--stimme-tint)}
+  .fgruppe--versammlung .fgruppe__kopf{background:var(--petrol)}
+  .fgruppe--versammlung .fgruppe__liste{background:#e7efee}
+  .fgruppe--nachschlagen .fgruppe__kopf{background:var(--erkenntnis)}
+  .fgruppe--nachschlagen .fgruppe__liste{background:var(--erkenntnis-tint)}
+  .feld{display:flex;flex-direction:column;text-decoration:none;background:#fff;border:1px solid rgba(26,53,53,.10);border-radius:9px;padding:12px 14px 13px;transition:border-color .18s,transform .18s,box-shadow .18s}
+  .feld:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(26,53,53,.13)}
+  .fgruppe--verwaltung .feld:hover{border-color:#a06913}
+  .fgruppe--versammlung .feld:hover{border-color:var(--petrol)}
+  .fgruppe--nachschlagen .feld:hover{border-color:var(--erkenntnis)}
+  .feld__t{font-size:14.5px;font-weight:600;color:var(--petrol-dark);display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .feld__t::after{content:"→";font-weight:400;opacity:.5;transition:transform .18s,opacity .18s}
+  .fgruppe--verwaltung .feld__t::after{color:#a06913}
+  .fgruppe--versammlung .feld__t::after{color:var(--petrol)}
+  .fgruppe--nachschlagen .feld__t::after{color:var(--erkenntnis)}
+  .feld:hover .feld__t::after{opacity:1;transform:translateX(3px)}
+  .feld__d{margin-top:4px;font-size:12.5px;line-height:1.45;color:var(--text-soft)}
   .weg__loop{margin-top:26px;display:flex;align-items:flex-start;gap:11px;color:var(--text-soft);font-size:14.5px;font-style:italic;max-width:66ch}
   .weg__loop b{color:var(--petrol-dark);font-style:normal;font-weight:600}
   .weg__loopic{flex:0 0 auto;font-style:normal;font-size:24px;color:var(--stimme);line-height:1.1}
+  /* Die Gruppierung ueberlebt jede Breite — nur die Flussrichtung dreht sich:
+     drei Spalten, dann drei Baender mit je drei Karten nebeneinander, dann alles
+     untereinander. Sobald die Drittel nicht mehr ueber ihren Spalten stehen,
+     wird die Kopfleiste zum weichen Verlauf. */
+  @media(max-width:900px){
+    .felder__grid{grid-template-columns:1fr;gap:14px}
+    .felder__rule{background:linear-gradient(90deg,#a06913,var(--petrol) 50%,var(--erkenntnis))}
+    .fgruppe__liste{display:grid;grid-template-columns:repeat(3,1fr)}
+  }
   @media(max-width:720px){
     .weg__cycle{grid-template-columns:1fr;grid-template-areas:"s1" "s2" "s3" "s4";gap:16px;margin-top:28px;max-width:460px}
     .weg__arrow{display:none}
+    .wt{height:230px}
+    .felder{max-width:460px;margin-left:auto;margin-right:auto;padding-bottom:22px}
+    .felder__kopf{padding:20px 18px 0}
+    .felder__intro{margin:9px 18px 0}
+    .felder__grid{margin:18px 18px 0}
+    .fgruppe__liste{grid-template-columns:1fr}
   }
 
   /* Einstiegsrampe — problemgetriebener Einstieg (dunkles Petrol-Band) */
@@ -342,7 +398,7 @@
       <span class="weg__arrow weg__arrow--left" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
 
       <input type="checkbox" id="wt-1" class="wt-toggle">
-      <label class="wt wt--1" for="wt-1">
+      <label class="wt wt--1 wt--flip" for="wt-1">
         <span class="wt-in">
           <span class="wt-face wt-front">
             <span class="wt__n">Etappe 1</span>
@@ -351,75 +407,114 @@
           </span>
           <span class="wt-face wt-back">
             <span class="wt__bt">Vor dem Kauf</span>
-            <p>Welche Unterlagen Sie über den Verkäufer anfordern und worauf Sie achten. Als Interessent haben Sie kein eigenes Einsichtsrecht — entscheidend ist die Mitwirkung des Verkäufers (in der Praxis meist über seinen Makler).</p>
+            <p>Welche Unterlagen Sie über den Verkäufer anfordern — und worauf Sie achten. Ein eigenes Einsichtsrecht haben Sie als Interessent nicht; entscheidend ist die Mitwirkung des Verkäufers.</p>
             <span class="wt__links"><a href="vor-dem-kauf.html">Zur Seite →</a></span>
           </span>
         </span>
       </label>
 
-      <input type="checkbox" id="wt-2" class="wt-toggle">
-      <label class="wt wt--2" for="wt-2">
+      <div class="wt wt--2 wt--statisch">
         <span class="wt-in">
           <span class="wt-face wt-front">
             <span class="wt__badge">In Vorbereitung</span>
             <span class="wt__n">Etappe 2</span>
             <span class="wt__t">Übernehmen</span>
-            <span class="wt__hint">Antippen für Details</span>
-          </span>
-          <span class="wt-face wt-back">
-            <span class="wt__bt">Übernehmen</span>
-            <p>Was die Verwaltung wann liefern muss, ob das Portal vollständig ist und wer dafür sorgt, dass nichts fehlt — Vorbesitzer oder Verwaltung.</p>
-            <span class="wt__soon">Dieser Abschnitt entsteht gerade.</span>
+            <span class="wt__vor">Was die Verwaltung wann liefern muss — und wer dafür sorgt, dass nichts fehlt.</span>
           </span>
         </span>
-      </label>
+      </div>
 
-      <input type="checkbox" id="wt-3" class="wt-toggle">
-      <label class="wt wt--3" for="wt-3">
+      <a class="wt wt--3 wt--statisch wt--aktiv" href="#praxis-felder">
         <span class="wt-in">
           <span class="wt-face wt-front">
             <span class="wt__n">Etappe 3</span>
             <span class="wt__t">Besitzen &amp; Verwalten</span>
-            <span class="wt__hint">Antippen für die Praxis-Seiten</span>
-          </span>
-          <span class="wt-face wt-back">
-            <span class="wt__bt">Besitzen &amp; Verwalten</span>
-            <p>Ihre Praxis-Felder für die Jahre, in denen Ihnen die Wohnung gehört:</p>
-            <span class="wt__links">
-              <a href="verwalter.html">Verwalter</a>
-              <a href="verwaltung-waehlen.html">Verwaltung wählen</a>
-              <a href="versammlung.html">Versammlung</a>
-              <a href="begleiter.html">Sitzungsbegleiter</a>
-              <a href="beirat.html">Beirat</a>
-              <a href="vertrag.html">Vertrag</a>
-              <a href="heizkosten.html">Heizkosten</a>
-              <a href="guideline.html">Guideline</a>
-              <a href="wegweiser.html">Wegweiser</a>
-            </span>
+            <span class="wt__vor">Neun Praxis-Felder — gleich hier darunter.</span>
           </span>
         </span>
-      </label>
+      </a>
 
-      <input type="checkbox" id="wt-4" class="wt-toggle">
-      <label class="wt wt--4" for="wt-4">
+      <div class="wt wt--4 wt--statisch">
         <span class="wt-in">
           <span class="wt-face wt-front">
             <span class="wt__badge">In Vorbereitung</span>
             <span class="wt__n">Etappe 4</span>
             <span class="wt__t">Verkaufen</span>
-            <span class="wt__hint">Antippen für Details</span>
-          </span>
-          <span class="wt-face wt-back">
-            <span class="wt__bt">Verkaufen</span>
-            <p>Aus Verkäufersicht: welche Unterlagen Sie bereitstellen, was einen Käufer überzeugt — und welche Kosten der Eigentümerwechsel auslöst.</p>
-            <span class="wt__soon">Dieser Abschnitt entsteht gerade.</span>
+            <span class="wt__vor">Aus Verkäufersicht: welche Unterlagen überzeugen — und was der Wechsel kostet.</span>
           </span>
         </span>
-      </label>
+      </div>
     </div>
 
     <p class="weg__loop"><span class="weg__loopic" aria-hidden="true">↻</span> <span>Der Kreislauf läuft im Uhrzeigersinn — und für die <b>nächsten Eigentümer</b> beginnt der Weg von vorn. Was bleibt, ist die
       Gemeinschaft — und die Verwaltung, die jede Station begleitet.</span></p>
+
+    <div class="felder" id="praxis-felder">
+      <div class="felder__rule" aria-hidden="true"></div>
+      <div class="felder__kopf">
+        <span class="felder__mark">Etappe 3</span>
+        <h3>Ihre Praxis-Felder</h3>
+      </div>
+      <p class="felder__intro">Für die Jahre, in denen Ihnen die Wohnung gehört — sortiert nach der
+        Frage, die dahintersteht.</p>
+      <div class="felder__grid">
+
+        <div class="fgruppe fgruppe--verwaltung">
+          <h4 class="fgruppe__kopf">Wer verwaltet — und wie gut?</h4>
+          <div class="fgruppe__liste">
+            <a class="feld" href="verwalter.html">
+              <span class="feld__t">Verwalter</span>
+              <span class="feld__d">Woran Sie gute Verwaltung erkennen — und woran nicht.</span>
+            </a>
+            <a class="feld" href="vertrag.html">
+              <span class="feld__t">Vertrag</span>
+              <span class="feld__d">Baustein für Baustein: Laufzeit, Vergütung, Kontrolle.</span>
+            </a>
+            <a class="feld" href="verwaltung-waehlen.html">
+              <span class="feld__t">Verwaltung wählen</span>
+              <span class="feld__d">Die drei Kostenebenen — und welcher Preis wirklich entscheidet.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="fgruppe fgruppe--versammlung">
+          <h4 class="fgruppe__kopf">Wo entschieden wird</h4>
+          <div class="fgruppe__liste">
+            <a class="feld" href="versammlung.html">
+              <span class="feld__t">Versammlung</span>
+              <span class="feld__d">Vorher, im Saal, danach: Fristen, Ziele, Werkzeuge.</span>
+            </a>
+            <a class="feld" href="begleiter.html">
+              <span class="feld__t">Sitzungsbegleiter</span>
+              <span class="feld__d">Achtzehn Situationen im Saal — und der Satz, der dazugehört.</span>
+            </a>
+            <a class="feld" href="beirat.html">
+              <span class="feld__t">Beirat</span>
+              <span class="feld__d">Rolle, Rechte, Grenzen — und wer das Risiko trägt.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="fgruppe fgruppe--nachschlagen">
+          <h4 class="fgruppe__kopf">Nachschlagen und nachrechnen</h4>
+          <div class="fgruppe__liste">
+            <a class="feld" href="wegweiser.html">
+              <span class="feld__t">Wegweiser</span>
+              <span class="feld__d">Geprüfte Top-Fragen mit Rechtsgrundlage und Quelle.</span>
+            </a>
+            <a class="feld" href="guideline.html">
+              <span class="feld__t">Guideline</span>
+              <span class="feld__d">WEG, Rollen, Entscheidungen — mit den §§ zum Nachlesen.</span>
+            </a>
+            <a class="feld" href="heizkosten.html">
+              <span class="feld__t">Heizkosten</span>
+              <span class="feld__d">Die Rechenprobe: vier Zahlen, fünf Minuten.</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 
