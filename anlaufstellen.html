@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wohin, wenn es hakt? Anlaufstellen für Wohnungseigentümer — Eigentümerstimme</title>
+<meta name="description" content="Welche Wege es gibt, wenn ein Wohnungseigentümer mit Verwaltung oder Gemeinschaft nicht weiterkommt: von der eigenen Nachfrage bis zum Gericht, mit Zuständigkeit, Grenzen und Kosten jeder Stufe. Allgemeine Information, keine Rechtsberatung.">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg-light);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  /* Hero — noch ohne Motiv, Petrol-Fläche wie der Fallback der übrigen Seiten */
+  .ghead{background-color:var(--petrol-dark);color:#fff;position:relative;overflow:hidden;padding:60px 0 58px}
+  .ghead .lead-label{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--stimme-soft);margin-bottom:18px}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(28px,4.5vw,44px);line-height:1.12;letter-spacing:-.01em;color:#fff;max-width:22ch}
+  .ghead .accentline{width:60px;height:3px;background:var(--stimme);margin:22px 0 0}
+  .ghead .intro{margin-top:24px;max-width:64ch;color:#d7e2e1;font-size:17px}
+  .ghead .intro b{color:#fff;font-weight:600}
+  .ghead .stand{margin-top:16px;font-size:13px;color:#aebfbe}
+
+  .cluster h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(21px,2.7vw,28px);color:var(--petrol-dark);font-weight:600;margin-bottom:14px;max-width:30ch}
+  .cluster > .guide > p{font-size:16px;color:var(--text-soft);max-width:70ch;margin-bottom:16px}
+  .cluster > .guide > p b{color:var(--text)}
+  section.alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+  /* Frist-Hinweis — steht vor der Leiter, weil keine frühe Stufe die Frist anhält */
+  .frist{background:#fff;border:1px solid var(--border);border-left:4px solid var(--signal);border-radius:0 14px 14px 0;padding:18px 22px;max-width:820px;margin-top:6px}
+  .frist p{font-size:15px;color:var(--text-soft);margin:0;line-height:1.6}
+  .frist b{color:var(--text);font-weight:600}
+
+  /* Stufenleiter — echte Reihenfolge, daher nummeriert */
+  .stufen{list-style:none;margin:10px 0 0;padding:0;max-width:900px;counter-reset:stufe}
+  .stufe{counter-increment:stufe;position:relative;padding:0 0 26px 52px}
+  .stufe::before{content:counter(stufe);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:10px;background:var(--petrol);color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:16px;display:grid;place-items:center}
+  .stufe::after{content:"";position:absolute;left:16px;top:40px;bottom:6px;width:2px;background:var(--border)}
+  .stufe:last-child{padding-bottom:0}
+  .stufe:last-child::after{display:none}
+  .stufe--gericht::before{background:var(--signal)}
+  .stufe h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--petrol-dark);line-height:1.25;padding-top:4px}
+  .stufe > p{margin-top:8px;font-size:15px;color:var(--text-soft);max-width:70ch;line-height:1.6}
+  .fakten{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+  section.alt .fakten{background:var(--bg-light)}
+  @media(max-width:680px){.fakten{grid-template-columns:1fr}}
+  .fakten dt{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-mute)}
+  .fakten dd{margin:2px 0 0;font-size:14.5px;color:var(--text-soft);line-height:1.55}
+  .stufe .quelle{margin-top:10px;font-size:13px;color:var(--text-mute);line-height:1.55}
+  .stufe a,.befund a,.quelle a{color:var(--petrol);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stimme-soft)}
+  .stufe a:hover,.befund a:hover{border-bottom-color:var(--petrol)}
+
+  /* Was fehlt — Befund, keine Forderung */
+  .befund{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;max-width:820px}
+  .befund li{padding-left:18px;border-left:3px solid var(--stimme-soft);font-size:15.5px;color:var(--text-soft);line-height:1.6}
+  .befund .hint{display:block;margin-top:4px;color:var(--text-mute);font-style:italic;font-size:13.5px}
+
+  .stimmeblock{background:#fff;border:1px solid var(--border);border-left:4px solid var(--stimme);border-radius:0 16px 16px 0;padding:24px 26px;max-width:820px}
+  .stimmeblock p{font-size:16px;color:var(--text-soft);margin:0 0 12px}
+  .stimmeblock p:last-child{margin-bottom:0}
+
+  .disc{margin-top:26px;font-size:13.5px;color:var(--text-mute);line-height:1.6;max-width:74ch;font-style:italic}
+  .weiter{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+  .weiter a{display:inline-flex;align-items:center;gap:8px;color:var(--petrol);font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--stimme);padding-bottom:2px;align-self:flex-start}
+
+  main{padding-bottom:72px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headrow">
+    <div class="headleft">
+      <a href="/" class="brand">Eigentümer<span class="stimme">stimme</span></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle">
+      <label for="navtoggle" class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></label>
+      <nav class="mainnav"><a href="warum.html">Warum wir</a><a href="index.html#der-weg">Der Weg</a><a href="guideline.html">Guideline</a><a href="wegweiser.html">Wegweiser</a><a href="zeitstrahl.html">Zeitstrahl</a><a href="wissenschaft.html">Wissenschaft</a></nav>
+    </div>
+    <span class="badge"><span class="dot"></span> Initiative in Gründung</span>
+  </div>
+</header>
+
+<main>
+  <div class="ghead">
+    <div class="guide">
+      <div class="lead-label">Anlaufstellen</div>
+      <h1>Wohin, wenn es hakt?</h1>
+      <div class="accentline"></div>
+      <p class="intro">Sie haben nachgefragt, die Antwort reicht Ihnen nicht, und in der Gemeinschaft
+        bewegt sich nichts. Dann stellt sich die Frage nach dem nächsten Schritt. Diese Seite ordnet
+        die Wege, die es gibt, von früh nach spät: wofür jeder da ist, wo er endet, was er kostet und
+        wer ihn anstoßen kann.</p>
+      <p class="stand">Stand: 10.10.2026</p>
+    </div>
+  </div>
+
+  <section class="cluster">
+    <div class="guide">
+      <h2>Vorweg: die Frist</h2>
+      <div class="frist">
+        <p>Geht es um einen Beschluss, den Sie für fehlerhaft halten, läuft ab der Versammlung eine
+          Frist: Die Anfechtungsklage muss <b>innerhalb eines Monats</b> erhoben und innerhalb zweier
+          Monate begründet werden (<a href="https://www.gesetze-im-internet.de/woeigg/__45.html" target="_blank" rel="noopener">§ 45 WEG</a>).
+          Ein Gespräch, eine Moderation oder eine Mediation hält diese Frist nicht an. Wer früh klären
+          will und zugleich einen Beschluss angreifen möchte, sollte beides parallel im Blick behalten
+          und die Frist anwaltlich prüfen lassen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cluster alt">
+    <div class="guide">
+      <h2>Die Stufen, von früh nach spät</h2>
+      <p>Die Reihenfolge ist eine Orientierung. Nicht jede Stufe passt zu jedem Anliegen, und manche
+        lassen sich überspringen.</p>
+
+      <ol class="stufen">
+        <li class="stufe">
+          <h3>Selbst nachfragen</h3>
+          <p>Der erste Schritt bleibt der unscheinbarste: die Unterlagen ansehen und die Frage schriftlich
+            stellen, mit Datum und einer angemessenen Frist. Jede Eigentümerin und jeder Eigentümer kann
+            Einsicht in die Verwaltungsunterlagen verlangen. Gerichtet ist dieser Anspruch an die
+            Gemeinschaft, ausgeübt wird er in der Praxis bei der Verwaltung. Lässt sich die Frage nur
+            in der Versammlung klären, können Sie beantragen, sie auf die Tagesordnung zu setzen.</p>
+          <dl class="fakten">
+            <div><dt>Wofür</dt><dd>Sachverhalt klären, Belege sehen, ein Anliegen in die Versammlung bringen.</dd></div>
+            <div><dt>Wofür nicht</dt><dd>Eine Entscheidung erzwingen. Beschlossen wird in der Versammlung, mit Mehrheit.</dd></div>
+            <div><dt>Kosten</dt><dd>Keine, abgesehen von eigenem Aufwand und gegebenenfalls Kopien.</dd></div>
+            <div><dt>Wer stößt an</dt><dd>Sie selbst.</dd></div>
+          </dl>
+          <p class="quelle">Rechtsgrundlage: <a href="https://www.gesetze-im-internet.de/woeigg/__18.html" target="_blank" rel="noopener">§ 18 Abs. 4 WEG</a> (Einsicht);
+            <a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 2 WEG</a> (Einberufung auf Verlangen von mehr als einem Viertel).
+            Ausführlicher im <a href="wegweiser.html">Wegweiser</a>.</p>
+        </li>
+
+        <li class="stufe">
+          <h3>Den Beirat einbinden</h3>
+          <p>Wo es einen Verwaltungsbeirat gibt, unterstützt und überwacht er die Verwaltung. Gegenüber dem
+            Verwalter vertritt der Beiratsvorsitz die Gemeinschaft. Ein Anliegen, das der Beirat aufnimmt,
+            ist keine Einzelmeinung mehr.</p>
+          <dl class="fakten">
+            <div><dt>Wofür</dt><dd>Prüfen, nachfragen, Themen für die Versammlung vorbereiten.</dd></div>
+            <div><dt>Wofür nicht</dt><dd>Entscheiden oder schlichten. Der Beirat ist ein Gremium der Gemeinschaft, kein neutraler Dritter, und nicht jede Gemeinschaft hat einen.</dd></div>
+            <div><dt>Kosten</dt><dd>Keine. Das Amt ist ein Ehrenamt.</dd></div>
+            <div><dt>Wer stößt an</dt><dd>Sie, über ein Beiratsmitglied.</dd></div>
+          </dl>
+          <p class="quelle">Rechtsgrundlage: <a href="https://www.gesetze-im-internet.de/woeigg/__29.html" target="_blank" rel="noopener">§ 29 WEG</a>;
+            <a href="https://www.gesetze-im-internet.de/woeigg/__9b.html" target="_blank" rel="noopener">§ 9b Abs. 2 WEG</a>.
+            Mehr dazu auf der Seite <a href="beirat.html">Der Beirat</a>.</p>
+        </li>
+
+        <li class="stufe">
+          <h3>Das Gespräch neutral führen lassen: Moderation, Mediation</h3>
+          <p>Wenn die Beteiligten noch miteinander reden wollen, es aber nicht mehr allein schaffen, kann
+            eine neutrale Person helfen. In der Versammlung kann die Gemeinschaft den Vorsitz für einzelne
+            Punkte jemand anderem als dem Verwalter übertragen. Außerhalb der Versammlung gibt es
+            Moderation und Mediation.</p>
+          <p>Mediation ist ein vertrauliches, strukturiertes Verfahren, in dem die Beteiligten selbst eine
+            Lösung suchen. Sie ist <b>freiwillig</b>: Sie funktioniert nur, wenn alle mitmachen, und jede
+            Seite kann sie beenden. Was dabei herauskommt, muss die Gemeinschaft, wo nötig, noch
+            beschließen.</p>
+          <p>Einige Städte unterhalten kommunale Stellen für Nachbarschafts- oder Gemeinwesenmediation, die
+            ausdrücklich auch Eigentümergemeinschaften offenstehen, in München etwa die
+            <a href="https://stadt.muenchen.de/service/info/vermittlung-bei-konflikten-im-stadtgebiet-munchen/10223325/" target="_blank" rel="noopener">Stelle für Gemeinwesenmediation</a>.
+            In vielen Ländern gibt es außerdem Schiedsämter und Gütestellen. Ob es so etwas am eigenen Ort
+            gibt und wofür es zuständig ist, ist von Land zu Land und von Stadt zu Stadt verschieden.</p>
+          <dl class="fakten">
+            <div><dt>Wofür</dt><dd>Festgefahrene Gespräche wieder in Gang bringen, bevor jemand klagt.</dd></div>
+            <div><dt>Wofür nicht</dt><dd>Ein Urteil. Ohne Einigung bindet nichts, und laufende Fristen bleiben unberührt.</dd></div>
+            <div><dt>Kosten</dt><dd>Bei freien Mediatoren in der Regel Stundenhonorar nach Vereinbarung; kommunale Angebote teils kostenfrei, oft an Wohnort und Bereitschaft beider Seiten gebunden.</dd></div>
+            <div><dt>Wer stößt an</dt><dd>Alle Beteiligten gemeinsam. Soll die Gemeinschaft die Kosten tragen, braucht es einen Beschluss.</dd></div>
+          </dl>
+          <p class="quelle">Rechtsgrundlage: <a href="https://www.gesetze-im-internet.de/woeigg/__24.html" target="_blank" rel="noopener">§ 24 Abs. 5 WEG</a> (Vorsitz);
+            <a href="https://www.gesetze-im-internet.de/mediationsg/__1.html" target="_blank" rel="noopener">§ 1 MediationsG</a> (Begriff).</p>
+        </li>
+
+        <li class="stufe">
+          <h3>Auskunft bei Verbänden</h3>
+          <p>Eigentümerverbände geben ihren Mitgliedern Auskunft zur Rechtslage. Wohnen im Eigentum etwa bietet
+            Mitgliedern telefonische Auskünfte, für Gemeinschaften sechs zu je 30 Minuten im Kalenderhalbjahr,
+            und vermittelt bei Bedarf Anwälte; dazu kommt ein kostenpflichtiges Coaching für das Miteinander in
+            der Gemeinschaft. Die Ortsvereine von Haus &amp; Grund beraten ihre Mitglieder, einzelne bieten auch
+            Mediation an. Verbraucherzentralen bieten für Gemeinschaften vor allem Energieberatung.</p>
+          <dl class="fakten">
+            <div><dt>Wofür</dt><dd>Eine fachkundige Einschätzung der eigenen Lage, bevor Sie weitergehen.</dd></div>
+            <div><dt>Wofür nicht</dt><dd>Vermittlung zwischen den Seiten. Die Beratung steht auf Ihrer Seite, und die Gegenseite ist nicht beteiligt.</dd></div>
+            <div><dt>Kosten</dt><dd>Mitgliedsbeitrag; weitergehende Leistungen teils gesondert.</dd></div>
+            <div><dt>Wer stößt an</dt><dd>Sie, als Mitglied, oder die Gemeinschaft als Mitglied.</dd></div>
+          </dl>
+          <p class="quelle">Quelle: <a href="https://www.wohnen-im-eigentum.de/mitgliedschaft" target="_blank" rel="noopener">wohnen-im-eigentum.de/mitgliedschaft</a> (abgerufen 10.10.2026).</p>
+        </li>
+
+        <li class="stufe">
+          <h3>Stellen mit enger Zuständigkeit</h3>
+          <p>Es gibt Stellen, die auf den ersten Blick passen, aber nur für einen schmalen Ausschnitt zuständig
+            sind:</p>
+          <dl class="fakten">
+            <div><dt>Ombudsmann Immobilien (IVD/VPB)</dt><dd>Anerkannte Verbraucherschlichtung, nur für Verwaltungen, die Mitglied im IVD sind, nur bei Streit aus einem Verbrauchervertrag und ab 3.000 € Streitwert. Den Verwaltervertrag schließt die Gemeinschaft; der einzelne Eigentümer ist deshalb in der Regel nicht antragsbefugt.</dd></div>
+            <div><dt>Universalschlichtungsstelle des Bundes</dt><dd>Für Verbraucherverträge, Streitwert 10 bis 50.000 €. Auch hier ist Vertragspartei die Gemeinschaft, und die Verwaltung muss sich auf das Verfahren nicht einlassen.</dd></div>
+            <div><dt>Schiedsgericht für Wohnungseigentum</dt><dd>Nur zuständig, wenn Teilungserklärung oder Gemeinschaftsordnung es vorsehen. Ein Schiedsverfahren ersetzt das Gericht; eine Vorstufe ist es nicht.</dd></div>
+            <div><dt>Gewerbeamt</dt><dd>Erteilt die Erlaubnis für Wohnimmobilienverwalter. Maßstab ist die Zuverlässigkeit, nicht die Qualität einzelner Entscheidungen.</dd></div>
+            <div><dt>Datenschutzaufsicht</dt><dd>Nur bei Fragen zum Umgang mit personenbezogenen Daten.</dd></div>
+            <div><dt>IHK</dt><dd>Nimmt die Prüfung zum zertifizierten Verwalter ab. Über die Arbeit einer Verwaltung im Einzelfall entscheidet sie nicht.</dd></div>
+          </dl>
+          <p class="quelle">Quellen: <a href="https://ombudsmann-immobilien.net/wp-content/uploads/2025/01/Verfahrensordnung_SchlichtungsstelleIVD_VPB_2020_01_28_Anpassungen.pdf" target="_blank" rel="noopener">Verfahrensordnung Ombudsmann Immobilien</a> (§ 1, § 2 Abs. 1 Nr. 7);
+            <a href="https://www.gesetze-im-internet.de/vsbg/__30.html" target="_blank" rel="noopener">§ 30 VSBG</a>;
+            <a href="http://www.schiedsgericht-wohnungseigentum.eu/" target="_blank" rel="noopener">Deutsches Ständiges Schiedsgericht für Wohnungseigentum</a>;
+            <a href="https://www.gesetze-im-internet.de/gewo/__34c.html" target="_blank" rel="noopener">§ 34c GewO</a>;
+            <a href="https://www.gesetze-im-internet.de/woeigg/__26a.html" target="_blank" rel="noopener">§ 26a WEG</a>.</p>
+        </li>
+
+        <li class="stufe stufe--gericht">
+          <h3>Das Gericht</h3>
+          <p>Für Streit in Wohnungseigentumssachen ist ausschließlich das Amtsgericht zuständig. Dort besteht
+            kein Anwaltszwang; in der Berufung vor dem Landgericht dann schon. Klagen gegen Beschlüsse richten
+            sich gegen die Gemeinschaft. Auch im laufenden Verfahren kann das Gericht die Parteien noch an einen
+            Güterichter verweisen.</p>
+          <dl class="fakten">
+            <div><dt>Wofür</dt><dd>Eine verbindliche Entscheidung, wenn sich nichts anderes findet, und die Wahrung von Fristen.</dd></div>
+            <div><dt>Wofür nicht</dt><dd>Das Verhältnis in der Gemeinschaft zu verbessern. Wer klagt, klagt gegen die eigene Gemeinschaft.</dd></div>
+            <div><dt>Kosten</dt><dd>Gerichtskosten, gegebenenfalls eigener Anwalt, und im Fall des Unterliegens die Kosten der Gegenseite.</dd></div>
+            <div><dt>Wer stößt an</dt><dd>Sie, als Klägerin oder Kläger.</dd></div>
+          </dl>
+          <p class="quelle">Rechtsgrundlage: <a href="https://www.gesetze-im-internet.de/gvg/__23.html" target="_blank" rel="noopener">§ 23 Nr. 2 Buchst. c GVG</a>;
+            <a href="https://www.gesetze-im-internet.de/zpo/__78.html" target="_blank" rel="noopener">§ 78 ZPO</a>;
+            <a href="https://www.gesetze-im-internet.de/gvg/__72.html" target="_blank" rel="noopener">§ 72 Abs. 2 GVG</a>;
+            <a href="https://www.gesetze-im-internet.de/woeigg/__44.html" target="_blank" rel="noopener">§ 44 WEG</a>;
+            <a href="https://www.gesetze-im-internet.de/zpo/__278.html" target="_blank" rel="noopener">§ 278 Abs. 5 ZPO</a>.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cluster">
+    <div class="guide">
+      <h2 id="was-fehlt">Was fehlt</h2>
+      <p>Legt man die Stufen nebeneinander, fällt eine Lücke auf. Zwischen dem Beirat und der Klage gibt es
+        keine bundesweite, neutrale Stelle, an die sich ein einzelner Eigentümer allein wenden kann, wenn er
+        mit seiner Verwaltung nicht weiterkommt. Die vorhandenen Schlichtungswege setzen am Verwaltervertrag
+        an und damit an der Gemeinschaft als Antragstellerin, also an einem Mehrheitsbeschluss. Andere hängen
+        an Mitgliedschaft, Wohnort oder der Bereitschaft der Gegenseite. Soweit wir sehen, ist das der Stand.</p>
+      <ul class="befund">
+        <li>Der Ombudsmann Immobilien hält in seinem Jahresbericht fest, dass individuelle Ansprüche eines
+          einzelnen Eigentümers gegen den Verwalter seit der WEG-Reform in der Regel nicht bestehen.
+          <span class="hint">Quelle: <a href="https://www.ombudsmann-immobilien.net/wp-content/uploads/2024/03/Jahresbericht-2023-Ombudsmann-Immobilien.pdf" target="_blank" rel="noopener">Jahresbericht 2023 des Ombudsmanns Immobilien</a>. Im Jahr 2025 gingen dort 33 Anträge aus dem Bereich Verwaltung ein, 13 davon gegen Verwaltungen, die nicht IVD-Mitglied sind (<a href="https://www.ombudsmann-immobilien.net/wp-content/uploads/2026/02/Bericht-des-Ombudsmanns-2025-1.pdf" target="_blank" rel="noopener">Bericht 2025</a>).</span></li>
+        <li>Der Dachverband der Verwalter, damals DDIV, heute VDIV, hat sich im Februar 2015 im Verfahren zum
+          Verbraucherstreitbeilegungsgesetz gegen eine Schlichtungsstelle für Immobilienverwalter ausgesprochen.
+          Seine Gründe: Der größte Teil der Streitigkeiten seien Beschlussanfechtungen, für die nur die Gerichte
+          in Frage kämen; der Anwendungsbereich sei gering; die Finanzierung dürfe nicht einseitig bei den
+          Unternehmen liegen; und es gebe bereits ein Schiedsgericht. Eine branchenweite Schlichtungsstelle für
+          die Verwaltung von Wohnungseigentum gibt es bis heute nicht.
+          <span class="hint">Quelle: <a href="https://vdiv.de/presse/details/ddiv-lehnt-schlichtungsstellen-fuer-immobilienverwalter-ab" target="_blank" rel="noopener">Pressemitteilung vom 12.02.2015</a>.</span></li>
+        <li>Für Strom und Gas gibt es seit Jahren eine gesetzliche Schlichtungsstelle, an deren Verfahren die
+          Versorger teilnehmen müssen. Die Fernwärme ist davon nicht erfasst. Für sie hat das Bundeskabinett am
+          26.08.2026 Eckpunkte beschlossen, nach denen eine eigene Verbraucherschlichtungsstelle für Anschluss,
+          Belieferung, Messung und Leistungsanpassung eingerichtet werden soll. Das ist geplant, noch nicht
+          Gesetz.
+          <span class="hint">Quellen: <a href="https://www.gesetze-im-internet.de/enwg_2005/__111b.html" target="_blank" rel="noopener">§ 111b EnWG</a>;
+            <a href="https://www.schlichtungsstelle-energie.de/faq.html" target="_blank" rel="noopener">Schlichtungsstelle Energie, FAQ</a>;
+            <a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Pressemitteilungen/2026/08/20260826-eckpunkte-waermenetzpaket.html" target="_blank" rel="noopener">Pressemitteilung des Bundeswirtschaftsministeriums vom 26.08.2026</a>. Stand: 10.10.2026.</span></li>
+        <li>Dänemark kennt mit dem Ankenævnet på Energiområdet seit Langem eine Beschwerdestelle für
+          Energiekunden, die auch Fernwärme umfasst. Wir nennen das als Parallele, nicht als Vorbild des
+          deutschen Vorhabens.
+          <span class="hint">Quelle: <a href="https://www.energianke.dk" target="_blank" rel="noopener">energianke.dk</a>.</span></li>
+      </ul>
+      <p style="margin-top:20px">Ob es eine solche Stufe für Wohnungseigentum braucht und wie sie aussehen
+        könnte, beantwortet diese Seite nicht. Sie zeigt, was es gibt.</p>
+    </div>
+  </section>
+
+  <section class="cluster alt">
+    <div class="guide">
+      <h2>Was Eigentümerstimme dazu beiträgt</h2>
+      <div class="stimmeblock">
+        <p>Wir klären allgemein darüber auf, welche Wege es gibt und was sie leisten können. Je früher man
+          sie kennt, desto eher lässt sich ein Konflikt klären, bevor er teuer wird.</p>
+        <p>In einem konkreten Streit werden wir nicht tätig. Wir vermitteln nicht, vertreten niemanden und
+          beraten nicht im Einzelfall.</p>
+      </div>
+
+      <p class="disc">Allgemeine Information, keine Rechtsberatung. Die genannten Stellen sind Beispiele,
+        keine vollständige Liste und keine Empfehlung. Angebote und Zuständigkeiten können sich ändern;
+        maßgeblich sind die Angaben der jeweiligen Stelle. Für einen konkreten Fall, insbesondere wenn
+        Fristen laufen, ist die anwaltliche Prüfung maßgeblich. Stand: 10.10.2026.</p>
+
+      <div class="weiter">
+        <a href="wegweiser.html">Konkrete Fragen im Wegweiser <span aria-hidden="true">→</span></a>
+        <a href="beirat.html">Rolle und Rechte des Beirats <span aria-hidden="true">→</span></a>
+        <a href="versammlung.html">Was eine beschlussreife Versammlung ausmacht <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div><b>Eigentümerstimme</b> — Initiative in Gründung, München</div>
+      <div class="fnav">
+        <a href="mailto:dialog@eigentuemerstimme.de">dialog@eigentuemerstimme.de</a>
+        <span>·</span>
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span>·</span>
+        <a href="transparenz.html">Transparenz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
